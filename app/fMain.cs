@@ -17,6 +17,12 @@ namespace app
             InitializeComponent();
         }
 
+        #region Method
+
+        #endregion
+
+        #region Event
+
         private void profileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fProfile frm = new fProfile();
@@ -50,5 +56,8 @@ namespace app
         {
             
         }
+
+
+        #endregion
     }
 }
