@@ -11,6 +11,16 @@ namespace app.DAO
     public class Connect
     {
 
+        private static Connect instance;
+
+        public static Connect Instance
+        {
+            get { if (instance == null) Connect.instance = new Connect(); return Connect.instance; }
+            private set { instance = value; }
+        }
+
+        private Connect() { }
+
         private string str_connect = "Data Source=KIENDINH\\SQLEXPRESS;Initial Catalog=app;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query, object[] parameter =null )

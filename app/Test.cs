@@ -22,8 +22,7 @@ namespace app
 
         void LoadData()
         {
-            Connect con = new Connect();
-            label1.Text = Convert.ToString(con.ExecuteScalar("exec dbo.USP_CountAccount @id_type", new object[]{"1"}));
+            label1.Text = Convert.ToString(Connect.Instance.ExecuteScalar("exec dbo.USP_CountAccount @id_type", new object[]{"1"}));
         }
 
         private void Test_Load(object sender, EventArgs e)

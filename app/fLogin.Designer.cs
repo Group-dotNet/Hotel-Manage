@@ -98,9 +98,9 @@
             // 
             this.txtPass.Location = new System.Drawing.Point(157, 13);
             this.txtPass.Name = "txtPass";
-            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(254, 26);
             this.txtPass.TabIndex = 1;
+            this.txtPass.UseSystemPasswordChar = true;
             // 
             // label3
             // 

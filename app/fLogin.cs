@@ -1,4 +1,5 @@
-﻿using System;
+﻿using app.BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,14 +18,34 @@ namespace app
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        bool Login(string user, string pass)
         {
-            fMain frm = new fMain();
-            this.Hide();
-            frm.ShowDialog();
-            this.Show();
+            return System_BUS.Instance.Login_System(user, pass);
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string user = txtUser.Text;
+            string pass = txtPass.Text;
+            if (this.Login(user, pass))
+            {
+                fMain frm = new fMain();
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
+            }
+             else
+            {
+                if(MessageBox.Show("Please check my account!", "Error", MessageBoxButtons.RetryCancel) == System.Windows.Forms.DialogResult.Retry)
+                {
+                    txtUser.Clear();
+                    txtPass.Clear();
+                    txtUser.Focus();
+                }
+            }
+        }
+
+        
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
