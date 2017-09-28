@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace app.DTO
 {
-    class Staff_DTO
+    public class Staff_DTO
     {
 
         public Staff_DTO(string username, string name, bool sex, DateTime birthday, string address, string phone, string email)

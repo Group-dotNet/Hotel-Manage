@@ -16,5 +16,17 @@ namespace app
         {
             InitializeComponent();
         }
+
+        #region Method
+
+        private String username;
+
+        public string Username { get => username; set => username = value; }
+        #endregion
+
+        private void fChange_pass_Load(object sender, EventArgs e)
+        {
+            txt_username.Text = this.Username;
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using app.DAO;
+using app.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +19,14 @@ namespace app
             InitializeComponent();
         }
 
+        #region Method 
+
+        private String username;
+
+        public string Username { get => username; set => username = value; }
+
+        #endregion
+
         private void btn_edit_Click(object sender, EventArgs e)
         {
 
@@ -25,7 +35,9 @@ namespace app
 
         private void fProfile_Load(object sender, EventArgs e)
         {
-
+            txt_username.Text = this.username;
+            Staff_DTO staff_info = Staff_DAO.Instance.Get_Info(this.username);
+            
         }
     }
 }

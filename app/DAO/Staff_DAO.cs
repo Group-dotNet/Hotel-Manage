@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace app.DAO
 {
-    class Staff_DAO
+    public class Staff_DAO
     {
         private static Staff_DAO instance;
 

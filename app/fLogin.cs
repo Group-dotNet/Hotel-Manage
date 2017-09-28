@@ -30,6 +30,7 @@ namespace app
             if (this.Login(user, pass))
             {
                 fMain frm = new fMain();
+                frm.Username = user;
                 this.Hide();
                 frm.ShowDialog();
                 this.Show();

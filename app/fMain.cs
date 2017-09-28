@@ -15,9 +15,15 @@ namespace app
         public fMain()
         {
             InitializeComponent();
+           
         }
 
         #region Method
+
+        private String username;
+
+        public string Username { get { return username; } set { username = value; } }
+
 
         #endregion
 
@@ -26,13 +32,16 @@ namespace app
         private void profileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fProfile frm = new fProfile();
+            frm.Username = this.Username;
             frm.ShowDialog();
+
 
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fChange_pass frm = new fChange_pass();
+            frm.Username = this.Username;
             frm.ShowDialog();
 
         }
@@ -54,7 +63,7 @@ namespace app
 
         private void fMain_Load(object sender, EventArgs e)
         {
-            
+            lb_name.Text = this.Username;
         }
 
 
