@@ -22,7 +22,7 @@ namespace app.DAO
 
         public Staff_DTO Get_Info(string username)
         {
-            string query = "exec dbo.USP_GetAccount @username";
+            string query = "exec USP_GetProfile @username";
 
             DataTable Staff_info = Connect.Instance.ExecuteQuery(query, new object[]{ username });
 

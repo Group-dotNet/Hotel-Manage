@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace app.DTO
 {
-    class System_DTO
+    public class System_DTO
     {
 
         public System_DTO(int id, string username, string password, int id_type)
@@ -17,6 +18,14 @@ namespace app.DTO
             this.Id_type = id_type;
         }
 
+
+        public System_DTO(DataRow account)
+        {
+            this.Id = (int)account["id_account"];
+            this.Username = account["username"].ToString();
+            this.Password = account["password"].ToString();
+            this.Id_type = (int)account["id_type"];
+        }
 
         private int m_id;
         private string m_username;

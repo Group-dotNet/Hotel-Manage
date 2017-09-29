@@ -37,7 +37,20 @@ namespace app
         {
             txt_username.Text = this.username;
             Staff_DTO staff_info = Staff_DAO.Instance.Get_Info(this.username);
-            
+            txt_name.Text = staff_info.Name;
+            txt_address.Text = staff_info.Address;
+            txt_email.Text = staff_info.Email;
+            txt_phone.Text = staff_info.Phone;
+            if (staff_info.Sex == true)
+                cb_sex.SelectedItem = "Men";
+            else
+                cb_sex.SelectedItem = "Woman";
+            dtp_birthday.Value = staff_info.Birthday;
+        }
+
+        private void btn_select_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

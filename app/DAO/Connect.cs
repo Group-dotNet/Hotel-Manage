@@ -21,7 +21,18 @@ namespace app.DAO
 
         private Connect() { }
 
+        //string connect taken from Dialog "Server Explorer"
         private string str_connect = "Data Source=KIENDINH\\SQLEXPRESS;Initial Catalog=app;Integrated Security=True";
+
+
+        //@description:
+        //    exce used to listed the list record right
+        //@parameter: 
+        //    string query        --using proc in database or script sql
+        //    object parameter    --using when proc or sql container any parameter
+        //@return:
+        //    DataTable           -- get list record in database
+
 
         public DataTable ExecuteQuery(string query, object[] parameter =null )
         {
@@ -57,6 +68,13 @@ namespace app.DAO
             return data;
         }
 
+        //@description:
+        //    exec used to insert, update, delete in database
+        //@parameter: 
+        //    string query        --using proc in database or script sql
+        //    object parameter    --using when proc or sql container any parameter
+        //@return:
+        //    int                 -- get number record add, update or delete
         public int ExecuteNonQuery(string query, object[] parameter = null)
         {
             int data = 0;
@@ -91,6 +109,14 @@ namespace app.DAO
 
         }
 
+
+        //@description:
+        //    exce used to count record right
+        //@parameter: 
+        //    string query        --using proc in database or script sql
+        //    object parameter    --using when proc or sql container any parameter
+        //@return:
+        //    object              -- get first line when exce query
 
         public object ExecuteScalar(string query, object[] parameter = null)
         {
