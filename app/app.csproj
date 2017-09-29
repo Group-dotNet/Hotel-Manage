@@ -82,8 +82,25 @@
     <Compile Include="fProfile.Designer.cs">
       <DependentUpon>fProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Customer\fAdd_customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Customer\fAdd_customer.Designer.cs">
+      <DependentUpon>fAdd_customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Customer\fManage_customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Customer\fManage_customer.Designer.cs">
+      <DependentUpon>fManage_customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,16 +119,17 @@
     <EmbeddedResource Include="fProfile.resx">
       <DependentUpon>fProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Customer\fAdd_customer.resx">
+      <DependentUpon>fAdd_customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Customer\fManage_customer.resx">
+      <DependentUpon>fManage_customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +148,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\no-avatar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace app
 {
     public partial class fMain : Form
@@ -68,5 +69,13 @@ namespace app
 
 
         #endregion
+
+        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI.Customer.fManage_customer frm = new GUI.Customer.fManage_customer();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
     }
 }

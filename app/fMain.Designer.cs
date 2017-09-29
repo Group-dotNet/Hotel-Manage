@@ -52,6 +52,7 @@
             this.lb_status = new System.Windows.Forms.Label();
             this.lb_name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -108,7 +109,8 @@
             // managerToolStripMenuItem
             // 
             this.managerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.staffToolStripMenuItem});
+            this.staffToolStripMenuItem,
+            this.customerToolStripMenuItem});
             this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
             this.managerToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.managerToolStripMenuItem.Text = "Manage";
@@ -116,7 +118,7 @@
             // staffToolStripMenuItem
             // 
             this.staffToolStripMenuItem.Name = "staffToolStripMenuItem";
-            this.staffToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.staffToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.staffToolStripMenuItem.Text = "Staff";
             this.staffToolStripMenuItem.Click += new System.EventHandler(this.staffToolStripMenuItem_Click);
             // 
@@ -268,6 +270,13 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // customerToolStripMenuItem
+            // 
+            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.customerToolStripMenuItem.Text = "Customer";
+            this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,5 +328,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
     }
 }
