@@ -94,6 +94,36 @@
     <Compile Include="GUI\Customer\fManage_customer.Designer.cs">
       <DependentUpon>fManage_customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Room\fAdd_kind_of_room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Room\fAdd_kind_of_room.Designer.cs">
+      <DependentUpon>fAdd_kind_of_room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Room\fAdd_room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Room\fAdd_room.Designer.cs">
+      <DependentUpon>fAdd_room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Room\fManage_room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Room\fManage_room.Designer.cs">
+      <DependentUpon>fManage_room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Room\fRoom_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Room\fRoom_info.Designer.cs">
+      <DependentUpon>fRoom_info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Service\fManage_service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Service\fManage_service.Designer.cs">
+      <DependentUpon>fManage_service.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Staff\fAdd_account.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +166,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Customer\fManage_customer.resx">
       <DependentUpon>fManage_customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Room\fAdd_kind_of_room.resx">
+      <DependentUpon>fAdd_kind_of_room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Room\fManage_room.resx">
+      <DependentUpon>fManage_room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Room\fRoom_info.resx">
+      <DependentUpon>fRoom_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Service\fManage_service.resx">
+      <DependentUpon>fManage_service.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Staff\fAdd_account.resx">
       <DependentUpon>fAdd_account.cs</DependentUpon>
