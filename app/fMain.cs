@@ -54,7 +54,10 @@ namespace app
 
         private void staffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            GUI.Staff.fManage_staff frm = new GUI.Staff.fManage_staff();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
