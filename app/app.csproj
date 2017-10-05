@@ -94,6 +94,12 @@
     <Compile Include="GUI\Customer\fManage_customer.Designer.cs">
       <DependentUpon>fManage_customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Reservation\fManage_reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fManage_reservation.Designer.cs">
+      <DependentUpon>fManage_reservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Room\fAdd_kind_of_room.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,11 @@
     <Compile Include="GUI\Staff\fManage_staff.Designer.cs">
       <DependentUpon>fManage_staff.cs</DependentUpon>
     </Compile>
+    <Compile Include="hotelDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>hotelDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -167,6 +178,9 @@
     <EmbeddedResource Include="GUI\Customer\fManage_customer.resx">
       <DependentUpon>fManage_customer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fManage_reservation.resx">
+      <DependentUpon>fManage_reservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Room\fAdd_kind_of_room.resx">
       <DependentUpon>fAdd_kind_of_room.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +207,17 @@
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="hotelDataSet.xsc">
+      <DependentUpon>hotelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="hotelDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>hotelDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="hotelDataSet.xss">
+      <DependentUpon>hotelDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -22,7 +22,7 @@ namespace app.DAO
         private Connect() { }
 
         //string connect taken from Dialog "Server Explorer"
-        private string str_connect = "Data Source=KIENDINH\\SQLEXPRESS;Initial Catalog=app;Integrated Security=True";
+        private string str_connect = "Data Source=KIENDINH\\SQLEXPRESS;Initial Catalog=hotel;Integrated Security=True";
 
 
         //@description:

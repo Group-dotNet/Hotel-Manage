@@ -29,48 +29,48 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dgv_staff = new System.Windows.Forms.DataGridView();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lb_name = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.lb_position = new System.Windows.Forms.Label();
-            this.lb = new System.Windows.Forms.Label();
-            this.btn_details = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
             this.ptb_export = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.ptb_print = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btn_details = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lb_position = new System.Windows.Forms.Label();
+            this.lb = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.lb_name = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_staff)).BeginInit();
             this.panel13.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel9.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,25 +82,6 @@
             this.panel1.Size = new System.Drawing.Size(982, 528);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(976, 49);
-            this.panel2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(429, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Manage Staff";
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel5);
@@ -110,27 +91,23 @@
             this.panel3.Size = new System.Drawing.Size(970, 462);
             this.panel3.TabIndex = 2;
             // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.panel12);
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.panel14);
-            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(6, 4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(292, 455);
-            this.panel4.TabIndex = 0;
-            // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.dataGridView1);
+            this.panel5.Controls.Add(this.dgv_staff);
             this.panel5.Controls.Add(this.panel13);
             this.panel5.Location = new System.Drawing.Point(304, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(663, 455);
             this.panel5.TabIndex = 1;
+            // 
+            // dgv_staff
+            // 
+            this.dgv_staff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_staff.Location = new System.Drawing.Point(3, 46);
+            this.dgv_staff.Name = "dgv_staff";
+            this.dgv_staff.Size = new System.Drawing.Size(655, 406);
+            this.dgv_staff.TabIndex = 3;
             // 
             // panel13
             // 
@@ -143,6 +120,18 @@
             this.panel13.Size = new System.Drawing.Size(655, 36);
             this.panel13.TabIndex = 2;
             // 
+            // ptb_export
+            // 
+            this.ptb_export.BackgroundImage = global::app.Properties.Resources.export;
+            this.ptb_export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptb_export.Image = global::app.Properties.Resources.print1600;
+            this.ptb_export.InitialImage = global::app.Properties.Resources.print1600;
+            this.ptb_export.Location = new System.Drawing.Point(578, 3);
+            this.ptb_export.Name = "ptb_export";
+            this.ptb_export.Size = new System.Drawing.Size(28, 28);
+            this.ptb_export.TabIndex = 2;
+            this.ptb_export.TabStop = false;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -152,105 +141,29 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Total record:";
             // 
-            // panel14
+            // ptb_print
             // 
-            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel14.Controls.Add(this.label2);
-            this.panel14.Location = new System.Drawing.Point(3, 3);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(283, 36);
-            this.panel14.TabIndex = 6;
+            this.ptb_print.BackgroundImage = global::app.Properties.Resources.print1600;
+            this.ptb_print.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptb_print.Image = global::app.Properties.Resources.print1600;
+            this.ptb_print.InitialImage = global::app.Properties.Resources.print1600;
+            this.ptb_print.Location = new System.Drawing.Point(612, 3);
+            this.ptb_print.Name = "ptb_print";
+            this.ptb_print.Size = new System.Drawing.Size(28, 28);
+            this.ptb_print.TabIndex = 0;
+            this.ptb_print.TabStop = false;
             // 
-            // label2
+            // panel4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(80, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Information";
-            // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.btn_details);
-            this.panel6.Controls.Add(this.pictureBox1);
-            this.panel6.Controls.Add(this.panel8);
-            this.panel6.Controls.Add(this.panel9);
-            this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(4, 45);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(282, 328);
-            this.panel6.TabIndex = 7;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 46);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(655, 406);
-            this.dataGridView1.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 16);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Name:";
-            // 
-            // lb_name
-            // 
-            this.lb_name.Location = new System.Drawing.Point(94, 12);
-            this.lb_name.Name = "lb_name";
-            this.lb_name.Size = new System.Drawing.Size(163, 13);
-            this.lb_name.TabIndex = 1;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.lb_name);
-            this.panel9.Controls.Add(this.label6);
-            this.panel9.Location = new System.Drawing.Point(3, 204);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(270, 38);
-            this.panel9.TabIndex = 2;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.lb_position);
-            this.panel8.Controls.Add(this.lb);
-            this.panel8.Location = new System.Drawing.Point(3, 248);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(270, 38);
-            this.panel8.TabIndex = 3;
-            // 
-            // lb_position
-            // 
-            this.lb_position.Location = new System.Drawing.Point(94, 12);
-            this.lb_position.Name = "lb_position";
-            this.lb_position.Size = new System.Drawing.Size(163, 13);
-            this.lb_position.TabIndex = 1;
-            // 
-            // lb
-            // 
-            this.lb.AutoSize = true;
-            this.lb.Location = new System.Drawing.Point(3, 9);
-            this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(68, 16);
-            this.lb.TabIndex = 0;
-            this.lb.Text = "Position:";
-            // 
-            // btn_details
-            // 
-            this.btn_details.Location = new System.Drawing.Point(3, 292);
-            this.btn_details.Name = "btn_details";
-            this.btn_details.Size = new System.Drawing.Size(270, 31);
-            this.btn_details.TabIndex = 5;
-            this.btn_details.Text = "See details";
-            this.btn_details.UseVisualStyleBackColor = true;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.panel12);
+            this.panel4.Controls.Add(this.panel6);
+            this.panel4.Controls.Add(this.panel14);
+            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel4.Location = new System.Drawing.Point(6, 4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(292, 455);
+            this.panel4.TabIndex = 0;
             // 
             // panel12
             // 
@@ -265,30 +178,6 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(283, 57);
             this.panel12.TabIndex = 8;
-            // 
-            // ptb_export
-            // 
-            this.ptb_export.BackgroundImage = global::app.Properties.Resources.export;
-            this.ptb_export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptb_export.Image = global::app.Properties.Resources.print1600;
-            this.ptb_export.InitialImage = global::app.Properties.Resources.print1600;
-            this.ptb_export.Location = new System.Drawing.Point(578, 3);
-            this.ptb_export.Name = "ptb_export";
-            this.ptb_export.Size = new System.Drawing.Size(28, 28);
-            this.ptb_export.TabIndex = 2;
-            this.ptb_export.TabStop = false;
-            // 
-            // ptb_print
-            // 
-            this.ptb_print.BackgroundImage = global::app.Properties.Resources.print1600;
-            this.ptb_print.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptb_print.Image = global::app.Properties.Resources.print1600;
-            this.ptb_print.InitialImage = global::app.Properties.Resources.print1600;
-            this.ptb_print.Location = new System.Drawing.Point(612, 3);
-            this.ptb_print.Name = "ptb_print";
-            this.ptb_print.Size = new System.Drawing.Size(28, 28);
-            this.ptb_print.TabIndex = 0;
-            this.ptb_print.TabStop = false;
             // 
             // btn_refresh
             // 
@@ -367,6 +256,28 @@
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.btn_details);
+            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Controls.Add(this.panel8);
+            this.panel6.Controls.Add(this.panel9);
+            this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6.Location = new System.Drawing.Point(4, 45);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(282, 328);
+            this.panel6.TabIndex = 7;
+            // 
+            // btn_details
+            // 
+            this.btn_details.Location = new System.Drawing.Point(3, 292);
+            this.btn_details.Name = "btn_details";
+            this.btn_details.Size = new System.Drawing.Size(270, 31);
+            this.btn_details.TabIndex = 5;
+            this.btn_details.Text = "See details";
+            this.btn_details.UseVisualStyleBackColor = true;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(59, 3);
@@ -374,6 +285,95 @@
             this.pictureBox1.Size = new System.Drawing.Size(165, 195);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.lb_position);
+            this.panel8.Controls.Add(this.lb);
+            this.panel8.Location = new System.Drawing.Point(3, 248);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(270, 38);
+            this.panel8.TabIndex = 3;
+            // 
+            // lb_position
+            // 
+            this.lb_position.Location = new System.Drawing.Point(94, 12);
+            this.lb_position.Name = "lb_position";
+            this.lb_position.Size = new System.Drawing.Size(163, 13);
+            this.lb_position.TabIndex = 1;
+            // 
+            // lb
+            // 
+            this.lb.AutoSize = true;
+            this.lb.Location = new System.Drawing.Point(3, 9);
+            this.lb.Name = "lb";
+            this.lb.Size = new System.Drawing.Size(68, 16);
+            this.lb.TabIndex = 0;
+            this.lb.Text = "Position:";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.lb_name);
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Location = new System.Drawing.Point(3, 204);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(270, 38);
+            this.panel9.TabIndex = 2;
+            // 
+            // lb_name
+            // 
+            this.lb_name.Location = new System.Drawing.Point(94, 12);
+            this.lb_name.Name = "lb_name";
+            this.lb_name.Size = new System.Drawing.Size(163, 13);
+            this.lb_name.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 16);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Name:";
+            // 
+            // panel14
+            // 
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel14.Controls.Add(this.label2);
+            this.panel14.Location = new System.Drawing.Point(3, 3);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(283, 36);
+            this.panel14.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(80, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Information";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(976, 49);
+            this.panel2.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(429, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(152, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Manage Staff";
             // 
             // fManage_staff
             // 
@@ -385,25 +385,25 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fManage_staff";
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_staff)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -420,7 +420,7 @@
         private System.Windows.Forms.PictureBox ptb_export;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox ptb_print;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_staff;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label2;

@@ -35,5 +35,11 @@ namespace app.DAO
 
             return staff;
         }
+
+        public List<Staff_DTO> List_Staff ()
+        {
+            string query = "";
+            return null;
+        }
     }
 }

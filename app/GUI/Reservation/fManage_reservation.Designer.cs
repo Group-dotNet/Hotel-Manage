@@ -1,6 +1,6 @@
-﻿namespace app.GUI.Service
+﻿namespace app.GUI.Reservation
 {
-    partial class fManage_service
+    partial class fManage_reservation
     {
         /// <summary>
         /// Required designer variable.
@@ -33,19 +33,19 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 530);
+            this.panel1.Size = new System.Drawing.Size(984, 533);
             this.panel1.TabIndex = 0;
             // 
-            // fManage_service
+            // fManage_reservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 536);
             this.Controls.Add(this.panel1);
-            this.Name = "fManage_service";
-            this.Text = "fManage_service";
+            this.Name = "fManage_reservation";
+            this.Text = "fManage_reservation";
             this.ResumeLayout(false);
 
         }
