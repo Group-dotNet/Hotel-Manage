@@ -40,12 +40,95 @@ namespace app.DTO
         private string m_phone;
         private string m_email;
 
-        public string Username { get => m_username; set => m_username = value; }
-        public string Name { get => m_name; set => m_name = value; }
-        public bool Sex { get => m_sex; set => m_sex = value; }
-        public DateTime Birthday { get => m_birthday; set => m_birthday = value; }
-        public string Address { get => m_address; set => m_address = value; }
-        public string Phone { get => m_phone; set => m_phone = value; }
-        public string Email { get => m_email; set => m_email = value; }
+        public string Username
+        {
+            get
+            {
+                return m_username;
+            }
+
+            set
+            {
+                m_username = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return m_name;
+            }
+
+            set
+            {
+                m_name = value;
+            }
+        }
+
+        public bool Sex
+        {
+            get
+            {
+                return m_sex;
+            }
+
+            set
+            {
+                m_sex = value;
+            }
+        }
+
+        public DateTime Birthday
+        {
+            get
+            {
+                return m_birthday;
+            }
+
+            set
+            {
+                m_birthday = value;
+            }
+        }
+
+        public string Address
+        {
+            get
+            {
+                return m_address;
+            }
+
+            set
+            {
+                m_address = value;
+            }
+        }
+
+        public string Phone
+        {
+            get
+            {
+                return m_phone;
+            }
+
+            set
+            {
+                m_phone = value;
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                return m_email;
+            }
+
+            set
+            {
+                m_email = value;
+            }
+        }
     }
 }

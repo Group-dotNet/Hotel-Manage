@@ -24,7 +24,20 @@ namespace app
         private System_DTO account;
         private String username;
 
-        public string Username { get => username; set => username = value; }
+        public string Username
+        {
+            get
+            {
+                return username;
+            }
+
+            set
+            {
+                username = value;
+            }
+        }
+
+
 
 
         // clear error when run event on-click "edit"
@@ -88,8 +101,11 @@ namespace app
                         //check pass old is right?
                         if (System_BUS.Instance.Check_pass_old(this.Username, txt_pass_old.Text))
                         {
-                            if(System_BUS.Instance.Change_password(username, txt_pass_new.Text))
+                            if (System_BUS.Instance.Change_password(Username, txt_pass_new.Text))
+                            {
                                 MessageBox.Show("Change password is success!");
+                                this.Close();
+                            }
                             else
                                 MessageBox.Show("Cannot change password!");
                         }

@@ -33,12 +33,15 @@
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_change = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lb_error_check_match = new System.Windows.Forms.Label();
             this.txt_check_match = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lb_error_pass_new = new System.Windows.Forms.Label();
             this.txt_pass_new = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lb_error_pass_old = new System.Windows.Forms.Label();
             this.txt_pass_old = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -46,9 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.lb_error_check_match = new System.Windows.Forms.Label();
-            this.lb_error_pass_new = new System.Windows.Forms.Label();
-            this.lb_error_pass_old = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -110,12 +110,22 @@
             this.panel6.Size = new System.Drawing.Size(357, 54);
             this.panel6.TabIndex = 2;
             // 
+            // lb_error_check_match
+            // 
+            this.lb_error_check_match.AutoSize = true;
+            this.lb_error_check_match.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_error_check_match.ForeColor = System.Drawing.Color.Red;
+            this.lb_error_check_match.Location = new System.Drawing.Point(140, 40);
+            this.lb_error_check_match.Name = "lb_error_check_match";
+            this.lb_error_check_match.Size = new System.Drawing.Size(0, 17);
+            this.lb_error_check_match.TabIndex = 4;
+            // 
             // txt_check_match
             // 
             this.txt_check_match.AcceptsTab = true;
             this.txt_check_match.Location = new System.Drawing.Point(143, 11);
             this.txt_check_match.Name = "txt_check_match";
-            this.txt_check_match.Size = new System.Drawing.Size(198, 26);
+            this.txt_check_match.Size = new System.Drawing.Size(198, 30);
             this.txt_check_match.TabIndex = 3;
             this.txt_check_match.UseSystemPasswordChar = true;
             // 
@@ -124,7 +134,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 20);
+            this.label5.Size = new System.Drawing.Size(145, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Check match:";
             // 
@@ -138,11 +148,21 @@
             this.panel5.Size = new System.Drawing.Size(357, 54);
             this.panel5.TabIndex = 2;
             // 
+            // lb_error_pass_new
+            // 
+            this.lb_error_pass_new.AutoSize = true;
+            this.lb_error_pass_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_error_pass_new.ForeColor = System.Drawing.Color.Red;
+            this.lb_error_pass_new.Location = new System.Drawing.Point(140, 40);
+            this.lb_error_pass_new.Name = "lb_error_pass_new";
+            this.lb_error_pass_new.Size = new System.Drawing.Size(0, 17);
+            this.lb_error_pass_new.TabIndex = 5;
+            // 
             // txt_pass_new
             // 
             this.txt_pass_new.Location = new System.Drawing.Point(143, 11);
             this.txt_pass_new.Name = "txt_pass_new";
-            this.txt_pass_new.Size = new System.Drawing.Size(198, 26);
+            this.txt_pass_new.Size = new System.Drawing.Size(198, 30);
             this.txt_pass_new.TabIndex = 2;
             this.txt_pass_new.UseSystemPasswordChar = true;
             // 
@@ -151,7 +171,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 14);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 20);
+            this.label4.Size = new System.Drawing.Size(158, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Password new:";
             // 
@@ -166,11 +186,21 @@
             this.panel4.TabIndex = 2;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
+            // lb_error_pass_old
+            // 
+            this.lb_error_pass_old.AutoSize = true;
+            this.lb_error_pass_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_error_pass_old.ForeColor = System.Drawing.Color.Red;
+            this.lb_error_pass_old.Location = new System.Drawing.Point(140, 40);
+            this.lb_error_pass_old.Name = "lb_error_pass_old";
+            this.lb_error_pass_old.Size = new System.Drawing.Size(0, 17);
+            this.lb_error_pass_old.TabIndex = 6;
+            // 
             // txt_pass_old
             // 
             this.txt_pass_old.Location = new System.Drawing.Point(143, 11);
             this.txt_pass_old.Name = "txt_pass_old";
-            this.txt_pass_old.Size = new System.Drawing.Size(198, 26);
+            this.txt_pass_old.Size = new System.Drawing.Size(198, 30);
             this.txt_pass_old.TabIndex = 1;
             this.txt_pass_old.UseSystemPasswordChar = true;
             // 
@@ -179,7 +209,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(3, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 20);
+            this.label3.Size = new System.Drawing.Size(148, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Password old:";
             // 
@@ -197,7 +227,7 @@
             this.txt_username.Enabled = false;
             this.txt_username.Location = new System.Drawing.Point(143, 11);
             this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(198, 26);
+            this.txt_username.Size = new System.Drawing.Size(198, 30);
             this.txt_username.TabIndex = 1;
             // 
             // label2
@@ -205,7 +235,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
+            this.label2.Size = new System.Drawing.Size(117, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Username:";
             // 
@@ -222,49 +252,20 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(83, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 20);
+            this.label1.Size = new System.Drawing.Size(186, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Change password";
             // 
-            // lb_error_check_match
-            // 
-            this.lb_error_check_match.AutoSize = true;
-            this.lb_error_check_match.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_error_check_match.ForeColor = System.Drawing.Color.Red;
-            this.lb_error_check_match.Location = new System.Drawing.Point(140, 40);
-            this.lb_error_check_match.Name = "lb_error_check_match";
-            this.lb_error_check_match.Size = new System.Drawing.Size(0, 13);
-            this.lb_error_check_match.TabIndex = 4;
-            // 
-            // lb_error_pass_new
-            // 
-            this.lb_error_pass_new.AutoSize = true;
-            this.lb_error_pass_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_error_pass_new.ForeColor = System.Drawing.Color.Red;
-            this.lb_error_pass_new.Location = new System.Drawing.Point(140, 40);
-            this.lb_error_pass_new.Name = "lb_error_pass_new";
-            this.lb_error_pass_new.Size = new System.Drawing.Size(0, 13);
-            this.lb_error_pass_new.TabIndex = 5;
-            // 
-            // lb_error_pass_old
-            // 
-            this.lb_error_pass_old.AutoSize = true;
-            this.lb_error_pass_old.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_error_pass_old.ForeColor = System.Drawing.Color.Red;
-            this.lb_error_pass_old.Location = new System.Drawing.Point(140, 40);
-            this.lb_error_pass_old.Name = "lb_error_pass_old";
-            this.lb_error_pass_old.Size = new System.Drawing.Size(0, 13);
-            this.lb_error_pass_old.TabIndex = 6;
-            // 
             // fChange_pass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(389, 356);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "fChange_pass";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fChange_pass";
             this.Load += new System.EventHandler(this.fChange_pass_Load);
             this.panel1.ResumeLayout(false);

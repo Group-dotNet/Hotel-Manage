@@ -32,9 +32,56 @@ namespace app.DTO
         private string m_password;
         private int m_id_type;
 
-        public int Id { get => m_id; set => m_id = value; }
-        public string Username { get => m_username; set => m_username = value; }
-        public string Password { get => m_password; set => m_password = value; }
-        public int Id_type { get => m_id_type; set => m_id_type = value; }
+        public int Id
+        {
+            get
+            {
+                return m_id;
+            }
+
+            set
+            {
+                m_id = value;
+            }
+        }
+
+        public string Username
+        {
+            get
+            {
+                return m_username;
+            }
+
+            set
+            {
+                m_username = value;
+            }
+        }
+
+        public string Password
+        {
+            get
+            {
+                return m_password;
+            }
+
+            set
+            {
+                m_password = value;
+            }
+        }
+
+        public int Id_type
+        {
+            get
+            {
+                return m_id_type;
+            }
+
+            set
+            {
+                m_id_type = value;
+            }
+        }
     }
 }

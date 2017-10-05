@@ -98,7 +98,7 @@
             // 
             this.txtPass.Location = new System.Drawing.Point(157, 13);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(254, 26);
+            this.txtPass.Size = new System.Drawing.Size(254, 30);
             this.txtPass.TabIndex = 1;
             this.txtPass.Text = "123123";
             this.txtPass.UseSystemPasswordChar = true;
@@ -108,7 +108,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(31, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 20);
+            this.label3.Size = new System.Drawing.Size(113, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Password:";
             // 
@@ -117,7 +117,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(143, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 20);
+            this.label1.Size = new System.Drawing.Size(143, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Login System";
             // 
@@ -134,22 +134,22 @@
             // 
             this.txtUser.Location = new System.Drawing.Point(157, 13);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(254, 26);
+            this.txtUser.Size = new System.Drawing.Size(254, 30);
             this.txtUser.TabIndex = 1;
-            this.txtUser.Text = "dinhdinh";
+            this.txtUser.Text = "phuc";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(31, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
+            this.label2.Size = new System.Drawing.Size(117, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Username:";
             // 
             // fLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 255);
             this.Controls.Add(this.panel1);
