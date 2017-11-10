@@ -120,11 +120,26 @@ namespace app.DAO
             return role;
         }
 
-        public int Check_Username(string username)
+        public bool Check_Username(string username)
         {
             string query = "exec USP_CheckUserName @username";
-            int x = (int)Connect.Instance.ExecuteReader(query, new object[] { username });
-            return x;
+            int x = (int)Connect.Instance.ExecuteScalar(query, new object[] { username });
+            return x == 0;
+        }
+
+
+        public bool Insert_Account(string username, string password, int id_type)
+        {
+            string query = "exec USP_InsertAccount @username , @password , @id_type";
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { username, password, id_type });
+            return x == 1;
+        }
+
+        public bool Ban_Account(string username)
+        {
+            string query = "exec USP_BanAccount @username";
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { username });
+            return x == 1;
         }
     }
 }

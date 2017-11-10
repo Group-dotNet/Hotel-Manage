@@ -39,6 +39,7 @@ namespace app.GUI.Staff
             if(choose_username != null)
             {
                 fChange_pass frm = new fChange_pass();
+                frm.Username = this.choose_username;
                 frm.ShowDialog();
             }
             else
@@ -96,6 +97,30 @@ namespace app.GUI.Staff
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             Load_Data();
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            if (choose_username != null)
+            {
+                if (Staff_BUS.Instance.Ban_Account(this.choose_username))
+                {
+                    MessageBox.Show("Ban Account is successs!");
+                }
+                else
+                {
+                    MessageBox.Show("Error when ban!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must choose an account!");
+            }
         }
     }
 }

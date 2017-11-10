@@ -26,6 +26,14 @@ namespace app.GUI.Staff
             lb_error_position.ResetText();
         }
 
+        private void Reset_Form()
+        {
+            txt_username.ResetText();
+            txt_password.ResetText();
+            txt_check_match.ResetText();
+            txt_username.Focus();
+        }
+
 
 
         private void label1_Click(object sender, EventArgs e)
@@ -41,7 +49,7 @@ namespace app.GUI.Staff
 
         private void fAdd_account_Load(object sender, EventArgs e)
         {
-
+            cb_position.SelectedItem = "Staff";
         }
 
         private void btn_create_Click_1(object sender, EventArgs e)
@@ -67,13 +75,32 @@ namespace app.GUI.Staff
                 flat = false;
             }
 
-            if (cb_position.SelectedValue != "Admin" && cb_position.SelectedValue != "Staff")
+            if(flat == true)
             {
-                lb_error_position.Text = "The \"Position\" is not selected";
+                if (Staff_BUS.Instance.Check_Username(txt_username.Text) == true)
+                {
+                    if (txt_password.Text == txt_check_match.Text)
+                    {
+                        if (Staff_BUS.Instance.Insert_Account(txt_username.Text, txt_password.Text, cb_position.SelectedIndex))
+                        {
+                            MessageBox.Show("Account was insert in system");
+                            this.Close();
+                        }
+                        else
+                            MessageBox.Show("Error when insert!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Password is not match");
+                        this.Reset_Form();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Username was exists in system");
+                    this.Reset_Form();
+                }
             }
-
-            MessageBox.Show(Staff_BUS.Instance.Check_Username(txt_username.Text).ToString());
-
         }
     }
 }

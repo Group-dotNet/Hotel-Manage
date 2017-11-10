@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BUS\Customer_BUS.cs" />
+    <Compile Include="BUS\Function_Other.cs" />
     <Compile Include="BUS\Service_BUS.cs" />
     <Compile Include="BUS\Staff_BUS.cs" />
     <Compile Include="BUS\Stuff_BUS.cs" />
@@ -307,6 +308,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\refresh_passwords-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ban.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ban1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

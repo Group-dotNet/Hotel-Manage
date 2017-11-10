@@ -30,13 +30,19 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.btn_create = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.lb_error_position = new System.Windows.Forms.Label();
+            this.cb_position = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txt_check_match = new System.Windows.Forms.TextBox();
             this.lb_error_check_match = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.txt_password = new System.Windows.Forms.TextBox();
             this.lb_error_password = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -45,12 +51,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_password = new System.Windows.Forms.TextBox();
-            this.txt_check_match = new System.Windows.Forms.TextBox();
-            this.cb_position = new System.Windows.Forms.ComboBox();
-            this.btn_create = new System.Windows.Forms.Button();
-            this.btn_back = new System.Windows.Forms.Button();
-            this.lb_error_position = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -82,6 +82,25 @@
             this.panel4.Size = new System.Drawing.Size(392, 71);
             this.panel4.TabIndex = 4;
             // 
+            // btn_back
+            // 
+            this.btn_back.Location = new System.Drawing.Point(207, 14);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(139, 42);
+            this.btn_back.TabIndex = 3;
+            this.btn_back.Text = "Back";
+            this.btn_back.UseVisualStyleBackColor = true;
+            // 
+            // btn_create
+            // 
+            this.btn_create.Location = new System.Drawing.Point(49, 14);
+            this.btn_create.Name = "btn_create";
+            this.btn_create.Size = new System.Drawing.Size(139, 42);
+            this.btn_create.TabIndex = 2;
+            this.btn_create.Text = "Create";
+            this.btn_create.UseVisualStyleBackColor = true;
+            this.btn_create.Click += new System.EventHandler(this.btn_create_Click_1);
+            // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -105,6 +124,28 @@
             this.panel8.Size = new System.Drawing.Size(383, 61);
             this.panel8.TabIndex = 3;
             // 
+            // lb_error_position
+            // 
+            this.lb_error_position.AutoSize = true;
+            this.lb_error_position.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_error_position.ForeColor = System.Drawing.Color.Red;
+            this.lb_error_position.Location = new System.Drawing.Point(162, 41);
+            this.lb_error_position.Name = "lb_error_position";
+            this.lb_error_position.Size = new System.Drawing.Size(0, 15);
+            this.lb_error_position.TabIndex = 2;
+            // 
+            // cb_position
+            // 
+            this.cb_position.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_position.FormattingEnabled = true;
+            this.cb_position.Items.AddRange(new object[] {
+            "Staff",
+            "Admin"});
+            this.cb_position.Location = new System.Drawing.Point(166, 7);
+            this.cb_position.Name = "cb_position";
+            this.cb_position.Size = new System.Drawing.Size(200, 28);
+            this.cb_position.TabIndex = 1;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -124,6 +165,13 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(383, 63);
             this.panel7.TabIndex = 2;
+            // 
+            // txt_check_match
+            // 
+            this.txt_check_match.Location = new System.Drawing.Point(166, 7);
+            this.txt_check_match.Name = "txt_check_match";
+            this.txt_check_match.Size = new System.Drawing.Size(200, 26);
+            this.txt_check_match.TabIndex = 3;
             // 
             // lb_error_check_match
             // 
@@ -154,6 +202,13 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(383, 63);
             this.panel6.TabIndex = 1;
+            // 
+            // txt_password
+            // 
+            this.txt_password.Location = new System.Drawing.Point(166, 7);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.Size = new System.Drawing.Size(200, 26);
+            this.txt_password.TabIndex = 3;
             // 
             // lb_error_password
             // 
@@ -231,60 +286,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Create account";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // txt_password
-            // 
-            this.txt_password.Location = new System.Drawing.Point(166, 7);
-            this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(200, 26);
-            this.txt_password.TabIndex = 3;
-            // 
-            // txt_check_match
-            // 
-            this.txt_check_match.Location = new System.Drawing.Point(166, 7);
-            this.txt_check_match.Name = "txt_check_match";
-            this.txt_check_match.Size = new System.Drawing.Size(200, 26);
-            this.txt_check_match.TabIndex = 3;
-            // 
-            // cb_position
-            // 
-            this.cb_position.FormattingEnabled = true;
-            this.cb_position.Items.AddRange(new object[] {
-            "Staff",
-            "Admin"});
-            this.cb_position.Location = new System.Drawing.Point(166, 7);
-            this.cb_position.Name = "cb_position";
-            this.cb_position.Size = new System.Drawing.Size(200, 28);
-            this.cb_position.TabIndex = 1;
-            // 
-            // btn_create
-            // 
-            this.btn_create.Location = new System.Drawing.Point(49, 14);
-            this.btn_create.Name = "btn_create";
-            this.btn_create.Size = new System.Drawing.Size(139, 42);
-            this.btn_create.TabIndex = 2;
-            this.btn_create.Text = "Create";
-            this.btn_create.UseVisualStyleBackColor = true;
-            this.btn_create.Click += new System.EventHandler(this.btn_create_Click_1);
-            // 
-            // btn_back
-            // 
-            this.btn_back.Location = new System.Drawing.Point(207, 14);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(139, 42);
-            this.btn_back.TabIndex = 3;
-            this.btn_back.Text = "Back";
-            this.btn_back.UseVisualStyleBackColor = true;
-            // 
-            // lb_error_position
-            // 
-            this.lb_error_position.AutoSize = true;
-            this.lb_error_position.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_error_position.ForeColor = System.Drawing.Color.Red;
-            this.lb_error_position.Location = new System.Drawing.Point(162, 41);
-            this.lb_error_position.Name = "lb_error_position";
-            this.lb_error_position.Size = new System.Drawing.Size(0, 15);
-            this.lb_error_position.TabIndex = 2;
             // 
             // fAdd_account
             // 

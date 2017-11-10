@@ -3,6 +3,7 @@ using app.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -76,11 +77,37 @@ namespace app.BUS
             }
         }
 
-        public int Check_Username(string username)
+        public bool Check_Username(string username)
         {
             try
             {
                 return Staff_DAO.Instance.Check_Username(username);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public bool Insert_Account(string username, string password, int id_type)
+        {
+            try
+            {
+                MD5 md5 = MD5.Create();
+                string password_md5 = Function_Other.Instance.GetMd5Hash(md5, password);
+                return Staff_DAO.Instance.Insert_Account(username, password_md5, id_type);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public bool Ban_Account(string username)
+        {
+            try
+            {
+                return Staff_DAO.Instance.Ban_Account(username);
             }
             catch
             {

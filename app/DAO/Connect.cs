@@ -152,38 +152,26 @@ namespace app.DAO
         }
 
 
-        public object ExecuteReader(string query, object[] parameter = null)
-        {
-            object data = 0;
-            using (SqlConnection connect = new SqlConnection(str_connect))
-            {
-
-                connect.Open();
-
-                SqlCommand cmd = new SqlCommand(query, connect);
-
-                if (parameter != null)
-                {
-                    string[] listpara = query.Split(' ');
-                    int i = 0;
-                    foreach (string item in listpara)
-                    {
-                        if (item.Contains("@"))
-                        {
-                            cmd.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
-                        }
-                    }
-                }
-
-
-                data = cmd.ExecuteReader();
-                connect.Close();
-            }
-
-            return data;
-
-        }
+        //public object ExecuteOutPut(string name_stord_procedure, object[] parameter = null, object[] value = null)
+        //{
+        //    object data = null;
+        //    using (SqlConnection connect = new SqlConnection(str_connect))
+        //    {
+        //        connect.Open();
+        //        SqlCommand cmd = new SqlCommand(name_stord_procedure, connect);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        if (parameter != null)
+        //        {
+        //            foreach (object item in parameter)
+        //            {
+        //                cmd.Parameters.Add()
+        //            }
+        //        }
+        //        data = cmd.ExecuteNonQuery();
+        //        connect.Close();
+        //    }
+        //    return data;
+        //}
 
     }
 }
