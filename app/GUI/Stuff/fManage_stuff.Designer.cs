@@ -1,6 +1,6 @@
 ﻿namespace app.GUI.Staff
 {
-    partial class fManage_staff
+    partial class fManage_stuff
     {
         /// <summary>
         /// Required designer variable.
@@ -44,11 +44,6 @@
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btn_details = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.lb_position = new System.Windows.Forms.Label();
-            this.lb = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lb_name = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,6 +51,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lb_id = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -66,11 +64,10 @@
             this.panel4.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -108,7 +105,6 @@
             this.dgv_staff.Name = "dgv_staff";
             this.dgv_staff.Size = new System.Drawing.Size(655, 406);
             this.dgv_staff.TabIndex = 3;
-            this.dgv_staff.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_staff_CellClick);
             // 
             // panel13
             // 
@@ -194,7 +190,6 @@
             this.btn_refresh.Size = new System.Drawing.Size(48, 48);
             this.btn_refresh.TabIndex = 4;
             this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // btn_back
             // 
@@ -228,7 +223,7 @@
             // 
             // btn_edit
             // 
-            this.btn_edit.BackgroundImage = global::app.Properties.Resources.refresh_passwords_512;
+            this.btn_edit.BackgroundImage = global::app.Properties.Resources.edit_icon;
             this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_edit.FlatAppearance.BorderSize = 0;
             this.btn_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
@@ -261,9 +256,7 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.btn_details);
-            this.panel6.Controls.Add(this.pictureBox1);
-            this.panel6.Controls.Add(this.panel8);
+            this.panel6.Controls.Add(this.panel7);
             this.panel6.Controls.Add(this.panel9);
             this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel6.Location = new System.Drawing.Point(4, 45);
@@ -271,67 +264,21 @@
             this.panel6.Size = new System.Drawing.Size(282, 328);
             this.panel6.TabIndex = 7;
             // 
-            // btn_details
-            // 
-            this.btn_details.Location = new System.Drawing.Point(3, 292);
-            this.btn_details.Name = "btn_details";
-            this.btn_details.Size = new System.Drawing.Size(270, 31);
-            this.btn_details.TabIndex = 5;
-            this.btn_details.Text = "See details";
-            this.btn_details.UseVisualStyleBackColor = true;
-            this.btn_details.Click += new System.EventHandler(this.btn_details_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(59, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(165, 195);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.lb_position);
-            this.panel8.Controls.Add(this.lb);
-            this.panel8.Location = new System.Drawing.Point(3, 248);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(270, 38);
-            this.panel8.TabIndex = 3;
-            // 
-            // lb_position
-            // 
-            this.lb_position.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_position.Location = new System.Drawing.Point(94, 7);
-            this.lb_position.Name = "lb_position";
-            this.lb_position.Size = new System.Drawing.Size(163, 28);
-            this.lb_position.TabIndex = 1;
-            // 
-            // lb
-            // 
-            this.lb.AutoSize = true;
-            this.lb.Location = new System.Drawing.Point(3, 9);
-            this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(68, 16);
-            this.lb.TabIndex = 0;
-            this.lb.Text = "Position:";
-            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.lb_name);
             this.panel9.Controls.Add(this.label6);
-            this.panel9.Location = new System.Drawing.Point(3, 204);
+            this.panel9.Location = new System.Drawing.Point(3, 57);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(270, 38);
             this.panel9.TabIndex = 2;
             // 
             // lb_name
             // 
-            this.lb_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_name.Location = new System.Drawing.Point(94, 7);
+            this.lb_name.Location = new System.Drawing.Point(94, 12);
             this.lb_name.Name = "lb_name";
-            this.lb_name.Size = new System.Drawing.Size(163, 29);
+            this.lb_name.Size = new System.Drawing.Size(163, 13);
             this.lb_name.TabIndex = 1;
-            this.lb_name.Click += new System.EventHandler(this.lb_name_Click);
             // 
             // label6
             // 
@@ -379,15 +326,40 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 25);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Manage Staff";
+            this.label1.Text = "Manage Stuff";
             // 
-            // fManage_staff
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.lb_id);
+            this.panel7.Controls.Add(this.label5);
+            this.panel7.Location = new System.Drawing.Point(3, 13);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(270, 38);
+            this.panel7.TabIndex = 3;
+            // 
+            // lb_id
+            // 
+            this.lb_id.Location = new System.Drawing.Point(94, 12);
+            this.lb_id.Name = "lb_id";
+            this.lb_id.Size = new System.Drawing.Size(163, 13);
+            this.lb_id.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 16);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "ID:";
+            // 
+            // fManage_stuff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 536);
             this.Controls.Add(this.panel1);
-            this.Name = "fManage_staff";
+            this.Name = "fManage_stuff";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fManage_staff";
             this.panel1.ResumeLayout(false);
@@ -401,15 +373,14 @@
             this.panel4.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -430,11 +401,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btn_details;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label lb_position;
-        private System.Windows.Forms.Label lb;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label lb_name;
         private System.Windows.Forms.Label label6;
@@ -444,5 +410,8 @@
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label lb_id;
+        private System.Windows.Forms.Label label5;
     }
 }

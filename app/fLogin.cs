@@ -39,7 +39,6 @@ namespace app
             {
                 if(MessageBox.Show("Please check my account!", "Error", MessageBoxButtons.RetryCancel) == System.Windows.Forms.DialogResult.Retry)
                 {
-                    txtUser.Clear();
                     txtPass.Clear();
                     txtUser.Focus();
                 }

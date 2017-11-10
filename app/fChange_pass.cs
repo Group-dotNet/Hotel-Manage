@@ -57,7 +57,6 @@ namespace app
         {
             txt_username.Text = this.Username;
             txt_pass_old.Focus();
-
             this.account = System_BUS.Instance.Get_Account(this.Username);
 
         }

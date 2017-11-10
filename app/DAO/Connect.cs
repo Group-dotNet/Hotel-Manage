@@ -22,7 +22,7 @@ namespace app.DAO
         private Connect() { }
 
         //string connect taken from Dialog "Server Explorer"
-        private string str_connect = "Data Source=DESKTOP-A9E2N6S\\SQLEXPRESS;Initial Catalog=hotel;Integrated Security=True";
+        private string str_connect = "Data Source=KIENDINH\\SQLEXPRESS;Initial Catalog=hotel;Integrated Security=True";
 
 
         //@description:
@@ -144,7 +144,40 @@ namespace app.DAO
 
 
                 data = cmd.ExecuteScalar();
+                connect.Close();
+            }
 
+            return data;
+
+        }
+
+
+        public object ExecuteReader(string query, object[] parameter = null)
+        {
+            object data = 0;
+            using (SqlConnection connect = new SqlConnection(str_connect))
+            {
+
+                connect.Open();
+
+                SqlCommand cmd = new SqlCommand(query, connect);
+
+                if (parameter != null)
+                {
+                    string[] listpara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listpara)
+                    {
+                        if (item.Contains("@"))
+                        {
+                            cmd.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
+                        }
+                    }
+                }
+
+
+                data = cmd.ExecuteReader();
                 connect.Close();
             }
 

@@ -45,12 +45,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\Customer_BUS.cs" />
+    <Compile Include="BUS\Service_BUS.cs" />
     <Compile Include="BUS\Staff_BUS.cs" />
+    <Compile Include="BUS\Stuff_BUS.cs" />
     <Compile Include="BUS\System_BUS.cs" />
     <Compile Include="DAO\Connect.cs" />
+    <Compile Include="DAO\Customer_DAO.cs" />
+    <Compile Include="DAO\Service_DAO.cs" />
     <Compile Include="DAO\Staff_DAO.cs" />
+    <Compile Include="DAO\Stuff_DAO.cs" />
     <Compile Include="DAO\System_DAO.cs" />
+    <Compile Include="DTO\Bill_DTO.cs" />
+    <Compile Include="DTO\Calendar_DTO.cs" />
+    <Compile Include="DTO\Customer_DTO.cs" />
+    <Compile Include="DTO\Deposit_DTO.cs" />
+    <Compile Include="DTO\History_customer_DTO.cs" />
+    <Compile Include="DTO\Kind_of_room_DTO.cs" />
+    <Compile Include="DTO\Log_swap_room.cs" />
+    <Compile Include="DTO\Reservation_DTO.cs" />
+    <Compile Include="DTO\Reservation_room_DTO.cs" />
+    <Compile Include="DTO\Room_DTO.cs" />
+    <Compile Include="DTO\Service_DTO.cs" />
+    <Compile Include="DTO\Serviec_ticket_DTO.cs" />
     <Compile Include="DTO\Staff_DTO.cs" />
+    <Compile Include="DTO\Stuff_detail._DTO.cs" />
+    <Compile Include="DTO\Stuff_DTO.cs" />
     <Compile Include="DTO\System_DTO.cs" />
     <Compile Include="fChange_pass.cs">
       <SubType>Form</SubType>
@@ -142,6 +162,24 @@
     <Compile Include="GUI\Staff\fManage_staff.Designer.cs">
       <DependentUpon>fManage_staff.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Staff\fShow_profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Staff\fShow_profile.Designer.cs">
+      <DependentUpon>fShow_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Stuff\fAdd_stuff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Stuff\fAdd_stuff.Designer.cs">
+      <DependentUpon>fAdd_stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Stuff\fManage_stuff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Stuff\fManage_stuff.Designer.cs">
+      <DependentUpon>fManage_stuff.cs</DependentUpon>
+    </Compile>
     <Compile Include="hotelDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -198,6 +236,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Staff\fManage_staff.resx">
       <DependentUpon>fManage_staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Staff\fShow_profile.resx">
+      <DependentUpon>fShow_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Stuff\fAdd_stuff.resx">
+      <DependentUpon>fAdd_stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Stuff\fManage_stuff.resx">
+      <DependentUpon>fManage_stuff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
