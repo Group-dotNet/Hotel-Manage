@@ -125,6 +125,12 @@
     <Compile Include="GUI\Reservation\fManage_reservation.Designer.cs">
       <DependentUpon>fManage_reservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Reservation\fReservation_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fReservation_info.Designer.cs">
+      <DependentUpon>fReservation_info.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Room\fAdd_room.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Reservation\fManage_reservation.resx">
       <DependentUpon>fManage_reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fReservation_info.resx">
+      <DependentUpon>fReservation_info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Room\fAdd_room.resx">
       <DependentUpon>fAdd_room.cs</DependentUpon>
