@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace app.GUI.Room
+namespace app.GUI.Reservation
 {
-    public partial class fAdd_kind_of_room : Form
+    public partial class fReservation_info : Form
     {
-        public fAdd_kind_of_room()
+        public fReservation_info()
         {
             InitializeComponent();
         }

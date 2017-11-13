@@ -80,5 +80,14 @@ namespace app
             frm.ShowDialog();
             this.Show();
         }
+
+        private void roomToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI.Room.fManage_room frm = new GUI.Room.fManage_room();
+            frm.Choose_floor = 1;
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
     }
 }

@@ -37,6 +37,7 @@
             this.managerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.staffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -53,7 +54,6 @@
             this.lb_status = new System.Windows.Forms.Label();
             this.lb_name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.roomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -130,6 +130,13 @@
             this.customerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.customerToolStripMenuItem.Text = "Customer";
             this.customerToolStripMenuItem.Click += new System.EventHandler(this.customerToolStripMenuItem_Click);
+            // 
+            // roomToolStripMenuItem
+            // 
+            this.roomToolStripMenuItem.Name = "roomToolStripMenuItem";
+            this.roomToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.roomToolStripMenuItem.Text = "Room";
+            this.roomToolStripMenuItem.Click += new System.EventHandler(this.roomToolStripMenuItem_Click);
             // 
             // analyticToolStripMenuItem
             // 
@@ -278,12 +285,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // roomToolStripMenuItem
-            // 
-            this.roomToolStripMenuItem.Name = "roomToolStripMenuItem";
-            this.roomToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.roomToolStripMenuItem.Text = "Room";
             // 
             // fMain
             // 

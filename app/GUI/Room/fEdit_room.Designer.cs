@@ -1,6 +1,6 @@
 ﻿namespace app.GUI.Room
 {
-    partial class fAdd_room
+    partial class fEdit_room
     {
         /// <summary>
         /// Required designer variable.
@@ -67,10 +67,10 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(-1, 1);
+            this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(434, 342);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 1;
             // 
             // panel4
             // 
@@ -196,6 +196,7 @@
             // 
             // nud_order
             // 
+            this.nud_order.Enabled = false;
             this.nud_order.Location = new System.Drawing.Point(157, 7);
             this.nud_order.Name = "nud_order";
             this.nud_order.Size = new System.Drawing.Size(256, 26);
@@ -228,6 +229,7 @@
             // 
             // nud_floor
             // 
+            this.nud_floor.Enabled = false;
             this.nud_floor.Location = new System.Drawing.Point(157, 7);
             this.nud_floor.Name = "nud_floor";
             this.nud_floor.Size = new System.Drawing.Size(256, 26);
@@ -237,7 +239,7 @@
             0,
             0,
             0});
-            this.nud_floor.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.nud_floor.ValueChanged += new System.EventHandler(this.nud_floor_ValueChanged);
             // 
             // label2
             // 
@@ -263,20 +265,20 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(157, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 24);
+            this.label1.Size = new System.Drawing.Size(107, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Add Room";
+            this.label1.Text = "Edit Room";
             // 
-            // fAdd_room
+            // fEdit_room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 346);
+            this.ClientSize = new System.Drawing.Size(434, 341);
             this.Controls.Add(this.panel1);
-            this.Name = "fAdd_room";
+            this.Name = "fEdit_room";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fAdd_room";
-            this.Load += new System.EventHandler(this.fAdd_room_Load);
+            this.Text = "fEdit_room";
+            this.Load += new System.EventHandler(this.fEdit_room_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -307,16 +309,16 @@
         private System.Windows.Forms.ComboBox cb_staff;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.LinkLabel lbl_add_kind_of_room;
         private System.Windows.Forms.ComboBox cb_type;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.NumericUpDown nud_order;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.NumericUpDown nud_floor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown nud_order;
-        private System.Windows.Forms.NumericUpDown nud_floor;
-        private System.Windows.Forms.LinkLabel lbl_add_kind_of_room;
     }
 }

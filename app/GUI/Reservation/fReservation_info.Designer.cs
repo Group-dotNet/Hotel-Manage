@@ -1,6 +1,6 @@
-﻿namespace app.GUI.Room
+﻿namespace app.GUI.Reservation
 {
-    partial class fAdd_kind_of_room
+    partial class fReservation_info
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // fAdd_kind_of_room
+            // fReservation_info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 352);
-            this.Name = "fAdd_kind_of_room";
-            this.Text = "fAdd_kind_of_room";
+            this.ClientSize = new System.Drawing.Size(834, 511);
+            this.Name = "fReservation_info";
+            this.Text = "fReservation_info";
             this.ResumeLayout(false);
 
         }

@@ -47,12 +47,16 @@
   <ItemGroup>
     <Compile Include="BUS\Customer_BUS.cs" />
     <Compile Include="BUS\Function_Other.cs" />
+    <Compile Include="BUS\Kind_of_room_BUS.cs" />
+    <Compile Include="BUS\Room_BUS.cs" />
     <Compile Include="BUS\Service_BUS.cs" />
     <Compile Include="BUS\Staff_BUS.cs" />
     <Compile Include="BUS\Stuff_BUS.cs" />
     <Compile Include="BUS\System_BUS.cs" />
     <Compile Include="DAO\Connect.cs" />
     <Compile Include="DAO\Customer_DAO.cs" />
+    <Compile Include="DAO\Kind_of_room_DAO.cs" />
+    <Compile Include="DAO\Room_DAO.cs" />
     <Compile Include="DAO\Service_DAO.cs" />
     <Compile Include="DAO\Staff_DAO.cs" />
     <Compile Include="DAO\Stuff_DAO.cs" />
@@ -121,17 +125,23 @@
     <Compile Include="GUI\Reservation\fManage_reservation.Designer.cs">
       <DependentUpon>fManage_reservation.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Room\fAdd_kind_of_room.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\Room\fAdd_kind_of_room.Designer.cs">
-      <DependentUpon>fAdd_kind_of_room.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\Room\fAdd_room.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Room\fAdd_room.Designer.cs">
       <DependentUpon>fAdd_room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Room\fEdit_room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Room\fEdit_room.Designer.cs">
+      <DependentUpon>fEdit_room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Room\fManage_kind_of_room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Room\fManage_kind_of_room.Designer.cs">
+      <DependentUpon>fManage_kind_of_room.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Room\fManage_room.cs">
       <SubType>Form</SubType>
@@ -220,8 +230,14 @@
     <EmbeddedResource Include="GUI\Reservation\fManage_reservation.resx">
       <DependentUpon>fManage_reservation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Room\fAdd_kind_of_room.resx">
-      <DependentUpon>fAdd_kind_of_room.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Room\fAdd_room.resx">
+      <DependentUpon>fAdd_room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Room\fEdit_room.resx">
+      <DependentUpon>fEdit_room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Room\fManage_kind_of_room.resx">
+      <DependentUpon>fManage_kind_of_room.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Room\fManage_room.resx">
       <DependentUpon>fManage_room.cs</DependentUpon>

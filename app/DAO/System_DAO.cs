@@ -50,6 +50,23 @@ namespace app.DAO
 
         }
 
+        public List<System_DTO> Get_List_Staff_Service()
+        {
+            string query = "exec USP_GetList_Staff_Service";
+
+            DataTable list = Connect.Instance.ExecuteQuery(query);
+
+            List<System_DTO> list_staff = new List<System_DTO>();
+
+            foreach (DataRow item in list.Rows)
+            {
+                System_DTO account = new System_DTO(item);
+                list_staff.Add(account);
+            }
+
+            return list_staff;
+        }
+
 
         public bool Change_password(string username, string password_new)
         {

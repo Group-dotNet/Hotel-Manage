@@ -85,6 +85,18 @@ namespace app.BUS
             }
         }
 
+        public List<System_DTO> Get_List_Staff_Service()
+        {
+            try
+            {
+                return System_DAO.Instance.Get_List_Staff_Service();
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
         public bool Change_password(string username, string password_new)
         {
             try
