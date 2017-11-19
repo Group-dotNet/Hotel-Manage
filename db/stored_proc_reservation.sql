@@ -7,11 +7,7 @@ as
 begin
 	select * from Reservation
 end	
-<<<<<<< Updated upstream
 
-=======
-exec USP_GetListReservation
->>>>>>> Stashed changes
 
 go 
 
@@ -25,7 +21,6 @@ end
 exec USP_GetInfoReservation @id_reservation= 1
 go
 
-<<<<<<< Updated upstream
 CREATE PROC USP_InsertReservation
 @id_customer int,
 @status_reservation int,
@@ -86,10 +81,3 @@ SELECT * from Room
 SELECT GETDATE()
 
 SELECT * from sys.tables
-=======
-
-go
-
-
-select * from Calendar
->>>>>>> Stashed changes
