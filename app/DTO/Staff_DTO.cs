@@ -10,6 +10,8 @@ namespace app.DTO
     public class Staff_DTO
     {
 
+        public Staff_DTO() { }
+
         public Staff_DTO(string username, string name, bool sex, DateTime birthday, string address, string phone, string email, string image)
         {
             this.Username = username;

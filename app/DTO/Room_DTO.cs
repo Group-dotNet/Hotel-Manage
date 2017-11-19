@@ -26,7 +26,6 @@ namespace app.DTO
             this.Id_room = (int)room["id_room"];
             this.Num_floor = (int)room["num_floor"];
             this.Num_order = (int)room["num_order"];
-            if(room["id_kind_of_room"] != null)
             this.Kind_of_room.Id = (int)room["id_kind_of_room"];
             this.Kind_of_room.Name = room["name"].ToString();
             this.Kind_of_room.Price = (decimal)room["price"];

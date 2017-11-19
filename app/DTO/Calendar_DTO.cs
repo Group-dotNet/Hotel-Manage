@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,23 @@ namespace app.DTO
     class Calendar_DTO
     {
         private int m_id_calendar;
-        private int m_id_reservation;
+        private Reservation_DTO m_reservation = new Reservation_DTO();
         private DateTime m_start_date;
         private DateTime m_end_date;
         private DateTime m_created;
         private int m_status;
+
+        public Calendar_DTO() { }
+
+        public Calendar_DTO(DataRow calendar)
+        {
+            this.Id_calendar = (int)calendar["id_calendar"];
+            this.Reservation.Id_reservation = (int)calendar["id_reservation"];
+            this.Start_date = (DateTime)calendar["start_date"];
+            this.End_date = (DateTime)calendar["end_date"];
+            this.Created = (DateTime)calendar["created"];
+            this.Status = (int)calendar["status"];
+        }
 
         public int Id_calendar
         {
@@ -80,16 +93,17 @@ namespace app.DTO
             }
         }
 
-        public int Id_reservation
+
+        internal Reservation_DTO Reservation
         {
             get
             {
-                return m_id_reservation;
+                return m_reservation;
             }
 
             set
             {
-                m_id_reservation = value;
+                m_reservation = value;
             }
         }
     }

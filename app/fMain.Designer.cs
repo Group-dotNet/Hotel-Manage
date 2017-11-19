@@ -54,6 +54,8 @@
             this.lb_status = new System.Windows.Forms.Label();
             this.lb_name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.reservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -112,7 +114,9 @@
             this.managerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.staffToolStripMenuItem,
             this.customerToolStripMenuItem,
-            this.roomToolStripMenuItem});
+            this.roomToolStripMenuItem,
+            this.reservationToolStripMenuItem,
+            this.billToolStripMenuItem});
             this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
             this.managerToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.managerToolStripMenuItem.Text = "Manage";
@@ -286,6 +290,19 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // reservationToolStripMenuItem
+            // 
+            this.reservationToolStripMenuItem.Name = "reservationToolStripMenuItem";
+            this.reservationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reservationToolStripMenuItem.Text = "Reservation";
+            this.reservationToolStripMenuItem.Click += new System.EventHandler(this.reservationToolStripMenuItem_Click);
+            // 
+            // billToolStripMenuItem
+            // 
+            this.billToolStripMenuItem.Name = "billToolStripMenuItem";
+            this.billToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.billToolStripMenuItem.Text = "Bill";
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,5 +356,7 @@
         private System.Windows.Forms.ToolStripMenuItem staffToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reservationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem billToolStripMenuItem;
     }
 }

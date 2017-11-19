@@ -8,21 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace app.GUI.Staff
+namespace app.GUI.Stuff
 {
-    public partial class fAdd_stuff : Form
+    public partial class fAdd_Stuff : Form
     {
-        public fAdd_stuff()
+        public fAdd_Stuff()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void fAdd_Stuff_Load(object sender, EventArgs e)
         {
 
         }

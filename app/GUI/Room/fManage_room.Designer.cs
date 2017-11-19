@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -52,19 +53,19 @@
             this.btn_add = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lb_people = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lb_type_room = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lb_end_date = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lb_startdate = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lb_reservation = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_details = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -74,6 +75,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lb_datetime = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -93,6 +98,7 @@
             this.panel10.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -127,6 +133,7 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.lb_datetime);
             this.panel6.Controls.Add(this.cb_fittel);
             this.panel6.Controls.Add(this.label15);
             this.panel6.Location = new System.Drawing.Point(4, 4);
@@ -371,20 +378,20 @@
             // panel17
             // 
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel17.Controls.Add(this.label13);
+            this.panel17.Controls.Add(this.lb_people);
             this.panel17.Controls.Add(this.label14);
             this.panel17.Location = new System.Drawing.Point(3, 238);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(286, 41);
             this.panel17.TabIndex = 3;
             // 
-            // label13
+            // lb_people
             // 
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(120, 7);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(163, 25);
-            this.label13.TabIndex = 1;
+            this.lb_people.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_people.Location = new System.Drawing.Point(120, 7);
+            this.lb_people.Name = "lb_people";
+            this.lb_people.Size = new System.Drawing.Size(163, 25);
+            this.lb_people.TabIndex = 1;
             // 
             // label14
             // 
@@ -398,20 +405,20 @@
             // panel16
             // 
             this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel16.Controls.Add(this.label11);
+            this.panel16.Controls.Add(this.lb_type_room);
             this.panel16.Controls.Add(this.label12);
             this.panel16.Location = new System.Drawing.Point(3, 191);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(286, 41);
             this.panel16.TabIndex = 3;
             // 
-            // label11
+            // lb_type_room
             // 
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(120, 7);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(163, 25);
-            this.label11.TabIndex = 1;
+            this.lb_type_room.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_type_room.Location = new System.Drawing.Point(120, 7);
+            this.lb_type_room.Name = "lb_type_room";
+            this.lb_type_room.Size = new System.Drawing.Size(163, 25);
+            this.lb_type_room.TabIndex = 1;
             // 
             // label12
             // 
@@ -425,20 +432,20 @@
             // panel15
             // 
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel15.Controls.Add(this.label9);
+            this.panel15.Controls.Add(this.lb_end_date);
             this.panel15.Controls.Add(this.label10);
             this.panel15.Location = new System.Drawing.Point(3, 144);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(286, 41);
             this.panel15.TabIndex = 3;
             // 
-            // label9
+            // lb_end_date
             // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(120, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(163, 25);
-            this.label9.TabIndex = 1;
+            this.lb_end_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_end_date.Location = new System.Drawing.Point(120, 7);
+            this.lb_end_date.Name = "lb_end_date";
+            this.lb_end_date.Size = new System.Drawing.Size(163, 25);
+            this.lb_end_date.TabIndex = 1;
             // 
             // label10
             // 
@@ -452,20 +459,20 @@
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel11.Controls.Add(this.label7);
+            this.panel11.Controls.Add(this.lb_startdate);
             this.panel11.Controls.Add(this.label8);
             this.panel11.Location = new System.Drawing.Point(3, 97);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(286, 41);
             this.panel11.TabIndex = 3;
             // 
-            // label7
+            // lb_startdate
             // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(120, 7);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(163, 25);
-            this.label7.TabIndex = 1;
+            this.lb_startdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_startdate.Location = new System.Drawing.Point(120, 7);
+            this.lb_startdate.Name = "lb_startdate";
+            this.lb_startdate.Size = new System.Drawing.Size(163, 25);
+            this.lb_startdate.TabIndex = 1;
             // 
             // label8
             // 
@@ -479,20 +486,20 @@
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.label3);
+            this.panel9.Controls.Add(this.lb_reservation);
             this.panel9.Controls.Add(this.label5);
             this.panel9.Location = new System.Drawing.Point(3, 50);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(286, 41);
             this.panel9.TabIndex = 3;
             // 
-            // label3
+            // lb_reservation
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(120, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 25);
-            this.label3.TabIndex = 1;
+            this.lb_reservation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_reservation.Location = new System.Drawing.Point(120, 7);
+            this.lb_reservation.Name = "lb_reservation";
+            this.lb_reservation.Size = new System.Drawing.Size(163, 25);
+            this.lb_reservation.TabIndex = 1;
             // 
             // label5
             // 
@@ -578,6 +585,37 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Manage Room";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 48);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem1.Text = "Add Service";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
+            this.toolStripMenuItem2.Text = "Add Stuff";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // lb_datetime
+            // 
+            this.lb_datetime.AutoSize = true;
+            this.lb_datetime.Location = new System.Drawing.Point(19, 9);
+            this.lb_datetime.Name = "lb_datetime";
+            this.lb_datetime.Size = new System.Drawing.Size(49, 13);
+            this.lb_datetime.TabIndex = 2;
+            this.lb_datetime.Text = "Datetime";
+            // 
             // fManage_room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -616,6 +654,7 @@
             this.panel14.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -649,24 +688,28 @@
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lb_people;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lb_type_room;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lb_end_date;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lb_startdate;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lb_reservation;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel pn_room;
         private System.Windows.Forms.Label lb_num_floor;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox cb_fittel;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.Label lb_datetime;
     }
 }

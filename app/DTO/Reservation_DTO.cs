@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,39 @@ namespace app.DTO
     class Reservation_DTO
     {
         private int m_id_reservation;
-        private Customer_DTO m_customer;
+        private Customer_DTO m_customer = new Customer_DTO();
         private int m_status_reservation;
         private bool m_is_group;
         private int m_people;
-        private Staff_DTO m_staff;
-        private bool m_logged;
+        private Staff_DTO m_staff = new Staff_DTO();
+        private bool m_locked;
         private string m_note;
+
+        public Reservation_DTO() { }
+
+        public Reservation_DTO(int id_reservation, int id_customer, int status_reservation, bool is_group, int people, string username, bool locked, string note)
+        {
+            this.Id_reservation = id_reservation;
+            this.Customer.Id_customer = id_customer;
+            this.Status_reservation = status_reservation;
+            this.Is_group = is_group;
+            this.People = people;
+            this.Staff.Username = username;
+            this.Locked = locked;
+            this.Note = note;
+        }
+
+        public Reservation_DTO(DataRow reservation)
+        {
+            this.Id_reservation = (int)reservation["id_reservation"];
+            this.Customer.Id_customer = (int)reservation["id_customer"];
+            this.Status_reservation = (int)reservation["status_reservation"];
+            this.Is_group = (bool)reservation["is_group"];
+            this.People = (int)reservation["people"];
+            this.Staff.Username = reservation["username"].ToString();
+            this.Locked = (bool)reservation["locked"];
+            this.Note = reservation["note"].ToString();
+        }
 
         public int Id_reservation
         {
@@ -95,18 +122,6 @@ namespace app.DTO
             }
         }
 
-        public bool Logged
-        {
-            get
-            {
-                return m_logged;
-            }
-
-            set
-            {
-                m_logged = value;
-            }
-        }
 
         public string Note
         {
@@ -118,6 +133,19 @@ namespace app.DTO
             set
             {
                 m_note = value;
+            }
+        }
+
+        public bool Locked
+        {
+            get
+            {
+                return m_locked;
+            }
+
+            set
+            {
+                m_locked = value;
             }
         }
     }

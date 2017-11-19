@@ -37,6 +37,10 @@ namespace app.GUI.Room
                 else btn.BackColor = Color.Aqua;
 
                 btn.Click += btn_Click;
+                btn.MouseDown += ((o, e) => {
+                    this.room = item.Id_room;
+                });
+                btn.ContextMenuStrip = contextMenuStrip1;
                 btn.Tag = item;
                 pn_room.Controls.Add(btn);
             }
@@ -89,8 +93,10 @@ namespace app.GUI.Room
 
         private void btn_Click(object sender, EventArgs e)
         {
+ 
             int id_room = (int)((sender as Button).Tag as Room_DTO).Id_room;
             this.room = id_room;
+            
             MessageBox.Show(id_room.ToString());
         }
 
@@ -186,6 +192,20 @@ namespace app.GUI.Room
             {
                 MessageBox.Show("You must select room!");
             }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            GUI.Service.fService_ticket frm = new GUI.Service.fService_ticket();
+            frm.Id_room = this.room;
+            frm.ShowDialog();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            GUI.Stuff.fStuff_detail frm = new Stuff.fStuff_detail();
+            frm.Id_room = this.Room;
+            frm.ShowDialog();
         }
     }
 }

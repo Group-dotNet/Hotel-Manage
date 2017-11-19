@@ -8,9 +8,25 @@ namespace app.DTO
 {
     class Reservation_room_DTO
     {
-        private Reservation_DTO m_reservation;
-        private Room_DTO m_room;
+        private int m_id_reservation_room;
+        private Reservation_DTO m_reservation = new Reservation_DTO();
+        private Room_DTO m_room = new Room_DTO();
         private bool m_using;
+
+        public Reservation_room_DTO() { }
+
+        public int Id_reservation_room
+        {
+            get
+            {
+                return m_id_reservation_room;
+            }
+
+            set
+            {
+                m_id_reservation_room = value;
+            }
+        }
 
         public bool Using
         {

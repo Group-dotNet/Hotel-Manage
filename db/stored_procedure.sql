@@ -73,6 +73,14 @@ end
 
 
 --select *from Account
+<<<<<<< Updated upstream
+
+--exec USP_BanAccount dinhdinh
+
+--exec USP_GetRole dinhdinh
+
+--exec USP_EditStaff peterdinh018, dinhdinh, 1, '1997-1-1', 'Viet Nam', '019xxxx', 'abc@gmail.com', null
+=======
 
 --exec USP_BanAccount dinhdinh
 
@@ -81,7 +89,11 @@ end
 --exec USP_EditStaff peterdinh018, dinhdinh, 1, '1997-1-1', 'Viet Nam', '019xxxx', 'abc@gmail.com', null
 
 --exec USP_GetListStaff
+>>>>>>> Stashed changes
 
+--exec USP_GetListStaff
+
+go
 
 go
 
@@ -267,6 +279,7 @@ begin
 end 
 
 go
+<<<<<<< Updated upstream
 
 CREATE PROC USP_EditeCalendar
 @id_calendar INT
@@ -284,6 +297,8 @@ BEGIN
 END 
 
 go
+=======
+>>>>>>> Stashed changes
  
 create proc USP_DelCalendar 
 @id_calendar int 
@@ -389,12 +404,26 @@ create PROC USP_Get_ListServiceTicket_Room
 @id_room int
 AS
 BEGIN
+<<<<<<< Updated upstream
 	SELECT * from ((service_ticket as a JOIN Reservation_room as b on a.id_reservation_room = b.id_reservation_room) join service as c on a.id_service = c.id_service) where b.id_room = @id_room
 end
 
 GO
 
 -- exec USP_Get_ListServiceTicket_Room 2
+=======
+	SELECT * from ((service_ticket as a JOIN reservation as b on a.id_reservation = b.id_reservation) join service as c on a.id_service = c.id_service) join Room as d on a.id_room = d.id_room 
+end
+
+create PROC USP_Get_ListServiceTicket_Room
+@id_room int
+AS
+BEGIN
+	SELECT * from ((service_ticket as a JOIN reservation as b on a.id_reservation = b.id_reservation) join service as c on a.id_service = c.id_service) join Room as d on a.id_room = d.id_room where a.id_room = @id_room
+end
+
+exec USP_Get_ListServiceTicket_Room 2
+>>>>>>> Stashed changes
 -- Stored Procedure Stuff_detail
 
 create proc USP_InsertStuff_Detail
@@ -439,9 +468,21 @@ BEGIN
 	SELECT * from (Stuff_detail as a JOIN Stuff as b on a.id_stuff = b.id_stuff) join Kind_of_room as c on a.id_kind_of_room = c.id where id_kind_of_room = @id_kind_of_room
 END
 
+<<<<<<< Updated upstream
 -- exec USP_GetListStuffDetail_Room
 
 GO
+=======
+exec USP_GetListStuffDetail_Room
+
+select * from Room
+
+
+
+
+
+
+>>>>>>> Stashed changes
 
 -- stored proc reservation room
 
@@ -452,6 +493,7 @@ begin
 	select * from Reservation_room where id_reservation = @id_reservation
 end
 
+<<<<<<< Updated upstream
 -- exec USP_GetListReservationRoom 1
 
 -- Stored Procedure Insert Data
@@ -460,3 +502,15 @@ end
 -- select * from Stuff_detail
 
 -- drop database hotel
+=======
+exec USP_GetListReservationRoom 1
+
+-- Stored Procedure Insert Data
+
+select * from sys.Tables
+select * from Stuff_detail
+
+
+
+drop database hotel
+>>>>>>> Stashed changes

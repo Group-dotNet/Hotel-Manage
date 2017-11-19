@@ -16,5 +16,11 @@ namespace app.GUI.Service
         {
             InitializeComponent();
         }
+
+
+        private void fManage_service_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

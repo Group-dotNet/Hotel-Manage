@@ -9,8 +9,8 @@ namespace app.DTO
     class Log_swap_room
     {
         private int m_id_log;
-        private int m_id_reservation;
-        private int m_id_room_old;
+        private Reservation_room_DTO m_reservation_room = new Reservation_room_DTO();
+        private int m_id_room_new;
         private double m_price_difference;
         private bool m_select_record;
         private DateTime created;
@@ -28,31 +28,7 @@ namespace app.DTO
             }
         }
 
-        public int Id_reservation
-        {
-            get
-            {
-                return m_id_reservation;
-            }
 
-            set
-            {
-                m_id_reservation = value;
-            }
-        }
-
-        public int Id_room_old
-        {
-            get
-            {
-                return m_id_room_old;
-            }
-
-            set
-            {
-                m_id_room_old = value;
-            }
-        }
 
         public double Price_difference
         {
@@ -90,6 +66,32 @@ namespace app.DTO
             set
             {
                 created = value;
+            }
+        }
+
+        internal Reservation_room_DTO Reservation_room
+        {
+            get
+            {
+                return m_reservation_room;
+            }
+
+            set
+            {
+                m_reservation_room = value;
+            }
+        }
+
+        public int Id_room_new
+        {
+            get
+            {
+                return m_id_room_new;
+            }
+
+            set
+            {
+                m_id_room_new = value;
             }
         }
     }

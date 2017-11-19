@@ -89,5 +89,13 @@ namespace app
             frm.ShowDialog();
             this.Show();
         }
+
+        private void reservationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI.Reservation.fManage_reservation frm = new GUI.Reservation.fManage_reservation();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
     }
 }

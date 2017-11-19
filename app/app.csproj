@@ -45,21 +45,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\Calendar_BUS.cs" />
     <Compile Include="BUS\Customer_BUS.cs" />
     <Compile Include="BUS\Function_Other.cs" />
     <Compile Include="BUS\Kind_of_room_BUS.cs" />
+    <Compile Include="BUS\Reservation_BUS.cs" />
     <Compile Include="BUS\Room_BUS.cs" />
     <Compile Include="BUS\Service_BUS.cs" />
+    <Compile Include="BUS\Service_ticket_BUS.cs" />
     <Compile Include="BUS\Staff_BUS.cs" />
     <Compile Include="BUS\Stuff_BUS.cs" />
+    <Compile Include="BUS\Stuff_detail_BUS.cs" />
     <Compile Include="BUS\System_BUS.cs" />
+    <Compile Include="DAO\Calendar_DAO.cs" />
     <Compile Include="DAO\Connect.cs" />
     <Compile Include="DAO\Customer_DAO.cs" />
     <Compile Include="DAO\Kind_of_room_DAO.cs" />
+    <Compile Include="DAO\Reservation_DAO.cs" />
+    <Compile Include="DAO\Reservation_room_DAO.cs" />
     <Compile Include="DAO\Room_DAO.cs" />
     <Compile Include="DAO\Service_DAO.cs" />
+    <Compile Include="DAO\Service_ticket_DAO.cs" />
     <Compile Include="DAO\Staff_DAO.cs" />
     <Compile Include="DAO\Stuff_DAO.cs" />
+    <Compile Include="DAO\Stuff_detail_DAO.cs" />
     <Compile Include="DAO\System_DAO.cs" />
     <Compile Include="DTO\Bill_DTO.cs" />
     <Compile Include="DTO\Calendar_DTO.cs" />
@@ -72,9 +81,9 @@
     <Compile Include="DTO\Reservation_room_DTO.cs" />
     <Compile Include="DTO\Room_DTO.cs" />
     <Compile Include="DTO\Service_DTO.cs" />
-    <Compile Include="DTO\Serviec_ticket_DTO.cs" />
+    <Compile Include="DTO\Service_ticket_DTO.cs" />
     <Compile Include="DTO\Staff_DTO.cs" />
-    <Compile Include="DTO\Stuff_detail._DTO.cs" />
+    <Compile Include="DTO\Stuff_detail_DTO.cs" />
     <Compile Include="DTO\Stuff_DTO.cs" />
     <Compile Include="DTO\System_DTO.cs" />
     <Compile Include="fChange_pass.cs">
@@ -107,17 +116,71 @@
     <Compile Include="fProfile.Designer.cs">
       <DependentUpon>fProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Bill\fManage_Bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Bill\fManage_Bill.Designer.cs">
+      <DependentUpon>fManage_Bill.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Customer\fAdd_customer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Customer\fAdd_customer.Designer.cs">
       <DependentUpon>fAdd_customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Customer\fEdit_customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Customer\fEdit_customer.Designer.cs">
+      <DependentUpon>fEdit_customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Customer\fManage_customer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Customer\fManage_customer.Designer.cs">
       <DependentUpon>fManage_customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Other\Calculator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Other\Calculator.Designer.cs">
+      <DependentUpon>Calculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Other\Select_room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Other\Select_room.Designer.cs">
+      <DependentUpon>Select_room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reservation\fAdd_reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fAdd_reservation.Designer.cs">
+      <DependentUpon>fAdd_reservation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reservation\fCheck_calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fCheck_calendar.Designer.cs">
+      <DependentUpon>fCheck_calendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reservation\fCheck_room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fCheck_room.Designer.cs">
+      <DependentUpon>fCheck_room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reservation\fCheck_Service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fCheck_Service.Designer.cs">
+      <DependentUpon>fCheck_Service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reservation\fDeposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fDeposit.Designer.cs">
+      <DependentUpon>fDeposit.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Reservation\fManage_reservation.cs">
       <SubType>Form</SubType>
@@ -161,11 +224,29 @@
     <Compile Include="GUI\Room\fRoom_info.Designer.cs">
       <DependentUpon>fRoom_info.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Service\fAdd_Service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Service\fAdd_Service.Designer.cs">
+      <DependentUpon>fAdd_Service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Service\fEdit_Service.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Service\fEdit_Service.Designer.cs">
+      <DependentUpon>fEdit_Service.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Service\fManage_service.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\Service\fManage_service.Designer.cs">
       <DependentUpon>fManage_service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Service\fService_ticket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Service\fService_ticket.Designer.cs">
+      <DependentUpon>fService_ticket.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Staff\fAdd_account.cs">
       <SubType>Form</SubType>
@@ -185,17 +266,29 @@
     <Compile Include="GUI\Staff\fShow_profile.Designer.cs">
       <DependentUpon>fShow_profile.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Stuff\fAdd_stuff.cs">
+    <Compile Include="GUI\Stuff\fAdd_Stuff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Stuff\fAdd_stuff.Designer.cs">
-      <DependentUpon>fAdd_stuff.cs</DependentUpon>
+    <Compile Include="GUI\Stuff\fAdd_Stuff.Designer.cs">
+      <DependentUpon>fAdd_Stuff.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Stuff\fManage_stuff.cs">
+    <Compile Include="GUI\Stuff\fEdit_Stuff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Stuff\fManage_stuff.Designer.cs">
-      <DependentUpon>fManage_stuff.cs</DependentUpon>
+    <Compile Include="GUI\Stuff\fEdit_Stuff.Designer.cs">
+      <DependentUpon>fEdit_Stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Stuff\fManage_Stuff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Stuff\fManage_Stuff.Designer.cs">
+      <DependentUpon>fManage_Stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Stuff\fStuff_detail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Stuff\fStuff_detail.Designer.cs">
+      <DependentUpon>fStuff_detail.cs</DependentUpon>
     </Compile>
     <Compile Include="hotelDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -227,11 +320,35 @@
     <EmbeddedResource Include="fProfile.resx">
       <DependentUpon>fProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Bill\fManage_Bill.resx">
+      <DependentUpon>fManage_Bill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Customer\fAdd_customer.resx">
       <DependentUpon>fAdd_customer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Customer\fEdit_customer.resx">
+      <DependentUpon>fEdit_customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Customer\fManage_customer.resx">
       <DependentUpon>fManage_customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Other\Calculator.resx">
+      <DependentUpon>Calculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fAdd_reservation.resx">
+      <DependentUpon>fAdd_reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fCheck_calendar.resx">
+      <DependentUpon>fCheck_calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fCheck_room.resx">
+      <DependentUpon>fCheck_room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fCheck_Service.resx">
+      <DependentUpon>fCheck_Service.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fDeposit.resx">
+      <DependentUpon>fDeposit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Reservation\fManage_reservation.resx">
       <DependentUpon>fManage_reservation.cs</DependentUpon>
@@ -254,8 +371,17 @@
     <EmbeddedResource Include="GUI\Room\fRoom_info.resx">
       <DependentUpon>fRoom_info.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Service\fAdd_Service.resx">
+      <DependentUpon>fAdd_Service.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Service\fEdit_Service.resx">
+      <DependentUpon>fEdit_Service.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Service\fManage_service.resx">
       <DependentUpon>fManage_service.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Service\fService_ticket.resx">
+      <DependentUpon>fService_ticket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Staff\fAdd_account.resx">
       <DependentUpon>fAdd_account.cs</DependentUpon>
@@ -266,11 +392,17 @@
     <EmbeddedResource Include="GUI\Staff\fShow_profile.resx">
       <DependentUpon>fShow_profile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Stuff\fAdd_stuff.resx">
-      <DependentUpon>fAdd_stuff.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Stuff\fAdd_Stuff.resx">
+      <DependentUpon>fAdd_Stuff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Stuff\fManage_stuff.resx">
-      <DependentUpon>fManage_stuff.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Stuff\fEdit_Stuff.resx">
+      <DependentUpon>fEdit_Stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Stuff\fManage_Stuff.resx">
+      <DependentUpon>fManage_Stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Stuff\fStuff_detail.resx">
+      <DependentUpon>fStuff_detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -340,5 +472,6 @@
   <ItemGroup>
     <None Include="Resources\ban1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
