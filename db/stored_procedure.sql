@@ -273,6 +273,7 @@ begin
 	select top 1 *from Calendar where id_reservation = @id_reservation  order by id_reservation
 end
 
+go
 
 create proc USP_GetListCalendar 
 as 
