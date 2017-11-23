@@ -99,8 +99,18 @@ go
 create proc USP_GetMaxFloor
 as
 begin
-	select max(num_floor) from Room
+	declare @num_floor int
+	if(exists(select * from Room))
+	begin
+		select @num_floor = max(num_floor) from Room
+		return @num_floor
+	end
+	else
+	begin
+		return 0
+	end
 end
+-- exec USP_GetMaxFloor
 
 go
 
@@ -142,7 +152,14 @@ create proc USP_EditeRoom
 @staff varchar(50)
 as
 begin
-	update Room set  id_kind_of_room = @id_type , username = @staff where id_room  = @id_room
+	if(exists(select * from Room where id_room = @id_room and locked = 0))
+	begin
+		update Room set  id_kind_of_room = @id_type , username = @staff where id_room  = @id_room
+	end
+	else
+	begin
+		rollback
+	end
 end
 
 go
@@ -152,6 +169,24 @@ create proc USP_GetInfoRoom
 as
 begin
 	select * from Room join Kind_of_room on Room.id_kind_of_room = Kind_of_room.id where id_room = @id_room
+end
+
+go
+
+
+create proc USP_CheckUsingRoom
+@id_room int
+as
+begin
+	declare @check bit
+	if(exists(select * from Room where id_room = @id_room and locked = 0))
+		begin
+			set @check = 1
+		end
+	else
+		begin
+			set  @check = 0
+		end
 end
 
 go
@@ -231,6 +266,14 @@ go
 
 -- Stored Procedure Calendar 
  
+create proc USP_GetInfoCalendarLaster
+@id_reservation int
+as
+begin
+	select top 1 *from Calendar where id_reservation = @id_reservation  order by id_reservation
+end
+
+
 create proc USP_GetListCalendar 
 as 
 begin 
@@ -249,13 +292,21 @@ end
 go
 
 
-create proc USP_GetCalendarReservation
+create proc USP_GetCalendarReservationUsing
 @id_reservation int 
 as
 begin
-	select * from Calendar where id_reservation = @id_reservation and status = 0
+	select * from Calendar where id_reservation = @id_reservation and status = 1
 end
 
+go
+
+create proc USP_GetListCalendarReservation
+@id_reservation int
+as
+begin
+	select * from Calendar where id_reservation = @id_reservation
+end
 go
  
  
@@ -266,22 +317,7 @@ begin
   select * from Calendar join Reservation on Calendar.id_reservation = Reservation.id_reservation where id_calendar = @id_calendar  
 end 
 
-go
 
-CREATE PROC USP_EditeCalendar
-@id_calendar INT
-@end_date DATETIME
-as
-BEGIN 
-	DECLARE @start_date DATETIME
-	select @start_date = start_date from Calendar where id_reservation = @id_reservation and status = 1
-	if(@end_date > @start_date)
-	BEGIN 
-		update Calendar set status = 2 from id_reservation = @id_reservation and STATUS = 1
-		INSERT into Calendar VALUES (@reservation, @start_date, @end_date, GETDATE(), 1)
-		
-	END
-END 
 
 go
  
@@ -329,7 +365,24 @@ begin
     end 
   end 
 end 
- 
+
+ go
+
+CREATE PROC USP_ChangeCalendar
+@id_reservation INT,
+@end_date DATETIME
+as
+BEGIN 
+	DECLARE @start_date DATETIME
+	select @start_date = start_date from Calendar where id_reservation = @id_reservation and status = 1
+	if(@end_date > @start_date)
+	BEGIN 
+		update Calendar set status = 2 where id_reservation = @id_reservation and STATUS = 1
+		INSERT into Calendar VALUES (@id_reservation, @start_date, @end_date, GETDATE(), 1)
+		
+	END
+END 
+
 go
 
 -- stored proc  service_ticket
@@ -347,14 +400,14 @@ BEGIN
 	select @id_reservation = id_reservation, @id_room = id_room from Reservation_room where id_reservation_room = @id_reservation_room
 	if(exists(select * from Reservation where id_reservation = @id_reservation and status_reservation = 1))
 	BEGIN
-		if(exists(select * from Room where id_room = @id_room and room.logged = 1))
+		if(exists(select * from Room where id_room = @id_room and room.locked = 1))
 		BEGIN
 			if(exists(select * from Service where id_service = @id_service))
 			BEGIN
-				if(exists(select * from service_ticket where id_service = @id_service and id_reservation = @id_reservation and id_room = @id_room))
+				if(exists(select * from service_ticket where id_service = @id_service and id_reservation_room = @id_reservation_room))
 				BEGIN
 					DECLARE @number_present int 
-					select @number_present = number from service_ticket where id_service = @id_service and id_reservation = @id_reservation and id_room = @id_room
+					select @number_present = number from service_ticket where id_service = @id_service and id_reservation_room = id_reservation_room
 					DECLARE @number_tran int
 					set @number_tran = @number_present + @number
 					if(@number_tran > 0)
@@ -373,6 +426,15 @@ BEGIN
 			END
 		END
 	END
+end
+
+go
+
+Create Proc  USP_GetListServiceReservation
+@id_reservation int
+as
+begin
+	select * from (Service_ticket as a join Service as b on a.id_service = b.id_service) join Reservation_room as c on a.id_reservation_room = c.id_reservation_room where c.id_reservation = @id_reservation
 end
 
 GO
@@ -395,6 +457,7 @@ end
 GO
 
 -- exec USP_Get_ListServiceTicket_Room 2
+
 -- Stored Procedure Stuff_detail
 
 create proc USP_InsertStuff_Detail
@@ -452,11 +515,144 @@ begin
 	select * from Reservation_room where id_reservation = @id_reservation
 end
 
--- exec USP_GetListReservationRoom 1
+go
+
+create proc USP_GetListReservationRoomUsing
+@id_reservation int
+as
+begin
+	select * from (Reservation_room as a join Room as b on a.id_room = b.id_room) join Kind_of_room as c on b.id_kind_of_room = c.id where id_reservation = @id_reservation and a.using = 1
+end
+
+go
+
+-- exec USP_InsertReservationRoom 13, 1
+create proc USP_InsertReservationRoom
+@id_reservation int,
+@id_room int
+as
+begin
+	if(exists(select * from Room where id_room = @id_room and Room.locked = 0))
+	begin
+		insert into Reservation_room values (@id_reservation, @id_room, 1)
+		update Room set locked = 1 where id_room = @id_room
+	end
+end
+
+go
+-- exec USP_GetHistory 14
+create proc USP_GetHistory
+@id_reservation int 
+as 
+begin
+	select * from Reservation_room as a join Room as b on a.id_room = b.id_room where id_reservation = @id_reservation
+end
+-- exec USP_GetListReservationRoomUsing 3
 
 -- Stored Procedure Insert Data
 
--- select * from sys.Tables
+-- select * from reservation_room
 -- select * from Stuff_detail
 
 -- drop database hotel
+
+-- exec USP_GetCalendarReservation 3
+
+-- exec USP_GetCalendarReservation @id_reservation=3
+
+-- exec USP_GetListReservationRoomUsing 14
+
+go
+
+-- stored proc Desposit
+
+
+create proc USP_InsertDeposit
+@id_reservation int,
+@deposit money,
+@confirm bit
+as
+begin
+	declare @created_confirm datetime
+	set @created_confirm = GETDATE()
+	declare @locked bit
+	set @locked = 0
+	declare @note nvarchar(1000)
+	set @note = convert(varchar(20),getdate(),120) +  ': Insert deposit'
+	if(@confirm = 1)
+		begin
+			DECLARE @NewLineChar AS CHAR(2) = CHAR(13) + CHAR(10)
+			declare @note2 nvarchar(1000)
+			select @note2 = note from deposit where id_reservation = @id_reservation and locked = 0 
+			set @note2 = @note2 + @NewLineChar + convert(varchar(20),getdate(),120) + ': Cancel deposit'
+			update Deposit set locked = 1 , note = @note2 where id_reservation = @id_reservation and locked = 0
+			insert into Deposit values (@id_reservation, @deposit, @confirm , @created_confirm , @locked , @note)
+			update Reservation set status_reservation = 2 where id_reservation = @id_reservation
+		end
+	else
+		begin
+			rollback
+		end
+end
+
+go
+
+create proc UPS_CountDeposit
+@id_reservation int
+as
+begin
+	select count(*) from Deposit where id_reservation = @id_reservation;
+end
+
+go
+
+create proc USP_CheckDepositPrev
+@id_reservation int
+as
+begin
+	select top 1 * from Deposit where id_reservation =  @id_reservation and locked = 1  order by id_deposit desc
+end
+
+go
+
+
+create proc USP_CheckConfirm
+@id_reservation int
+as
+begin
+	select * from Deposit where id_reservation = @id_reservation and locked = 0
+end
+
+go
+
+
+create proc USP_GetListDeposit
+@id_reservation int
+as
+begin
+	select * from Deposit where id_reservation = @id_reservation order by id_deposit desc
+end
+
+go
+
+
+create proc USP_NotPaidDeposit
+@id_reservation int
+as
+begin
+	if(exists (select * from Reservation where id_reservation = @id_reservation and locked = 0))
+	begin
+	DECLARE @note NVARCHAR(1000)
+	DECLARE @NewLineChar AS CHAR(2) = CHAR(13) + CHAR(10)
+	SELECT @note = note FROM Reservation WHERE id_reservation = @id_reservation
+	set @note = @note + @NewLineChar + convert(varchar(20),getdate(),120) + ': Not Paid Deposit'
+	Update Reservation set status_reservation = 3 , note = @note where id_reservation = @id_reservation
+	update Calendar set status = 0  where id_reservation = @id_reservation;
+	update Reservation_room set using = 0 where id_reservation = @id_reservation
+	update Room set locked = 0 where id_room in (select id_room from Reservation_room where id_reservation = @id_reservation)
+	end
+	else
+	begin
+		rollback
+	end
+end

@@ -83,7 +83,7 @@ namespace app.BUS
             }
             catch
             {
-                throw new Exception("Error!");
+                return false;
             }
         }
 

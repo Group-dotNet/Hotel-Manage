@@ -97,5 +97,14 @@ namespace app
             frm.ShowDialog();
             this.Show();
         }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI.Reservation.fDeposit frm = new GUI.Reservation.fDeposit();
+            frm.Id_reservation = 3;
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
     }
 }

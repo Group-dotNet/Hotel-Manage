@@ -11,8 +11,10 @@ namespace app.DTO
 
         private int m_id_service;
         private string m_name_service;
-        private double m_price;
+        private decimal m_price;
         private string m_unit;
+
+        public Service_DTO() { }
 
         public int Id_service
         {
@@ -40,7 +42,7 @@ namespace app.DTO
             }
         }
 
-        public double Price
+        public decimal Price
         {
             get
             {

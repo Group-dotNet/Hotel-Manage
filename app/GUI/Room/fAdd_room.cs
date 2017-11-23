@@ -22,6 +22,7 @@ namespace app.GUI.Room
  
         private void Load_Staff()
         {
+            cb_staff.Items.Clear();
             List<System_DTO> list_staff = System_BUS.Instance.Get_List_Staff_Service();
             foreach (System_DTO staff in list_staff)
             {
@@ -34,6 +35,7 @@ namespace app.GUI.Room
 
         private void Load_Kind_of_room()
         {
+            cb_type.Items.Clear();
             List<Kind_of_room_DTO> list_kof = Kind_of_room_BUS.Instance.Get_List();
             foreach(Kind_of_room_DTO kof in list_kof)
             {
@@ -110,6 +112,7 @@ namespace app.GUI.Room
         {
             fManage_kind_of_room frm = new fManage_kind_of_room();
             frm.ShowDialog();
+            this.Load_Kind_of_room();
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)

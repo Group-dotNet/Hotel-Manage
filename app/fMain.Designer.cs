@@ -38,6 +38,8 @@
             this.staffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.roomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.billToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,8 +56,7 @@
             this.lb_status = new System.Windows.Forms.Label();
             this.lb_name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.reservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.billToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -116,7 +117,8 @@
             this.customerToolStripMenuItem,
             this.roomToolStripMenuItem,
             this.reservationToolStripMenuItem,
-            this.billToolStripMenuItem});
+            this.billToolStripMenuItem,
+            this.testToolStripMenuItem});
             this.managerToolStripMenuItem.Name = "managerToolStripMenuItem";
             this.managerToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.managerToolStripMenuItem.Text = "Manage";
@@ -141,6 +143,19 @@
             this.roomToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.roomToolStripMenuItem.Text = "Room";
             this.roomToolStripMenuItem.Click += new System.EventHandler(this.roomToolStripMenuItem_Click);
+            // 
+            // reservationToolStripMenuItem
+            // 
+            this.reservationToolStripMenuItem.Name = "reservationToolStripMenuItem";
+            this.reservationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reservationToolStripMenuItem.Text = "Reservation";
+            this.reservationToolStripMenuItem.Click += new System.EventHandler(this.reservationToolStripMenuItem_Click);
+            // 
+            // billToolStripMenuItem
+            // 
+            this.billToolStripMenuItem.Name = "billToolStripMenuItem";
+            this.billToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.billToolStripMenuItem.Text = "Bill";
             // 
             // analyticToolStripMenuItem
             // 
@@ -290,18 +305,12 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // reservationToolStripMenuItem
+            // testToolStripMenuItem
             // 
-            this.reservationToolStripMenuItem.Name = "reservationToolStripMenuItem";
-            this.reservationToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.reservationToolStripMenuItem.Text = "Reservation";
-            this.reservationToolStripMenuItem.Click += new System.EventHandler(this.reservationToolStripMenuItem_Click);
-            // 
-            // billToolStripMenuItem
-            // 
-            this.billToolStripMenuItem.Name = "billToolStripMenuItem";
-            this.billToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.billToolStripMenuItem.Text = "Bill";
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.testToolStripMenuItem.Text = "test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // fMain
             // 
@@ -358,5 +367,6 @@
         private System.Windows.Forms.ToolStripMenuItem roomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem billToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
     }
 }

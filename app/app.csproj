@@ -47,9 +47,11 @@
   <ItemGroup>
     <Compile Include="BUS\Calendar_BUS.cs" />
     <Compile Include="BUS\Customer_BUS.cs" />
+    <Compile Include="BUS\Deposit_BUS.cs" />
     <Compile Include="BUS\Function_Other.cs" />
     <Compile Include="BUS\Kind_of_room_BUS.cs" />
     <Compile Include="BUS\Reservation_BUS.cs" />
+    <Compile Include="BUS\Reservation_room_BUS.cs" />
     <Compile Include="BUS\Room_BUS.cs" />
     <Compile Include="BUS\Service_BUS.cs" />
     <Compile Include="BUS\Service_ticket_BUS.cs" />
@@ -60,6 +62,8 @@
     <Compile Include="DAO\Calendar_DAO.cs" />
     <Compile Include="DAO\Connect.cs" />
     <Compile Include="DAO\Customer_DAO.cs" />
+    <Compile Include="DAO\Deposit_DAO.cs" />
+    <Compile Include="DAO\ExportToExcel.cs" />
     <Compile Include="DAO\Kind_of_room_DAO.cs" />
     <Compile Include="DAO\Reservation_DAO.cs" />
     <Compile Include="DAO\Reservation_room_DAO.cs" />
@@ -116,6 +120,12 @@
     <Compile Include="fProfile.Designer.cs">
       <DependentUpon>fProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Bill\fCheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Bill\fCheckOut.Designer.cs">
+      <DependentUpon>fCheckOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Bill\fManage_Bill.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +174,12 @@
     <Compile Include="GUI\Reservation\fCheck_calendar.Designer.cs">
       <DependentUpon>fCheck_calendar.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Reservation\fCheck_deposit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fCheck_deposit.Designer.cs">
+      <DependentUpon>fCheck_deposit.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Reservation\fCheck_room.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +197,12 @@
     </Compile>
     <Compile Include="GUI\Reservation\fDeposit.Designer.cs">
       <DependentUpon>fDeposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Reservation\fHistory_room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fHistory_room.Designer.cs">
+      <DependentUpon>fHistory_room.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Reservation\fManage_reservation.cs">
       <SubType>Form</SubType>
@@ -341,6 +363,9 @@
     <EmbeddedResource Include="GUI\Reservation\fCheck_calendar.resx">
       <DependentUpon>fCheck_calendar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fCheck_deposit.resx">
+      <DependentUpon>fCheck_deposit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Reservation\fCheck_room.resx">
       <DependentUpon>fCheck_room.cs</DependentUpon>
     </EmbeddedResource>
@@ -349,6 +374,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Reservation\fDeposit.resx">
       <DependentUpon>fDeposit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fHistory_room.resx">
+      <DependentUpon>fHistory_room.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Reservation\fManage_reservation.resx">
       <DependentUpon>fManage_reservation.cs</DependentUpon>
@@ -472,6 +500,34 @@
   <ItemGroup>
     <None Include="Resources\ban1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

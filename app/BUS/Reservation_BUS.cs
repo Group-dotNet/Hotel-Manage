@@ -2,6 +2,7 @@
 using app.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,6 +50,29 @@ namespace app.BUS
             }
         }
 
-       
+        public int Insert_Reservation(Reservation_DTO reservation, DateTime end_date, List<Room_DTO> list_room)
+        {
+            try
+            {
+                return Reservation_DAO.Instance.Insert_Reservation(reservation, end_date, list_room);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
+
+        public bool Cancel_Reservation(int id_reservation)
+        {
+            try
+            {
+                return Reservation_DAO.Instance.Cancel_Reservation(id_reservation);
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

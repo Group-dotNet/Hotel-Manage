@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace app.BUS
 {
-    class Calendar_BUS
+    class Deposit_BUS
     {
-        private static Calendar_BUS instance;
+        private static Deposit_BUS instance;
 
-        internal static Calendar_BUS Instance
+        internal static Deposit_BUS Instance
         {
             get
             {
-                if (instance == null) instance = new Calendar_BUS(); return Calendar_BUS.instance;
+                if (instance == null) instance = new Deposit_BUS();  return Deposit_BUS.instance;
             }
 
             private set
@@ -25,14 +25,13 @@ namespace app.BUS
             }
         }
 
-        private Calendar_BUS() { }
+        private Deposit_BUS() { }
 
-
-        public List<Calendar_DTO> GetListCalendar()
+        public int CountDepositReservation(int id_reservation)
         {
             try
             {
-                return Calendar_DAO.Instance.GetListCalendar();
+                return Deposit_DAO.Instance.CountDepositReservation(id_reservation);
             }
             catch
             {
@@ -40,24 +39,11 @@ namespace app.BUS
             }
         }
 
-        public Calendar_DTO GetCalendarReservationUsing(int id_reservation)
+        public double Check_Deposit_Old(int id_reservation)
         {
             try
             {
-                return Calendar_DAO.Instance.GetCalendarReservationUsing(id_reservation);
-            }
-            catch
-            {
-                throw new Exception("Error!");
-            }
-        }
-       
-
-        public Calendar_DTO GetInfoCalendar(int id_calendar)
-        {
-            try
-            {
-                return Calendar_DAO.Instance.GetInfoCalendar(id_calendar);
+                return Deposit_DAO.Instance.Check_Deposit_Old(id_reservation);
             }
             catch
             {
@@ -65,11 +51,11 @@ namespace app.BUS
             }
         }
 
-        public List<Calendar_DTO> GetListCalendarReservation(int id_reservation)
+        public bool InsertDeposit(int id_reservation, double deposit, bool confirm)
         {
             try
             {
-                return Calendar_DAO.Instance.GetListCalendarReservation(id_reservation);
+                return Deposit_DAO.Instance.InsertDeposit(id_reservation, deposit, confirm);
             }
             catch
             {
@@ -77,11 +63,23 @@ namespace app.BUS
             }
         }
 
-        public Calendar_DTO GetInfoCalendarLaster(int id_reservation)
+        public Deposit_DTO GetInfoDepositUsing(int id_reservation)
         {
             try
             {
-                return Calendar_DAO.Instance.GetInfoCalendarLaster(id_reservation);
+                return Deposit_DAO.Instance.GetInfoDepositUsing(id_reservation);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public List<Deposit_DTO> GetListDepositReservation(int id_reservation)
+        {
+            try
+            {
+                return Deposit_DAO.Instance.GetListDepositReservation(id_reservation);
             }
             catch
             {

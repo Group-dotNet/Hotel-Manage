@@ -42,9 +42,16 @@
             this.cb_search = new System.Windows.Forms.ComboBox();
             this.dgv_reservation = new System.Windows.Forms.DataGridView();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.ptb_export = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.ptb_print = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.btn_refresh = new System.Windows.Forms.Button();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_add = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.lb_status = new System.Windows.Forms.Label();
@@ -72,13 +79,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.ptb_export = new System.Windows.Forms.PictureBox();
-            this.ptb_print = new System.Windows.Forms.PictureBox();
-            this.btn_refresh = new System.Windows.Forms.Button();
-            this.btn_back = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
-            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_check_deposit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -86,6 +87,8 @@
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_reservation)).BeginInit();
             this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -98,8 +101,6 @@
             this.panel9.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -135,6 +136,7 @@
             // panel18
             // 
             this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel18.Controls.Add(this.btn_check_deposit);
             this.panel18.Controls.Add(this.btn_calendar);
             this.panel18.Controls.Add(this.btn_service);
             this.panel18.Controls.Add(this.btn_room);
@@ -147,27 +149,32 @@
             // 
             // btn_calendar
             // 
-            this.btn_calendar.Location = new System.Drawing.Point(344, 3);
+            this.btn_calendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_calendar.Location = new System.Drawing.Point(267, 6);
             this.btn_calendar.Name = "btn_calendar";
-            this.btn_calendar.Size = new System.Drawing.Size(145, 44);
+            this.btn_calendar.Size = new System.Drawing.Size(120, 40);
             this.btn_calendar.TabIndex = 3;
             this.btn_calendar.Text = "Check Calendar";
             this.btn_calendar.UseVisualStyleBackColor = true;
+            this.btn_calendar.Click += new System.EventHandler(this.btn_calendar_Click);
             // 
             // btn_service
             // 
-            this.btn_service.Location = new System.Drawing.Point(178, 3);
+            this.btn_service.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_service.Location = new System.Drawing.Point(141, 6);
             this.btn_service.Name = "btn_service";
-            this.btn_service.Size = new System.Drawing.Size(145, 44);
+            this.btn_service.Size = new System.Drawing.Size(120, 40);
             this.btn_service.TabIndex = 2;
             this.btn_service.Text = "Check Service";
             this.btn_service.UseVisualStyleBackColor = true;
+            this.btn_service.Click += new System.EventHandler(this.btn_service_Click);
             // 
             // btn_room
             // 
-            this.btn_room.Location = new System.Drawing.Point(15, 3);
+            this.btn_room.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_room.Location = new System.Drawing.Point(15, 6);
             this.btn_room.Name = "btn_room";
-            this.btn_room.Size = new System.Drawing.Size(145, 44);
+            this.btn_room.Size = new System.Drawing.Size(120, 40);
             this.btn_room.TabIndex = 1;
             this.btn_room.Text = "Check Room";
             this.btn_room.UseVisualStyleBackColor = true;
@@ -175,12 +182,14 @@
             // 
             // btn_chechout
             // 
-            this.btn_chechout.Location = new System.Drawing.Point(505, 4);
+            this.btn_chechout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_chechout.Location = new System.Drawing.Point(520, 6);
             this.btn_chechout.Name = "btn_chechout";
-            this.btn_chechout.Size = new System.Drawing.Size(145, 44);
+            this.btn_chechout.Size = new System.Drawing.Size(120, 40);
             this.btn_chechout.TabIndex = 0;
             this.btn_chechout.Text = "Check Out";
             this.btn_chechout.UseVisualStyleBackColor = true;
+            this.btn_chechout.Click += new System.EventHandler(this.btn_chechout_Click);
             // 
             // panel17
             // 
@@ -201,6 +210,7 @@
             this.btn_search.TabIndex = 2;
             this.btn_search.Text = "Search";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // txt_search
             // 
@@ -212,6 +222,13 @@
             // cb_search
             // 
             this.cb_search.FormattingEnabled = true;
+            this.cb_search.Items.AddRange(new object[] {
+            "ID Reservation",
+            "ID Room",
+            "Customer",
+            "Staff",
+            "Start date",
+            "End date"});
             this.cb_search.Location = new System.Drawing.Point(221, 8);
             this.cb_search.Name = "cb_search";
             this.cb_search.Size = new System.Drawing.Size(121, 21);
@@ -219,7 +236,8 @@
             // 
             // dgv_reservation
             // 
-            this.dgv_reservation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_reservation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_reservation.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_reservation.Location = new System.Drawing.Point(3, 91);
             this.dgv_reservation.Name = "dgv_reservation";
             this.dgv_reservation.Size = new System.Drawing.Size(655, 301);
@@ -237,6 +255,18 @@
             this.panel13.Size = new System.Drawing.Size(655, 36);
             this.panel13.TabIndex = 2;
             // 
+            // ptb_export
+            // 
+            this.ptb_export.BackgroundImage = global::app.Properties.Resources.export;
+            this.ptb_export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptb_export.Image = global::app.Properties.Resources.print1600;
+            this.ptb_export.InitialImage = global::app.Properties.Resources.print1600;
+            this.ptb_export.Location = new System.Drawing.Point(578, 3);
+            this.ptb_export.Name = "ptb_export";
+            this.ptb_export.Size = new System.Drawing.Size(28, 28);
+            this.ptb_export.TabIndex = 2;
+            this.ptb_export.TabStop = false;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -245,6 +275,18 @@
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Total record:";
+            // 
+            // ptb_print
+            // 
+            this.ptb_print.BackgroundImage = global::app.Properties.Resources.print1600;
+            this.ptb_print.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptb_print.Image = global::app.Properties.Resources.print1600;
+            this.ptb_print.InitialImage = global::app.Properties.Resources.print1600;
+            this.ptb_print.Location = new System.Drawing.Point(612, 3);
+            this.ptb_print.Name = "ptb_print";
+            this.ptb_print.Size = new System.Drawing.Size(28, 28);
+            this.ptb_print.TabIndex = 0;
+            this.ptb_print.TabStop = false;
             // 
             // panel4
             // 
@@ -271,6 +313,85 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(283, 57);
             this.panel12.TabIndex = 8;
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.BackgroundImage = global::app.Properties.Resources.refresh_icon;
+            this.btn_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_refresh.FlatAppearance.BorderSize = 0;
+            this.btn_refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_refresh.ForeColor = System.Drawing.Color.Black;
+            this.btn_refresh.Location = new System.Drawing.Point(3, 3);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(48, 48);
+            this.btn_refresh.TabIndex = 4;
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // btn_back
+            // 
+            this.btn_back.BackgroundImage = global::app.Properties.Resources.home_icon;
+            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_back.FlatAppearance.BorderSize = 0;
+            this.btn_back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.ForeColor = System.Drawing.Color.Black;
+            this.btn_back.Location = new System.Drawing.Point(219, 4);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(48, 48);
+            this.btn_back.TabIndex = 3;
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.BackgroundImage = global::app.Properties.Resources.ban1;
+            this.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_delete.FlatAppearance.BorderSize = 0;
+            this.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete.ForeColor = System.Drawing.Color.Black;
+            this.btn_delete.Location = new System.Drawing.Point(165, 4);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(48, 48);
+            this.btn_delete.TabIndex = 2;
+            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.BackgroundImage = global::app.Properties.Resources.edit_icon;
+            this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_edit.FlatAppearance.BorderSize = 0;
+            this.btn_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_edit.ForeColor = System.Drawing.Color.Black;
+            this.btn_edit.Location = new System.Drawing.Point(111, 3);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(48, 48);
+            this.btn_edit.TabIndex = 1;
+            this.btn_edit.UseVisualStyleBackColor = true;
+            // 
+            // btn_add
+            // 
+            this.btn_add.BackgroundImage = global::app.Properties.Resources.add_icon;
+            this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_add.FlatAppearance.BorderSize = 0;
+            this.btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add.ForeColor = System.Drawing.Color.Black;
+            this.btn_add.Location = new System.Drawing.Point(57, 4);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(48, 48);
+            this.btn_add.TabIndex = 0;
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // panel6
             // 
@@ -432,6 +553,7 @@
             this.btn_details.TabIndex = 5;
             this.btn_details.Text = "See details";
             this.btn_details.UseVisualStyleBackColor = true;
+            this.btn_details.Click += new System.EventHandler(this.btn_details_Click);
             // 
             // panel8
             // 
@@ -527,104 +649,16 @@
             this.label1.Text = "Manage Reservation";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // ptb_export
+            // btn_check_deposit
             // 
-            this.ptb_export.BackgroundImage = global::app.Properties.Resources.export;
-            this.ptb_export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptb_export.Image = global::app.Properties.Resources.print1600;
-            this.ptb_export.InitialImage = global::app.Properties.Resources.print1600;
-            this.ptb_export.Location = new System.Drawing.Point(578, 3);
-            this.ptb_export.Name = "ptb_export";
-            this.ptb_export.Size = new System.Drawing.Size(28, 28);
-            this.ptb_export.TabIndex = 2;
-            this.ptb_export.TabStop = false;
-            // 
-            // ptb_print
-            // 
-            this.ptb_print.BackgroundImage = global::app.Properties.Resources.print1600;
-            this.ptb_print.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptb_print.Image = global::app.Properties.Resources.print1600;
-            this.ptb_print.InitialImage = global::app.Properties.Resources.print1600;
-            this.ptb_print.Location = new System.Drawing.Point(612, 3);
-            this.ptb_print.Name = "ptb_print";
-            this.ptb_print.Size = new System.Drawing.Size(28, 28);
-            this.ptb_print.TabIndex = 0;
-            this.ptb_print.TabStop = false;
-            // 
-            // btn_refresh
-            // 
-            this.btn_refresh.BackgroundImage = global::app.Properties.Resources.refresh_icon;
-            this.btn_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_refresh.FlatAppearance.BorderSize = 0;
-            this.btn_refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_refresh.ForeColor = System.Drawing.Color.Black;
-            this.btn_refresh.Location = new System.Drawing.Point(3, 3);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(48, 48);
-            this.btn_refresh.TabIndex = 4;
-            this.btn_refresh.UseVisualStyleBackColor = true;
-            // 
-            // btn_back
-            // 
-            this.btn_back.BackgroundImage = global::app.Properties.Resources.home_icon;
-            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_back.FlatAppearance.BorderSize = 0;
-            this.btn_back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_back.ForeColor = System.Drawing.Color.Black;
-            this.btn_back.Location = new System.Drawing.Point(219, 4);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(48, 48);
-            this.btn_back.TabIndex = 3;
-            this.btn_back.UseVisualStyleBackColor = true;
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.BackgroundImage = global::app.Properties.Resources.ban1;
-            this.btn_delete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_delete.FlatAppearance.BorderSize = 0;
-            this.btn_delete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_delete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delete.ForeColor = System.Drawing.Color.Black;
-            this.btn_delete.Location = new System.Drawing.Point(165, 4);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(48, 48);
-            this.btn_delete.TabIndex = 2;
-            this.btn_delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_edit
-            // 
-            this.btn_edit.BackgroundImage = global::app.Properties.Resources.refresh_passwords_512;
-            this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_edit.FlatAppearance.BorderSize = 0;
-            this.btn_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_edit.ForeColor = System.Drawing.Color.Black;
-            this.btn_edit.Location = new System.Drawing.Point(111, 3);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(48, 48);
-            this.btn_edit.TabIndex = 1;
-            this.btn_edit.UseVisualStyleBackColor = true;
-            // 
-            // btn_add
-            // 
-            this.btn_add.BackgroundImage = global::app.Properties.Resources.add_icon;
-            this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_add.FlatAppearance.BorderSize = 0;
-            this.btn_add.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.ForeColor = System.Drawing.Color.Black;
-            this.btn_add.Location = new System.Drawing.Point(57, 4);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(48, 48);
-            this.btn_add.TabIndex = 0;
-            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_check_deposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_check_deposit.Location = new System.Drawing.Point(393, 6);
+            this.btn_check_deposit.Name = "btn_check_deposit";
+            this.btn_check_deposit.Size = new System.Drawing.Size(120, 40);
+            this.btn_check_deposit.TabIndex = 4;
+            this.btn_check_deposit.Text = "Check Deposit";
+            this.btn_check_deposit.UseVisualStyleBackColor = true;
+            this.btn_check_deposit.Click += new System.EventHandler(this.btn_check_deposit_Click);
             // 
             // fManage_reservation
             // 
@@ -644,6 +678,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_reservation)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -665,8 +701,6 @@
             this.panel14.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -724,5 +758,6 @@
         private System.Windows.Forms.Button btn_chechout;
         private System.Windows.Forms.Button btn_calendar;
         private System.Windows.Forms.Button btn_service;
+        private System.Windows.Forms.Button btn_check_deposit;
     }
 }

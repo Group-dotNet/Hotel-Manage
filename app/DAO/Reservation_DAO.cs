@@ -58,6 +58,34 @@ namespace app.DAO
             return reservation;
         }
 
-       
+        public int Insert_Reservation(Reservation_DTO reservation, DateTime end_date, List<Room_DTO> list_room)
+        {
+            string query = "exec USP_InsertReservation @id_customer , @is_group , @people , @username , @end_date";
+            int x = (int)Connect.Instance.ExecuteOutPut(query, new object[] { reservation.Customer.Id_customer, reservation.Is_group, reservation.People, reservation.Staff.Username, end_date });
+            foreach (Room_DTO room in list_room)
+            {
+                string query_room = "exec USP_InsertReservationRoom @id_reservation , @id_room";
+                Connect.Instance.ExecuteNonQuery(query_room, new object[] { x, room.Id_room });
+            }
+            return x;
+
+        }
+
+        public bool Cancel_Reservation(int id_reservation)
+        {
+            string query = "exec USP_CancelReservation @id_reservation";
+            Connect.Instance.ExecuteNonQuery(query, new object[] { id_reservation });
+            return true;
+        }
+
+       //public List<Reservation_DTO> Search_Reservation(int id_type, string keyword)
+       // {
+       //     string query = "exec USP_SearchReservation @id_type , @keyword";
+       //     DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { id_type, keyword });
+       //     foreach (DataRow item in table.Rows)
+       //     {
+
+       //     }
+       // }
     }
 }

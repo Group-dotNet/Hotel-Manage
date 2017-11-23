@@ -50,7 +50,7 @@ namespace app.DAO
         public int Get_Max_Floor()
         {
             string query = "exec USP_GetMaxFloor";
-            int x = (int)Connect.Instance.ExecuteScalar(query);
+            int x = (int)Connect.Instance.ExecuteOutPut(query);
             return x;
         }
 

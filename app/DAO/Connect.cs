@@ -151,27 +151,44 @@ namespace app.DAO
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="parameter"></param>
+        /// <param name="type"> 1: int, 2 string , 3: datetime , </param>
+        /// <returns></returns>
+        public object ExecuteOutPut(string query, object[] parameter = null )
+        {
+            object data = null;
+            using (SqlConnection connect = new SqlConnection(str_connect))
+            {
+                connect.Open();
+                string[] split = query.Split(' ');
+                SqlCommand cmd = new SqlCommand(split[1] , connect);
+                cmd.CommandType = CommandType.StoredProcedure;
+                
+                if (parameter != null)
+                {
+                    string[] listpara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listpara)
+                    {
+                        if (item.Contains("@"))
+                        {
+                            cmd.Parameters.AddWithValue(item, parameter[i]).Direction = ParameterDirection.Input;
+                            i++;
+                        }
+                    }
 
-        //public object ExecuteOutPut(string name_stord_procedure, object[] parameter = null, object[] value = null)
-        //{
-        //    object data = null;
-        //    using (SqlConnection connect = new SqlConnection(str_connect))
-        //    {
-        //        connect.Open();
-        //        SqlCommand cmd = new SqlCommand(name_stord_procedure, connect);
-        //        cmd.CommandType = CommandType.StoredProcedure;
-        //        if (parameter != null)
-        //        {
-        //            foreach (object item in parameter)
-        //            {
-        //                cmd.Parameters.Add()
-        //            }
-        //        }
-        //        data = cmd.ExecuteNonQuery();
-        //        connect.Close();
-        //    }
-        //    return data;
-        //}
+                }
+                cmd.Parameters.Add("@retParam", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.ReturnValue;
+                cmd.ExecuteNonQuery();
+                data = cmd.Parameters["@retParam"].Value;
+                
+            }
+            return data;
+        }
 
     }
 }

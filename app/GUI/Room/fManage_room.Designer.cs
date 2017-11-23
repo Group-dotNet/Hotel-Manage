@@ -33,6 +33,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lb_datetime = new System.Windows.Forms.Label();
             this.cb_fittel = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.pn_room = new System.Windows.Forms.FlowLayoutPanel();
@@ -78,7 +79,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lb_datetime = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -140,6 +140,15 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(647, 33);
             this.panel6.TabIndex = 3;
+            // 
+            // lb_datetime
+            // 
+            this.lb_datetime.AutoSize = true;
+            this.lb_datetime.Location = new System.Drawing.Point(19, 9);
+            this.lb_datetime.Name = "lb_datetime";
+            this.lb_datetime.Size = new System.Drawing.Size(49, 13);
+            this.lb_datetime.TabIndex = 2;
+            this.lb_datetime.Text = "Datetime";
             // 
             // cb_fittel
             // 
@@ -310,6 +319,7 @@
             this.btn_back.Size = new System.Drawing.Size(48, 48);
             this.btn_back.TabIndex = 3;
             this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // btn_delete
             // 
@@ -518,6 +528,7 @@
             this.btn_details.TabIndex = 5;
             this.btn_details.Text = "See details";
             this.btn_details.UseVisualStyleBackColor = true;
+            this.btn_details.Click += new System.EventHandler(this.btn_details_Click);
             // 
             // panel10
             // 
@@ -606,15 +617,6 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(136, 22);
             this.toolStripMenuItem2.Text = "Add Stuff";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // lb_datetime
-            // 
-            this.lb_datetime.AutoSize = true;
-            this.lb_datetime.Location = new System.Drawing.Point(19, 9);
-            this.lb_datetime.Name = "lb_datetime";
-            this.lb_datetime.Size = new System.Drawing.Size(49, 13);
-            this.lb_datetime.TabIndex = 2;
-            this.lb_datetime.Text = "Datetime";
             // 
             // fManage_room
             // 

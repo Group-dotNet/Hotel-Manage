@@ -36,6 +36,11 @@ namespace app.DAO
             return x == 1;
         }
 
+        /// <summary>
+        /// Lấy ra các dịch vụ trong 1 phòng
+        /// </summary>
+        /// <param name="id_room"> mã phòng</param>
+        /// <returns>Danh sách các dịch vu</returns>
         public List<Service_ticket_DTO> Get_ListService(int id_room)
         {
             string query = "exec USP_Get_ListServiceTicket_Room @id_room";
@@ -43,11 +48,33 @@ namespace app.DAO
             List<Service_ticket_DTO> list_service_ticket = new List<Service_ticket_DTO>();
             foreach (DataRow item in table.Rows)
             {
-                Service_ticket_DTO service_ticket = new Service_ticket_DTO(item);
+                Service_ticket_DTO service_ticket = new Service_ticket_DTO();
+
+
                 list_service_ticket.Add(service_ticket);
             }
 
             return list_service_ticket;
+        }
+
+        public List<Service_ticket_DTO> Get_ListServiceReservation(int id_reservation)
+        {
+            string query = "exec USP_GetListServiceReservation @id_reservation";
+            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { id_reservation });
+            List<Service_ticket_DTO> list_service_reservation = new List<Service_ticket_DTO>();
+            foreach (DataRow item in table.Rows)
+            {
+                Service_ticket_DTO service = new Service_ticket_DTO();
+                service.Reservation_room.Id_reservation_room = (int)item["id_reservation_room"];
+                service.Reservation_room.Room.Id_room = (int)item["id_room"];
+                service.Service.Id_service = (int)item["id_service"];
+                service.Service.Name_service = item["name_service"].ToString();
+                service.Service.Price = (decimal)item["price"];
+                service.Number = (int)item["number"];
+                service.Date_use = (DateTime)item["date_use"];
+                list_service_reservation.Add(service);
+            }
+            return list_service_reservation;
         }
     }
 }

@@ -9,12 +9,14 @@ namespace app.DTO
     class Deposit_DTO
     {
         private int m_id_deposit;
-        private Reservation_DTO m_reservation;
+        private Reservation_DTO m_reservation = new Reservation_DTO();
         private double m_deposit;
         private bool m_confirm;
         private DateTime m_created_confirm;
-        private bool m_logged;
+        private bool m_locked;
         private string m_note;
+
+        public Deposit_DTO() { }
 
         public int Id_deposit
         {
@@ -81,18 +83,7 @@ namespace app.DTO
             }
         }
 
-        public bool Logged
-        {
-            get
-            {
-                return m_logged;
-            }
-
-            set
-            {
-                m_logged = value;
-            }
-        }
+        
 
         public string Note
         {
@@ -104,6 +95,19 @@ namespace app.DTO
             set
             {
                 m_note = value;
+            }
+        }
+
+        public bool Locked
+        {
+            get
+            {
+                return m_locked;
+            }
+
+            set
+            {
+                m_locked = value;
             }
         }
     }

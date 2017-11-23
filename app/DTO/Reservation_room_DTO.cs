@@ -11,7 +11,7 @@ namespace app.DTO
         private int m_id_reservation_room;
         private Reservation_DTO m_reservation = new Reservation_DTO();
         private Room_DTO m_room = new Room_DTO();
-        private bool m_using;
+        private int m_using;
 
         public Reservation_room_DTO() { }
 
@@ -28,7 +28,9 @@ namespace app.DTO
             }
         }
 
-        public bool Using
+  
+
+        public int Using
         {
             get
             {

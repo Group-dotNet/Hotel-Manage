@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace app.BUS
 {
-    class Service_ticket_BUS
+    class Reservation_room_BUS
     {
-        private static Service_ticket_BUS instance;
+        private static Reservation_room_BUS instance;
 
-        internal static Service_ticket_BUS Instance
+        internal static Reservation_room_BUS Instance
         {
             get
             {
-                if (instance == null) instance = new Service_ticket_BUS(); return Service_ticket_BUS.instance;
+                if (instance == null) instance = new Reservation_room_BUS(); return Reservation_room_BUS.instance;
             }
 
             private set
@@ -25,13 +25,13 @@ namespace app.BUS
             }
         }
 
-        private Service_ticket_BUS() { }
+        private Reservation_room_BUS() { }
 
-        public List<Service_ticket_DTO> Get_ListService(int id_room)
+        public List<Reservation_room_DTO> Get_ListReservation_Using(int id_reservation)
         {
             try
             {
-                return Service_ticket_DAO.Instance.Get_ListService(id_room);
+                return Reservation_room_DAO.Instance.Get_ListReservation_Using(id_reservation);
             }
             catch
             {
@@ -39,11 +39,11 @@ namespace app.BUS
             }
         }
 
-        public bool Change_Service(Service_ticket_DTO service_ticket)
+        public List<Reservation_room_DTO> GetListHistoryRoom(int id_reservation)
         {
             try
             {
-                return Service_ticket_DAO.Instance.Change_Service(service_ticket);
+                return Reservation_room_DAO.Instance.GetListHistoryRoom(id_reservation);
             }
             catch
             {
@@ -51,11 +51,11 @@ namespace app.BUS
             }
         }
 
-        public List<Service_ticket_DTO> Get_ListServiceReservation(int id_reservation)
+        public Reservation_room_DTO GetInfoReservationRoom(int id_room)
         {
             try
             {
-                return Service_ticket_DAO.Instance.Get_ListServiceReservation(id_reservation);
+                return Reservation_room_DAO.Instance.GetInfoReservationRoom(id_room);
             }
             catch
             {

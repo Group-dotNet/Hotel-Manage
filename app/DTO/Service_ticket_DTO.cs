@@ -23,10 +23,6 @@ namespace app.DTO
             this.number = number;
             this.Date_use = date;
         }
-        public Service_ticket_DTO(DataRow service_ticket)
-        {
-
-        }
 
 
         internal Service_DTO Service

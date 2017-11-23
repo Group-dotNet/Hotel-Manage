@@ -14,7 +14,7 @@ namespace app.DTO
         private int m_num_floor;
         private int m_num_order;
         private Kind_of_room_DTO m_kind_of_room = new Kind_of_room_DTO();
-        private bool m_logged;
+        private bool m_locked;
         private string m_username;
 
 
@@ -30,7 +30,7 @@ namespace app.DTO
             this.Kind_of_room.Name = room["name"].ToString();
             this.Kind_of_room.Price = (decimal)room["price"];
             this.Kind_of_room.People = (int)room["people"];
-            this.Logged = (bool)room["logged"];
+            this.Locked = (bool)room["locked"];
             this.Username = room["username"].ToString();
         }
 
@@ -86,18 +86,7 @@ namespace app.DTO
             }
         }
 
-        public bool Logged
-        {
-            get
-            {
-                return m_logged;
-            }
 
-            set
-            {
-                m_logged = value;
-            }
-        }
 
         public string Username
         {
@@ -109,6 +98,19 @@ namespace app.DTO
             set
             {
                 m_username = value;
+            }
+        }
+
+        public bool Locked
+        {
+            get
+            {
+                return m_locked;
+            }
+
+            set
+            {
+                m_locked = value;
             }
         }
     }

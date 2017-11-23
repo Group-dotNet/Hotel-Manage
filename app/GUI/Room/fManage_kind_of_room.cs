@@ -39,7 +39,7 @@ namespace app.GUI.Room
             if (this.choose_kor != 0)
                 kor.Id = this.Choose_kor;
             kor.Name = txt_name.Text;
-            kor.Price = (decimal)nud_people.Value;
+            kor.Price = (decimal)nud_price.Value;
             kor.People = (int)nud_people.Value;
             return kor;
         }

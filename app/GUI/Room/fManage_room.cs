@@ -33,7 +33,7 @@ namespace app.GUI.Room
                 String room = "Room " + item.Num_floor.ToString() + item.Num_order.ToString("00");
                 String type = item.Kind_of_room.Name.ToString();
                 btn.Text = room + Environment.NewLine + type ;
-                if (item.Logged == true) btn.BackColor = Color.Red;
+                if (item.Locked == true) btn.BackColor = Color.Red;
                 else btn.BackColor = Color.Aqua;
 
                 btn.Click += btn_Click;
@@ -45,6 +45,10 @@ namespace app.GUI.Room
                 pn_room.Controls.Add(btn);
             }
 
+            if (this.choose_floor <= 1) btn_prev.Hide();
+            if (this.choose_floor >= Room_BUS.Instance.Get_Max_Floor()) btn_next.Hide();
+            lb_num_floor.Text = "Floor " + this.choose_floor.ToString();
+            cb_fittel.SelectedIndex = 0;
         }
 
         private void ReLoad_Page()
@@ -96,8 +100,29 @@ namespace app.GUI.Room
  
             int id_room = (int)((sender as Button).Tag as Room_DTO).Id_room;
             this.room = id_room;
-            
-            MessageBox.Show(id_room.ToString());
+
+            Room_DTO room = Room_BUS.Instance.Get_Info_Room(this.room);
+            if(room.Locked == true)
+            {
+                Calendar_DTO calendar = Calendar_BUS.Instance.GetInfoCalendarLaster(this.room);
+                Reservation_room_DTO reservation_room = Reservation_room_BUS.Instance.GetInfoReservationRoom(this.room);
+                Reservation_DTO reservation = Reservation_BUS.Instance.GetInfoReservation(reservation_room.Reservation.Id_reservation);
+                lb_name.Text = reservation.Customer.Name.ToString();
+                lb_reservation.Text = reservation_room.Reservation.Id_reservation.ToString();
+                lb_startdate.Text = calendar.Start_date.ToString();
+                lb_end_date.Text = calendar.End_date.ToString();
+                lb_type_room.Text = room.Kind_of_room.Name.ToString();
+                lb_people.Text = room.Kind_of_room.People.ToString();
+            }
+            else
+            {
+                lb_name.Text = "Nope";
+                lb_reservation.Text = "Nope";
+                lb_startdate.Text = "Nope";
+                lb_end_date.Text = "Nope";
+                lb_type_room.Text = room.Kind_of_room.Name.ToString();
+                lb_people.Text = room.Kind_of_room.People.ToString();
+            }
         }
 
       
@@ -107,10 +132,7 @@ namespace app.GUI.Room
         private void fManage_room_Load(object sender, EventArgs e)
         {
             LoadData(1);
-            if (this.choose_floor <= 1) btn_prev.Hide();
-            if (this.choose_floor >= Room_BUS.Instance.Get_Max_Floor()) btn_next.Hide();
-            lb_num_floor.Text = "Floor " + this.choose_floor.ToString();
-            cb_fittel.SelectedIndex = 0;
+          
         }
 
         private void btn_prev_Click(object sender, EventArgs e)
@@ -153,11 +175,13 @@ namespace app.GUI.Room
         {
             fAdd_room frm = new fAdd_room();
             frm.ShowDialog();
+            Resert_Buton();
             this.ReLoad_Page();
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
+            Resert_Buton();
             this.ReLoad_Page();
         }
 
@@ -165,10 +189,18 @@ namespace app.GUI.Room
         {
             if(this.Room > 0)
             {
-                fEdit_room frm = new fEdit_room();
-                frm.Id_room = this.room;
-                frm.ShowDialog();
-                this.ReLoad_Page();
+                if(Room_BUS.Instance.Get_Info_Room(this.room).Locked == false)
+                {
+                    fEdit_room frm = new fEdit_room();
+                    frm.Id_room = this.room;
+                    frm.ShowDialog();
+                    this.ReLoad_Page();
+                }
+                else
+                {
+                    MessageBox.Show("Error! Room is using!");
+                    this.room = 0;
+                }
             }
             else
             {
@@ -206,6 +238,26 @@ namespace app.GUI.Room
             GUI.Stuff.fStuff_detail frm = new Stuff.fStuff_detail();
             frm.Id_room = this.Room;
             frm.ShowDialog();
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_details_Click(object sender, EventArgs e)
+        {
+            if(this.room != 0)
+            {
+                fRoom_info frm = new fRoom_info();
+                frm.Id_room = this.room;
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("You must select room!");
+                this.room = 0;
+            }
         }
     }
 }

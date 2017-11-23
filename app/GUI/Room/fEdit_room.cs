@@ -103,6 +103,11 @@ namespace app.GUI.Room
                     MessageBox.Show("Edit room is success!");
                     this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("Error! Room using active!");
+                    this.Close();
+                }
             }
         }
 
