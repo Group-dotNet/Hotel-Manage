@@ -15,7 +15,7 @@ namespace app.DTO
         {
         }
 
-        public Stuff_DTO(int id_stuff, string name_stuff)
+        public Stuff_DTO(int id_stuff, string name_stuff) // Sử dụng hàn này
         {
             this.m_id_stuff = id_stuff;
             this.m_name_stuff = name_stuff;

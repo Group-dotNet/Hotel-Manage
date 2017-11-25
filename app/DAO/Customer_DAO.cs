@@ -1,6 +1,7 @@
 ﻿using app.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,13 +35,22 @@ namespace app.DAO
         //      
         //@Return:
         //    Customer_DTO  --- Trả về 1 khách hàng
-        public Customer_DTO Get_Info(int id_customer)
+        public Customer_DTO Get_Info(int id_customer)// Xong
         {
-            Customer_DTO customer = new Customer_DTO();
+            string query = "exec USP_GetInfo @id_customer";
+            DataTable Customer_info = Connect.Instance.ExecuteQuery(query, new object[] { id_customer });
+
+            Customer_DTO customer = null;
+
+            // Đỗi tượng DataRow là từng dòng trong đối tượng DataTable 
+            // (Có thể bỏ vòng lặp này do số lượng dòng ta cấn truy xuất bằng 1 hoặc 0)
+            foreach (DataRow item in Customer_info.Rows)
+            {
+                customer = new Customer_DTO(item);// cái này thiết Item
+            }
+
             return customer;
         }
-
-
         //@Description:
         //      Lấy ra danh sách khách hàng trong bảng
         //@Parameter
@@ -49,9 +59,17 @@ namespace app.DAO
         //      
         //@Return:
         //    List<Customer_DTO>  --- Trả về 1 danh sách các khách hàng
-        public List<Customer_DTO> Get_List()
+        public List<Customer_DTO> Get_List() // Xong
         {
+            string query = "exec USP_GetList";
+            DataTable List_customer = Connect.Instance.ExecuteQuery(query);
+
             List<Customer_DTO> list_customer = new List<Customer_DTO>();
+            foreach (DataRow item in List_customer.Rows)
+            {
+                Customer_DTO customer = new Customer_DTO(item);//thieu item
+                list_customer.Add(customer);
+            }
             return list_customer;
         }
 
@@ -64,12 +82,23 @@ namespace app.DAO
         //      
         //@Return:
         //    boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Add_Customer(Customer_DTO customer)
+
+        //    @name NVARCHAR(100),
+        //@sex bit,
+        //@identity_card VARCHAR(20),
+        //@address nvarchar(200),
+        //@email varchar(80),
+        //@phone varchar(11),
+        //@company nvarchar(50),
+        //@id_history int
+        public bool Add_Customer(Customer_DTO customer)//Sửa lại
         {
-            return true;
+            string query = "exec USP_InsertCustomer @customer"; // cái này viết sai tham số, điền đây đủ như trên
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { customer.Name, });// dưới này tướng ưng với từng tham số | tham khảo Staff, 
+            return x == 1;
         }
 
-
+        //Cậu dừng sửa têm hàm của tớ nha! hệ thông đã chạy theo ten của tớ đặt
         //@Description:
         //      Chỉnh sửa 1 khách hàng bằng id
         //@Parameter
@@ -79,9 +108,12 @@ namespace app.DAO
         //      
         //@Return:
         //    boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Edit_Customer(Customer_DTO customer, int id)
+        public bool Edit_Customer(Customer_DTO customer, int id) // Sửa lại
         {
-            return true;
+            string query = "exec USP_EditCustomer @customer , @id ";// cái nàu cung jaor suaw tham só
+            int record = Connect.Instance.ExecuteNonQuery(query, new object[] { customer, id });
+
+            return record == 1;
         }
 
 
@@ -89,15 +121,17 @@ namespace app.DAO
         //@Description:
         //     Khóa 1 Khách bằng id. (Cập nhật lại trạng thái history)
         //@Parameter
-        //    Customer_DTO customer  --------Tham số nhập là 1 vật tư
-        //    int id           -------- Mã vật tư     
+        //    @username string 
+        //         
         //@Proc: 
-        //      
+        //     USP_BanAccount 
         //@Return:
         //   boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Lock_Customer(int id)
+        public bool Lock_Customer(string username)// Hàm này tui quên chưa chỉnh sưa cho đúng databse hien tại | Nhung cũng xong rùi!
         {
-            return true;
+            string query = "exec USP_BanAccount @username";
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { username });
+            return x == 1;
         }
 
 
@@ -110,10 +144,11 @@ namespace app.DAO
         //      
         //@Return:
         //    List<Customer_DTO>   ------------ Trả về danh sách thỏa mãn
-        public List<Customer_DTO> Search_Customer(String keyword, int type_search)
+        public List<Customer_DTO> Search_Customer(String keyword, int type_search) // Viết tiếp
         {
-            List<Customer_DTO> list_serch_customer = new List<Customer_DTO>();
-            return list_serch_customer;
+            List<Customer_DTO> list_search_customer = new List<Customer_DTO>();
+            return list_search_customer;
         }
     }
 }
+

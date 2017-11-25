@@ -12,6 +12,10 @@ namespace app.DTO
 
         public Customer_DTO() { }
 
+        public Customer_DTO(DataRow customer)// Cậu phải viêt  thêm hàm này , theo dõi File Staff_DTO, và video bài 5 nhé
+        {
+
+        }
 
         private int m_id_customer;
         private string m_name;

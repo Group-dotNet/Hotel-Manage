@@ -24,7 +24,7 @@ namespace app.DTO
             this.Image = image;
         }
 
-        public Staff_DTO(DataRow Staff)
+        public Staff_DTO(DataRow Staff) // Dộc qua để viết Custmer
         {
             this.Username = Staff["username"].ToString();
             this.Name = Staff["displayname"].ToString();

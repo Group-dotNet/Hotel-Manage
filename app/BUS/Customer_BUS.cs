@@ -132,11 +132,11 @@ namespace app.BUS
         //    Customer_DAO.Instance.Lock_Customer(id);
         //@Return:
         //   boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Lock_Customer(int id)
+        public bool Lock_Customer(string username)
         {
             try
             {
-                return Customer_DAO.Instance.Lock_Customer(id);
+                return Customer_DAO.Instance.Lock_Customer(username);
             }
             catch
             {
