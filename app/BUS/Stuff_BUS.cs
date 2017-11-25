@@ -65,7 +65,7 @@ namespace app.BUS
         {
             try
             {
-                return Stuff_DAO.Instance.Get_List();
+                return Stuff_DAO.Instance.List_Stuff();
             }
             catch
             {
@@ -101,18 +101,18 @@ namespace app.BUS
         //      Bắt lỗi hàm Chỉnh sửa 1 vật tư bằng id
         //@Parameter
         //    Stuff_DTO stuff  --------Tham số nhập là 1 vật tư
-        //    int id           -------- Mã vật tư     
+        //      
         //@Proc: 
         //      
         //@Call:
         //    Stuff_DAO.Instance.Edit_Stuff(stuff, id);
         //@Return:
         //    boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Edit_Stuff(Stuff_DTO stuff, int id)
+        public bool Edit_Stuff(Stuff_DTO stuff)
         {
             try
             {
-                return Stuff_DAO.Instance.Edit_Stuff(stuff, id);
+                return Stuff_DAO.Instance.Edit_Stuff(stuff);
             }
             catch
             {

@@ -12,6 +12,19 @@ namespace app.DTO
 
         public Customer_DTO() { }
 
+        public Customer_DTO(DataRow customer)// Cậu phải viêt  thêm hàm này , theo dõi File Staff_DTO, và video bài 5 nhé
+        {
+            this.Id_customer= (int)customer["id"];
+            this.Name = customer["name"].ToString();
+            this.Sex = (bool)customer["sex"];
+            this.Identity_card = customer["identity_card"].ToString();
+            this.Address = customer["adress"].ToString();
+            this.Email = customer["email"].ToString();
+            this.Phone = customer["phone"].ToString();
+            this.Company = customer["company"].ToString();
+            this.Id_history = (int)customer["id_history"];
+
+        }
 
         private int m_id_customer;
         private string m_name;
