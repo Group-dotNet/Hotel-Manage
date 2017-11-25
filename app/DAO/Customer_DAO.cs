@@ -93,8 +93,8 @@ namespace app.DAO
         //@id_history int
         public bool Add_Customer(Customer_DTO customer)//Sửa lại
         {
-            string query = "exec USP_InsertCustomer @customer"; // cái này viết sai tham số, điền đây đủ như trên
-            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { customer.Name, });// dưới này tướng ưng với từng tham số | tham khảo Staff, 
+            string query = "exec USP_InsertCustomer @name , @sex , @identity_card , @address , @email , @phone , @company , @id_history "; // cái này viết sai tham số, điền đây đủ như trên
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { customer.Name, customer.Sex, customer.Identity_card, customer.Address, customer.Email, customer.Phone, customer.Company, customer.Id_history});// dưới này tướng ưng với từng tham số | tham khảo Staff, 
             return x == 1;
         }
 
@@ -110,9 +110,8 @@ namespace app.DAO
         //    boolean  ------------Thành công trả về true, thất bại trả về false;
         public bool Edit_Customer(Customer_DTO customer, int id) // Sửa lại
         {
-            string query = "exec USP_EditCustomer @customer , @id ";// cái nàu cung jaor suaw tham só
-            int record = Connect.Instance.ExecuteNonQuery(query, new object[] { customer, id });
-
+            string query = "exec USP_EditCustomer @id_customer , @name , @sex , @identity_card , @address , @email , @phone , @company , @id_history ";// cái nàu cung jaor suaw tham só
+            int record = Connect.Instance.ExecuteNonQuery(query, new object[] { customer.Id_customer, customer.Name, customer.Sex, customer.Identity_card, customer.Address, customer.Email, customer.Phone, customer.Company, customer.Id_history });
             return record == 1;
         }
 
@@ -146,8 +145,17 @@ namespace app.DAO
         //    List<Customer_DTO>   ------------ Trả về danh sách thỏa mãn
         public List<Customer_DTO> Search_Customer(String keyword, int type_search) // Viết tiếp
         {
-            List<Customer_DTO> list_search_customer = new List<Customer_DTO>();
-            return list_search_customer;
+            string query = "exec USP_SearchCustomer";//cái này có vấn đề nhé thếu tham só vào!. để tớ sửa lại cho, chút ý lần sau nhé
+            DataTable List_customer = Connect.Instance.ExecuteQuery(query);
+
+            List<Customer_DTO> list_customer = new List<Customer_DTO>();
+            foreach (DataRow item in List_customer.Rows)
+            {
+                Customer_DTO customer = new Customer_DTO(item);//thieu item
+                list_customer.Add(customer);
+            }
+            return list_customer;
+
         }
     }
 }

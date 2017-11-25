@@ -169,8 +169,16 @@ namespace app.DAO
         {
             //cái này chưa xong?
 
-            List<Stuff_DTO> list_search_stuff = new List<Stuff_DTO>();
-            return list_search_stuff;
+            string query = "exec USP_SearchStuff";
+            DataTable List_stuff = Connect.Instance.ExecuteQuery(query);
+
+            List<Stuff_DTO> list_stuff = new List<Stuff_DTO>();
+            foreach (DataRow item in List_stuff.Rows)
+            {
+                Stuff_DTO stuff = new Stuff_DTO((int)item["id_stuff"], item["name_stuff"].ToString());
+                list_stuff.Add(stuff);
+            }
+            return list_stuff;
         }
     }
 }
