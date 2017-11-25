@@ -32,6 +32,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel18 = new System.Windows.Forms.Panel();
+            this.btn_check_deposit = new System.Windows.Forms.Button();
             this.btn_calendar = new System.Windows.Forms.Button();
             this.btn_service = new System.Windows.Forms.Button();
             this.btn_room = new System.Windows.Forms.Button();
@@ -79,7 +80,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_check_deposit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -141,11 +141,22 @@
             this.panel18.Controls.Add(this.btn_service);
             this.panel18.Controls.Add(this.btn_room);
             this.panel18.Controls.Add(this.btn_chechout);
-            this.panel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel18.Location = new System.Drawing.Point(3, 397);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(655, 53);
             this.panel18.TabIndex = 5;
+            // 
+            // btn_check_deposit
+            // 
+            this.btn_check_deposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_check_deposit.Location = new System.Drawing.Point(393, 6);
+            this.btn_check_deposit.Name = "btn_check_deposit";
+            this.btn_check_deposit.Size = new System.Drawing.Size(120, 40);
+            this.btn_check_deposit.TabIndex = 4;
+            this.btn_check_deposit.Text = "Check Deposit";
+            this.btn_check_deposit.UseVisualStyleBackColor = true;
+            this.btn_check_deposit.Click += new System.EventHandler(this.btn_check_deposit_Click);
             // 
             // btn_calendar
             // 
@@ -221,6 +232,7 @@
             // 
             // cb_search
             // 
+            this.cb_search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_search.FormattingEnabled = true;
             this.cb_search.Items.AddRange(new object[] {
             "ID Reservation",
@@ -376,6 +388,7 @@
             this.btn_edit.Size = new System.Drawing.Size(48, 48);
             this.btn_edit.TabIndex = 1;
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_add
             // 
@@ -648,17 +661,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Manage Reservation";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // btn_check_deposit
-            // 
-            this.btn_check_deposit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_check_deposit.Location = new System.Drawing.Point(393, 6);
-            this.btn_check_deposit.Name = "btn_check_deposit";
-            this.btn_check_deposit.Size = new System.Drawing.Size(120, 40);
-            this.btn_check_deposit.TabIndex = 4;
-            this.btn_check_deposit.Text = "Check Deposit";
-            this.btn_check_deposit.UseVisualStyleBackColor = true;
-            this.btn_check_deposit.Click += new System.EventHandler(this.btn_check_deposit_Click);
             // 
             // fManage_reservation
             // 

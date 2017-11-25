@@ -40,6 +40,7 @@
             this.roomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.billToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analyticToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -56,7 +57,6 @@
             this.lb_status = new System.Windows.Forms.Label();
             this.lb_name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -156,6 +156,14 @@
             this.billToolStripMenuItem.Name = "billToolStripMenuItem";
             this.billToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.billToolStripMenuItem.Text = "Bill";
+            this.billToolStripMenuItem.Click += new System.EventHandler(this.billToolStripMenuItem_Click);
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.testToolStripMenuItem.Text = "test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // analyticToolStripMenuItem
             // 
@@ -304,13 +312,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.testToolStripMenuItem.Text = "test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // fMain
             // 

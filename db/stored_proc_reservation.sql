@@ -1,4 +1,4 @@
-use hotel
+﻿use hotel
 
 go
 
@@ -62,7 +62,7 @@ BEGIN
 	return @id_reservation
 END
 
-
+exec USP_GetInfoReservationRoom 1
 go
 
 --exec USP_CancelReservation 14
@@ -130,6 +130,25 @@ begin
 	end
 end
 
+go
+
+create proc USP_CheckConfirmBillByReservation
+@id_reservation int
+as
+begin
+	declare @return int
+	if(exists(select * from Bill where id_bill = @id_reservation and confirm = 1))
+	begin
+		set @return = 1
+		return @return
+	end
+	else
+	begin
+		set @return = 0
+		return @return
+	end
+end
+exec USP_CheckConfirmBillByReservation  1
 
 
 --select * from Reservation

@@ -78,6 +78,13 @@ namespace app.DAO
             return true;
         }
 
+        public bool CheckConfirmBillByReservation(int id_reservation)
+        {
+            string query = "exec USP_CheckConfirmBillByReservation @id_reservation";
+            int x = (int)Connect.Instance.ExecuteOutPut(query, new object[] { id_reservation });
+            return x == 1;
+        }
+
        //public List<Reservation_DTO> Search_Reservation(int id_type, string keyword)
        // {
        //     string query = "exec USP_SearchReservation @id_type , @keyword";

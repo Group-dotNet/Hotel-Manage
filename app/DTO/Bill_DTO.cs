@@ -11,8 +11,12 @@ namespace app.DTO
         private int m_id_bill;
         private DateTime m_created;
         private double m_total_money;
-        private Reservation_DTO m_reservation;
-        private Staff_DTO m_staff;
+        private Reservation_DTO m_reservation = new Reservation_DTO();
+        private Staff_DTO m_staff = new Staff_DTO();
+        private bool m_confirm;
+        private string m_note;
+
+        public Bill_DTO() { }
 
         public int Id_bill
         {
@@ -76,6 +80,32 @@ namespace app.DTO
             set
             {
                 m_staff = value;
+            }
+        }
+
+        public bool Confirm
+        {
+            get
+            {
+                return m_confirm;
+            }
+
+            set
+            {
+                m_confirm = value;
+            }
+        }
+
+        public string Note
+        {
+            get
+            {
+                return m_note;
+            }
+
+            set
+            {
+                m_note = value;
             }
         }
     }

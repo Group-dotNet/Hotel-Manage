@@ -8,31 +8,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace app.GUI.Other
+namespace app.GUI.Bill
 {
-    public partial class Calculator : Form
+    public partial class fBill_info : Form
     {
-        public Calculator()
+        public fBill_info()
         {
             InitializeComponent();
         }
 
-        private double money;
+        private int id_bill;
 
-        public double Money
+        public int Id_bill
         {
             get
             {
-                return money;
+                return id_bill;
             }
 
             set
             {
-                money = value;
+                id_bill = value;
             }
         }
 
-        private void Calculator_Load(object sender, EventArgs e)
+        private void fBill_info_Load(object sender, EventArgs e)
         {
 
         }

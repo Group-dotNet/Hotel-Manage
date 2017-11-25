@@ -104,8 +104,9 @@ namespace app.GUI.Room
             Room_DTO room = Room_BUS.Instance.Get_Info_Room(this.room);
             if(room.Locked == true)
             {
-                Calendar_DTO calendar = Calendar_BUS.Instance.GetInfoCalendarLaster(this.room);
+                
                 Reservation_room_DTO reservation_room = Reservation_room_BUS.Instance.GetInfoReservationRoom(this.room);
+                Calendar_DTO calendar = Calendar_BUS.Instance.GetInfoCalendarLaster(reservation_room.Reservation.Id_reservation);
                 Reservation_DTO reservation = Reservation_BUS.Instance.GetInfoReservation(reservation_room.Reservation.Id_reservation);
                 lb_name.Text = reservation.Customer.Name.ToString();
                 lb_reservation.Text = reservation_room.Reservation.Id_reservation.ToString();

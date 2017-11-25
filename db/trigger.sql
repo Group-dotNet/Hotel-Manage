@@ -1,0 +1,4 @@
+use hotel
+
+go
+

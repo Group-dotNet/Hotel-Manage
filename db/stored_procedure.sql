@@ -1,4 +1,4 @@
-use hotel
+﻿use hotel
 
 go
 
@@ -270,9 +270,10 @@ create proc USP_GetInfoCalendarLaster
 @id_reservation int
 as
 begin
-	select top 1 *from Calendar where id_reservation = @id_reservation  order by id_reservation
+	select top 1 *from Calendar where id_reservation = @id_reservation  order by id_reservation desc
 end
 
+go
 
 create proc USP_GetListCalendar 
 as 
@@ -430,11 +431,11 @@ end
 
 go
 
-Create Proc  USP_GetListServiceReservation
+create Proc  USP_GetListServiceReservation
 @id_reservation int
 as
 begin
-	select * from (Service_ticket as a join Service as b on a.id_service = b.id_service) join Reservation_room as c on a.id_reservation_room = c.id_reservation_room where c.id_reservation = @id_reservation
+	select * from (Service_ticket as a join Service as b on a.id_service = b.id_service) join Reservation_room as c on a.id_reservation_room = c.id_reservation_room where c.id_reservation = @id_reservation order by c.id_room  asc
 end
 
 GO
@@ -513,6 +514,15 @@ create proc USP_GetListReservationRoom
 as
 begin
 	select * from Reservation_room where id_reservation = @id_reservation
+end
+
+go
+
+create proc USP_GetInfoReservationRoom
+@id_room int 
+as
+begin
+	select * from Reservation_room where id_room = @id_room
 end
 
 go
@@ -656,3 +666,99 @@ begin
 		rollback
 	end
 end
+
+go
+-- stored proc Bill
+
+create proc USP_GetListBill
+as
+begin
+	select * from Bill as a join Reservation as b on a.id_reservation = b.id_reservation 
+end
+
+go
+
+create proc USP_GetInfoBill
+@id_bill int
+as
+begin
+	select * from Bill as a join Reservation as b on a.id_reservation = b.id_reservation  where id_bill = @id_bill
+end
+
+
+go
+
+
+create proc USP_InsertBill
+@id_reservation int,
+@username nvarchar(100)
+as
+begin
+	declare @id_bill int
+	declare @created datetime
+	set @created = GETDATE()
+	if(not exists(select * from Bill where id_reservation = @id_reservation))
+	begin
+		Declare @note NVARCHAR(1000)
+		set @note = convert(varchar(20),getdate(),120) + ': Insert Bill in system'
+		insert into Bill values(@created, 0, @id_reservation, @username, 0, @note)
+		select @id_bill = @@IDENTITY
+	end
+	else
+	begin
+		select @id_bill = id_bill from Bill where id_reservation = @id_reservation
+	end
+	return @id_bill
+end
+
+go
+
+create proc USP_CheckConfirm_Bill
+@id_bill int
+as
+begin
+	if(exists(select * from Bill where id_bill = @id_bill and confirm = 1)) 
+		return 1
+	else
+		return 0
+end
+
+go
+
+create proc USP_UpdateBill
+@id_bill int,
+@total_money money,
+@username nvarchar(100)
+as
+begin
+	if(exists(select * from Bill where id_bill = @id_bill and confirm = 0)) 
+	begin
+		declare @return int
+		declare @created datetime
+		set @created = GETDATE()
+		DECLARE @NewLineChar AS CHAR(2) = CHAR(13) + CHAR(10)
+		Declare @note NVARCHAR(1000)
+		select @note = note from Bill where id_bill = @id_bill
+		set @note = @note + @NewLineChar + convert(varchar(20),getdate(),120) + ': Confirm bill'
+
+		update Bill set total_money = @total_money , username = @username,  confirm = 1 , note = @note where id_bill = @id_bill 
+
+		declare @id_reservation int
+		select @id_reservation = id_reservation from Bill where id_bill = @id_bill
+		update Reservation set status_reservation = 1 where id_reservation = @id_reservation
+
+		update Room set locked = 0 where id_room in (select id_room from Reservation_room where id_reservation = @id_reservation and using = 1)
+		return 1
+	end
+	return 0
+end
+
+-- stored swap room
+
+create proc USP_GetListRoomCancelByReservation
+@id_reservation int
+as
+begin
+	select * from Log_swap_room as a join Reservation_room as b on a.id_reservation_room = b.id_reservation_room where b.id_reservation = @id_reservation and a.id_room_new = 0
+end
+

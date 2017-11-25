@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\Bill_BUS.cs" />
     <Compile Include="BUS\Calendar_BUS.cs" />
     <Compile Include="BUS\Customer_BUS.cs" />
     <Compile Include="BUS\Deposit_BUS.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="BUS\Stuff_BUS.cs" />
     <Compile Include="BUS\Stuff_detail_BUS.cs" />
     <Compile Include="BUS\System_BUS.cs" />
+    <Compile Include="DAO\Bill_DAO.cs" />
     <Compile Include="DAO\Calendar_DAO.cs" />
     <Compile Include="DAO\Connect.cs" />
     <Compile Include="DAO\Customer_DAO.cs" />
@@ -120,6 +122,18 @@
     <Compile Include="fProfile.Designer.cs">
       <DependentUpon>fProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="fUpdate_Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fUpdate_Staff.Designer.cs">
+      <DependentUpon>fUpdate_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Bill\fBill_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Bill\fBill_info.Designer.cs">
+      <DependentUpon>fBill_info.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Bill\fCheckOut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +182,12 @@
     <Compile Include="GUI\Reservation\fAdd_reservation.Designer.cs">
       <DependentUpon>fAdd_reservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Reservation\fChange_calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fChange_calendar.Designer.cs">
+      <DependentUpon>fChange_calendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Reservation\fCheck_calendar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +230,12 @@
     <Compile Include="GUI\Reservation\fManage_reservation.Designer.cs">
       <DependentUpon>fManage_reservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Reservation\fOption_reservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Reservation\fOption_reservation.Designer.cs">
+      <DependentUpon>fOption_reservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Reservation\fReservation_info.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +247,12 @@
     </Compile>
     <Compile Include="GUI\Room\fAdd_room.Designer.cs">
       <DependentUpon>fAdd_room.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Room\fCancel_room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Room\fCancel_room.Designer.cs">
+      <DependentUpon>fCancel_room.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Room\fEdit_room.cs">
       <SubType>Form</SubType>
@@ -245,6 +277,12 @@
     </Compile>
     <Compile Include="GUI\Room\fRoom_info.Designer.cs">
       <DependentUpon>fRoom_info.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Room\fSwap_room.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Room\fSwap_room.Designer.cs">
+      <DependentUpon>fSwap_room.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Service\fAdd_Service.cs">
       <SubType>Form</SubType>
@@ -342,6 +380,15 @@
     <EmbeddedResource Include="fProfile.resx">
       <DependentUpon>fProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fUpdate_Staff.resx">
+      <DependentUpon>fUpdate_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Bill\fBill_info.resx">
+      <DependentUpon>fBill_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Bill\fCheckOut.resx">
+      <DependentUpon>fCheckOut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Bill\fManage_Bill.resx">
       <DependentUpon>fManage_Bill.cs</DependentUpon>
     </EmbeddedResource>
@@ -359,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Reservation\fAdd_reservation.resx">
       <DependentUpon>fAdd_reservation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fChange_calendar.resx">
+      <DependentUpon>fChange_calendar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Reservation\fCheck_calendar.resx">
       <DependentUpon>fCheck_calendar.cs</DependentUpon>
@@ -381,11 +431,17 @@
     <EmbeddedResource Include="GUI\Reservation\fManage_reservation.resx">
       <DependentUpon>fManage_reservation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Reservation\fOption_reservation.resx">
+      <DependentUpon>fOption_reservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Reservation\fReservation_info.resx">
       <DependentUpon>fReservation_info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Room\fAdd_room.resx">
       <DependentUpon>fAdd_room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Room\fCancel_room.resx">
+      <DependentUpon>fCancel_room.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Room\fEdit_room.resx">
       <DependentUpon>fEdit_room.cs</DependentUpon>
@@ -398,6 +454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Room\fRoom_info.resx">
       <DependentUpon>fRoom_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Room\fSwap_room.resx">
+      <DependentUpon>fSwap_room.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Service\fAdd_Service.resx">
       <DependentUpon>fAdd_Service.cs</DependentUpon>
@@ -516,15 +575,6 @@
       <VersionMinor>7</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="VBIDE">
-      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>3</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>

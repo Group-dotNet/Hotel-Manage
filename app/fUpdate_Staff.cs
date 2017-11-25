@@ -8,31 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace app.GUI.Other
+namespace app
 {
-    public partial class Calculator : Form
+    public partial class fUpdate_Staff : Form
     {
-        public Calculator()
+        public fUpdate_Staff()
         {
             InitializeComponent();
         }
+        private string username;
 
-        private double money;
-
-        public double Money
+        public string Username
         {
             get
             {
-                return money;
+                return username;
             }
 
             set
             {
-                money = value;
+                username = value;
             }
         }
 
-        private void Calculator_Load(object sender, EventArgs e)
+        private void fUpdate_Staff_Load(object sender, EventArgs e)
         {
 
         }

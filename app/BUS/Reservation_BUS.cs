@@ -74,5 +74,17 @@ namespace app.BUS
                 return false;
             }
         }
+
+        public bool CheckConfirmBillByReservation(int id_reservation)
+        {
+            try
+            {
+                return Reservation_DAO.Instance.CheckConfirmBillByReservation(id_reservation);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
     }
 }

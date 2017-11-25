@@ -100,8 +100,15 @@ namespace app
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUI.Reservation.fDeposit frm = new GUI.Reservation.fDeposit();
-            frm.Id_reservation = 3;
+            GUI.Bill.fCheckOut  frm = new GUI.Bill.fCheckOut();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
+
+        private void billToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI.Bill.fManage_Bill frm = new GUI.Bill.fManage_Bill();
             this.Hide();
             frm.ShowDialog();
             this.Show();

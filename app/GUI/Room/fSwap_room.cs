@@ -8,31 +8,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace app.GUI.Other
+namespace app.GUI.Room
 {
-    public partial class Calculator : Form
+    public partial class fSwap_room : Form
     {
-        public Calculator()
+        public fSwap_room()
         {
             InitializeComponent();
         }
 
-        private double money;
+        private int id_reservation;
 
-        public double Money
+        public int Id_reservation
         {
             get
             {
-                return money;
+                return id_reservation;
             }
 
             set
             {
-                money = value;
+                id_reservation = value;
             }
         }
 
-        private void Calculator_Load(object sender, EventArgs e)
+        private void fSwap_room_Load(object sender, EventArgs e)
         {
 
         }
