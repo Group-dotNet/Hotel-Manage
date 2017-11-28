@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,13 @@ namespace app.DTO
 
         public Service_DTO() { }
 
+        public Service_DTO(DataRow Service)
+        {
+            this.Id_service = (int)Service["id_service"];
+            this.Name_service = Service["name_service"].ToString();
+            this.Price = (decimal)Service["price"];
+            this.Unit = Service["unit"].ToString();
+        }
         public int Id_service
         {
             get

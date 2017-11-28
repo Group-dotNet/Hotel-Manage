@@ -1,6 +1,7 @@
 ﻿using app.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +16,10 @@ namespace app.DAO
         {
             get
             {
-                return instance;
+                if (instance == null) instance = new Service_DAO(); return Service_DAO.instance;
             }
 
-            set
+            private set
             {
                 instance = value;
             }
@@ -34,7 +35,13 @@ namespace app.DAO
         //    Service_DTO  --- Trả về 1 dịch vụ
         public Service_DTO Get_Info(int id_service)
         {
-            Service_DTO service = new Service_DTO();
+            string query = "exec USP_GetInfoService @id_service";
+            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { id_service });
+            Service_DTO service = null;
+            foreach (DataRow item in table.Rows)
+            {
+                service = new Service_DTO(item);
+            }
             return service;
         }
 
@@ -49,7 +56,14 @@ namespace app.DAO
         //    List<Service_DTO>  --- Trả về 1 danh sách các dịch vụ
         public List<Service_DTO> Get_List()
         {
+            string query = "exec USP_GetListService";
+            DataTable table = Connect.Instance.ExecuteQuery(query);
             List<Service_DTO> list_service = new List<Service_DTO>();
+            foreach (DataRow item in table.Rows)
+            {
+                Service_DTO service = new Service_DTO(item);
+                list_service.Add(service);
+            }
             return list_service;
         }
 
@@ -64,7 +78,9 @@ namespace app.DAO
         //    boolean  ------------Thành công trả về true, thất bại trả về false;
         public bool Add_Service(Service_DTO service)
         {
-            return true;
+            string query = "exec USP_InsertService @name_service , @price , @unit";// exec USP_InsertStuff @name = value , @price = value , @unit =value
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { service.Name_service, service.Price, service.Unit });
+            return x==1;
         }
 
 
@@ -77,9 +93,11 @@ namespace app.DAO
         //      
         //@Return:
         //    boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Edit_Service(Service_DTO service, int id)
+        public bool Edit_Service(Service_DTO service)
         {
-            return true;
+            string query = "exec USP_EditService @id_service , @name_service , @price , @unit";
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { service.Id_service, service.Name_service, service.Price, service.Unit });
+            return x == 1;
         }
 
 
@@ -93,9 +111,11 @@ namespace app.DAO
         //      
         //@Return:
         //   boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Del_Service(int id)
+        public bool Del_Service(int id_service)
         {
-            return true;
+            string query = "exec USP_DelService @id_service";
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { id_service });
+            return x == 1;
         }
 
 
@@ -111,6 +131,11 @@ namespace app.DAO
         //    boolean  ------------Thành công trả về true, thất bại trả về false;
         public bool Del_Mul_Service(List<int> list_id)
         {
+            foreach(int id in list_id)
+            {
+                if (this.Del_Service(id) == false)
+                    return false;
+            }
             return true;
         }
 
@@ -128,7 +153,14 @@ namespace app.DAO
         //    List<Service_DTO>   ------------ Trả về danh sách thỏa mãn
         public List<Service_DTO> Search_Service(String keyword, int type_search)
         {
+            string query = "exec USP_SearchService @keyword , @type";
+            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { keyword, type_search });
             List<Service_DTO> list_Service = new List<Service_DTO>();
+            foreach (DataRow item in table.Rows)
+            {
+                Service_DTO service = new Service_DTO(item);
+                list_Service.Add(service);
+            }
             return list_Service;
         }
     }
