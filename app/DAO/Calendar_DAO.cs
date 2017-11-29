@@ -109,5 +109,11 @@ namespace app.DAO
             return calendar;
         }
 
+        public bool ChangeCalendar(int id_reservation, DateTime end_date_new)
+        {
+            string query = "exec USP_ChangeCalendar @id_reservation , @end_date";
+            int x = (int)Connect.Instance.ExecuteOutPut(query, new object[] { id_reservation, end_date_new });
+            return x == 1;
+        }
     }
 }

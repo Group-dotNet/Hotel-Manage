@@ -33,6 +33,10 @@
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_ok = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lb_rest = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lb_deposit_old = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.cb_confirm = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,10 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lb_deposit_old = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lb_rest = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -81,6 +81,7 @@
             this.btn_back.TabIndex = 1;
             this.btn_back.Text = "Back";
             this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // btn_ok
             // 
@@ -111,6 +112,40 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(274, 266);
             this.panel3.TabIndex = 1;
+            // 
+            // lb_rest
+            // 
+            this.lb_rest.Location = new System.Drawing.Point(133, 159);
+            this.lb_rest.Name = "lb_rest";
+            this.lb_rest.Size = new System.Drawing.Size(122, 20);
+            this.lb_rest.TabIndex = 10;
+            this.lb_rest.Text = "label5";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 159);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 20);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Rest:";
+            // 
+            // lb_deposit_old
+            // 
+            this.lb_deposit_old.Location = new System.Drawing.Point(133, 111);
+            this.lb_deposit_old.Name = "lb_deposit_old";
+            this.lb_deposit_old.Size = new System.Drawing.Size(122, 20);
+            this.lb_deposit_old.TabIndex = 8;
+            this.lb_deposit_old.Text = "label5";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 111);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 20);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Deposit old:";
             // 
             // linkLabel1
             // 
@@ -196,40 +231,6 @@
             this.label1.Size = new System.Drawing.Size(80, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Deposit";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 111);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 20);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "Deposit old:";
-            // 
-            // lb_deposit_old
-            // 
-            this.lb_deposit_old.Location = new System.Drawing.Point(133, 111);
-            this.lb_deposit_old.Name = "lb_deposit_old";
-            this.lb_deposit_old.Size = new System.Drawing.Size(122, 20);
-            this.lb_deposit_old.TabIndex = 8;
-            this.lb_deposit_old.Text = "label5";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 159);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 20);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Rest:";
-            // 
-            // lb_rest
-            // 
-            this.lb_rest.Location = new System.Drawing.Point(133, 159);
-            this.lb_rest.Name = "lb_rest";
-            this.lb_rest.Size = new System.Drawing.Size(122, 20);
-            this.lb_rest.TabIndex = 10;
-            this.lb_rest.Text = "label5";
             // 
             // fDeposit
             // 

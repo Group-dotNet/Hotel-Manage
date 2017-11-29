@@ -51,6 +51,7 @@
     <Compile Include="BUS\Deposit_BUS.cs" />
     <Compile Include="BUS\Function_Other.cs" />
     <Compile Include="BUS\Kind_of_room_BUS.cs" />
+    <Compile Include="BUS\Log_swap_room_BUS.cs" />
     <Compile Include="BUS\Reservation_BUS.cs" />
     <Compile Include="BUS\Reservation_room_BUS.cs" />
     <Compile Include="BUS\Room_BUS.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="DAO\Deposit_DAO.cs" />
     <Compile Include="DAO\ExportToExcel.cs" />
     <Compile Include="DAO\Kind_of_room_DAO.cs" />
+    <Compile Include="DAO\Log_swap_room_DAO.cs" />
     <Compile Include="DAO\Reservation_DAO.cs" />
     <Compile Include="DAO\Reservation_room_DAO.cs" />
     <Compile Include="DAO\Room_DAO.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="DTO\History_customer_DTO.cs" />
     <Compile Include="DTO\Kind_of_room_DTO.cs" />
     <Compile Include="DTO\Log_swap_room.cs" />
+    <Compile Include="DTO\Log_swap_room_DTO.cs" />
     <Compile Include="DTO\Reservation_DTO.cs" />
     <Compile Include="DTO\Reservation_room_DTO.cs" />
     <Compile Include="DTO\Room_DTO.cs" />

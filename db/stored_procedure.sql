@@ -380,8 +380,9 @@ BEGIN
 	BEGIN 
 		update Calendar set status = 2 where id_reservation = @id_reservation and STATUS = 1
 		INSERT into Calendar VALUES (@id_reservation, @start_date, @end_date, GETDATE(), 1)
-		
+		return 1
 	END
+	return 0
 END 
 
 go
@@ -761,4 +762,49 @@ as
 begin
 	select * from Log_swap_room as a join Reservation_room as b on a.id_reservation_room = b.id_reservation_room where b.id_reservation = @id_reservation and a.id_room_new = 0
 end
+
+create proc USP_InsertSwapRoom 
+@id_reservation_room int, 
+@id_new_room int 
+as 
+begin 
+  if(@id_new_room > 0) 
+  begin  
+    if(exists(select * from Room where id_room = @id_new_room and locked = 0)) 
+    begin 
+      declare @kind_of_room int 
+      select @kind_of_room = id_kind_of_room from Kind_of_room as a join Room as b on b.id_kind_of_room = a.id where b.id_room = @id_new_room
+	  if(exists(select * from Room where id_kind_of_room = @kind_of_room))
+	  begin
+		insert into Log_swap_room values(@id_reservation_room, @id_new_room, 1, GETDATE())  
+		declare @id_room_old int 
+		select @id_room_old = id_room from Reservation_room where id_reservation_room = @id_reservation_room 
+		update Room set locked = 0 where id_room = @id_room_old
+		update Room set locked = 1 where id_room = @id_new_room
+		update Reservation_room set using = 0 where id_reservation_room = @id_reservation_room
+		return 1
+	  end
+	  return 0
+    end 
+	return 0
+  end 
+  return 0 
+end 
+
+go
+
+create proc USP_CancelRoom
+@id_reservation int,
+@id_room int
+as
+begin
+	declare @count int
+	select @count = Count(*) from Reservation_room where id_reservation = @id_reseravtion and using = 1 
+	insert into Log_swap_room values(@id_reservation_room, 0, 1, GETDATE()) 
+	declare @id_room_old int 
+	select @id_room_old = id_room from Reservation_room where id_reservation_room = @id_reservation_room 
+	update Room set locked = 0 where id_room = @id_room_old
+	update Reservation_room set using = 0 where id_reservation_room = @id_reservation_room
+end
+
 

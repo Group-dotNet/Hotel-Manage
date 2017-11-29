@@ -41,7 +41,7 @@ namespace app.GUI.Reservation
         {
             if(cb_option.SelectedIndex != -1)
             {
-                if(cb_option.SelectedIndex == 0)
+                if(cb_option.SelectedIndex == 2)
                 {
                     fChange_calendar frm = new fChange_calendar();
                     frm.Id_reservation = this.Id_reservation;

@@ -38,6 +38,8 @@ namespace app.DAO
                 Reservation_room_DTO reservation_room = new Reservation_room_DTO();
                 reservation_room.Id_reservation_room = (int)item["id_reservation_room"];
                 reservation_room.Room.Id_room = (int)item["id_room"];
+                reservation_room.Room.Num_floor = (int)item["num_floor"];
+                reservation_room.Room.Num_order = (int)item["num_order"];
                 reservation_room.Room.Kind_of_room.Name = item["name"].ToString();
                 reservation_room.Room.Kind_of_room.People = (int)item["people"];
                 reservation_room.Room.Kind_of_room.Price = (decimal)item["price"];

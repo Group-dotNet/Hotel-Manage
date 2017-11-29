@@ -88,5 +88,17 @@ namespace app.BUS
                 throw new Exception("Error!");
             }
         }
+
+        public bool ChangeCalendar(int id_reservation, DateTime end_date_new)
+        {
+            try
+            {
+                return Calendar_DAO.Instance.ChangeCalendar(id_reservation, end_date_new);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
     }
 }

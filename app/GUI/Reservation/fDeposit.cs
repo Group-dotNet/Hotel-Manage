@@ -71,7 +71,7 @@ namespace app.GUI.Reservation
 
             
             double xmod = 0;
-            if (calendar.End_date != null)
+            if (calendar.End_date != null) // neu không hen lich se coi nhu 3 ngay
             {
                 TimeSpan interval = calendar.End_date.Subtract(calendar.Start_date);
                 if (interval.Days < 1)
@@ -105,6 +105,40 @@ namespace app.GUI.Reservation
                 total = total + ((double)reservation_room.Room.Kind_of_room.Price * xmod);
             }
 
+            List<Log_swap_room_DTO> list_log = Log_swap_room_BUS.Instance.ListRoomCancel(this.id_reservation);
+            double total_room_cancel = 0;
+            foreach (Log_swap_room_DTO item in list_log)
+            {
+                double xmod2 = 0;
+               
+                TimeSpan interval = item.Created.Subtract(calendar.Start_date);
+                if (interval.Days < 1)
+                {
+                    if (interval.Hours < 2)
+                    {
+                        xmod2 = 0.25;
+                    }
+                    else if (interval.Hours < 6)
+                    {
+                        xmod2 = 0.5;
+                    }
+                    else
+                    {
+                        xmod2 = 1;
+                    }
+                }
+                else
+                {
+                    if (interval.Hours > 6)
+                        xmod2 = interval.Days + 0.5;
+                }
+
+                Room_DTO room = Room_BUS.Instance.Get_Info_Room(item.Reservation_room.Room.Id_room);
+                total_room_cancel = total_room_cancel + ((double)room.Kind_of_room.Price * xmod2);
+                
+            }
+
+            total = total + total_room_cancel;
             return  (total * 0.3);
 
         }
@@ -148,7 +182,7 @@ namespace app.GUI.Reservation
             {
                 if (Deposit_BUS.Instance.InsertDeposit(id_reservation, this.deposit_new, true ))
                 {
-                    MessageBox.Show("Insert reservation is success!");
+                    MessageBox.Show("Success!");
                     this.Close();
                 }
                 else
@@ -162,6 +196,11 @@ namespace app.GUI.Reservation
                     MessageBox.Show("Cancelled Reservation!");
                 }
             }
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
