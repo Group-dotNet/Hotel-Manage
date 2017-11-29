@@ -107,11 +107,11 @@ namespace app.BUS
         //      Service_DAO.Instance.Edit_Service(service, id);
         //@Return:
         //    boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Edit_Service(Service_DTO service, int id)
+        public bool Edit_Service(Service_DTO service)
         {
             try
             {
-                return Service_DAO.Instance.Edit_Service(service, id);
+                return Service_DAO.Instance.Edit_Service(service);
             }
             catch
             {
