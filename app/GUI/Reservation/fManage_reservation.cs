@@ -337,7 +337,7 @@ namespace app.GUI.Reservation
 
         private void cb_status_reservation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.dgv_reservation.DataSource = null;
+
             List<Reservation_DTO> list_resevation = Reservation_BUS.Instance.GetListReservationByFilter(this.cb_status_reservation.SelectedIndex);
             List<Reservation_DGV> list_reservation_dgv = new List<Reservation_DGV>();
             foreach (Reservation_DTO reservation in list_resevation)

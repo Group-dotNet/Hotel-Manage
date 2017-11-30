@@ -104,6 +104,7 @@ namespace app.DAO
                 bill.Note = item["note"].ToString();
                 bill.Created = (DateTime)item["created"];
                 list_bill.Add(bill);
+
             }
             return list_bill;
         }

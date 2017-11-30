@@ -37,9 +37,14 @@
             this.cb_search = new System.Windows.Forms.ComboBox();
             this.dgv_bill = new System.Windows.Forms.DataGridView();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.ptb_export = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.ptb_print = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.btn_refresh = new System.Windows.Forms.Button();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.lb_confirm = new System.Windows.Forms.Label();
@@ -60,11 +65,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.ptb_export = new System.Windows.Forms.PictureBox();
-            this.ptb_print = new System.Windows.Forms.PictureBox();
-            this.btn_refresh = new System.Windows.Forms.Button();
-            this.btn_back = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +76,8 @@
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bill)).BeginInit();
             this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -86,8 +88,6 @@
             this.panel9.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -190,6 +190,18 @@
             this.panel13.Size = new System.Drawing.Size(655, 36);
             this.panel13.TabIndex = 2;
             // 
+            // ptb_export
+            // 
+            this.ptb_export.BackgroundImage = global::app.Properties.Resources.export;
+            this.ptb_export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptb_export.Image = global::app.Properties.Resources.print1600;
+            this.ptb_export.InitialImage = global::app.Properties.Resources.print1600;
+            this.ptb_export.Location = new System.Drawing.Point(578, 3);
+            this.ptb_export.Name = "ptb_export";
+            this.ptb_export.Size = new System.Drawing.Size(28, 28);
+            this.ptb_export.TabIndex = 2;
+            this.ptb_export.TabStop = false;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -198,6 +210,18 @@
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Total record:";
+            // 
+            // ptb_print
+            // 
+            this.ptb_print.BackgroundImage = global::app.Properties.Resources.print1600;
+            this.ptb_print.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptb_print.Image = global::app.Properties.Resources.print1600;
+            this.ptb_print.InitialImage = global::app.Properties.Resources.print1600;
+            this.ptb_print.Location = new System.Drawing.Point(612, 3);
+            this.ptb_print.Name = "ptb_print";
+            this.ptb_print.Size = new System.Drawing.Size(28, 28);
+            this.ptb_print.TabIndex = 0;
+            this.ptb_print.TabStop = false;
             // 
             // panel4
             // 
@@ -222,6 +246,54 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(283, 57);
             this.panel12.TabIndex = 8;
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.BackgroundImage = global::app.Properties.Resources.refresh_icon;
+            this.btn_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_refresh.FlatAppearance.BorderSize = 0;
+            this.btn_refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_refresh.ForeColor = System.Drawing.Color.Black;
+            this.btn_refresh.Location = new System.Drawing.Point(10, 3);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(48, 48);
+            this.btn_refresh.TabIndex = 4;
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // btn_back
+            // 
+            this.btn_back.BackgroundImage = global::app.Properties.Resources.home_icon;
+            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_back.FlatAppearance.BorderSize = 0;
+            this.btn_back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.ForeColor = System.Drawing.Color.Black;
+            this.btn_back.Location = new System.Drawing.Point(226, 4);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(48, 48);
+            this.btn_back.TabIndex = 3;
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.BackgroundImage = global::app.Properties.Resources.credit_cards_icon;
+            this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_edit.FlatAppearance.BorderSize = 0;
+            this.btn_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_edit.ForeColor = System.Drawing.Color.Black;
+            this.btn_edit.Location = new System.Drawing.Point(114, 3);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(48, 48);
+            this.btn_edit.TabIndex = 1;
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // panel6
             // 
@@ -406,81 +478,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Manage Bill";
             // 
-            // ptb_export
-            // 
-            this.ptb_export.BackgroundImage = global::app.Properties.Resources.export;
-            this.ptb_export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptb_export.Image = global::app.Properties.Resources.print1600;
-            this.ptb_export.InitialImage = global::app.Properties.Resources.print1600;
-            this.ptb_export.Location = new System.Drawing.Point(578, 3);
-            this.ptb_export.Name = "ptb_export";
-            this.ptb_export.Size = new System.Drawing.Size(28, 28);
-            this.ptb_export.TabIndex = 2;
-            this.ptb_export.TabStop = false;
-            // 
-            // ptb_print
-            // 
-            this.ptb_print.BackgroundImage = global::app.Properties.Resources.print1600;
-            this.ptb_print.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptb_print.Image = global::app.Properties.Resources.print1600;
-            this.ptb_print.InitialImage = global::app.Properties.Resources.print1600;
-            this.ptb_print.Location = new System.Drawing.Point(612, 3);
-            this.ptb_print.Name = "ptb_print";
-            this.ptb_print.Size = new System.Drawing.Size(28, 28);
-            this.ptb_print.TabIndex = 0;
-            this.ptb_print.TabStop = false;
-            // 
-            // btn_refresh
-            // 
-            this.btn_refresh.BackgroundImage = global::app.Properties.Resources.refresh_icon;
-            this.btn_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_refresh.FlatAppearance.BorderSize = 0;
-            this.btn_refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_refresh.ForeColor = System.Drawing.Color.Black;
-            this.btn_refresh.Location = new System.Drawing.Point(10, 3);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(48, 48);
-            this.btn_refresh.TabIndex = 4;
-            this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
-            // 
-            // btn_back
-            // 
-            this.btn_back.BackgroundImage = global::app.Properties.Resources.home_icon;
-            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_back.FlatAppearance.BorderSize = 0;
-            this.btn_back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_back.ForeColor = System.Drawing.Color.Black;
-            this.btn_back.Location = new System.Drawing.Point(226, 4);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(48, 48);
-            this.btn_back.TabIndex = 3;
-            this.btn_back.UseVisualStyleBackColor = true;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
-            // 
-            // btn_edit
-            // 
-            this.btn_edit.BackgroundImage = global::app.Properties.Resources.credit_cards_icon;
-            this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_edit.FlatAppearance.BorderSize = 0;
-            this.btn_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_edit.ForeColor = System.Drawing.Color.Black;
-            this.btn_edit.Location = new System.Drawing.Point(114, 3);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(48, 48);
-            this.btn_edit.TabIndex = 1;
-            this.btn_edit.UseVisualStyleBackColor = true;
-            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
-            // 
             // id
             // 
-            this.id.DataPropertyName = "Id_bill";
+            this.id.DataPropertyName = "id_bill";
             this.id.HeaderText = "ID Bill";
             this.id.Name = "id";
             // 
@@ -526,6 +526,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bill)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -543,8 +545,6 @@
             this.panel14.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).EndInit();
             this.ResumeLayout(false);
 
         }

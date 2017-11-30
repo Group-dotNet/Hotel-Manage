@@ -59,7 +59,7 @@ namespace app.GUI.Bill
         {
             try
             {
-                int id_bill = (int)dgv_bill.Rows[e.RowIndex].Cells["Id_bill"].Value;
+                int id_bill = (int)dgv_bill.Rows[e.RowIndex].Cells["id"].Value;
                 this.id_bill = id_bill;
 
                 Bill_DTO bill = Bill_BUS.Instance.GetInfoBill(id_bill);
@@ -143,7 +143,7 @@ namespace app.GUI.Bill
 
             if (flat)
             {
-                this.dgv_bill.DataSource = null;
+
                 List<Bill_DTO> list_bill = Bill_BUS.Instance.SearchBill(this.cb_search.SelectedIndex, this.txt_search.Text);
                 List<Bill_DGV> list_bill_dgv = new List<Bill_DGV>();
                 foreach (Bill_DTO bill in list_bill)
