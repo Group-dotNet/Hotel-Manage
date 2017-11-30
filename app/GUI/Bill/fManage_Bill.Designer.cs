@@ -36,6 +36,11 @@
             this.txt_search = new System.Windows.Forms.TextBox();
             this.cb_search = new System.Windows.Forms.ComboBox();
             this.dgv_bill = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel13 = new System.Windows.Forms.Panel();
             this.ptb_export = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -65,11 +70,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_detail = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -178,6 +179,36 @@
             this.dgv_bill.Size = new System.Drawing.Size(655, 361);
             this.dgv_bill.TabIndex = 3;
             this.dgv_bill.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_bill_CellClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id_bill";
+            this.id.HeaderText = "ID Bill";
+            this.id.Name = "id";
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "total";
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "username";
+            this.Column1.HeaderText = "Staff";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "confirm";
+            this.Column2.HeaderText = "Confirm";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "created";
+            this.Column3.HeaderText = "Created";
+            this.Column3.Name = "Column3";
             // 
             // panel13
             // 
@@ -298,6 +329,7 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.btn_detail);
             this.panel6.Controls.Add(this.panel16);
             this.panel6.Controls.Add(this.panel11);
             this.panel6.Controls.Add(this.panel10);
@@ -478,35 +510,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Manage Bill";
             // 
-            // id
+            // btn_detail
             // 
-            this.id.DataPropertyName = "id_bill";
-            this.id.HeaderText = "ID Bill";
-            this.id.Name = "id";
-            // 
-            // Total
-            // 
-            this.Total.DataPropertyName = "total";
-            this.Total.HeaderText = "Total";
-            this.Total.Name = "Total";
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "username";
-            this.Column1.HeaderText = "Staff";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "confirm";
-            this.Column2.HeaderText = "Confirm";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "created";
-            this.Column3.HeaderText = "Created";
-            this.Column3.Name = "Column3";
+            this.btn_detail.Location = new System.Drawing.Point(3, 309);
+            this.btn_detail.Name = "btn_detail";
+            this.btn_detail.Size = new System.Drawing.Size(270, 32);
+            this.btn_detail.TabIndex = 6;
+            this.btn_detail.Text = "Detail";
+            this.btn_detail.UseVisualStyleBackColor = true;
+            this.btn_detail.Click += new System.EventHandler(this.btn_detail_Click);
             // 
             // fManage_Bill
             // 
@@ -593,5 +605,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button btn_detail;
     }
 }

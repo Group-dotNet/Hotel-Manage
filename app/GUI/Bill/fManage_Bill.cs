@@ -78,20 +78,7 @@ namespace app.GUI.Bill
             }
         }
 
-        private void btn_details_Click(object sender, EventArgs e)
-        {
-            if(this.id_bill != 0)
-            {
-                fBill_info frm = new fBill_info();
-                frm.Id_bill = this.Id_bill;
-                frm.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("You must select Bill");
-                this.id_bill = 0;
-            }
-        }
+
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
@@ -152,6 +139,21 @@ namespace app.GUI.Bill
                     list_bill_dgv.Add(bill_dgv);
                 }
                 dgv_bill.DataSource = list_bill_dgv;
+            }
+        }
+
+        private void btn_detail_Click(object sender, EventArgs e)
+        {
+            if (this.id_bill != 0)
+            {
+                fBill_info frm = new fBill_info();
+                frm.Id_bill = this.Id_bill;
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("You must select Bill");
+                this.id_bill = 0;
             }
         }
     }
