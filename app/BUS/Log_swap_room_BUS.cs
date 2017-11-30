@@ -2,6 +2,7 @@
 using app.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,18 @@ namespace app.BUS
                 return Log_swap_room_DAO.Instance.ListRoomCancel(id_reservation);
             }
             catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public bool SwapRoom(int id_reservation_room, int id_room_new)
+        {
+            try
+            {
+                return Log_swap_room_DAO.Instance.SwapRoom(id_reservation_room, id_room_new);
+            }
+            catch(SqlException e)
             {
                 throw new Exception("Error!");
             }

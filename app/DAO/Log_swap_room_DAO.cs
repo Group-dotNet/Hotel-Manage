@@ -37,7 +37,7 @@ namespace app.DAO
             {
                 Log_swap_room_DTO log = new Log_swap_room_DTO();
                 log.Id_log = (int)item["id_log"];
-                log.Reservation_room.Id_reservation_room = (int)item["id_resrvation_room"];
+                log.Reservation_room.Id_reservation_room = (int)item["id_reservation_room"];
                 log.Reservation_room.Room.Id_room = (int)item["id_room"];
                 log.Reservation_room.Reservation.Id_reservation = (int)item["id_reservation"];
                 log.Id_room_new.Id_room = (int)item["id_room_new"];
@@ -46,6 +46,13 @@ namespace app.DAO
                 list_log_swap_room.Add(log);
             }
             return list_log_swap_room;
+        }
+
+        public bool SwapRoom(int id_reservation_room, int id_room_new)
+        {
+            string query = "exec USP_InsertSwapRoom @id_reservation_room , @id_new_room";
+            int x = (int)Connect.Instance.ExecuteOutPut(query, new object[] { id_reservation_room, id_room_new });
+            return x == 1;
         }
     }
 }

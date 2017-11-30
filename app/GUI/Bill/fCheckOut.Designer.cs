@@ -86,6 +86,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -299,11 +302,16 @@
             // 
             // lv_room
             // 
+            this.lv_room.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
             this.lv_room.Location = new System.Drawing.Point(3, 47);
             this.lv_room.Name = "lv_room";
             this.lv_room.Size = new System.Drawing.Size(333, 263);
             this.lv_room.TabIndex = 0;
             this.lv_room.UseCompatibleStateImageBehavior = false;
+            this.lv_room.View = System.Windows.Forms.View.Details;
             // 
             // pan
             // 
@@ -684,6 +692,21 @@
             this.label1.Text = "Check out";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Room";
+            this.columnHeader1.Width = 85;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Price";
+            this.columnHeader2.Width = 139;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Status";
+            this.columnHeader3.Width = 98;
+            // 
             // fCheckOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -797,5 +820,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

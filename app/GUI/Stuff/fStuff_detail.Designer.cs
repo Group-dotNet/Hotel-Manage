@@ -41,7 +41,6 @@
             this.btn_commit = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.txt_type_room = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.nud_number = new System.Windows.Forms.NumericUpDown();
@@ -53,6 +52,7 @@
             this.lb_room = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.txt_type_room = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -186,14 +186,6 @@
             this.panel10.Size = new System.Drawing.Size(256, 44);
             this.panel10.TabIndex = 2;
             // 
-            // txt_type_room
-            // 
-            this.txt_type_room.Enabled = false;
-            this.txt_type_room.Location = new System.Drawing.Point(109, 8);
-            this.txt_type_room.Name = "txt_type_room";
-            this.txt_type_room.Size = new System.Drawing.Size(134, 26);
-            this.txt_type_room.TabIndex = 1;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -216,9 +208,19 @@
             // nud_number
             // 
             this.nud_number.Location = new System.Drawing.Point(109, 9);
+            this.nud_number.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.nud_number.Name = "nud_number";
             this.nud_number.Size = new System.Drawing.Size(135, 26);
             this.nud_number.TabIndex = 1;
+            this.nud_number.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label2
             // 
@@ -295,6 +297,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Stuff detail";
             // 
+            // txt_type_room
+            // 
+            this.txt_type_room.Enabled = false;
+            this.txt_type_room.Location = new System.Drawing.Point(109, 8);
+            this.txt_type_room.Name = "txt_type_room";
+            this.txt_type_room.Size = new System.Drawing.Size(134, 26);
+            this.txt_type_room.TabIndex = 1;
+            // 
             // fStuff_detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,7 +348,6 @@
         private System.Windows.Forms.Button btn_commit;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox txt_type_room;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.NumericUpDown nud_number;
@@ -350,5 +359,6 @@
         private System.Windows.Forms.Label lb_room;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_type_room;
     }
 }

@@ -29,10 +29,10 @@ namespace app.DAO
         private Service_ticket_DAO() { }
 
 
-        public bool Change_Service(Service_ticket_DTO  service_ticket)
+        public bool Change_Service(int id_room, int id_service, int number, DateTime date_use)
         {
-            string query = "exec USP_InsertServiceTikcket @id_reservation , @id_room , @id_service , @number , @date_use";
-            int x = Connect.Instance.ExecuteNonQuery(query, new object[] {});
+            string query = "exec USP_InsertServiceTikcket @id_room , @id_service , @number , @date_use";
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { id_room, id_service, number, date_use });
             return x == 1;
         }
 
@@ -49,7 +49,14 @@ namespace app.DAO
             foreach (DataRow item in table.Rows)
             {
                 Service_ticket_DTO service_ticket = new Service_ticket_DTO();
-
+                service_ticket.Reservation_room.Id_reservation_room = (int)item["id_reservation_room"];
+                service_ticket.Reservation_room.Reservation.Id_reservation = (int)item["id_reservation"];
+                service_ticket.Reservation_room.Room.Id_room = (int)item["id_room"];
+                service_ticket.Service.Id_service = (int)item["id_service"];
+                service_ticket.Service.Name_service = item["name_service"].ToString();
+                service_ticket.Service.Price = ((decimal)item["price"]);
+                service_ticket.Number = (int)item["number"];
+                service_ticket.Date_use = (DateTime)item["date_use"];
 
                 list_service_ticket.Add(service_ticket);
             }

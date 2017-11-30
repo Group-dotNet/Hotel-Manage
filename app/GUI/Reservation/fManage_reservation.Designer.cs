@@ -38,10 +38,17 @@
             this.btn_room = new System.Windows.Forms.Button();
             this.btn_chechout = new System.Windows.Forms.Button();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.cb_status_reservation = new System.Windows.Forms.ComboBox();
             this.btn_search = new System.Windows.Forms.Button();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.cb_search = new System.Windows.Forms.ComboBox();
             this.dgv_reservation = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.group = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.people = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel13 = new System.Windows.Forms.Panel();
             this.ptb_export = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,7 +76,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.lb_start_date = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btn_details = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lb_customer = new System.Windows.Forms.Label();
             this.lb = new System.Windows.Forms.Label();
@@ -205,6 +211,7 @@
             // panel17
             // 
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel17.Controls.Add(this.cb_status_reservation);
             this.panel17.Controls.Add(this.btn_search);
             this.panel17.Controls.Add(this.txt_search);
             this.panel17.Controls.Add(this.cb_search);
@@ -212,6 +219,22 @@
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(655, 40);
             this.panel17.TabIndex = 4;
+            // 
+            // cb_status_reservation
+            // 
+            this.cb_status_reservation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_status_reservation.FormattingEnabled = true;
+            this.cb_status_reservation.Items.AddRange(new object[] {
+            "Complete",
+            "Unpaid bills",
+            "No deposit",
+            "Cancel",
+            "All"});
+            this.cb_status_reservation.Location = new System.Drawing.Point(3, 6);
+            this.cb_status_reservation.Name = "cb_status_reservation";
+            this.cb_status_reservation.Size = new System.Drawing.Size(121, 21);
+            this.cb_status_reservation.TabIndex = 3;
+            this.cb_status_reservation.SelectedIndexChanged += new System.EventHandler(this.cb_status_reservation_SelectedIndexChanged);
             // 
             // btn_search
             // 
@@ -248,13 +271,56 @@
             // 
             // dgv_reservation
             // 
-            this.dgv_reservation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_reservation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_reservation.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_reservation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.customer,
+            this.group,
+            this.people,
+            this.staff,
+            this.status});
             this.dgv_reservation.Location = new System.Drawing.Point(3, 91);
             this.dgv_reservation.Name = "dgv_reservation";
             this.dgv_reservation.Size = new System.Drawing.Size(655, 301);
             this.dgv_reservation.TabIndex = 3;
             this.dgv_reservation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_reservation_CellClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id_reservation";
+            this.id.HeaderText = "ID Reservation";
+            this.id.Name = "id";
+            // 
+            // customer
+            // 
+            this.customer.DataPropertyName = "customer";
+            this.customer.HeaderText = "Customer";
+            this.customer.Name = "customer";
+            // 
+            // group
+            // 
+            this.group.DataPropertyName = "is_group";
+            this.group.HeaderText = "Is Group";
+            this.group.Name = "group";
+            // 
+            // people
+            // 
+            this.people.DataPropertyName = "people";
+            this.people.HeaderText = "People";
+            this.people.Name = "people";
+            // 
+            // staff
+            // 
+            this.staff.DataPropertyName = "staff";
+            this.staff.HeaderText = "Staff";
+            this.staff.Name = "staff";
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
             // 
             // panel13
             // 
@@ -414,7 +480,6 @@
             this.panel6.Controls.Add(this.panel11);
             this.panel6.Controls.Add(this.panel10);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Controls.Add(this.btn_details);
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel9);
             this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -557,16 +622,6 @@
             this.label5.Size = new System.Drawing.Size(79, 16);
             this.label5.TabIndex = 0;
             this.label5.Text = "Start date:";
-            // 
-            // btn_details
-            // 
-            this.btn_details.Location = new System.Drawing.Point(3, 311);
-            this.btn_details.Name = "btn_details";
-            this.btn_details.Size = new System.Drawing.Size(270, 31);
-            this.btn_details.TabIndex = 5;
-            this.btn_details.Text = "See details";
-            this.btn_details.UseVisualStyleBackColor = true;
-            this.btn_details.Click += new System.EventHandler(this.btn_details_Click);
             // 
             // panel8
             // 
@@ -727,7 +782,6 @@
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btn_details;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label lb_customer;
         private System.Windows.Forms.Label lb;
@@ -761,5 +815,12 @@
         private System.Windows.Forms.Button btn_calendar;
         private System.Windows.Forms.Button btn_service;
         private System.Windows.Forms.Button btn_check_deposit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn group;
+        private System.Windows.Forms.DataGridViewTextBoxColumn people;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.ComboBox cb_status_reservation;
     }
 }

@@ -41,11 +41,11 @@ namespace app.BUS
             }
         }
 
-        public bool Get_Commit(Stuff_detail_DTO stuff_detail)
+        public bool Get_Commit(int id_stuff, int id_kind_of_room, int number)
         {
             try
             {
-                return Stuff_detail_DAO.Instance.Get_Commit(stuff_detail);
+                return Stuff_detail_DAO.Instance.Get_Commit(id_stuff, id_kind_of_room, number);
             }
             catch
             {

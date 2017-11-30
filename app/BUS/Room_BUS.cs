@@ -2,6 +2,7 @@
 using app.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -105,6 +106,30 @@ namespace app.BUS
             try
             {
                 return Room_DAO.Instance.Get_Info_Room(id_room);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public int CancelRoomInReservation(int id_reservation, int id_room)
+        {
+            try
+            {
+                return Room_DAO.Instance.CancelRoomInReservation(id_reservation, id_room);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public List<Room_DTO> List_Room_By_Type(int id_kind_of_room)
+        {
+            try
+            {
+                return Room_DAO.Instance.List_Room_By_Type(id_kind_of_room);
             }
             catch
             {

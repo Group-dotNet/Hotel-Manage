@@ -52,6 +52,7 @@
             this.lb_room = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -71,16 +72,16 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(683, 312);
+            this.panel1.Size = new System.Drawing.Size(900, 312);
             this.panel1.TabIndex = 0;
             // 
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.lv_service_ticket);
-            this.panel5.Location = new System.Drawing.Point(280, 48);
+            this.panel5.Location = new System.Drawing.Point(305, 48);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(400, 258);
+            this.panel5.Size = new System.Drawing.Size(592, 258);
             this.panel5.TabIndex = 2;
             // 
             // lv_service_ticket
@@ -89,11 +90,12 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
+            this.columnHeader6,
             this.columnHeader4,
             this.columnHeader5});
             this.lv_service_ticket.Location = new System.Drawing.Point(3, 3);
             this.lv_service_ticket.Name = "lv_service_ticket";
-            this.lv_service_ticket.Size = new System.Drawing.Size(394, 247);
+            this.lv_service_ticket.Size = new System.Drawing.Size(584, 247);
             this.lv_service_ticket.TabIndex = 0;
             this.lv_service_ticket.UseCompatibleStateImageBehavior = false;
             this.lv_service_ticket.View = System.Windows.Forms.View.Details;
@@ -132,7 +134,7 @@
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(4, 48);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(270, 258);
+            this.panel3.Size = new System.Drawing.Size(299, 258);
             this.panel3.TabIndex = 1;
             // 
             // panel7
@@ -143,24 +145,25 @@
             this.panel7.Controls.Add(this.btn_commit);
             this.panel7.Location = new System.Drawing.Point(3, 166);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(264, 84);
+            this.panel7.Size = new System.Drawing.Size(291, 84);
             this.panel7.TabIndex = 4;
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(91, 45);
+            this.btn_back.Location = new System.Drawing.Point(100, 45);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(170, 31);
+            this.btn_back.Size = new System.Drawing.Size(182, 31);
             this.btn_back.TabIndex = 2;
             this.btn_back.Text = "Back";
             this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(96, 14);
+            this.label3.Location = new System.Drawing.Point(97, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(163, 18);
+            this.label3.Size = new System.Drawing.Size(185, 18);
             this.label3.TabIndex = 1;
             this.label3.Text = "Tổng tiền: 0";
             // 
@@ -172,6 +175,7 @@
             this.btn_commit.TabIndex = 0;
             this.btn_commit.Text = "Commit";
             this.btn_commit.UseVisualStyleBackColor = true;
+            this.btn_commit.Click += new System.EventHandler(this.btn_commit_Click);
             // 
             // panel6
             // 
@@ -180,7 +184,7 @@
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Location = new System.Drawing.Point(3, 54);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(264, 106);
+            this.panel6.Size = new System.Drawing.Size(291, 106);
             this.panel6.TabIndex = 3;
             // 
             // panel9
@@ -190,15 +194,27 @@
             this.panel9.Controls.Add(this.label2);
             this.panel9.Location = new System.Drawing.Point(3, 53);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(256, 44);
+            this.panel9.Size = new System.Drawing.Size(283, 44);
             this.panel9.TabIndex = 2;
             // 
             // nud_number
             // 
             this.nud_number.Location = new System.Drawing.Point(96, 9);
+            this.nud_number.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.nud_number.Name = "nud_number";
-            this.nud_number.Size = new System.Drawing.Size(148, 26);
+            this.nud_number.Size = new System.Drawing.Size(182, 26);
             this.nud_number.TabIndex = 1;
+            this.nud_number.UseWaitCursor = true;
+            this.nud_number.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nud_number.ValueChanged += new System.EventHandler(this.nud_number_ValueChanged);
             // 
             // label2
             // 
@@ -216,7 +232,7 @@
             this.panel8.Controls.Add(this.Service);
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(256, 44);
+            this.panel8.Size = new System.Drawing.Size(283, 44);
             this.panel8.TabIndex = 0;
             // 
             // cb_service
@@ -226,7 +242,7 @@
             this.cb_service.FormattingEnabled = true;
             this.cb_service.Location = new System.Drawing.Point(96, 8);
             this.cb_service.Name = "cb_service";
-            this.cb_service.Size = new System.Drawing.Size(148, 28);
+            this.cb_service.Size = new System.Drawing.Size(182, 28);
             this.cb_service.TabIndex = 1;
             // 
             // Service
@@ -244,14 +260,14 @@
             this.panel4.Controls.Add(this.lb_room);
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(264, 45);
+            this.panel4.Size = new System.Drawing.Size(291, 45);
             this.panel4.TabIndex = 2;
             // 
             // lb_room
             // 
             this.lb_room.Location = new System.Drawing.Point(26, 11);
             this.lb_room.Name = "lb_room";
-            this.lb_room.Size = new System.Drawing.Size(221, 23);
+            this.lb_room.Size = new System.Drawing.Size(239, 23);
             this.lb_room.TabIndex = 0;
             this.lb_room.Text = "Room";
             this.lb_room.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -264,23 +280,28 @@
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(677, 38);
+            this.panel2.Size = new System.Drawing.Size(894, 38);
             this.panel2.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(276, 5);
+            this.label1.Location = new System.Drawing.Point(384, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Add service";
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Price";
+            this.columnHeader6.Width = 100;
+            // 
             // fService_ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 311);
+            this.ClientSize = new System.Drawing.Size(904, 311);
             this.Controls.Add(this.panel1);
             this.Name = "fService_ticket";
             this.Text = "fService_ticket";
@@ -328,5 +349,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

@@ -41,10 +41,10 @@ namespace app.DAO
             return list_stuff_detail;
         }
 
-        public bool Get_Commit(Stuff_detail_DTO stuff_detail)
+        public bool Get_Commit(int id_stuff, int id_kind_of_room, int number)
         {
             string query = "USP_InsertStuff_Detail @id_stuff , @id_kind_of_room , @number";
-            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { stuff_detail.Stuff.Id_stuff, stuff_detail.Kind_of_room.Id, stuff_detail.Number});
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { id_stuff, id_kind_of_room, number });
             return x == 1;
         }
     }

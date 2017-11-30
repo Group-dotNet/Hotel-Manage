@@ -62,5 +62,17 @@ namespace app.BUS
                 throw new Exception("Error!");
             }
         }
+
+        public int Count_Room_Using_In_Reservation(int id_reservation)
+        {
+            try
+            {
+                return Reservation_room_DAO.Instance.Count_Room_Using_In_Reservation(id_reservation);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
     }
 }

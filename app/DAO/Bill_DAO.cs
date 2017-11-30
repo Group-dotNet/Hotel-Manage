@@ -87,5 +87,25 @@ namespace app.DAO
             int x = (int)Connect.Instance.ExecuteOutPut(query, new object[] { id_bill, money, username });
             return x == 1;
         }
+
+        public List<Bill_DTO> SearchBill(int id_type, string keyword)
+        {
+            string query = "exec USP_SearchBill @id_type , @keyword";
+            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { id_type, keyword });
+            List<Bill_DTO> list_bill = new List<Bill_DTO>();
+            foreach (DataRow item in table.Rows)
+            {
+                Bill_DTO bill = new Bill_DTO();
+                bill.Id_bill = (int)item["id_bill"];
+                bill.Reservation.Id_reservation = (int)item["id_reservation"];
+                bill.Total_money = (double)((decimal)item["total_money"]);
+                bill.Staff.Username = item["username"].ToString();
+                bill.Confirm = (bool)item["confirm"];
+                bill.Note = item["note"].ToString();
+                bill.Created = (DateTime)item["created"];
+                list_bill.Add(bill);
+            }
+            return list_bill;
+        }
     }
 }

@@ -46,6 +46,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lb_total = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -96,6 +98,8 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.lb_total);
+            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.lb_rest);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.lb_deposit_old);
@@ -115,7 +119,7 @@
             // 
             // lb_rest
             // 
-            this.lb_rest.Location = new System.Drawing.Point(133, 159);
+            this.lb_rest.Location = new System.Drawing.Point(133, 168);
             this.lb_rest.Name = "lb_rest";
             this.lb_rest.Size = new System.Drawing.Size(122, 20);
             this.lb_rest.TabIndex = 10;
@@ -124,7 +128,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 159);
+            this.label7.Location = new System.Drawing.Point(12, 168);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 20);
             this.label7.TabIndex = 9;
@@ -132,7 +136,7 @@
             // 
             // lb_deposit_old
             // 
-            this.lb_deposit_old.Location = new System.Drawing.Point(133, 111);
+            this.lb_deposit_old.Location = new System.Drawing.Point(133, 128);
             this.lb_deposit_old.Name = "lb_deposit_old";
             this.lb_deposit_old.Size = new System.Drawing.Size(122, 20);
             this.lb_deposit_old.TabIndex = 8;
@@ -141,7 +145,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 111);
+            this.label5.Location = new System.Drawing.Point(12, 128);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 20);
             this.label5.TabIndex = 7;
@@ -181,7 +185,7 @@
             // 
             // lb_desposit_new
             // 
-            this.lb_desposit_new.Location = new System.Drawing.Point(131, 60);
+            this.lb_desposit_new.Location = new System.Drawing.Point(133, 87);
             this.lb_desposit_new.Name = "lb_desposit_new";
             this.lb_desposit_new.Size = new System.Drawing.Size(122, 20);
             this.lb_desposit_new.TabIndex = 3;
@@ -198,7 +202,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 60);
+            this.label3.Location = new System.Drawing.Point(12, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(113, 20);
             this.label3.TabIndex = 1;
@@ -207,7 +211,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 13);
+            this.label2.Location = new System.Drawing.Point(12, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 20);
             this.label2.TabIndex = 0;
@@ -231,6 +235,23 @@
             this.label1.Size = new System.Drawing.Size(80, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Deposit";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Total:";
+            // 
+            // lb_total
+            // 
+            this.lb_total.Location = new System.Drawing.Point(133, 49);
+            this.lb_total.Name = "lb_total";
+            this.lb_total.Size = new System.Drawing.Size(120, 20);
+            this.lb_total.TabIndex = 12;
+            this.lb_total.Text = "label4";
             // 
             // fDeposit
             // 
@@ -271,5 +292,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lb_rest;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lb_total;
+        private System.Windows.Forms.Label label6;
     }
 }

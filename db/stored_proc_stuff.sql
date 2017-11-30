@@ -46,6 +46,7 @@ BEGIN
     DELETE from Stuff WHERE id_stuff = @id_stuff
 END
 
+go
 
 CREATE PROC USP_SearchStuff
 @keyword NVARCHAR(200),

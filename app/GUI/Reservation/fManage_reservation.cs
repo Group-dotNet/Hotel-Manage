@@ -45,8 +45,15 @@ namespace app.GUI.Reservation
 
         private void Load_Data()
         {
-            List<Reservation_DTO> list_resevation = Reservation_BUS.Instance.GetListReservation();
-            dgv_reservation.DataSource = list_resevation;
+            this.cb_status_reservation.SelectedIndex = 0;
+            List<Reservation_DTO> list_resevation = Reservation_BUS.Instance.GetListReservationByFilter(0);
+            List<Reservation_DGV> list_reservation_dgv = new List<Reservation_DGV>();
+            foreach(Reservation_DTO reservation in list_resevation)
+            {
+                Reservation_DGV reservation_dgv = new Reservation_DGV(reservation.Id_reservation, reservation.Customer.Name, reservation.Is_group, reservation.People, reservation.Staff.Username, reservation.Status_reservation);
+                list_reservation_dgv.Add(reservation_dgv);
+            }
+            dgv_reservation.DataSource = list_reservation_dgv;
         }
 
         private void fManage_reservation_Load(object sender, EventArgs e)
@@ -207,19 +214,35 @@ namespace app.GUI.Reservation
         private void btn_chechout_Click(object sender, EventArgs e)
         {
             if (this.id_reservation != 0)
-            {
-                if (Reservation_BUS.Instance.CheckConfirmBillByReservation(id_reservation) == false)
+            {   //Thoi hien tai phai lon hon thoi gian cua phieu dat
+                if(Reservation_BUS.Instance.GetInfoReservation(this.id_reservation).Status_reservation == 2)
                 {
-                    int id_bill = Bill_BUS.Instance.InsertBill(this.id_reservation, this.username);
-                    GUI.Bill.fCheckOut frm = new GUI.Bill.fCheckOut();
-                    frm.Id_bill = id_bill;
-                    this.Close();
-                    frm.ShowDialog();
-                    this.id_reservation = 0;
+                    if (DateTime.Compare(DateTime.Now, Calendar_BUS.Instance.GetCalendarReservationUsing(this.id_reservation).End_date) > 0)
+                    {
+                        if (Reservation_BUS.Instance.CheckConfirmBillByReservation(id_reservation) == false)
+                        {
+                            int id_bill = Bill_BUS.Instance.InsertBill(this.id_reservation, this.username);
+                            GUI.Bill.fCheckOut frm = new GUI.Bill.fCheckOut();
+                            frm.Id_bill = id_bill;
+                            this.Close();
+                            frm.ShowDialog();
+                            this.id_reservation = 0;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Reservation has finshed paid!");
+                            this.id_reservation = 0;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("The reservation cannot check out! Please edit date end of the reservation");
+                        this.id_reservation = 0;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Reservation has finshed paid!");
+                    MessageBox.Show("The reservation cannot check out");
                     this.id_reservation = 0;
                 }
             }
@@ -250,6 +273,15 @@ namespace app.GUI.Reservation
             if (flat)
             {
 
+                this.dgv_reservation.DataSource = null;
+                List<Reservation_DTO> list_resevation = Reservation_BUS.Instance.Search_Reservation(this.cb_search.SelectedIndex, txt_search.Text);
+                List<Reservation_DGV> list_reservation_dgv = new List<Reservation_DGV>();
+                foreach (Reservation_DTO reservation in list_resevation)
+                {
+                    Reservation_DGV reservation_dgv = new Reservation_DGV(reservation.Id_reservation, reservation.Customer.Name, reservation.Is_group, reservation.People, reservation.Staff.Username, reservation.Status_reservation);
+                    list_reservation_dgv.Add(reservation_dgv);
+                }
+                dgv_reservation.DataSource = list_reservation_dgv;
             }
         }
 
@@ -299,6 +331,22 @@ namespace app.GUI.Reservation
             {
                 MessageBox.Show("You must select reservation!");
             }
+
+            this.Load_Data();
+        }
+
+        private void cb_status_reservation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.dgv_reservation.DataSource = null;
+            List<Reservation_DTO> list_resevation = Reservation_BUS.Instance.GetListReservationByFilter(this.cb_status_reservation.SelectedIndex);
+            List<Reservation_DGV> list_reservation_dgv = new List<Reservation_DGV>();
+            foreach (Reservation_DTO reservation in list_resevation)
+            {
+                Reservation_DGV reservation_dgv = new Reservation_DGV(reservation.Id_reservation, reservation.Customer.Name, reservation.Is_group, reservation.People, reservation.Staff.Username, reservation.Status_reservation);
+                list_reservation_dgv.Add(reservation_dgv);
+            }
+            dgv_reservation.DataSource = list_reservation_dgv;
+
         }
     }
 }

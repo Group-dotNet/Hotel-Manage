@@ -39,11 +39,11 @@ namespace app.BUS
             }
         }
 
-        public bool Change_Service(Service_ticket_DTO service_ticket)
+        public bool Change_Service(int id_room, int id_service, int number, DateTime date_use)
         {
             try
             {
-                return Service_ticket_DAO.Instance.Change_Service(service_ticket);
+                return Service_ticket_DAO.Instance.Change_Service(id_room, id_service, number, date_use);
             }
             catch
             {

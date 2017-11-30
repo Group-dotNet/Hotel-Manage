@@ -36,6 +36,7 @@ namespace app.DTO
         {
             this.Id_reservation = (int)reservation["id_reservation"];
             this.Customer.Id_customer = (int)reservation["id_customer"];
+            this.Customer.Name = reservation["name"].ToString();
             this.Status_reservation = (int)reservation["status_reservation"];
             this.Is_group = (bool)reservation["is_group"];
             this.People = (int)reservation["people"];

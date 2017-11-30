@@ -40,7 +40,8 @@ namespace app.GUI.Room
                 btn.MouseDown += ((o, e) => {
                     this.room = item.Id_room;
                 });
-                btn.ContextMenuStrip = contextMenuStrip1;
+                if(Room_BUS.Instance.Get_Info_Room(item.Id_room).Locked == true)
+                    btn.ContextMenuStrip = contextMenuStrip1;
                 btn.Tag = item;
                 pn_room.Controls.Add(btn);
             }

@@ -85,14 +85,31 @@ namespace app.DAO
             return x == 1;
         }
 
-       //public List<Reservation_DTO> Search_Reservation(int id_type, string keyword)
-       // {
-       //     string query = "exec USP_SearchReservation @id_type , @keyword";
-       //     DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { id_type, keyword });
-       //     foreach (DataRow item in table.Rows)
-       //     {
 
-       //     }
-       // }
+        public List<Reservation_DTO> GetListReservationByFilter(int type)
+        {
+            string query = "exec USP_FilterReservation @type";
+            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { type });
+            List<Reservation_DTO> list_reservation = new List<Reservation_DTO>();
+            foreach (DataRow item in table.Rows)
+            {
+                Reservation_DTO reservation = new Reservation_DTO(item);
+                list_reservation.Add(reservation);
+            }
+            return list_reservation;
+        }
+
+        public List<Reservation_DTO> Search_Reservation(int id_type, string keyword)
+        {
+            string query = "exec USP_SearchReservation @id_type , @keyword";
+            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { id_type, keyword });
+            List<Reservation_DTO> list_reservation = new List<Reservation_DTO>();
+            foreach (DataRow item in table.Rows)
+            {
+                Reservation_DTO reservation = new Reservation_DTO(item);
+                list_reservation.Add(reservation);
+            }
+            return list_reservation;
+        }
     }
 }

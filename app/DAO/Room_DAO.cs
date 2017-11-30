@@ -95,5 +95,25 @@ namespace app.DAO
             }
             return room;
         }
+
+        public int CancelRoomInReservation(int id_reservation, int id_room)
+        {
+            string query = "exec USP_CancelRoom @id_reservation , @id_room";
+            int x =  (int)Connect.Instance.ExecuteOutPut(query, new object[] { id_reservation, id_room });
+            return x;
+        }
+
+        public List<Room_DTO> List_Room_By_Type(int id_kind_of_room)
+        {
+            string query = "exec USP_GetListRoomByKindOfRoom @id_kind_of_room";
+            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { id_kind_of_room });
+            List<Room_DTO> list = new List<Room_DTO>();
+            foreach(DataRow item in table.Rows)
+            {
+                Room_DTO room = new Room_DTO(item);
+                list.Add(room);
+            }
+            return list;
+        }
     }
 }

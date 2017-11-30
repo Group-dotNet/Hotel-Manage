@@ -128,21 +128,25 @@ namespace app.GUI.Reservation
                 }
                 else
                 {
-                    if (Calendar_BUS.Instance.ChangeCalendar(this.id_reservation, dpt_date_end.Value) && cb_select.SelectedIndex == 1)
+                    if(cb_select.SelectedIndex == 1)
                     {
-                        MessageBox.Show("Change calendar is success!");
-                        this.Close();
+                        if (Calendar_BUS.Instance.ChangeCalendar(this.id_reservation, dpt_date_end.Value))
+                        {
+                            MessageBox.Show("Change calendar is success!");
+                            this.Close();
+                        }
                     }
-
-                    if (Calendar_BUS.Instance.ChangeCalendar(this.id_reservation, dpt_date_end.Value) && cb_select.SelectedIndex == 2)
+                    else
                     {
-                        GUI.Reservation.fDeposit frm = new fDeposit();
-                        frm.Id_reservation = this.id_reservation;
-                        this.Hide();
-                        frm.ShowDialog();
-                        this.Close();
+                        if (Calendar_BUS.Instance.ChangeCalendar(this.id_reservation, dpt_date_end.Value) && cb_select.SelectedIndex == 2)
+                        {
+                            GUI.Reservation.fDeposit frm = new fDeposit();
+                            frm.Id_reservation = this.id_reservation;
+                            this.Hide();
+                            frm.ShowDialog();
+                            this.Close();
+                        }
                     }
-
                 }
             }
         }

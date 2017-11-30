@@ -50,5 +50,20 @@ namespace app.GUI.Room
         {
             Load_List_Room();
         }
+
+        private void btn_ok_Click(object sender, EventArgs e)
+        {
+            ComboboxItem item_room = (ComboboxItem)cb_list_room.SelectedItem;
+            if (Room_BUS.Instance.CancelRoomInReservation(this.id_reservation, (int)item_room.Value) == 1)
+            {
+                MessageBox.Show("Cancel room is success!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Not cancel room");
+                this.Close();
+            }
+        }
     }
 }

@@ -91,5 +91,17 @@ namespace app.BUS
                 throw new Exception("Error!");
             }
         }
+
+        public List<Bill_DTO> SearchBill(int id_type, string keyword)
+        {
+            try
+            {
+                return Bill_DAO.Instance.SearchBill(id_type, keyword);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using app.BUS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,19 +44,33 @@ namespace app.GUI.Reservation
             {
                 if(cb_option.SelectedIndex == 2)
                 {
-                    fChange_calendar frm = new fChange_calendar();
-                    frm.Id_reservation = this.Id_reservation;
-                    this.Hide();
-                    frm.ShowDialog();
+                    if(Reservation_BUS.Instance.GetInfoReservation(this.id_reservation).Status_reservation == 2)
+                    {
+                        fChange_calendar frm = new fChange_calendar();
+                        frm.Id_reservation = this.Id_reservation;
+                        this.Hide();
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Reservation cannot change calendar!");
+                    }
                 }
                 else
                 {
                     if (cb_option.SelectedIndex == 1)
                     {
-                        GUI.Room.fCancel_room frm = new Room.fCancel_room();
-                        frm.Id_reservation = this.id_reservation;
-                        this.Hide();
-                        frm.ShowDialog();
+                        if (Reservation_room_BUS.Instance.Count_Room_Using_In_Reservation(this.id_reservation) > 1)
+                        {
+                            GUI.Room.fCancel_room frm = new Room.fCancel_room();
+                            frm.Id_reservation = this.id_reservation;
+                            this.Hide();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Reservation is not cancel room! Because the reservation only exists one room!");
+                        }
                     }
                     else
                     {

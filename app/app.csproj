@@ -86,6 +86,7 @@
     <Compile Include="DTO\Kind_of_room_DTO.cs" />
     <Compile Include="DTO\Log_swap_room.cs" />
     <Compile Include="DTO\Log_swap_room_DTO.cs" />
+    <Compile Include="DTO\Other_DGV.cs" />
     <Compile Include="DTO\Reservation_DTO.cs" />
     <Compile Include="DTO\Reservation_room_DTO.cs" />
     <Compile Include="DTO\Room_DTO.cs" />
@@ -581,6 +582,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credit-cards-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

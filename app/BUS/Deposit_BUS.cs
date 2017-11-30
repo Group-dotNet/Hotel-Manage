@@ -45,7 +45,7 @@ namespace app.BUS
             {
                 return Deposit_DAO.Instance.Check_Deposit_Old(id_reservation);
             }
-            catch
+            catch(System.Data.SqlClient.SqlException e)
             {
                 throw new Exception("Error!");
             }

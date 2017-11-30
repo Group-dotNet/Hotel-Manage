@@ -191,6 +191,16 @@ end
 
 go
 
+create proc USP_GetListRoomByKindOfRoom
+@id_kind_of_room int
+as
+begin
+	select * from Room as a join Kind_of_room as b on a.id_kind_of_room = b.id where b.id = @id_kind_of_room and a.locked = 0
+end
+
+
+go
+
 
 --exec USP_GetInfoRoom 1
 
@@ -250,6 +260,16 @@ create proc USP_DelKindofRoom
 as
 begin
 	delete from Kind_of_room where id = @id
+end
+
+go
+
+
+create proc USP_GetIDKindOfRoomByReservationroom
+@id_reservation_room int
+as
+begin
+	select * from Reservation_room as a join Room as b on a.id_room = b.id_room where id_reservation_room = @id_reservation_room
 end
 
 go
@@ -391,18 +411,20 @@ go
 
 
 create proc USP_InsertServiceTikcket
-@id_reservation_room int ,
+@id_room int ,
 @id_service int,
 @number int,
 @date_use date
 as 
 BEGIN
 	declare @id_reservation int
-	declare @id_room int
-	select @id_reservation = id_reservation, @id_room = id_room from Reservation_room where id_reservation_room = @id_reservation_room
-	if(exists(select * from Reservation where id_reservation = @id_reservation and status_reservation = 1))
+	select @id_reservation = id_reservation from Reservation_room where using = 1 and id_room = 1
+	
+	declare @id_reservation_room int
+	select @id_reservation_room = id_reservation_room from Reservation_room where id_reservation = @id_reservation and id_room = @id_room and using = 1
+	if(exists(select * from Reservation where id_reservation = @id_reservation and status_reservation = 2))
 	BEGIN
-		if(exists(select * from Room where id_room = @id_room and room.locked = 1))
+		if(exists(select * from Room where id_room = @id_room and locked = 1))
 		BEGIN
 			if(exists(select * from Service where id_service = @id_service))
 			BEGIN
@@ -423,7 +445,10 @@ BEGIN
 				END
 				ELSE
 				BEGIN
-					INSERT into service_ticket VALUES (@id_reservation_room,  @id_service, @number, @date_use)
+					if (@number > 0)
+					begin
+						INSERT into service_ticket VALUES (@id_reservation_room,  @id_service, @number, @date_use)
+					end	
 				END
 			END
 		END
@@ -453,7 +478,7 @@ create PROC USP_Get_ListServiceTicket_Room
 @id_room int
 AS
 BEGIN
-	SELECT * from ((service_ticket as a JOIN Reservation_room as b on a.id_reservation_room = b.id_reservation_room) join service as c on a.id_service = c.id_service) where b.id_room = @id_room
+	SELECT * from ((service_ticket as a JOIN Reservation_room as b on a.id_reservation_room = b.id_reservation_room) join service as c on a.id_service = c.id_service) where b.id_room = @id_room order by a.id_service desc
 end
 
 GO
@@ -477,7 +502,7 @@ BEGIN
 				DECLARE @number_persent INT
 				select @number_persent = number from Stuff_detail where id_stuff = @id_stuff and id_kind_of_room = @id_kind_of_room
 				DECLARE @number_tran int
-				set @number_tran = @number_persent - @number
+				set @number_tran = @number_persent + @number
 				if(@number_tran > 0)
 				BEGIN
 					update Stuff_detail SET number = @number_tran where id_stuff = @id_stuff and id_kind_of_room = @id_kind_of_room
@@ -489,7 +514,10 @@ BEGIN
 			END
 			ELSE
 			BEGIN
-				insert into Stuff_detail values(@id_stuff, @id_kind_of_room, @number)
+				if(@number > 0 ) 
+				begin
+					insert into Stuff_detail values(@id_stuff, @id_kind_of_room, @number)
+				end
 			END
 		END
 	END
@@ -616,12 +644,12 @@ begin
 end
 
 go
-
+exec USP_CheckDepositPrev 19
 create proc USP_CheckDepositPrev
 @id_reservation int
 as
 begin
-	select top 1 * from Deposit where id_reservation =  @id_reservation and locked = 1  order by id_deposit desc
+	select top 1 * from Deposit where id_reservation =  @id_reservation and locked = 0 order by id_deposit desc
 end
 
 go
@@ -754,6 +782,41 @@ begin
 	return 0
 end
 
+
+go
+
+create proc USP_SearchBill
+@id_type int,
+@keyword nvarchar(1000)
+as
+begin
+	if(@id_type = 0)
+	begin
+		select * from Bill as a join Reservation as b on a.id_reservation = b.id_reservation where id_bill like '%' + @keyword + '%' order by a.id_bill desc
+	end
+	if(@id_type  = 1)
+	begin
+		select * from Bill as a join Reservation as b on a.id_reservation = b.id_reservation where b.id_reservation like '%' + @keyword + '%' order by a.id_bill desc
+	end
+	if(@id_type = 2)
+	begin
+		select * from (Bill as a join Reservation as b on a.id_reservation = b.id_reservation) join Reservation_room as c on b.id_reservation = c.id_reservation where id_room like '%' + @keyword + '%' order by a.id_bill desc
+	end
+	if(@id_type = 3)
+	begin
+		select * from (Bill as a join Reservation as b on a.id_reservation = b.id_reservation) join Customer as c on c.id_customer = b.id_customer where name like '%' + @keyword + '%' order by a.id_bill desc
+	end
+	if(@id_type = 4)
+	begin
+		select * from (Bill as a join Reservation as b on a.id_reservation = b.id_reservation) join Staff as c on b.username = c.username where c.username like '%' + @keyword + '%' or c.displayname like '%' + @keyword + '%' order by a.id_bill desc
+	end
+	if(@id_type = 5)
+	begin
+		select * from Bill as a join Reservation as b on a.id_reservation = b.id_reservation where a.created like '%' + @keyword + '%' order by a.id_bill desc
+	end
+end
+
+go
 -- stored swap room
 
 create proc USP_GetListRoomCancelByReservation
@@ -762,6 +825,8 @@ as
 begin
 	select * from Log_swap_room as a join Reservation_room as b on a.id_reservation_room = b.id_reservation_room where b.id_reservation = @id_reservation and a.id_room_new = 0
 end
+
+go 
 
 create proc USP_InsertSwapRoom 
 @id_reservation_room int, 
@@ -782,6 +847,9 @@ begin
 		update Room set locked = 0 where id_room = @id_room_old
 		update Room set locked = 1 where id_room = @id_new_room
 		update Reservation_room set using = 0 where id_reservation_room = @id_reservation_room
+		declare @id_reservation int
+		select @id_reservation = id_reservation from Reservation_room where id_reservation_room = @id_reservation_room
+		insert into Reservation_room values(@id_reservation, @id_new_room, 1)
 		return 1
 	  end
 	  return 0
@@ -799,12 +867,31 @@ create proc USP_CancelRoom
 as
 begin
 	declare @count int
-	select @count = Count(*) from Reservation_room where id_reservation = @id_reseravtion and using = 1 
-	insert into Log_swap_room values(@id_reservation_room, 0, 1, GETDATE()) 
-	declare @id_room_old int 
-	select @id_room_old = id_room from Reservation_room where id_reservation_room = @id_reservation_room 
-	update Room set locked = 0 where id_room = @id_room_old
-	update Reservation_room set using = 0 where id_reservation_room = @id_reservation_room
+	select @count = Count(*) from Reservation_room where id_reservation = @id_reservation and using = 1 
+	declare @id_reservation_room int
+	select @id_reservation_room = id_reservation_room from Reservation_room where id_reservation = @id_reservation and id_room = @id_room
+	if(@count > 1 )
+	begin
+		insert into Log_swap_room values(@id_reservation_room, 0, 1, GETDATE()) 
+		declare @id_room_old int 
+		select @id_room_old = id_room from Reservation_room where id_reservation_room = @id_reservation_room
+		update Room set locked = 0 where id_room = @id_room_old
+		update Reservation_room set using = 0 where id_reservation_room = @id_reservation_room
+		return 1
+	end
+	return 0
 end
+
+go
+-- other strod
+
+create proc USP_CountRoomUsingInReservation
+@id_reservation int
+AS
+BEGIN
+	select count(id_reservation_room)
+	from Reservation_room
+	where using='1' and id_reservation =@id_reservation
+END
 
 

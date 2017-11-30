@@ -36,7 +36,13 @@ namespace app.GUI.Bill
         private void Load_Data()
         {
             List<Bill_DTO> list_bill = Bill_BUS.Instance.GetListBill();
-            dgv_bill.DataSource = list_bill;
+            List<Bill_DGV> list_bill_dgv = new List<Bill_DGV>();
+            foreach(Bill_DTO bill in list_bill)
+            {
+                Bill_DGV bill_dgv = new Bill_DGV(bill.Id_bill, bill.Total_money, bill.Staff.Username, bill.Confirm, bill.Created);
+                list_bill_dgv.Add(bill_dgv);
+            }
+            dgv_bill.DataSource = list_bill_dgv;
         }
 
         private void fManage_Bill_Load(object sender, EventArgs e)
@@ -53,7 +59,7 @@ namespace app.GUI.Bill
         {
             try
             {
-                int id_bill = (int)dgv_bill.Rows[e.RowIndex].Cells[0].Value;
+                int id_bill = (int)dgv_bill.Rows[e.RowIndex].Cells["Id_bill"].Value;
                 this.id_bill = id_bill;
 
                 Bill_DTO bill = Bill_BUS.Instance.GetInfoBill(id_bill);
@@ -100,7 +106,7 @@ namespace app.GUI.Bill
                 }
                 else
                 {
-                    MessageBox.Show("This bill is not edit");
+                    MessageBox.Show("This bill is not check out");
                     this.Id_bill = 0;
                 }
             }
@@ -137,7 +143,15 @@ namespace app.GUI.Bill
 
             if (flat)
             {
-
+                this.dgv_bill.DataSource = null;
+                List<Bill_DTO> list_bill = Bill_BUS.Instance.SearchBill(this.cb_search.SelectedIndex, this.txt_search.Text);
+                List<Bill_DGV> list_bill_dgv = new List<Bill_DGV>();
+                foreach (Bill_DTO bill in list_bill)
+                {
+                    Bill_DGV bill_dgv = new Bill_DGV(bill.Id_bill, bill.Total_money, bill.Staff.Username, bill.Confirm, bill.Created);
+                    list_bill_dgv.Add(bill_dgv);
+                }
+                dgv_bill.DataSource = list_bill_dgv;
             }
         }
     }

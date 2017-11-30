@@ -20,8 +20,9 @@ namespace app.GUI.Reservation
         }
         private int id_reservation;
 
-        private double deposit_new;
+        private double total;
 
+        private double deposit_new;
 
         private double deposit_old;
 
@@ -64,46 +65,23 @@ namespace app.GUI.Reservation
             }
         }
 
+        public double Total
+        {
+            get
+            {
+                return total;
+            }
+
+            set
+            {
+                total = value;
+            }
+        }
+
         private double check_deposit_new()
         {
             Calendar_DTO calendar = Calendar_BUS.Instance.GetCalendarReservationUsing(this.id_reservation);
-            List<Reservation_room_DTO> list_reservation_room = Reservation_room_BUS.Instance.Get_ListReservation_Using(this.id_reservation);
 
-            
-            double xmod = 0;
-            if (calendar.End_date != null) // neu không hen lich se coi nhu 3 ngay
-            {
-                TimeSpan interval = calendar.End_date.Subtract(calendar.Start_date);
-                if (interval.Days < 1)
-                {
-                    if (interval.Hours < 2)
-                    {
-                        xmod = 0.25;
-                    }
-                    else if (interval.Hours < 6)
-                    {
-                        xmod = 0.5;
-                    }
-                    else
-                    {
-                        xmod = 1;
-                    }
-                }
-                else
-                {
-                    if (interval.Hours > 6)
-                        xmod = interval.Days + 0.5;
-                }
-            }
-            else
-                xmod = 3;
-
-            double total = 0;
-            foreach(Reservation_room_DTO reservation_room in list_reservation_room)
-            {
-                
-                total = total + ((double)reservation_room.Room.Kind_of_room.Price * xmod);
-            }
 
             List<Log_swap_room_DTO> list_log = Log_swap_room_BUS.Instance.ListRoomCancel(this.id_reservation);
             double total_room_cancel = 0;
@@ -135,10 +113,54 @@ namespace app.GUI.Reservation
 
                 Room_DTO room = Room_BUS.Instance.Get_Info_Room(item.Reservation_room.Room.Id_room);
                 total_room_cancel = total_room_cancel + ((double)room.Kind_of_room.Price * xmod2);
-                
+
             }
 
-            total = total + total_room_cancel;
+
+            List<Reservation_room_DTO> list_reservation_room = Reservation_room_BUS.Instance.Get_ListReservation_Using(this.id_reservation);
+
+            
+            double xmod = 0;
+            if (calendar.End_date != null) // neu không hen lich se coi nhu 3 ngay
+            {
+                TimeSpan interval = calendar.End_date.Subtract(calendar.Start_date);
+                if (interval.Days < 1)
+                {
+                    if (interval.Hours < 2)
+                    {
+                        xmod = 0.25;
+                    }
+                    else if (interval.Hours < 6)
+                    {
+                        xmod = 0.5;
+                    }
+                    else
+                    {
+                        xmod = 1;
+                    }
+                }
+                else
+                {
+                    if (interval.Hours > 6)
+                        xmod = interval.Days + 0.5;
+                    else
+                        xmod = interval.Days;
+                }
+            }
+            else
+                xmod = 3;
+
+            double total_room_using = 0;
+            foreach(Reservation_room_DTO reservation_room in list_reservation_room)
+            {
+
+                total_room_using = total_room_using + ((double)reservation_room.Room.Kind_of_room.Price * xmod);
+            }
+
+
+           
+            this.total = total_room_using + total_room_cancel;
+
             return  (total * 0.3);
 
         }
@@ -146,7 +168,6 @@ namespace app.GUI.Reservation
         private double check_deposit_old()
         {
             return Deposit_BUS.Instance.Check_Deposit_Old(this.id_reservation);
-
         }
 
 
@@ -160,13 +181,15 @@ namespace app.GUI.Reservation
         {
             this.deposit_new = check_deposit_new();
             this.deposit_old = check_deposit_old();
+            System.Console.WriteLine(this.id_reservation);
 
-
+            System.Globalization.CultureInfo cul = new System.Globalization.CultureInfo("vi-VN");
             cb_confirm.SelectedIndex = 0;
             lb_resevation.Text = this.id_reservation.ToString();
-            lb_desposit_new.Text = this.Deposit_new.ToString();
-            lb_deposit_old.Text = this.Deposit_old.ToString();
-            lb_rest.Text = (this.deposit_new - this.deposit_old).ToString();
+            lb_total.Text = this.total.ToString("c", cul);
+            lb_desposit_new.Text = this.Deposit_new.ToString("c", cul);
+            lb_deposit_old.Text = this.Deposit_old.ToString("c", cul);
+            lb_rest.Text = (this.deposit_new - this.deposit_old).ToString("c", cul);
 
         }
 
@@ -194,6 +217,7 @@ namespace app.GUI.Reservation
                 {
                     Reservation_BUS.Instance.Cancel_Reservation(id_reservation);
                     MessageBox.Show("Cancelled Reservation!");
+                    this.Close();
                 }
             }
         }

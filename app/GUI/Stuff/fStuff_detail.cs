@@ -47,7 +47,7 @@ namespace app.GUI.Stuff
 
         private void Load_Data()
         {
-            lb_room.Text = "Room " + this.id_room.ToString();
+            lv_stuff_detail.Items.Clear();
             Room_DTO room = Room_BUS.Instance.Get_Info_Room(this.id_room);
             List<Stuff_detail_DTO> list_stuff_detail = Stuff_detail_BUS.Instance.Get_List(room.Kind_of_room.Id);
             foreach (Stuff_detail_DTO stuff_detail in list_stuff_detail)
@@ -62,6 +62,8 @@ namespace app.GUI.Stuff
 
         private void fStuff_detail_Load(object sender, EventArgs e)
         {
+            Room_DTO room = Room_BUS.Instance.Get_Info_Room(this.id_room);
+            lb_room.Text = "Room " + ((room.Num_floor * 100)+ room.Num_order).ToString();
             Load_Combobox();
             Load_Data();
         }
@@ -69,6 +71,16 @@ namespace app.GUI.Stuff
         private void btn_commit_Click(object sender, EventArgs e)
         {
             int id_kind_of_room = Room_BUS.Instance.Get_Info_Room(this.id_room).Kind_of_room.Id;
+            ComboboxItem item_stuff = (ComboboxItem)cb_stuff.SelectedItem;
+            if(Stuff_detail_BUS.Instance.Get_Commit((int)item_stuff.Value, id_kind_of_room, (int)nud_number.Value))
+            {
+                MessageBox.Show("Commit is success!");
+                Load_Data();
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
             //Stuff_detail_DTO stuff_detail = new Stuff_detail_DTO();
             //Stuff_detail_BUS.Instance.Get_Commit()
         }

@@ -45,7 +45,7 @@ namespace app.GUI.Reservation
                 item.SubItems.Add(calendar.Created.ToString());
                 if(calendar.Status == 2)
                 {
-                    item.SubItems.Add("Swap");
+                    item.SubItems.Add("Change");
                 }
                 else
                 {
@@ -63,10 +63,13 @@ namespace app.GUI.Reservation
             }
 
             Calendar_DTO calendar_info = Calendar_BUS.Instance.GetCalendarReservationUsing(this.Id_reservation);
-            lb_id_calendar.Text = calendar_info.Id_calendar.ToString();
-            lb_start_date.Text = calendar_info.Start_date.ToString();
-            lb_end_date.Text = calendar_info.End_date.ToString();
-            lb_created.Text = calendar_info.Created.ToString();
+            if(calendar_info != null)
+            {
+                lb_id_calendar.Text = calendar_info.Id_calendar.ToString();
+                lb_start_date.Text = calendar_info.Start_date.ToString();
+                lb_end_date.Text = calendar_info.End_date.ToString();
+                lb_created.Text = calendar_info.Created.ToString();
+            }
         }
 
         private void btn_close_Click(object sender, EventArgs e)

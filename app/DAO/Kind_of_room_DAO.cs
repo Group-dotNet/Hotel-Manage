@@ -61,5 +61,17 @@ namespace app.DAO
             int x = Connect.Instance.ExecuteNonQuery(query, new object[] { id });
             return x == 1;
         }
+
+        public int GetIDKindOfRoom(int id_reservation_room)
+        {
+            string query = "exec USP_GetIDKindOfRoomByReservationroom @id_reservation_room";
+            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { id_reservation_room });
+
+            foreach (DataRow item in table.Rows)
+            {
+                return (int)item["id_kind_of_room"];
+            }
+            return 0;
+        }
     }
 }

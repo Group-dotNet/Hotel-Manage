@@ -34,6 +34,7 @@ BEGIN
     INSERT into Customer VALUEs(@name, @sex, @identity_card, @address, @email, @phone, @company, @id_history)
 end
 
+go
 
 CREATE PROC USP_EditCustomer
 @id_customer int,
@@ -47,7 +48,7 @@ CREATE PROC USP_EditCustomer
 @id_history int
 as
 BEGIN
-    update Customer set name=@name, sex= @sex, identity_card = @identity_card, address = @address, eamil = @email, phone = @phone, company = @company, id_history = @id_history where id_customer = @id_customer
+    update Customer set name=@name, sex= @sex, identity_card = @identity_card, address = @address, email = @email, phone = @phone, company = @company, id_history = @id_history where id_customer = @id_customer
 END 
 
 GO
@@ -61,7 +62,6 @@ END
 
 GO
 
-DROP PROC USP_SearchCustomer
 CREATE PROC USP_SearchCustomer
 @keyword NVARCHAR(200),
 @type INT

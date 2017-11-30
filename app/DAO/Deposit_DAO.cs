@@ -49,7 +49,7 @@ namespace app.DAO
             Deposit_DTO deposit = new Deposit_DTO();
             foreach(DataRow item in table.Rows)
             {
-                deposit.Deposit = (double)item["deposit"];
+                deposit.Deposit = (double)((decimal)item["deposit"]);
                 break;
             }
             return deposit.Deposit;

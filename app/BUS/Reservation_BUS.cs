@@ -86,5 +86,29 @@ namespace app.BUS
                 throw new Exception("Error!");
             }
         }
+
+        public List<Reservation_DTO> GetListReservationByFilter(int type)
+        {
+            try
+            {
+                return Reservation_DAO.Instance.GetListReservationByFilter(type);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public List<Reservation_DTO> Search_Reservation(int id_type, string keyword)
+        {
+            try
+            {
+                return Reservation_DAO.Instance.Search_Reservation(id_type, keyword);
+            }
+            catch(SqlException e)
+            {
+                throw new Exception("Error!");
+            }
+        }
     }
 }

@@ -37,14 +37,9 @@
             this.cb_search = new System.Windows.Forms.ComboBox();
             this.dgv_bill = new System.Windows.Forms.DataGridView();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.ptb_export = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.ptb_print = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.btn_refresh = new System.Windows.Forms.Button();
-            this.btn_back = new System.Windows.Forms.Button();
-            this.btn_edit = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
             this.lb_confirm = new System.Windows.Forms.Label();
@@ -55,7 +50,6 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.lb_staff = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btn_details = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.lb_customer = new System.Windows.Forms.Label();
             this.lb = new System.Windows.Forms.Label();
@@ -66,14 +60,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.ptb_export = new System.Windows.Forms.PictureBox();
+            this.ptb_print = new System.Windows.Forms.PictureBox();
+            this.btn_refresh = new System.Windows.Forms.Button();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bill)).BeginInit();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -84,6 +86,8 @@
             this.panel9.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -145,12 +149,15 @@
             // 
             // cb_search
             // 
+            this.cb_search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_search.FormattingEnabled = true;
             this.cb_search.Items.AddRange(new object[] {
             "ID Bill",
             "ID Reservation",
             "ID Room",
-            "Name Customer"});
+            "Customer",
+            "Staff",
+            "Created"});
             this.cb_search.Location = new System.Drawing.Point(245, 8);
             this.cb_search.Name = "cb_search";
             this.cb_search.Size = new System.Drawing.Size(121, 21);
@@ -158,7 +165,14 @@
             // 
             // dgv_bill
             // 
+            this.dgv_bill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_bill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_bill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.Total,
+            this.Column1,
+            this.Column2,
+            this.Column3});
             this.dgv_bill.Location = new System.Drawing.Point(3, 91);
             this.dgv_bill.Name = "dgv_bill";
             this.dgv_bill.Size = new System.Drawing.Size(655, 361);
@@ -176,18 +190,6 @@
             this.panel13.Size = new System.Drawing.Size(655, 36);
             this.panel13.TabIndex = 2;
             // 
-            // ptb_export
-            // 
-            this.ptb_export.BackgroundImage = global::app.Properties.Resources.export;
-            this.ptb_export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptb_export.Image = global::app.Properties.Resources.print1600;
-            this.ptb_export.InitialImage = global::app.Properties.Resources.print1600;
-            this.ptb_export.Location = new System.Drawing.Point(578, 3);
-            this.ptb_export.Name = "ptb_export";
-            this.ptb_export.Size = new System.Drawing.Size(28, 28);
-            this.ptb_export.TabIndex = 2;
-            this.ptb_export.TabStop = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -196,18 +198,6 @@
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 1;
             this.label4.Text = "Total record:";
-            // 
-            // ptb_print
-            // 
-            this.ptb_print.BackgroundImage = global::app.Properties.Resources.print1600;
-            this.ptb_print.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptb_print.Image = global::app.Properties.Resources.print1600;
-            this.ptb_print.InitialImage = global::app.Properties.Resources.print1600;
-            this.ptb_print.Location = new System.Drawing.Point(612, 3);
-            this.ptb_print.Name = "ptb_print";
-            this.ptb_print.Size = new System.Drawing.Size(28, 28);
-            this.ptb_print.TabIndex = 0;
-            this.ptb_print.TabStop = false;
             // 
             // panel4
             // 
@@ -233,61 +223,12 @@
             this.panel12.Size = new System.Drawing.Size(283, 57);
             this.panel12.TabIndex = 8;
             // 
-            // btn_refresh
-            // 
-            this.btn_refresh.BackgroundImage = global::app.Properties.Resources.refresh_icon;
-            this.btn_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_refresh.FlatAppearance.BorderSize = 0;
-            this.btn_refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_refresh.ForeColor = System.Drawing.Color.Black;
-            this.btn_refresh.Location = new System.Drawing.Point(10, 3);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(48, 48);
-            this.btn_refresh.TabIndex = 4;
-            this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
-            // 
-            // btn_back
-            // 
-            this.btn_back.BackgroundImage = global::app.Properties.Resources.home_icon;
-            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_back.FlatAppearance.BorderSize = 0;
-            this.btn_back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_back.ForeColor = System.Drawing.Color.Black;
-            this.btn_back.Location = new System.Drawing.Point(118, 4);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(48, 48);
-            this.btn_back.TabIndex = 3;
-            this.btn_back.UseVisualStyleBackColor = true;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
-            // 
-            // btn_edit
-            // 
-            this.btn_edit.BackgroundImage = global::app.Properties.Resources.edit_icon;
-            this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_edit.FlatAppearance.BorderSize = 0;
-            this.btn_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btn_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
-            this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_edit.ForeColor = System.Drawing.Color.Black;
-            this.btn_edit.Location = new System.Drawing.Point(64, 4);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(48, 48);
-            this.btn_edit.TabIndex = 1;
-            this.btn_edit.UseVisualStyleBackColor = true;
-            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
-            // 
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.panel16);
             this.panel6.Controls.Add(this.panel11);
             this.panel6.Controls.Add(this.panel10);
-            this.panel6.Controls.Add(this.btn_details);
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel9);
             this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,7 +259,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(3, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 16);
+            this.label7.Size = new System.Drawing.Size(64, 16);
             this.label7.TabIndex = 0;
             this.label7.Text = "Confirm:";
             // 
@@ -344,7 +285,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(3, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 16);
+            this.label10.Size = new System.Drawing.Size(67, 16);
             this.label10.TabIndex = 0;
             this.label10.Text = "Created:";
             // 
@@ -370,19 +311,9 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(3, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 16);
+            this.label8.Size = new System.Drawing.Size(43, 16);
             this.label8.TabIndex = 0;
             this.label8.Text = "Staff:";
-            // 
-            // btn_details
-            // 
-            this.btn_details.Location = new System.Drawing.Point(3, 311);
-            this.btn_details.Name = "btn_details";
-            this.btn_details.Size = new System.Drawing.Size(270, 31);
-            this.btn_details.TabIndex = 5;
-            this.btn_details.Text = "See details";
-            this.btn_details.UseVisualStyleBackColor = true;
-            this.btn_details.Click += new System.EventHandler(this.btn_details_Click);
             // 
             // panel8
             // 
@@ -406,7 +337,7 @@
             this.lb.AutoSize = true;
             this.lb.Location = new System.Drawing.Point(3, 9);
             this.lb.Name = "lb";
-            this.lb.Size = new System.Drawing.Size(80, 16);
+            this.lb.Size = new System.Drawing.Size(77, 16);
             this.lb.TabIndex = 0;
             this.lb.Text = "Customer:";
             // 
@@ -432,7 +363,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 16);
+            this.label6.Size = new System.Drawing.Size(91, 16);
             this.label6.TabIndex = 0;
             this.label6.Text = "Resevation:";
             // 
@@ -475,6 +406,108 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Manage Bill";
             // 
+            // ptb_export
+            // 
+            this.ptb_export.BackgroundImage = global::app.Properties.Resources.export;
+            this.ptb_export.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptb_export.Image = global::app.Properties.Resources.print1600;
+            this.ptb_export.InitialImage = global::app.Properties.Resources.print1600;
+            this.ptb_export.Location = new System.Drawing.Point(578, 3);
+            this.ptb_export.Name = "ptb_export";
+            this.ptb_export.Size = new System.Drawing.Size(28, 28);
+            this.ptb_export.TabIndex = 2;
+            this.ptb_export.TabStop = false;
+            // 
+            // ptb_print
+            // 
+            this.ptb_print.BackgroundImage = global::app.Properties.Resources.print1600;
+            this.ptb_print.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ptb_print.Image = global::app.Properties.Resources.print1600;
+            this.ptb_print.InitialImage = global::app.Properties.Resources.print1600;
+            this.ptb_print.Location = new System.Drawing.Point(612, 3);
+            this.ptb_print.Name = "ptb_print";
+            this.ptb_print.Size = new System.Drawing.Size(28, 28);
+            this.ptb_print.TabIndex = 0;
+            this.ptb_print.TabStop = false;
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.BackgroundImage = global::app.Properties.Resources.refresh_icon;
+            this.btn_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_refresh.FlatAppearance.BorderSize = 0;
+            this.btn_refresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_refresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_refresh.ForeColor = System.Drawing.Color.Black;
+            this.btn_refresh.Location = new System.Drawing.Point(10, 3);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(48, 48);
+            this.btn_refresh.TabIndex = 4;
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
+            // btn_back
+            // 
+            this.btn_back.BackgroundImage = global::app.Properties.Resources.home_icon;
+            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_back.FlatAppearance.BorderSize = 0;
+            this.btn_back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.ForeColor = System.Drawing.Color.Black;
+            this.btn_back.Location = new System.Drawing.Point(226, 4);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(48, 48);
+            this.btn_back.TabIndex = 3;
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.BackgroundImage = global::app.Properties.Resources.credit_cards_icon;
+            this.btn_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_edit.FlatAppearance.BorderSize = 0;
+            this.btn_edit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btn_edit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SandyBrown;
+            this.btn_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_edit.ForeColor = System.Drawing.Color.Black;
+            this.btn_edit.Location = new System.Drawing.Point(114, 3);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(48, 48);
+            this.btn_edit.TabIndex = 1;
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id_bill";
+            this.id.HeaderText = "ID Bill";
+            this.id.Name = "id";
+            // 
+            // Total
+            // 
+            this.Total.DataPropertyName = "total";
+            this.Total.HeaderText = "Total";
+            this.Total.Name = "Total";
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "username";
+            this.Column1.HeaderText = "Staff";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "confirm";
+            this.Column2.HeaderText = "Confirm";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "created";
+            this.Column3.HeaderText = "Created";
+            this.Column3.Name = "Column3";
+            // 
             // fManage_Bill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -493,8 +526,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bill)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -512,6 +543,8 @@
             this.panel14.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_print)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -542,7 +575,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label lb_staff;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btn_details;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label lb_customer;
         private System.Windows.Forms.Label lb;
@@ -556,5 +588,10 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Label lb_confirm;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

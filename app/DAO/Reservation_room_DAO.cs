@@ -79,5 +79,11 @@ namespace app.DAO
             return reservation_room;
 
         }
+
+        public int Count_Room_Using_In_Reservation(int id_reservation)
+        {
+            string query = "exec USP_CountRoomUsingInReservation @id_reservation";
+            return (int)Connect.Instance.ExecuteScalar(query, new object[] { id_reservation });
+        }
     }
 }

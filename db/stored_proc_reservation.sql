@@ -5,7 +5,7 @@ go
 create proc USP_GetListReservation
 as 
 begin
-	select * from Reservation as a join Customer as b on a.id_customer = b.id_customer
+	select * from Reservation as a join Customer as b on a.id_customer = b.id_customer order by id_reservation desc
 end	
 
 go 
@@ -22,7 +22,7 @@ end
 
 go
 
---exec USP_InsertReservation 1, 0, 2, 'phuc', '2017-11-23'
+--exec USP_InsertReservation 1, 0, 2, 'phuc', '2017-11-30'
 --drop PROC USP_InsertReservation
 create PROC USP_InsertReservation
 @id_customer int,
@@ -62,7 +62,6 @@ BEGIN
 	return @id_reservation
 END
 
-exec USP_GetInfoReservationRoom 1
 go
 
 --exec USP_CancelReservation 14
@@ -101,7 +100,7 @@ as
 begin
 	if(@id_type = 0)
 	begin
-		select distinct(id_reservation) from Reservation where id_reservation like '%' + @keyword + '%'
+		select * from Reservation as a join Customer as b on a.id_customer = b.id_customer where id_reservation like '%' + @keyword + '%' order by a.id_reservation desc
 	end
 	if(@id_type  = 1)
 	begin
@@ -110,26 +109,63 @@ begin
 		declare @order int
 		set @floor = @keyword / 100
 		set @order = @keyword % 100
-		select distinct(a.id_reservation) from (Reservation as a join Reservation_room as b on a.id_reservation = b.id_reservation) join Room as c on b.id_room = c.id_room where c.num_floor = @floor and c.num_order = @order 
+		select * from (Reservation as a join Reservation_room as b on a.id_reservation = b.id_reservation) join Room as c on b.id_room = c.id_room where c.num_floor = @floor and c.num_order = @order order by a.id_reservation desc
 	end
 	if(@id_type = 2)
 	begin
-		select distinct(a.id_reservation) from Reservation as a join Customer as b on a.id_customer = b.id_customer where b.name like '%' + @keyword + '%'
+		select * from Reservation as a join Customer as b on a.id_customer = b.id_customer where b.name like '%' + @keyword + '%' order by a.id_reservation desc
 	end
 	if(@id_type = 3)
 	begin
-		select distinct(a.id_reservation)from Reservation as a join Staff as b on a.username = b.username where b.username like '%' + @keyword + '%'
+		select * from (Reservation as a join Staff as b on a.username = b.username) join Customer as c on a.id_customer = c.id_customer where b.username like '%' + @keyword + '%' or b.displayname like '%' + @keyword + '%' order by a.id_reservation desc
 	end
 	if(@id_type = 4)
 	begin
-		select distinct(a.id_reservation) from Reservation as a join Calendar as b on a.id_reservation = b.id_reservation where b.start_date like '%' + @keyword + '%'
+		select  * from (Reservation as a join Calendar as b on a.id_reservation = b.id_reservation) join Customer as c on a.id_customer = c.id_customer where b.start_date like '%' + @keyword + '%' order by a.id_reservation desc
 	end
 	if(@id_type = 5)
 	begin
-		select distinct(a.id_reservation) from Reservation as a join Calendar as b on a.id_reservation = b.id_reservation where b.end_date like '%' + @keyword + '%'
+		select distinct * from (Reservation as a join Calendar as b on a.id_reservation = b.id_reservation) join Customer as c on a.id_customer = c.id_customer  where b.end_date like '%' + @keyword + '%' order by a.id_reservation desc
 	end
 end
 
+go
+
+
+create proc USP_FilterReservation
+@type int
+as
+begin
+	if(@type = 0)
+	begin
+		select * from Reservation as a join Customer as b on a.id_customer = b.id_customer where a.status_reservation = 1 order by id_reservation desc
+	end
+	else
+	begin
+		if(@type = 1)
+		begin
+			select * from Reservation as a join Customer as b on a.id_customer = b.id_customer where a.status_reservation = 2 order by id_reservation desc
+		end
+		else
+		begin
+			if(@type = 2)
+			begin
+				select * from Reservation as a join Customer as b on a.id_customer = b.id_customer where a.status_reservation = 3 order by id_reservation desc
+			end
+			else
+			begin
+				if(@type = 3)
+				begin
+					select * from Reservation as a join Customer as b on a.id_customer = b.id_customer where a.status_reservation = 0 order by id_reservation desc
+				end
+				else
+				begin
+					select * from Reservation as a join Customer as b on a.id_customer = b.id_customer order by id_reservation desc
+				end
+			end
+		end
+	end
+end
 go
 
 create proc USP_CheckConfirmBillByReservation
@@ -140,15 +176,14 @@ begin
 	if(exists(select * from Bill where id_bill = @id_reservation and confirm = 1))
 	begin
 		set @return = 1
-		return @return
 	end
 	else
 	begin
 		set @return = 0
-		return @return
 	end
+	return @return
 end
-exec USP_CheckConfirmBillByReservation  1
+
 
 
 --select * from Reservation
