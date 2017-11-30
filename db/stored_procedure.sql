@@ -418,7 +418,7 @@ create proc USP_InsertServiceTikcket
 as 
 BEGIN
 	declare @id_reservation int
-	select @id_reservation = id_reservation from Reservation_room where using = 1 and id_room = 1
+	select @id_reservation = a.id_reservation from Reservation_room as a join Reservation as b on a.id_reservation = b.id_reservation where using = 1 and id_room = 1 and b.status_reservation = 2
 	
 	declare @id_reservation_room int
 	select @id_reservation_room = id_reservation_room from Reservation_room where id_reservation = @id_reservation and id_room = @id_room and using = 1
@@ -457,11 +457,12 @@ end
 
 go
 
+
 create Proc  USP_GetListServiceReservation
 @id_reservation int
 as
 begin
-	select * from (Service_ticket as a join Service as b on a.id_service = b.id_service) join Reservation_room as c on a.id_reservation_room = c.id_reservation_room where c.id_reservation = @id_reservation order by c.id_room  asc
+	select * from (Service_ticket as a join Service as b on a.id_service = b.id_service) join Reservation_room as c on a.id_reservation_room = c.id_reservation_room where c.id_reservation = 23 order by c.id_room  asc
 end
 
 GO
@@ -474,11 +475,14 @@ end
 
 GO
 
+
 create PROC USP_Get_ListServiceTicket_Room
 @id_room int
 AS
 BEGIN
-	SELECT * from ((service_ticket as a JOIN Reservation_room as b on a.id_reservation_room = b.id_reservation_room) join service as c on a.id_service = c.id_service) where b.id_room = @id_room order by a.id_service desc
+	declare @id_reservation int
+	select @id_reservation = a.id_reservation from Reservation_room as a join Reservation as b on a.id_reservation = b.id_reservation where using = 1 and id_room = 1 and b.status_reservation = 2
+	SELECT * from ((service_ticket as a JOIN Reservation_room as b on a.id_reservation_room = b.id_reservation_room) join service as c on a.id_service = c.id_service) where b.id_room = @id_room and b.id_reservation = @id_reservation order by a.id_service desc
 end
 
 GO
