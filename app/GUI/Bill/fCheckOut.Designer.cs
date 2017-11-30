@@ -47,6 +47,9 @@
             this.lb_total_room = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lv_room = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pan = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
@@ -86,9 +89,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel18.SuspendLayout();
@@ -313,6 +318,21 @@
             this.lv_room.UseCompatibleStateImageBehavior = false;
             this.lv_room.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Room";
+            this.columnHeader1.Width = 85;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Price";
+            this.columnHeader2.Width = 139;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Status";
+            this.columnHeader3.Width = 98;
+            // 
             // pan
             // 
             this.pan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -363,11 +383,18 @@
             // 
             // lv_service
             // 
+            this.lv_service.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader8,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
             this.lv_service.Location = new System.Drawing.Point(3, 47);
             this.lv_service.Name = "lv_service";
             this.lv_service.Size = new System.Drawing.Size(330, 263);
             this.lv_service.TabIndex = 0;
             this.lv_service.UseCompatibleStateImageBehavior = false;
+            this.lv_service.View = System.Windows.Forms.View.Details;
             // 
             // panel4
             // 
@@ -692,20 +719,25 @@
             this.label1.Text = "Check out";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // columnHeader1
+            // columnHeader4
             // 
-            this.columnHeader1.Text = "Room";
-            this.columnHeader1.Width = 85;
+            this.columnHeader4.Text = "Name service";
             // 
-            // columnHeader2
+            // columnHeader5
             // 
-            this.columnHeader2.Text = "Price";
-            this.columnHeader2.Width = 139;
+            this.columnHeader5.Text = "Price";
             // 
-            // columnHeader3
+            // columnHeader6
             // 
-            this.columnHeader3.Text = "Status";
-            this.columnHeader3.Width = 98;
+            this.columnHeader6.Text = "Number";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Room";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "ID Service";
             // 
             // fCheckOut
             // 
@@ -823,5 +855,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }

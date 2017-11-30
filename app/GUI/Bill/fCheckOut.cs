@@ -246,6 +246,22 @@ namespace app.GUI.Bill
             }
         }
 
+        private void Load_Service_Using()
+        {
+            Bill_DTO bill = Bill_BUS.Instance.GetInfoBill(this.id_bill);
+            List<Service_ticket_DTO> list_service_by_reservation = Service_ticket_BUS.Instance.Get_ListServiceReservation(bill.Reservation.Id_reservation);
+            foreach (Service_ticket_DTO service_by_reservation in list_service_by_reservation)
+            {
+                ListViewItem item = new ListViewItem(service_by_reservation.Service.Id_service.ToString());
+                item.SubItems.Add(service_by_reservation.Service.Name_service.ToString());
+                item.SubItems.Add(service_by_reservation.Service.Price.ToString());
+                item.SubItems.Add(service_by_reservation.Number.ToString());
+                Room_DTO room = Room_BUS.Instance.Get_Info_Room(service_by_reservation.Reservation_room.Room.Id_room);
+                item.SubItems.Add(((room.Num_floor * 100) + room.Num_order).ToString());
+                lv_service.Items.Add(item);
+            }
+        }
+
         private void LoadData()
         {
             Bill_DTO bill = Bill_BUS.Instance.GetInfoBill(this.id_bill);
@@ -281,6 +297,7 @@ namespace app.GUI.Bill
             lb_rest.Text = (this.total_money - this.deposit).ToString("c", cul);
 
             Load_Room_Using();
+            Load_Service_Using();
         }
 
         private void label1_Click(object sender, EventArgs e)
