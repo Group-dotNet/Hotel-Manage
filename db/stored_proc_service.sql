@@ -6,9 +6,16 @@ go
 create PROC USP_GetListService
 as
 BEGIN
-    SELECT * from service order by id_service desc
+    SELECT * from service where locked = 0 order by id_service desc
 end
 
+go
+
+create proc USP_GetListServiceLock
+as
+begin
+	SELECT * from service where locked = 1 order by id_service desc
+end
 GO
 
 create proc USP_GetInfoService
@@ -27,7 +34,7 @@ create PROC USP_InsertService
 @unit INT
 AS
 BEGIN
-    INSERT into Service VALUES(@name_service , @price, @unit)
+    INSERT into Service VALUES(@name_service , @price, @unit, 0)
 END
 
 GO
@@ -44,11 +51,11 @@ END
 
 GO
 
-CREATE PROC USP_DelService
+CREATE PROC USP_LockService
 @id_service INT
 AS
 BEGIN
-    DELETE from Service where id_service = @id_service
+    update Service set locked = 1 where id_service = @id_service
 END
 
 GO

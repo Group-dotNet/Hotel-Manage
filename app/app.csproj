@@ -586,5 +586,8 @@
   <ItemGroup>
     <None Include="Resources\credit-cards-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GUI\Analytic\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

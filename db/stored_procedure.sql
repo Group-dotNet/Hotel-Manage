@@ -426,7 +426,7 @@ BEGIN
 	BEGIN
 		if(exists(select * from Room where id_room = @id_room and locked = 1))
 		BEGIN
-			if(exists(select * from Service where id_service = @id_service))
+			if(exists(select * from Service where id_service = @id_service and locked = 0))
 			BEGIN
 				if(exists(select * from service_ticket where id_service = @id_service and id_reservation_room = @id_reservation_room))
 				BEGIN
@@ -497,7 +497,7 @@ create proc USP_InsertStuff_Detail
 @number INT
 as
 BEGIN
-	if(exists(select * from Stuff where id_stuff = @id_stuff))
+	if(exists(select * from Stuff where id_stuff = @id_stuff and locked = 0))
 	BEGIN
 		if(exists(select * from Kind_of_room where id = @id_kind_of_room))
 		BEGIN

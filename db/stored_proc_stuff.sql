@@ -6,8 +6,17 @@ go
 CREATE PROC USP_GetListStuff
 as
 BEGIN 
-    select * from Stuff
+    select * from Stuff where locked = 0 order by id_stuff desc
 END
+
+
+go
+
+create proc USP_GetListStuffLock
+as
+begin
+	select * from Stuff where locked = 1 order by id_stuff desc
+end
 
 GO
 
@@ -24,7 +33,7 @@ create PROC USP_InsertStuff
 @name NVARCHAR (100)
 as
 BEGIN
-    insert into Stuff VALUES(@name)
+    insert into Stuff VALUES(@name, 0)
 end
 
 go 
@@ -39,11 +48,11 @@ END
 
 GO
 
-CREATE PROC USP_DelStuff
+CREATE PROC USP_LockStuff
 @id_stuff int
 AS
 BEGIN 
-    DELETE from Stuff WHERE id_stuff = @id_stuff
+	update Stuff set locked = 1 where id_stuff = @id_stuff
 END
 
 go
