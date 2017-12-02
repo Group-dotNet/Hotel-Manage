@@ -718,6 +718,7 @@
             this.ClientSize = new System.Drawing.Size(989, 536);
             this.Controls.Add(this.panel1);
             this.Name = "fBill_info";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fBill_info";
             this.Load += new System.EventHandler(this.fBill_info_Load);
             this.panel1.ResumeLayout(false);

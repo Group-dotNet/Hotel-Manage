@@ -187,6 +187,7 @@
             this.ClientSize = new System.Drawing.Size(376, 231);
             this.Controls.Add(this.panel1);
             this.Name = "fCancel_room";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fCancel_room";
             this.Load += new System.EventHandler(this.fCancel_room_Load);
             this.panel1.ResumeLayout(false);

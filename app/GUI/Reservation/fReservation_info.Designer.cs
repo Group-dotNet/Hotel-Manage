@@ -36,7 +36,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 511);
             this.Name = "fReservation_info";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fReservation_info";
+            this.Load += new System.EventHandler(this.fReservation_info_Load);
             this.ResumeLayout(false);
 
         }

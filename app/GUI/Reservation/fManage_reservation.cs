@@ -348,5 +348,27 @@ namespace app.GUI.Reservation
             dgv_reservation.DataSource = list_reservation_dgv;
 
         }
+
+        private void btn_detail_Click(object sender, EventArgs e)
+        {
+            if (this.id_reservation != 0)
+            {
+                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                {
+                    fReservation_info frm = new fReservation_info();
+                    frm.Id_reservation = this.id_reservation;
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("You don't have permission to view details!");
+                    this.id_reservation = 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select customer!");
+            }
+        }
     }
 }

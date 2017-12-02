@@ -348,6 +348,7 @@
             this.ClientSize = new System.Drawing.Size(924, 461);
             this.Controls.Add(this.panel1);
             this.Name = "fCheck_calendar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fCheck_calendar";
             this.Load += new System.EventHandler(this.fCheck_calendar_Load);
             this.panel1.ResumeLayout(false);

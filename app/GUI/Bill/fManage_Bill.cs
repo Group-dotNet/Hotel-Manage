@@ -19,6 +19,7 @@ namespace app.GUI.Bill
             InitializeComponent();
         }
         private int id_bill;
+        private string username = "phuc";
 
         public int Id_bill
         {
@@ -146,9 +147,17 @@ namespace app.GUI.Bill
         {
             if (this.id_bill != 0)
             {
-                fBill_info frm = new fBill_info();
-                frm.Id_bill = this.Id_bill;
-                frm.ShowDialog();
+                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                {
+                    fBill_info frm = new fBill_info();
+                    frm.Id_bill = this.Id_bill;
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("You don't have permission to view details!");
+                    this.id_bill = 0;
+                }
             }
             else
             {

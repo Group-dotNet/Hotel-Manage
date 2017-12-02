@@ -21,7 +21,21 @@ namespace app.GUI.Staff
         }
 
         #region Method
+        private string username = "phuc";
         private string choose_username = null;
+
+        public string Username
+        {
+            get
+            {
+                return username;
+            }
+
+            set
+            {
+                username = value;
+            }
+        }
 
         private void Load_Data()
         {
@@ -121,6 +135,11 @@ namespace app.GUI.Staff
             {
                 MessageBox.Show("You must choose an account!");
             }
+        }
+
+        private void fManage_staff_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

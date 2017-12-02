@@ -18,6 +18,7 @@ namespace app.GUI.Room
         {
             InitializeComponent();
         }
+        private string username = "phuc";
 
         private int choose_floor;
 
@@ -93,6 +94,19 @@ namespace app.GUI.Room
             set
             {
                 room = value;
+            }
+        }
+
+        public string Username
+        {
+            get
+            {
+                return username;
+            }
+
+            set
+            {
+                username = value;
             }
         }
 
@@ -251,9 +265,17 @@ namespace app.GUI.Room
         {
             if(this.room != 0)
             {
-                fRoom_info frm = new fRoom_info();
-                frm.Id_room = this.room;
-                frm.ShowDialog();
+                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                {
+                    fRoom_info frm = new fRoom_info();
+                    frm.Id_room = this.room;
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("You don't have permission to view details!");
+                    this.room = 0;
+                }
             }
             else
             {

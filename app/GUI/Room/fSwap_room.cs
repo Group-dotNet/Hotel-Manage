@@ -71,18 +71,26 @@ namespace app.GUI.Room
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
-            ComboboxItem item_old = (ComboboxItem)cb_list_room_old.SelectedItem;
-            ComboboxItem item_new = (ComboboxItem)cb_list_room_new.SelectedItem;
-            if(Log_swap_room_BUS.Instance.SwapRoom((int)item_old.Value, (int)item_new.Value))
+            if(cb_list_room_new.SelectedIndex != -1)
             {
-                MessageBox.Show("Swap room is success!");
-                this.Close();
+                ComboboxItem item_old = (ComboboxItem)cb_list_room_old.SelectedItem;
+                ComboboxItem item_new = (ComboboxItem)cb_list_room_new.SelectedItem;
+                if (Log_swap_room_BUS.Instance.SwapRoom((int)item_old.Value, (int)item_new.Value))
+                {
+                    MessageBox.Show("Swap room is success!");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Swap room is fail!");
+                    this.Close();
+                }
             }
             else
             {
-                MessageBox.Show("Swap room is fail!");
-                this.Close();
+                MessageBox.Show("You must select room new!");
             }
+           
             
         }
     }

@@ -208,6 +208,7 @@
             this.ClientSize = new System.Drawing.Size(334, 291);
             this.Controls.Add(this.panel1);
             this.Name = "fEdit_Service";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fEdit_Service";
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);

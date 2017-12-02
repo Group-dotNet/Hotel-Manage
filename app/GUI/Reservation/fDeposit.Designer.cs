@@ -33,6 +33,8 @@
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_ok = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lb_total = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.lb_rest = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lb_deposit_old = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lb_total = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -116,6 +116,23 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(274, 266);
             this.panel3.TabIndex = 1;
+            // 
+            // lb_total
+            // 
+            this.lb_total.Location = new System.Drawing.Point(133, 49);
+            this.lb_total.Name = "lb_total";
+            this.lb_total.Size = new System.Drawing.Size(120, 20);
+            this.lb_total.TabIndex = 12;
+            this.lb_total.Text = "label4";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 20);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Total:";
             // 
             // lb_rest
             // 
@@ -236,23 +253,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Deposit";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 20);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Total:";
-            // 
-            // lb_total
-            // 
-            this.lb_total.Location = new System.Drawing.Point(133, 49);
-            this.lb_total.Name = "lb_total";
-            this.lb_total.Size = new System.Drawing.Size(120, 20);
-            this.lb_total.TabIndex = 12;
-            this.lb_total.Text = "label4";
-            // 
             // fDeposit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +260,7 @@
             this.ClientSize = new System.Drawing.Size(284, 361);
             this.Controls.Add(this.panel1);
             this.Name = "fDeposit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fDeposit";
             this.Load += new System.EventHandler(this.fDeposit_Load);
             this.panel1.ResumeLayout(false);
