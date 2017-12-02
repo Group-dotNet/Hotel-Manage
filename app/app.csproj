@@ -82,7 +82,6 @@
     <Compile Include="DTO\Calendar_DTO.cs" />
     <Compile Include="DTO\Customer_DTO.cs" />
     <Compile Include="DTO\Deposit_DTO.cs" />
-    <Compile Include="DTO\History_customer_DTO.cs" />
     <Compile Include="DTO\Kind_of_room_DTO.cs" />
     <Compile Include="DTO\Log_swap_room.cs" />
     <Compile Include="DTO\Log_swap_room_DTO.cs" />

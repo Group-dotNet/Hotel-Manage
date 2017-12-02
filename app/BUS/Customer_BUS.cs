@@ -90,7 +90,7 @@ namespace app.BUS
             {
                 return Customer_DAO.Instance.Add_Customer(customer);
             }
-            catch
+            catch(SqlException e)
             {
                 throw new Exception("Error!");
             }
@@ -108,13 +108,13 @@ namespace app.BUS
         //     Customer_DAO.Instance.Edit_Customer(customer, id);
         //@Return:
         //    boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Edit_Customer(Customer_DTO customer, int id)
+        public bool Edit_Customer(Customer_DTO customer)
         {
             try
             {
-                return Customer_DAO.Instance.Edit_Customer(customer, id);
+                return Customer_DAO.Instance.Edit_Customer(customer);
             }
-            catch
+            catch(SqlException e)
             {
                 throw new Exception("Error!");
             }
@@ -162,6 +162,18 @@ namespace app.BUS
             try
             {
                 return Customer_DAO.Instance.Search_Customer(keyword, type_search);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public bool Check_Email(string email)
+        {
+            try
+            {
+                return Customer_DAO.Instance.Check_Email(email);
             }
             catch
             {

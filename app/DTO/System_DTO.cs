@@ -25,12 +25,14 @@ namespace app.DTO
             this.Username = account["username"].ToString();
             this.Password = account["password"].ToString();
             this.Id_type = (int)account["id_type"];
+            this.Ban_account = (bool)account["ban_account"];
         }
 
         private int m_id;
         private string m_username;
         private string m_password;
         private int m_id_type;
+        private bool m_ban_account;
 
         public int Id
         {
@@ -81,6 +83,19 @@ namespace app.DTO
             set
             {
                 m_id_type = value;
+            }
+        }
+
+        public bool Ban_account
+        {
+            get
+            {
+                return m_ban_account;
+            }
+
+            set
+            {
+                m_ban_account = value;
             }
         }
     }

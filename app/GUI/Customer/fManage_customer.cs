@@ -21,8 +21,14 @@ namespace app.GUI.Customer
         }
         private void Load_Data()
         {
-            List<Customer_DTO> list_customer = Customer_BUS.Instance.Get_List();
-            dgv_customer.DataSource = list_customer;
+
+            List<Customer_DGV> list_customer_dgv = new List<Customer_DGV>();
+            foreach(Customer_DTO customer in Customer_BUS.Instance.Get_List())
+            {
+                Customer_DGV customer_dgv = new Customer_DGV(customer.Id_customer, customer.Name, customer.Sex, customer.Phone, customer.Id_history);
+                list_customer_dgv.Add(customer_dgv);
+            }
+            dgv_customer.DataSource = list_customer_dgv;
         }
 
 
@@ -31,6 +37,7 @@ namespace app.GUI.Customer
             btn_delete.Enabled = false;
            
         }
+
         public string username=null;
         public string Username
         {
@@ -63,7 +70,6 @@ namespace app.GUI.Customer
             GUI.Customer.fAdd_customer frm = new GUI.Customer.fAdd_customer();
             frm.ShowDialog();
             Load_Data();
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -99,31 +105,46 @@ namespace app.GUI.Customer
 
         private void dgv_customer_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id_customer = (int)dgv_customer.Rows[e.RowIndex].Cells["Column1"].Value;
-            this.id_customer = id_customer;
-            lb_name.Text = dgv_customer.Rows[e.RowIndex].Cells["Column2"].Value.ToString();
-            lb_sex.Text = dgv_customer.Rows[e.RowIndex].Cells["Column3"].Value.ToString();
-            //lb_passport.Text = dgv_customer.Rows[e.RowIndex].Cells["Column4"].Value.ToString();
-            lb_address.Text = dgv_customer.Rows[e.RowIndex].Cells["Column5"].Value.ToString();
-            lb_email.Text = dgv_customer.Rows[e.RowIndex].Cells["Column6"].Value.ToString();
-            lb_phone.Text = dgv_customer.Rows[e.RowIndex].Cells["Column7"].Value.ToString();
-            lb_company.Text = dgv_customer.Rows[e.RowIndex].Cells["Column8"].Value.ToString();
+            try
+            {
+                int id_customer = (int)dgv_customer.Rows[e.RowIndex].Cells["Column1"].Value;
+                this.id_customer = id_customer;
 
+                // Chỉ cần id mình sẽ lấy thông tin từ trong database chứ không phải trong DGV_Customer
+                Customer_DTO customer_info = Customer_BUS.Instance.Get_Info(this.Id_customer);
+
+                // sau đó set cho lable
+                lb_name.Text = customer_info.Name.ToString();
+                if (customer_info.Sex == true) lb_sex.Text = "Men";
+                else lb_sex.Text = "Woman";
+                lb_address.Text = customer_info.Address.ToString();
+                lb_email.Text = customer_info.Email.ToString();
+                lb_phone.Text = customer_info.Phone.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Select error!");
+            }
+            
+
+            // Không nên sử dụng
+            //lb_name.Text = dgv_customer.Rows[e.RowIndex].Cells["Column2"].Value.ToString();
+            //lb_sex.Text = dgv_customer.Rows[e.RowIndex].Cells["Column3"].Value.ToString();
+            ////lb_passport.Text = dgv_customer.Rows[e.RowIndex].Cells["Column4"].Value.ToString();
+            //lb_address.Text = dgv_customer.Rows[e.RowIndex].Cells["Column5"].Value.ToString();
+            //lb_email.Text = dgv_customer.Rows[e.RowIndex].Cells["Column6"].Value.ToString();
+            //lb_phone.Text = dgv_customer.Rows[e.RowIndex].Cells["Column7"].Value.ToString();
+            //lb_company.Text = dgv_customer.Rows[e.RowIndex].Cells["Column8"].Value.ToString();
         }
 
         
-
-        private void dgv_customer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void btn_delete_Click_1(object sender, EventArgs e)
         {
             if (this.id_customer > 0)
             {
                 if (Customer_BUS.Instance.Lock_Customer(this.id_customer)) ;
-                MessageBox.Show("Delete customer is sucess!");
+                MessageBox.Show("Lock customer is sucess!");
                 this.id_customer = 0;
                 Load_Data();
             }
@@ -132,7 +153,7 @@ namespace app.GUI.Customer
                 MessageBox.Show("You must select customer");
             }
             this.id_customer =0;
-
+            Load_Data();
         }
 
 
@@ -141,11 +162,61 @@ namespace app.GUI.Customer
             if (id_customer > 0)
             {
                 fEdit_customer frm = new fEdit_customer();
+                frm.Id_customer = this.id_customer;
                 frm.ShowDialog();
+                Load_Data();
             }
             else
             {
                 MessageBox.Show("You must choose an account!");
+            }
+        }
+
+        private void btn_detail_Click(object sender, EventArgs e)
+        {
+            // Phân quyển sử dụng chức năng
+            if (this.id_customer != 0)
+            {
+                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("You don't have permission to view details!");
+                    this.id_customer = 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select customer!");
+            }
+            
+        }
+
+        private void btn_refresh_Click_1(object sender, EventArgs e)
+        {
+            Load_Data();
+        }
+
+        private void btn_unlock_Click(object sender, EventArgs e)
+        {
+            // Phân quyển sử dụng chức năng
+            if (this.id_customer != 0)
+            {
+                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("You don't have permission to view details!");
+                    this.id_customer = 0;
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select customer!");
             }
         }
     }

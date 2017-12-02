@@ -41,6 +41,7 @@
             this.btn_commit = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.txt_type_room = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.nud_number = new System.Windows.Forms.NumericUpDown();
@@ -52,7 +53,6 @@
             this.lb_room = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_type_room = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -186,6 +186,14 @@
             this.panel10.Size = new System.Drawing.Size(256, 44);
             this.panel10.TabIndex = 2;
             // 
+            // txt_type_room
+            // 
+            this.txt_type_room.Enabled = false;
+            this.txt_type_room.Location = new System.Drawing.Point(109, 8);
+            this.txt_type_room.Name = "txt_type_room";
+            this.txt_type_room.Size = new System.Drawing.Size(134, 26);
+            this.txt_type_room.TabIndex = 1;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -297,14 +305,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Stuff detail";
             // 
-            // txt_type_room
-            // 
-            this.txt_type_room.Enabled = false;
-            this.txt_type_room.Location = new System.Drawing.Point(109, 8);
-            this.txt_type_room.Name = "txt_type_room";
-            this.txt_type_room.Size = new System.Drawing.Size(134, 26);
-            this.txt_type_room.TabIndex = 1;
-            // 
             // fStuff_detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,6 +312,7 @@
             this.ClientSize = new System.Drawing.Size(684, 361);
             this.Controls.Add(this.panel1);
             this.Name = "fStuff_detail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fStuff_detail";
             this.Load += new System.EventHandler(this.fStuff_detail_Load);
             this.panel1.ResumeLayout(false);

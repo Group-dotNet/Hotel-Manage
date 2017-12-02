@@ -93,8 +93,8 @@ namespace app.DAO
         //@id_history int
         public bool Add_Customer(Customer_DTO customer)//Sửa lại
         {
-            string query = "exec USP_InsertCustomer @name , @sex , @identity_card , @address , @email , @phone , @company , @id_history "; // cái này viết sai tham số, điền đây đủ như trên
-            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { customer.Name, customer.Sex, customer.Identity_card, customer.Address, customer.Email, customer.Phone, customer.Company, customer.Id_history});// dưới này tướng ưng với từng tham số | tham khảo Staff, 
+            string query = "exec USP_InsertCustomer @name , @sex , @identity_card , @address , @email , @phone , @company"; // cái này viết sai tham số, điền đây đủ như trên
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { customer.Name, customer.Sex, customer.Identity_card, customer.Address, customer.Email, customer.Phone, customer.Company});// dưới này tướng ưng với từng tham số | tham khảo Staff, 
             return x == 1;
         }
 
@@ -108,10 +108,10 @@ namespace app.DAO
         //      
         //@Return:
         //    boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Edit_Customer(Customer_DTO customer, int id) // Sửa lại
+        public bool Edit_Customer(Customer_DTO customer) // Sửa lại
         {
-            string query = "exec USP_EditCustomer @id_customer , @name , @sex , @identity_card , @address , @email , @phone , @company , @id_history ";// cái nàu cung jaor suaw tham só
-            int record = Connect.Instance.ExecuteNonQuery(query, new object[] { customer.Id_customer, customer.Name, customer.Sex, customer.Identity_card, customer.Address, customer.Email, customer.Phone, customer.Company, customer.Id_history });
+            string query = "exec USP_EditCustomer @id_customer , @name , @sex , @identity_card , @address , @email , @phone , @company ";// cái nàu cung jaor suaw tham só
+            int record = Connect.Instance.ExecuteNonQuery(query, new object[] { customer.Id_customer, customer.Name, customer.Sex, customer.Identity_card, customer.Address, customer.Email, customer.Phone, customer.Company });
             return record == 1;
         }
 
@@ -156,6 +156,13 @@ namespace app.DAO
             }
             return list_customer;
 
+        }
+
+        public bool Check_Email(string email)
+        {
+            string query = "exec USP_CheckEmail @email";
+            int x = (int)Connect.Instance.ExecuteOutPut(query, new object[] { email });
+            return x == 1;
         }
     }
 }

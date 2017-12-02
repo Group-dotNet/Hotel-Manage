@@ -209,7 +209,87 @@ namespace app.DTO
 
     class Customer_DGV
     {
+        private int id_customer;
+        private string name_customer;
+        private string sex;
+        private string phone;
+        private string history;
 
+        public Customer_DGV(int id_customer, string name_customer, bool sex, string phone, int history)
+        {
+            this.id_customer = id_customer;
+            this.name_customer = name_customer;
+            if (sex == true) this.sex = "Men";
+            else this.sex = "Women";
+            this.phone = phone;
+            if (history == 0) this.history = "Good";
+            else this.history = "Bad";
+        }
+
+        public int Id_customer
+        {
+            get
+            {
+                return id_customer;
+            }
+
+            set
+            {
+                id_customer = value;
+            }
+        }
+
+        public string Name_customer
+        {
+            get
+            {
+                return name_customer;
+            }
+
+            set
+            {
+                name_customer = value;
+            }
+        }
+
+        public string Sex
+        {
+            get
+            {
+                return sex;
+            }
+
+            set
+            {
+                sex = value;
+            }
+        }
+
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+
+            set
+            {
+                phone = value;
+            }
+        }
+
+        public string History
+        {
+            get
+            {
+                return history;
+            }
+
+            set
+            {
+                history = value;
+            }
+        }
     }
 
     class Staff_DGV

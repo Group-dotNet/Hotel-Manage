@@ -113,5 +113,21 @@ namespace app
             frm.ShowDialog();
             this.Show();
         }
+
+        private void stuffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI.Stuff.fManage_Stuff frm = new GUI.Stuff.fManage_Stuff();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
+
+        private void serviceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI.Service.fManage_service frm = new GUI.Service.fManage_service();
+            this.Hide();
+            frm.ShowDialog();
+            this.Show();
+        }
     }
 }

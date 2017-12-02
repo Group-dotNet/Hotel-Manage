@@ -116,14 +116,15 @@ namespace app.DAO
         //     Xóa 1 vật tư bằng id
         //@Parameter
         //    Stuff_DTO stuff  --------Tham số nhập là 1 vật tư
-        //    int id           -------- Mã vật tư     
+        //
         //@Proc: 
         //      
         //@Return:
         //   boolean  ------------Thành công trả về true, thất bại trả về false;
+        // không có nghĩa xóa vật tư
         public bool Del_Stuff(int id)//xxong
         {
-            string query = "exec USP_DelStuff @id_stuff"; //-- cái @id sửa thành @id_stuff gioongstrong database
+            string query = "exec USP_LockStuff @id_stuff"; //-- cái @id sửa thành @id_stuff gioongstrong database
             int x = Connect.Instance.ExecuteNonQuery(query, new object[] { id });// cái id này ssatwj sao cung duoc
             return x == 1;
         }
@@ -169,8 +170,8 @@ namespace app.DAO
         {
             //cái này chưa xong?
 
-            string query = "exec USP_SearchStuff";
-            DataTable List_stuff = Connect.Instance.ExecuteQuery(query);
+            string query = "exec USP_SearchStuff  @keyword , @type";
+            DataTable List_stuff = Connect.Instance.ExecuteQuery(query, new object[] { keyword, type_search });
 
             List<Stuff_DTO> list_stuff = new List<Stuff_DTO>();
             foreach (DataRow item in List_stuff.Rows)

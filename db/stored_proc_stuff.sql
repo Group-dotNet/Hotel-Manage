@@ -62,8 +62,8 @@ CREATE PROC USP_SearchStuff
 @type INT
 as
 BEGIN
-    if(@type = 0) select  * from Stuff WHERE  id_stuff like '%' + @keyword + '%' or  name_stuff like '%' + @keyword + '%'
-    if(@type = 1) SELECT * from Stuff WHERE id_stuff like '%' + @keyword + '%'
-    if(@type = 2) SELECT * from Stuff WHERE name_stuff like '%' + @keyword + '%'
+    if(@type = 0) select  * from Stuff WHERE  id_stuff like '%' + @keyword + '%' or  name_stuff like '%' + @keyword + '%' and locked = 0
+    if(@type = 1) SELECT * from Stuff WHERE id_stuff like '%' + @keyword + '%' and locked = 0
+    if(@type = 2) SELECT * from Stuff WHERE name_stuff like '%' + @keyword + '%' and locked = 0
 end
 

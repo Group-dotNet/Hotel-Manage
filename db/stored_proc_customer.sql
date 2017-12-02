@@ -5,7 +5,7 @@ Go
 create proc USP_GetList
 AS
 BEGIN
-    select * from Customer where id_history = 1 order by id_customer desc
+    select * from Customer where id_history = 0 order by id_customer desc
 end
 
 GO
@@ -20,15 +20,14 @@ END
 
 GO
 
-CREATE PROC USP_InsertCustomer
+create PROC USP_InsertCustomer
 @name NVARCHAR(100),
 @sex bit,
 @identity_card VARCHAR(20),
 @address nvarchar(200),
 @email varchar(80),
 @phone varchar(11),
-@company nvarchar(50),
-@id_history int
+@company nvarchar(50)
 as 
 BEGIN
     INSERT into Customer VALUEs(@name, @sex, @identity_card, @address, @email, @phone, @company, 0)
@@ -36,7 +35,7 @@ end
 
 go
 
-CREATE PROC USP_EditCustomer
+create PROC USP_EditCustomer
 @id_customer int,
 @name NVARCHAR(100),
 @sex bit,
@@ -111,4 +110,20 @@ create proc USP_LockCustomer
 as
 begin
 	Update Customer set id_history = 1 where id_customer = @id_customer
+end
+
+go
+
+create proc USP_CheckEmail
+@email nvarchar(100)
+as
+begin
+	if(exists(select * from Customer where email = @email))
+	begin
+		return 1
+	end
+	else
+	begin
+		return 0
+	end
 end

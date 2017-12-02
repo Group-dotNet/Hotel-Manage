@@ -88,6 +88,8 @@ namespace app.GUI.Stuff
             if (this.id_stuff != 0)
             {
                 GUI.Stuff.fEdit_Stuff frm = new GUI.Stuff.fEdit_Stuff();
+                //Cần truyền và form fedit_stuff 1 mã vật tư đã chọn
+                frm.Id_stuff = this.id_stuff;
                 frm.ShowDialog();
                 Load_Data();
             }
@@ -97,7 +99,7 @@ namespace app.GUI.Stuff
             }
 
         }
-        private void btn_delete_Click(object sender, EventArgs e)
+        private void btn_delete_Click(object sender, EventArgs e) // Không có nghĩa là xóa vật tư. Vật tư vẫn tồn tại trong database
         {
             if (this.id_stuff != 0)
             {
