@@ -148,6 +148,20 @@ namespace app.GUI.Reservation
             btn_prew.Show();
         }
 
+        private void Load_Customer()
+        {
+            cb_customer.Items.Clear();
+            List<Customer_DTO> list_customer = Customer_BUS.Instance.Get_List();
+            foreach(Customer_DTO customer in list_customer)
+            {
+                ComboboxItem item = new ComboboxItem();
+                item.Text = customer.Name + " | " + customer.Phone;
+                item.Value = customer.Id_customer;
+                cb_customer.Items.Add(item);
+            }
+            
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -179,6 +193,7 @@ namespace app.GUI.Reservation
         private void fAdd_reservation_Load(object sender, EventArgs e)
         {
             LoadData(1);
+            Load_Customer();
             LoadListView();
             this.floor = 1;
             if (this.floor <= 1) btn_prew.Hide();
@@ -243,7 +258,8 @@ namespace app.GUI.Reservation
             if (flat == true)
             {
                 Reservation_DTO reservation = new Reservation_DTO();
-                reservation.Customer.Id_customer = 1;
+                ComboboxItem item = (ComboboxItem)cb_customer.SelectedItem;
+                reservation.Customer.Id_customer = (int)item.Value;
                 reservation.Is_group = false;
                 reservation.People = (int)nud_people.Value;
                 reservation.Staff.Username = "phuc";
@@ -307,6 +323,13 @@ namespace app.GUI.Reservation
         {
             lv_reservation_room.Items.Clear();
             this.list_room.Clear();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GUI.Customer.fAdd_customer frm = new Customer.fAdd_customer();
+            frm.ShowDialog();
+            Load_Customer();
         }
     }
 }

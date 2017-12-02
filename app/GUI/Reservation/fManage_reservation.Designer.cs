@@ -86,6 +86,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_detail = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -475,6 +476,7 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.btn_detail);
             this.panel6.Controls.Add(this.panel16);
             this.panel6.Controls.Add(this.panel15);
             this.panel6.Controls.Add(this.panel11);
@@ -717,6 +719,16 @@
             this.label1.Text = "Manage Reservation";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // btn_detail
+            // 
+            this.btn_detail.Location = new System.Drawing.Point(3, 311);
+            this.btn_detail.Name = "btn_detail";
+            this.btn_detail.Size = new System.Drawing.Size(270, 30);
+            this.btn_detail.TabIndex = 6;
+            this.btn_detail.Text = "Detail";
+            this.btn_detail.UseVisualStyleBackColor = true;
+            this.btn_detail.Click += new System.EventHandler(this.btn_detail_Click);
+            // 
             // fManage_reservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -724,6 +736,7 @@
             this.ClientSize = new System.Drawing.Size(989, 536);
             this.Controls.Add(this.panel1);
             this.Name = "fManage_reservation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fManage_reservation";
             this.Load += new System.EventHandler(this.fManage_reservation_Load);
             this.panel1.ResumeLayout(false);
@@ -822,5 +835,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn staff;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.ComboBox cb_status_reservation;
+        private System.Windows.Forms.Button btn_detail;
     }
 }

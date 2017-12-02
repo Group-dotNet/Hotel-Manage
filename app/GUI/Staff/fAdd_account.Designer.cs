@@ -294,6 +294,7 @@
             this.ClientSize = new System.Drawing.Size(424, 441);
             this.Controls.Add(this.panel1);
             this.Name = "fAdd_account";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fAdd_account";
             this.Load += new System.EventHandler(this.fAdd_account_Load);
             this.panel1.ResumeLayout(false);

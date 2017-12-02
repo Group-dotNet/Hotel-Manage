@@ -217,6 +217,7 @@
             this.ClientSize = new System.Drawing.Size(381, 281);
             this.Controls.Add(this.panel1);
             this.Name = "fSwap_room";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fSwap_room";
             this.Load += new System.EventHandler(this.fSwap_room_Load);
             this.panel1.ResumeLayout(false);

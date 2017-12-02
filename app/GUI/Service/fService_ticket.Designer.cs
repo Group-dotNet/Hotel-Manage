@@ -34,6 +34,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel3 = new System.Windows.Forms.Panel();
@@ -52,7 +53,6 @@
             this.lb_room = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -114,6 +114,11 @@
             // 
             this.columnHeader3.Text = "Name service";
             this.columnHeader3.Width = 129;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Price";
+            this.columnHeader6.Width = 100;
             // 
             // columnHeader4
             // 
@@ -292,11 +297,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Add service";
             // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Price";
-            this.columnHeader6.Width = 100;
-            // 
             // fService_ticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,6 +304,7 @@
             this.ClientSize = new System.Drawing.Size(904, 311);
             this.Controls.Add(this.panel1);
             this.Name = "fService_ticket";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fService_ticket";
             this.Load += new System.EventHandler(this.fService_ticket_Load);
             this.panel1.ResumeLayout(false);

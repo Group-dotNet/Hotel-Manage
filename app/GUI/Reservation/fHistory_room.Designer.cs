@@ -88,6 +88,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Name = "fHistory_room";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fHistory_room";
             this.Load += new System.EventHandler(this.fHistory_room_Load);
             this.ResumeLayout(false);

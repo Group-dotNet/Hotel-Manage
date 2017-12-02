@@ -424,6 +424,7 @@
             this.ClientSize = new System.Drawing.Size(819, 361);
             this.Controls.Add(this.panel1);
             this.Name = "fManage_service";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fManage_service";
             this.Load += new System.EventHandler(this.fManage_service_Load);
             this.panel1.ResumeLayout(false);

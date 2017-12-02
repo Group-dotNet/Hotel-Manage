@@ -54,6 +54,7 @@
             this.btn_ok = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.dtp_endate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.cb_group = new System.Windows.Forms.ComboBox();
@@ -72,7 +73,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dtp_endate = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -319,6 +319,15 @@
             this.panel12.Size = new System.Drawing.Size(333, 45);
             this.panel12.TabIndex = 4;
             // 
+            // dtp_endate
+            // 
+            this.dtp_endate.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.dtp_endate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_endate.Location = new System.Drawing.Point(110, 9);
+            this.dtp_endate.Name = "dtp_endate";
+            this.dtp_endate.Size = new System.Drawing.Size(212, 24);
+            this.dtp_endate.TabIndex = 2;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -411,12 +420,13 @@
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Add";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // cb_customer
             // 
+            this.cb_customer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cb_customer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_customer.FormattingEnabled = true;
-            this.cb_customer.Items.AddRange(new object[] {
-            "1"});
             this.cb_customer.Location = new System.Drawing.Point(110, 11);
             this.cb_customer.Name = "cb_customer";
             this.cb_customer.Size = new System.Drawing.Size(170, 26);
@@ -492,15 +502,6 @@
             this.cancelToolStripMenuItem.Text = "Cancel";
             this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
             // 
-            // dtp_endate
-            // 
-            this.dtp_endate.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.dtp_endate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_endate.Location = new System.Drawing.Point(110, 9);
-            this.dtp_endate.Name = "dtp_endate";
-            this.dtp_endate.Size = new System.Drawing.Size(212, 24);
-            this.dtp_endate.TabIndex = 2;
-            // 
             // fAdd_reservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,6 +509,7 @@
             this.ClientSize = new System.Drawing.Size(989, 511);
             this.Controls.Add(this.panel1);
             this.Name = "fAdd_reservation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fAdd_reservation";
             this.Load += new System.EventHandler(this.fAdd_reservation_Load);
             this.panel1.ResumeLayout(false);

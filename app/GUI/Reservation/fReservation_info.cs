@@ -16,5 +16,24 @@ namespace app.GUI.Reservation
         {
             InitializeComponent();
         }
+        private int id_reservation;
+
+        public int Id_reservation
+        {
+            get
+            {
+                return id_reservation;
+            }
+
+            set
+            {
+                id_reservation = value;
+            }
+        }
+
+        private void fReservation_info_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
