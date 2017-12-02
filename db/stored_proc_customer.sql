@@ -5,7 +5,7 @@ Go
 create proc USP_GetList
 AS
 BEGIN
-    select * from Customer
+    select * from Customer where id_history = 1 order by id_customer desc
 end
 
 GO
@@ -31,7 +31,7 @@ CREATE PROC USP_InsertCustomer
 @id_history int
 as 
 BEGIN
-    INSERT into Customer VALUEs(@name, @sex, @identity_card, @address, @email, @phone, @company, @id_history)
+    INSERT into Customer VALUEs(@name, @sex, @identity_card, @address, @email, @phone, @company, 0)
 end
 
 go
@@ -44,21 +44,11 @@ CREATE PROC USP_EditCustomer
 @address nvarchar(200),
 @email varchar(80),
 @phone varchar(11),
-@company nvarchar(50),
-@id_history int
+@company nvarchar(50)
 as
 BEGIN
-    update Customer set name=@name, sex= @sex, identity_card = @identity_card, address = @address, email = @email, phone = @phone, company = @company, id_history = @id_history where id_customer = @id_customer
+    update Customer set name=@name, sex= @sex, identity_card = @identity_card, address = @address, email = @email, phone = @phone, company = @company where id_customer = @id_customer
 END 
-
-GO
-
-CREATE PROC USP_DelCustomer
-@id_customer int
-AS
-BEGIN
-    DELETE from Customer where id_customer = @id_customer
-END
 
 GO
 
@@ -104,3 +94,21 @@ AS
 BEGIN 
     SELECT * from Customer where id_history = 1
 END
+
+go
+
+Create Proc USP_UnLockCustomer
+@id_customer int
+as
+begin
+	Update Customer set id_history = 0 where id_customer = @id_customer
+end
+
+go
+
+create proc USP_LockCustomer
+@id_customer int
+as
+begin
+	Update Customer set id_history = 1 where id_customer = @id_customer
+end
