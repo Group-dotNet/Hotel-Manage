@@ -648,7 +648,8 @@ begin
 end
 
 go
-exec USP_CheckDepositPrev 19
+
+
 create proc USP_CheckDepositPrev
 @id_reservation int
 as
