@@ -67,7 +67,7 @@ namespace app.BUS
             {
                 return Stuff_DAO.Instance.List_Stuff();
             }
-            catch
+            catch(System.Data.SqlClient.SqlException e)
             {
                 throw new Exception("Error!");
             }

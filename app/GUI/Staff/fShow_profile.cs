@@ -99,5 +99,10 @@ namespace app.GUI.Staff
         {
             this.Close();
         }
+
+        private void btn_upload_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

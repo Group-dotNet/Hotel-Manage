@@ -68,8 +68,9 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 342);
+            this.panel1.Size = new System.Drawing.Size(578, 420);
             this.panel1.TabIndex = 1;
             // 
             // panel4
@@ -77,16 +78,18 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.btn_cancel);
             this.panel4.Controls.Add(this.btn_ok);
-            this.panel4.Location = new System.Drawing.Point(3, 259);
+            this.panel4.Location = new System.Drawing.Point(4, 319);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(426, 75);
+            this.panel4.Size = new System.Drawing.Size(567, 92);
             this.panel4.TabIndex = 5;
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(245, 12);
+            this.btn_cancel.Location = new System.Drawing.Point(327, 15);
+            this.btn_cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(135, 47);
+            this.btn_cancel.Size = new System.Drawing.Size(180, 58);
             this.btn_cancel.TabIndex = 1;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
@@ -94,9 +97,10 @@
             // 
             // btn_ok
             // 
-            this.btn_ok.Location = new System.Drawing.Point(42, 12);
+            this.btn_ok.Location = new System.Drawing.Point(56, 15);
+            this.btn_ok.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(135, 47);
+            this.btn_ok.Size = new System.Drawing.Size(180, 58);
             this.btn_ok.TabIndex = 0;
             this.btn_ok.Text = "Ok";
             this.btn_ok.UseVisualStyleBackColor = true;
@@ -109,9 +113,10 @@
             this.panel3.Controls.Add(this.panel7);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.panel5);
-            this.panel3.Location = new System.Drawing.Point(3, 48);
+            this.panel3.Location = new System.Drawing.Point(4, 59);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(426, 205);
+            this.panel3.Size = new System.Drawing.Size(567, 252);
             this.panel3.TabIndex = 1;
             // 
             // panel8
@@ -119,9 +124,10 @@
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Controls.Add(this.cb_staff);
             this.panel8.Controls.Add(this.label5);
-            this.panel8.Location = new System.Drawing.Point(3, 153);
+            this.panel8.Location = new System.Drawing.Point(4, 188);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(418, 44);
+            this.panel8.Size = new System.Drawing.Size(557, 54);
             this.panel8.TabIndex = 4;
             // 
             // cb_staff
@@ -129,17 +135,19 @@
             this.cb_staff.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cb_staff.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_staff.FormattingEnabled = true;
-            this.cb_staff.Location = new System.Drawing.Point(157, 6);
+            this.cb_staff.Location = new System.Drawing.Point(209, 7);
+            this.cb_staff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cb_staff.Name = "cb_staff";
-            this.cb_staff.Size = new System.Drawing.Size(256, 28);
+            this.cb_staff.Size = new System.Drawing.Size(340, 33);
             this.cb_staff.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 9);
+            this.label5.Location = new System.Drawing.Point(9, 11);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 20);
+            this.label5.Size = new System.Drawing.Size(64, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Staff:";
             // 
@@ -149,17 +157,19 @@
             this.panel7.Controls.Add(this.lbl_add_kind_of_room);
             this.panel7.Controls.Add(this.cb_type);
             this.panel7.Controls.Add(this.label4);
-            this.panel7.Location = new System.Drawing.Point(3, 103);
+            this.panel7.Location = new System.Drawing.Point(4, 127);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(418, 44);
+            this.panel7.Size = new System.Drawing.Size(557, 54);
             this.panel7.TabIndex = 3;
             // 
             // lbl_add_kind_of_room
             // 
             this.lbl_add_kind_of_room.AutoSize = true;
-            this.lbl_add_kind_of_room.Location = new System.Drawing.Point(372, 9);
+            this.lbl_add_kind_of_room.Location = new System.Drawing.Point(496, 11);
+            this.lbl_add_kind_of_room.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_add_kind_of_room.Name = "lbl_add_kind_of_room";
-            this.lbl_add_kind_of_room.Size = new System.Drawing.Size(41, 20);
+            this.lbl_add_kind_of_room.Size = new System.Drawing.Size(51, 25);
             this.lbl_add_kind_of_room.TabIndex = 2;
             this.lbl_add_kind_of_room.TabStop = true;
             this.lbl_add_kind_of_room.Text = "Add\r\n";
@@ -170,17 +180,20 @@
             this.cb_type.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cb_type.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cb_type.FormattingEnabled = true;
-            this.cb_type.Location = new System.Drawing.Point(157, 6);
+            this.cb_type.Location = new System.Drawing.Point(209, 7);
+            this.cb_type.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cb_type.Name = "cb_type";
-            this.cb_type.Size = new System.Drawing.Size(209, 28);
+            this.cb_type.Size = new System.Drawing.Size(277, 33);
             this.cb_type.TabIndex = 1;
+            this.cb_type.SelectedIndexChanged += new System.EventHandler(this.cb_type_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 9);
+            this.label4.Location = new System.Drawing.Point(9, 11);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 20);
+            this.label4.Size = new System.Drawing.Size(122, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Type room:";
             // 
@@ -189,17 +202,19 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.nud_order);
             this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(3, 53);
+            this.panel6.Location = new System.Drawing.Point(4, 65);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(418, 44);
+            this.panel6.Size = new System.Drawing.Size(557, 54);
             this.panel6.TabIndex = 2;
             // 
             // nud_order
             // 
             this.nud_order.Enabled = false;
-            this.nud_order.Location = new System.Drawing.Point(157, 7);
+            this.nud_order.Location = new System.Drawing.Point(209, 9);
+            this.nud_order.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nud_order.Name = "nud_order";
-            this.nud_order.Size = new System.Drawing.Size(256, 26);
+            this.nud_order.Size = new System.Drawing.Size(341, 30);
             this.nud_order.TabIndex = 2;
             this.nud_order.Value = new decimal(new int[] {
             1,
@@ -211,9 +226,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 9);
+            this.label3.Location = new System.Drawing.Point(9, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 20);
+            this.label3.Size = new System.Drawing.Size(74, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Order:";
             // 
@@ -222,17 +238,19 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.nud_floor);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Location = new System.Drawing.Point(4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(418, 44);
+            this.panel5.Size = new System.Drawing.Size(557, 54);
             this.panel5.TabIndex = 1;
             // 
             // nud_floor
             // 
             this.nud_floor.Enabled = false;
-            this.nud_floor.Location = new System.Drawing.Point(157, 7);
+            this.nud_floor.Location = new System.Drawing.Point(209, 9);
+            this.nud_floor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nud_floor.Name = "nud_floor";
-            this.nud_floor.Size = new System.Drawing.Size(256, 26);
+            this.nud_floor.Size = new System.Drawing.Size(341, 30);
             this.nud_floor.TabIndex = 1;
             this.nud_floor.Value = new decimal(new int[] {
             1,
@@ -244,9 +262,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 9);
+            this.label2.Location = new System.Drawing.Point(9, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.Size = new System.Drawing.Size(68, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Floor:";
             // 
@@ -254,27 +273,30 @@
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Location = new System.Drawing.Point(4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(426, 39);
+            this.panel2.Size = new System.Drawing.Size(567, 48);
             this.panel2.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(157, 3);
+            this.label1.Location = new System.Drawing.Point(209, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 24);
+            this.label1.Size = new System.Drawing.Size(135, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Edit Room";
             // 
             // fEdit_room
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 341);
+            this.ClientSize = new System.Drawing.Size(579, 420);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "fEdit_room";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fEdit_room";

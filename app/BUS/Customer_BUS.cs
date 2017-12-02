@@ -2,6 +2,7 @@
 using app.DTO;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,7 +67,7 @@ namespace app.BUS
             {
                 return Customer_DAO.Instance.Get_List();
             }
-            catch
+            catch(SqlException e)
             {
                 throw new Exception("Error!");
             }
@@ -132,11 +133,11 @@ namespace app.BUS
         //    Customer_DAO.Instance.Lock_Customer(id);
         //@Return:
         //   boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Lock_Customer(string username)
+        public bool Lock_Customer(int id_customer)
         {
             try
             {
-                return Customer_DAO.Instance.Lock_Customer(username);
+                return Customer_DAO.Instance.Lock_Customer(id_customer);
             }
             catch
             {

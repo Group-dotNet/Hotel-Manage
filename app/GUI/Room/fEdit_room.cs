@@ -139,5 +139,10 @@ namespace app.GUI.Room
                 nud_floor.Value = 1;
             }
         }
+
+        private void cb_type_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

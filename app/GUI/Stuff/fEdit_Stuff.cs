@@ -1,4 +1,6 @@
-﻿using System;
+﻿using app.BUS;
+using app.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,24 @@ namespace app.GUI.Stuff
         public fEdit_Stuff()
         {
             InitializeComponent();
+        }
+
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            Stuff_DTO stuff = new Stuff_DTO();
+            stuff.Name_stuff = txt_stuff.Text;
+            if (Stuff_BUS.Instance.Edit_Stuff(stuff))
+            {
+                MessageBox.Show("Edit Successful");
+                this.Close();
+            }
+            else
+                MessageBox.Show("False");
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -99,7 +99,7 @@
             this.btn_ok.TabIndex = 0;
             this.btn_ok.Text = "Ok";
             this.btn_ok.UseVisualStyleBackColor = true;
-            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
+            
             // 
             // panel6
             // 

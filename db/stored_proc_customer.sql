@@ -56,7 +56,7 @@ CREATE PROC USP_DelCustomer
 @id_customer int
 AS
 BEGIN
-    DELETE from Customer where id_customer = @id_customer
+    UPDATE Customer set id_history=1  where id_customer = @id_customer
 END
 
 GO
