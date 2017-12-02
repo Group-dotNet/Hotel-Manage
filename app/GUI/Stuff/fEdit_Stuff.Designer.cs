@@ -50,8 +50,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(1, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(293, 176);
+            this.panel1.Size = new System.Drawing.Size(390, 216);
             this.panel1.TabIndex = 1;
             // 
             // panel4
@@ -60,28 +61,33 @@
             this.panel4.Controls.Add(this.btn_cancel);
             this.panel4.Controls.Add(this.btn_add);
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(3, 109);
+            this.panel4.Location = new System.Drawing.Point(4, 134);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(287, 62);
+            this.panel4.Size = new System.Drawing.Size(382, 76);
             this.panel4.TabIndex = 2;
             // 
             // btn_cancel
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(160, 16);
+            this.btn_cancel.Location = new System.Drawing.Point(213, 20);
+            this.btn_cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(94, 35);
+            this.btn_cancel.Size = new System.Drawing.Size(125, 43);
             this.btn_cancel.TabIndex = 1;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_add
             // 
-            this.btn_add.Location = new System.Drawing.Point(36, 16);
+            this.btn_add.Location = new System.Drawing.Point(48, 20);
+            this.btn_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(94, 35);
+            this.btn_add.Size = new System.Drawing.Size(125, 43);
             this.btn_add.TabIndex = 0;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // panel3
             // 
@@ -89,24 +95,27 @@
             this.panel3.Controls.Add(this.txt_stuff);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(3, 54);
+            this.panel3.Location = new System.Drawing.Point(4, 66);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(287, 49);
+            this.panel3.Size = new System.Drawing.Size(382, 60);
             this.panel3.TabIndex = 1;
             // 
             // txt_stuff
             // 
-            this.txt_stuff.Location = new System.Drawing.Point(84, 12);
+            this.txt_stuff.Location = new System.Drawing.Point(112, 15);
+            this.txt_stuff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_stuff.Name = "txt_stuff";
-            this.txt_stuff.Size = new System.Drawing.Size(194, 26);
+            this.txt_stuff.Size = new System.Drawing.Size(257, 30);
             this.txt_stuff.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 15);
+            this.label2.Location = new System.Drawing.Point(12, 18);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
+            this.label2.Size = new System.Drawing.Size(75, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Name:";
             // 
@@ -115,26 +124,29 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(3, 4);
+            this.panel2.Location = new System.Drawing.Point(4, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(287, 44);
+            this.panel2.Size = new System.Drawing.Size(382, 54);
             this.panel2.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 6);
+            this.label1.Location = new System.Drawing.Point(125, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 24);
+            this.label1.Size = new System.Drawing.Size(118, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Edit Stuff";
             // 
             // fEdit_Stuff
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 181);
+            this.ClientSize = new System.Drawing.Size(392, 223);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "fEdit_Stuff";
             this.Text = "fEdit_Stuff";
             this.panel1.ResumeLayout(false);

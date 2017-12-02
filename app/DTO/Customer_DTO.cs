@@ -14,11 +14,11 @@ namespace app.DTO
 
         public Customer_DTO(DataRow customer)// Cậu phải viêt  thêm hàm này , theo dõi File Staff_DTO, và video bài 5 nhé
         {
-            this.Id_customer= (int)customer["id"];
+            this.Id_customer= (int)customer["id_customer"];
             this.Name = customer["name"].ToString();
             this.Sex = (bool)customer["sex"];
             this.Identity_card = customer["identity_card"].ToString();
-            this.Address = customer["adress"].ToString();
+            this.Address = customer["address"].ToString();
             this.Email = customer["email"].ToString();
             this.Phone = customer["phone"].ToString();
             this.Company = customer["company"].ToString();

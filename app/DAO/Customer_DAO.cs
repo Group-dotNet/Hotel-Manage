@@ -126,10 +126,10 @@ namespace app.DAO
         //     USP_BanAccount 
         //@Return:
         //   boolean  ------------Thành công trả về true, thất bại trả về false;
-        public bool Lock_Customer(string username)// Hàm này tui quên chưa chỉnh sưa cho đúng databse hien tại | Nhung cũng xong rùi!
+        public bool Lock_Customer(int id_customer)// Hàm này tui quên chưa chỉnh sưa cho đúng databse hien tại | Nhung cũng xong rùi!
         {
-            string query = "exec USP_BanAccount @username";
-            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { username });
+            string query = "exec USP_LockCustomer @id_customer";
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { id_customer });
             return x == 1;
         }
 
