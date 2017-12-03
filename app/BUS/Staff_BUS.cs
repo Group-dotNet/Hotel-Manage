@@ -28,7 +28,7 @@ namespace app.BUS
             {
                 return Staff_DAO.Instance.Get_Info(username);
             }
-            catch
+            catch(System.Data.SqlClient.SqlException e)
             {
                 throw new Exception("Error!");
             }
@@ -40,7 +40,7 @@ namespace app.BUS
             {
                 return Staff_DAO.Instance.List_Staff();
             }
-            catch
+            catch(System.Data.SqlClient.SqlException e)
             {
                 throw new Exception("Error!");
             }
@@ -114,5 +114,33 @@ namespace app.BUS
                 throw new Exception("Error!");
             }
         }
+
+        public bool Check_Email(string email)
+        {
+            try
+            {
+                return Staff_DAO.Instance.Check_Email(email);
+            }
+            catch(System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public bool Insert_Staff(System_DTO account, Staff_DTO staff)
+        {
+            try
+            {
+                MD5 md5 = MD5.Create();
+                string password_md5 = Function_Other.Instance.GetMd5Hash(md5, account.Password);
+                account.Password = password_md5;
+                return Staff_DAO.Instance.Insert_Staff(account, staff);
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception("Error!");
+            }
+        }
+
     }
 }

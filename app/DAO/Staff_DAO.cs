@@ -141,5 +141,21 @@ namespace app.DAO
             int x = Connect.Instance.ExecuteNonQuery(query, new object[] { username });
             return x == 1;
         }
+
+        public bool Check_Email(string email)
+        {
+            string query = "exec USP_CheckEmailStaff @email";
+            int x = (int)Connect.Instance.ExecuteOutPut(query, new object[] { email });
+            return x == 1;
+        }
+
+        public bool Insert_Staff(System_DTO account, Staff_DTO staff)
+        {
+            string query = "exec USP_AddStaff @username , @password , @role , @displayname , @sex , @birthday , @address , @phone , @email , @image";
+            int x = (int)Connect.Instance.ExecuteOutPut(query, new object[] { account.Username, account.Password, account.Id_type, staff.Name, staff.Sex, staff.Birthday, staff.Address, staff.Phone, staff.Email, staff.Image });
+            return x == 2;
+        }
+
+       
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,6 @@ namespace app.GUI.Staff
         public fManage_staff()
         {
             InitializeComponent();
-            Load_Data();
         }
 
         #region Method
@@ -39,8 +39,13 @@ namespace app.GUI.Staff
 
         private void Load_Data()
         {
-            List<Staff_DTO> list_staff = Staff_BUS.Instance.List_Staff();
-            dgv_staff.DataSource = list_staff;
+            List<Staff_DGV> list_staff_dgv = new List<Staff_DGV>();
+            foreach(Staff_DTO staff in Staff_BUS.Instance.List_Staff())
+            {
+                Staff_DGV staff_dgv = new Staff_DGV(staff.Username, staff.Name, staff.Sex, staff.Phone);
+                list_staff_dgv.Add(staff_dgv);
+            }
+            dgv_staff.DataSource = list_staff_dgv;
         }
 
 
@@ -50,23 +55,25 @@ namespace app.GUI.Staff
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            if(choose_username != null)
+            if(this.choose_username != null)
             {
-                fChange_pass frm = new fChange_pass();
+                fProfile frm = new fProfile();
                 frm.Username = this.choose_username;
                 frm.ShowDialog();
+                Load_Data();
             }
             else
             {
-                MessageBox.Show("You must choose an account!");
+                MessageBox.Show("You must select staff!");
             }
 
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            GUI.Staff.fAdd_account frm = new GUI.Staff.fAdd_account();
+            GUI.Staff.fAdd_Staff frm = new GUI.Staff.fAdd_Staff();
             frm.ShowDialog();
+            Load_Data();
         }
 
 
@@ -79,13 +86,19 @@ namespace app.GUI.Staff
         {
             try
             {
-                lb_name.Text = dgv_staff.Rows[e.RowIndex].Cells["Name"].Value.ToString();
-                lb_position.Text = Staff_BUS.Instance.Get_Role(dgv_staff.Rows[e.RowIndex].Cells["Username"].Value.ToString());
-                this.choose_username = dgv_staff.Rows[e.RowIndex].Cells["Username"].Value.ToString();
+                this.choose_username = dgv_staff.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Staff_DTO staff = Staff_BUS.Instance.Get_Info(this.choose_username);
+
+                MemoryStream stream = new MemoryStream(staff.Image);
+                pictureBox1.Image = Image.FromStream(stream);
                 
+                
+                lb_name.Text = staff.Name;
+                lb_position.Text = Staff_BUS.Instance.Get_Role(this.choose_username);
             }
-            catch
+            catch(Exception ex)
             {
+                throw new Exception("Error!");
                 MessageBox.Show("Selected Error!");
             }
         }
@@ -102,9 +115,9 @@ namespace app.GUI.Staff
                 MessageBox.Show("You must select staff!");
             else
             {
-                frm.Type = 2;
-                frm.Username = this.choose_username;
-                frm.ShowDialog();
+                    frm.Type = 2;
+                    frm.Username = this.choose_username;
+                    frm.ShowDialog();
             }
         }
 
@@ -139,7 +152,58 @@ namespace app.GUI.Staff
 
         private void fManage_staff_Load(object sender, EventArgs e)
         {
+            Load_Data();
+        }
 
+        private void btn_change_password_Click(object sender, EventArgs e)
+        {
+            if(this.choose_username != null)
+            {
+                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                {
+                    fChange_pass frm = new fChange_pass();
+                    frm.Username = this.choose_username;
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    if (this.choose_username == this.username)
+                    {
+                        fChange_pass frm = new fChange_pass();
+                        frm.Username = this.choose_username;
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You don't have permission to view details!!");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select staff!");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (this.choose_username != null)
+            {
+                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                {
+                    fChange_role frm = new fChange_role();
+                    frm.Username = this.choose_username;
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("You don't have permission to view details!!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select staff!");
+            }
         }
     }
 }

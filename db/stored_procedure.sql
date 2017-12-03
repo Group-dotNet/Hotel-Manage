@@ -7,7 +7,7 @@ go
 create proc USP_GetListStaff
 as
 begin
-	select *from Staff
+	select *from Staff as a join Account as b on a.username = b.username where ban_account = 0 order by id_account desc
 end
 
 GO
@@ -29,6 +29,26 @@ end
 
 GO
 
+create proc USP_AddStaff
+@username varchar(50),
+@password varchar(50),
+@role int,
+@displayname nvarchar(100),
+@sex bit,
+@birthday date,
+@address nvarchar(200),
+@phone varchar(11),
+@email varchar(50),
+@image image
+as
+begin
+	insert into Account values(@username, @password, @role, 0)
+	insert into Staff values(@username, @displayname, @sex, @birthday, @address, @phone, @email, @image)
+	return 2
+end
+
+go
+
 create proc USP_EditStaff
 @username varchar (50),
 @displayname nvarchar(100),
@@ -37,7 +57,7 @@ create proc USP_EditStaff
 @address nvarchar(200),
 @phone varchar(11),
 @email varchar(50),
-@image nvarchar(1000)
+@image image
 as
 begin
 	update staff set displayname = @displayname, sex = @sex, birthday = @birthday, address = @address, phone = @phone, email = @email, image = @image where username = @username;
@@ -70,7 +90,21 @@ begin
 	update Account set ban_account = 1 where username = @username
 end
 
+go
 
+create proc USP_CheckEmailStaff
+@email nvarchar(100)
+as
+begin
+	if( exists(select * from Staff where email = @email))
+	begin
+		return 1
+	end
+	else
+	begin
+		return 0
+	end
+end
 
 --select *from Account
 

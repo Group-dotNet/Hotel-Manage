@@ -118,52 +118,112 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="refresh-icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="delete-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ban" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ban.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cunrmsayvuqjpdqtcycb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cunrmsayvuqjpdqtcycb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="profile-clipart-generic-user-11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\profile-clipart-generic-user-11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="furniture_4-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\furniture_4-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh_passwords-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh_passwords-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="876188-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\876188-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="people (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\people (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home-icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fsvxlzqocyhmrblzvehl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fsvxlzqocyhmrblzvehl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh-icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\refresh-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="56805" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\56805.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Found-Icons-in-HK-4-2014111931" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Found-Icons-in-HK-4-2014111931.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user-avatar-outline_318-34741" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\no-avatar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh-icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ban" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ban.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ban1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ban1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="home-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="print1600" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\print1600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh_passwords-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\refresh_passwords-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="add-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\add-icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Print" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Print.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bell-boy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bell-boy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="export" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\export.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="home-icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="credit-cards-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\credit-cards-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="69099" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\69099.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Security-Password-2-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Security-Password-2-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="876195-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\876195-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="doorman_bellboy_welcome_hotel_staff_concierge_bellhop-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\doorman_bellboy_welcome_hotel_staff_concierge_bellhop-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="157-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\157-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="876195-2001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\876195-2001.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="add-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\add-icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="07-Keycard-Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\07-Keycard-Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="39-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\39-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="print1600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\print1600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="visa1600" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\visa1600.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh-icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\refresh-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="menu_icon_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\menu_icon_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="16129-200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\16129-200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="img_52523" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img_52523.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

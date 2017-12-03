@@ -33,7 +33,7 @@ namespace app
                 frm.Username = user;
                 this.Hide();
                 frm.ShowDialog();
-                this.Show();
+                
             }
              else
             {
@@ -61,7 +61,13 @@ namespace app
 
         private void fLogin_Load(object sender, EventArgs e)
         {
-
+            if(System_BUS.Instance.CheckExistsAccount() == true)
+            {
+                GUI.Staff.fAdd_Staff frm = new GUI.Staff.fAdd_Staff();
+                frm.Type = 0;
+                this.Hide();
+                frm.ShowDialog();
+            }
         }
     }
 }

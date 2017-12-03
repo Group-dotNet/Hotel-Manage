@@ -10,6 +10,8 @@ namespace app.DTO
     public class System_DTO
     {
 
+        public System_DTO() { }
+
         public System_DTO(int id, string username, string password, int id_type)
         {
             this.Id             = id;

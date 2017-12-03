@@ -12,7 +12,7 @@ namespace app.DTO
 
         public Staff_DTO() { }
 
-        public Staff_DTO(string username, string name, bool sex, DateTime birthday, string address, string phone, string email, string image)
+        public Staff_DTO(string username, string name, bool sex, DateTime birthday, string address, string phone, string email)
         {
             this.Username = username;
             this.Name = name;
@@ -21,7 +21,6 @@ namespace app.DTO
             this.Address = address;
             this.Phone = phone;
             this.Email = email;
-            this.Image = image;
         }
 
         public Staff_DTO(DataRow Staff)
@@ -33,7 +32,8 @@ namespace app.DTO
             this.Address = Staff["address"].ToString();
             this.Phone = Staff["phone"].ToString();
             this.Email = Staff["email"].ToString();
-            this.Image = Staff["image"].ToString();
+            this.Image = (byte[])(Staff["image"]);
+
         }
 
         private string m_username;
@@ -43,7 +43,7 @@ namespace app.DTO
         private string m_address;
         private string m_phone;
         private string m_email;
-        private string m_image;
+        private byte[] m_image;
 
         public string Username
         {
@@ -136,7 +136,8 @@ namespace app.DTO
             }
         }
 
-        public string Image
+
+        public byte[] Image
         {
             get
             {

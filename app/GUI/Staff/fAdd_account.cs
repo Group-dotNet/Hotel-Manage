@@ -49,7 +49,7 @@ namespace app.GUI.Staff
 
         private void fAdd_account_Load(object sender, EventArgs e)
         {
-            cb_position.SelectedItem = "Staff";
+            cb_position.SelectedIndex = 0;
         }
 
         private void btn_create_Click_1(object sender, EventArgs e)

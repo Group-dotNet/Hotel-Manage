@@ -294,6 +294,70 @@ namespace app.DTO
 
     class Staff_DGV
     {
+        private string username;
+        private string name;
+        private string sex;
+        private string phone;
 
+        public Staff_DGV(string username, string name, bool sex, string phone)
+        {
+            this.username = username;
+            this.name = name;
+            if (sex == true) this.sex = "Men";
+            else this.sex = "Woman";
+            this.phone = phone;
+        }
+
+        public string Username
+        {
+            get
+            {
+                return username;
+            }
+
+            set
+            {
+                username = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+
+        public string Sex
+        {
+            get
+            {
+                return sex;
+            }
+
+            set
+            {
+                sex = value;
+            }
+        }
+
+        public string Phone
+        {
+            get
+            {
+                return phone;
+            }
+
+            set
+            {
+                phone = value;
+            }
+        }
     }
 }

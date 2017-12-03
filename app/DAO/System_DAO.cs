@@ -25,9 +25,9 @@ namespace app.DAO
         public bool Login_System(string username, string password)
         {
             
-            string query = "select * from Account where username='" + username + "' and password='" + password + "'";
+            string query = "exec USP_CheckLogin @username , @password";
 
-            DataTable result = Connect.Instance.ExecuteQuery(query);
+            DataTable result = Connect.Instance.ExecuteQuery(query, new object[] { username, password });
 
             return result.Rows.Count == 1;
         }
@@ -75,6 +75,13 @@ namespace app.DAO
             int record = Connect.Instance.ExecuteNonQuery(query, new object[] { username, password_new });
 
             return record == 1;
+        }
+
+        public bool CheckExistsAccount()
+        {
+            string query = "exec USP_CheckExistsAccount";
+            int x = (int)Connect.Instance.ExecuteOutPut(query);
+            return x == 1;
         }
     }
 }

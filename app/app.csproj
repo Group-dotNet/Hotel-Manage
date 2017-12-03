@@ -34,6 +34,9 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -101,6 +104,12 @@
     <Compile Include="fChange_pass.Designer.cs">
       <DependentUpon>fChange_pass.cs</DependentUpon>
     </Compile>
+    <Compile Include="fGuide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fGuide.Designer.cs">
+      <DependentUpon>fGuide.cs</DependentUpon>
+    </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +139,12 @@
     </Compile>
     <Compile Include="fUpdate_Staff.Designer.cs">
       <DependentUpon>fUpdate_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Analytic\fAnalytic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Analytic\fAnalytic.Designer.cs">
+      <DependentUpon>fAnalytic.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Bill\fBill_info.cs">
       <SubType>Form</SubType>
@@ -317,6 +332,24 @@
     <Compile Include="GUI\Staff\fAdd_account.Designer.cs">
       <DependentUpon>fAdd_account.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Staff\fAdd_Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Staff\fAdd_Staff.Designer.cs">
+      <DependentUpon>fAdd_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Staff\fChange_role.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Staff\fChange_role.Designer.cs">
+      <DependentUpon>fChange_role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Staff\fEdit_Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Staff\fEdit_Staff.Designer.cs">
+      <DependentUpon>fEdit_Staff.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Staff\fManage_staff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +407,9 @@
     <EmbeddedResource Include="fChange_pass.resx">
       <DependentUpon>fChange_pass.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fGuide.resx">
+      <DependentUpon>fGuide.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fUpdate_Staff.resx">
       <DependentUpon>fUpdate_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Analytic\fAnalytic.resx">
+      <DependentUpon>fAnalytic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Bill\fBill_info.resx">
       <DependentUpon>fBill_info.cs</DependentUpon>
@@ -475,6 +514,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Staff\fAdd_account.resx">
       <DependentUpon>fAdd_account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Staff\fAdd_Staff.resx">
+      <DependentUpon>fAdd_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Staff\fChange_role.resx">
+      <DependentUpon>fChange_role.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Staff\fManage_staff.resx">
       <DependentUpon>fManage_staff.cs</DependentUpon>
@@ -586,7 +631,73 @@
     <None Include="Resources\credit-cards-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="GUI\Analytic\" />
+    <None Include="Resources\img_52523.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cunrmsayvuqjpdqtcycb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\876188-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\876195-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doorman_bellboy_welcome_hotel_staff_concierge_bellhop-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bell-boy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07-Keycard-Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_icon_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\39-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\876195-2001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visa1600.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fsvxlzqocyhmrblzvehl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\157-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\furniture_4-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doorman_bellboy_welcome_hotel_staff_concierge_bellhop-5121.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Found-Icons-in-HK-4-2014111931.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-clipart-generic-user-11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Security-Password-2-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\56805.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\69099.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16129-200.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

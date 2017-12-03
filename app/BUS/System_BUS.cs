@@ -110,5 +110,17 @@ namespace app.BUS
                 throw new Exception("Error!");
             }
         }
+
+        public bool CheckExistsAccount()
+        {
+            try
+            {
+                return System_DAO.Instance.CheckExistsAccount();
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
     }
 }
