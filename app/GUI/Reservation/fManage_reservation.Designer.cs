@@ -285,6 +285,7 @@
             this.dgv_reservation.Size = new System.Drawing.Size(655, 301);
             this.dgv_reservation.TabIndex = 3;
             this.dgv_reservation.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_reservation_CellClick);
+            this.dgv_reservation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_reservation_CellContentClick);
             // 
             // id
             // 

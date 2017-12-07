@@ -102,5 +102,10 @@ namespace app.GUI.Staff
                 }
             }
         }
+
+        private void txt_username_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

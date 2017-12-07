@@ -66,7 +66,7 @@ namespace app.GUI.Reservation
             try
             {
                 int id_reservation = (int)dgv_reservation.Rows[e.RowIndex].Cells[0].Value;
-                this.id_reservation = id_reservation;
+                this.Id_reservation = id_reservation;
                 Reservation_DTO reservation = Reservation_BUS.Instance.GetInfoReservation(id_reservation);
                 Calendar_DTO calendar = Calendar_BUS.Instance.GetCalendarReservationUsing(id_reservation);
 
@@ -346,6 +346,11 @@ namespace app.GUI.Reservation
                 list_reservation_dgv.Add(reservation_dgv);
             }
             dgv_reservation.DataSource = list_reservation_dgv;
+
+        }
+
+        private void dgv_reservation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

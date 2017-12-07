@@ -264,6 +264,7 @@
             this.btn_edit.Size = new System.Drawing.Size(48, 48);
             this.btn_edit.TabIndex = 1;
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_add
             // 

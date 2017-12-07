@@ -17,6 +17,15 @@ namespace app.DTO
 
         public Service_DTO() { }
 
+        public Service_DTO(int id_service, string name_service, decimal price, string unit)
+        {
+            this.Id_service = id_service;
+            this.Name_service = name_service;
+            this.Price = price;
+            this.Unit = unit;
+        }
+
+
         public Service_DTO(DataRow Service)
         {
             this.Id_service = (int)Service["id_service"];

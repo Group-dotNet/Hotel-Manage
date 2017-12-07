@@ -122,5 +122,15 @@ namespace app.GUI.Staff
                 MessageBox.Show("You must choose an account!");
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_staff_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

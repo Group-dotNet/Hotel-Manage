@@ -34,13 +34,13 @@
             this.btn_ok = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -82,6 +82,7 @@
             this.btn_cancel.TabIndex = 1;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_ok
             // 
@@ -91,6 +92,7 @@
             this.btn_ok.TabIndex = 0;
             this.btn_ok.Text = "Ok";
             this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // panel3
             // 
@@ -107,19 +109,19 @@
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.textBox3);
+            this.panel7.Controls.Add(this.txt_3);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Location = new System.Drawing.Point(3, 111);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(321, 48);
             this.panel7.TabIndex = 3;
             // 
-            // textBox3
+            // txt_3
             // 
-            this.textBox3.Location = new System.Drawing.Point(108, 9);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(208, 24);
-            this.textBox3.TabIndex = 1;
+            this.txt_3.Location = new System.Drawing.Point(108, 9);
+            this.txt_3.Name = "txt_3";
+            this.txt_3.Size = new System.Drawing.Size(208, 24);
+            this.txt_3.TabIndex = 1;
             // 
             // label4
             // 
@@ -133,19 +135,19 @@
             // panel6
             // 
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.textBox2);
+            this.panel6.Controls.Add(this.txt_2);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Location = new System.Drawing.Point(3, 57);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(321, 48);
             this.panel6.TabIndex = 2;
             // 
-            // textBox2
+            // txt_2
             // 
-            this.textBox2.Location = new System.Drawing.Point(108, 9);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 24);
-            this.textBox2.TabIndex = 1;
+            this.txt_2.Location = new System.Drawing.Point(108, 9);
+            this.txt_2.Name = "txt_2";
+            this.txt_2.Size = new System.Drawing.Size(208, 24);
+            this.txt_2.TabIndex = 1;
             // 
             // label3
             // 
@@ -159,19 +161,19 @@
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.txt_1);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(321, 48);
             this.panel5.TabIndex = 0;
             // 
-            // textBox1
+            // txt_1
             // 
-            this.textBox1.Location = new System.Drawing.Point(108, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 24);
-            this.textBox1.TabIndex = 1;
+            this.txt_1.Location = new System.Drawing.Point(108, 9);
+            this.txt_1.Name = "txt_1";
+            this.txt_1.Size = new System.Drawing.Size(208, 24);
+            this.txt_1.TabIndex = 1;
             // 
             // label2
             // 
@@ -209,6 +211,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "fEdit_Service";
             this.Text = "fEdit_Service";
+            this.Load += new System.EventHandler(this.fEdit_Service_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -232,13 +235,13 @@
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;

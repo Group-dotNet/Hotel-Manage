@@ -16,5 +16,10 @@ namespace app.GUI.Stuff
         {
             InitializeComponent();
         }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

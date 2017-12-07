@@ -67,7 +67,7 @@ namespace app.BUS
             {
                 return Service_DAO.Instance.Get_List();
             }
-            catch
+            catch (SqlException e)
             {
                 throw new Exception("Error!");
             }
@@ -180,11 +180,11 @@ namespace app.BUS
         //    Service_DAO.Instance.Del_Mul_Service(list_id);
         //@Return:
         //    List<Service_DTO>   ------------ Trả về danh sách thỏa mãn
-        public List<Service_DTO> Search_Service(String keyword, int type_search)
+        public List<Service_DTO> Search_Service(String keyword, int type)
         {
             try
             {
-                return Service_DAO.Instance.Search_Service(keyword, type_search);
+                return Service_DAO.Instance.Search_Service(keyword, type);
             }
             catch
             {

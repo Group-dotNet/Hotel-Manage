@@ -30,11 +30,16 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pn_service = new System.Windows.Forms.Panel();
+            this.dgv_service = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.cb_search = new System.Windows.Forms.ComboBox();
             this.btn_search = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.ptb_export = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,10 +53,10 @@
             this.btn_add = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lb_unit = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lb_price = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lb_name = new System.Windows.Forms.Label();
@@ -62,8 +67,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.pn_service.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_export)).BeginInit();
@@ -91,38 +96,85 @@
             // panel5
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.panel4);
+            this.panel5.Controls.Add(this.pn_service);
             this.panel5.Controls.Add(this.panel13);
             this.panel5.Location = new System.Drawing.Point(315, 56);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(492, 290);
             this.panel5.TabIndex = 2;
             // 
-            // panel4
+            // pn_service
             // 
-            this.panel4.Controls.Add(this.dataGridView1);
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Location = new System.Drawing.Point(3, 46);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(481, 234);
-            this.panel4.TabIndex = 3;
+            this.pn_service.Controls.Add(this.dgv_service);
+            this.pn_service.Controls.Add(this.panel6);
+            this.pn_service.Location = new System.Drawing.Point(3, 46);
+            this.pn_service.Name = "pn_service";
+            this.pn_service.Size = new System.Drawing.Size(481, 234);
+            this.pn_service.TabIndex = 3;
             // 
-            // dataGridView1
+            // dgv_service
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 42);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(471, 182);
-            this.dataGridView1.TabIndex = 1;
+            this.dgv_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dgv_service.Location = new System.Drawing.Point(3, 42);
+            this.dgv_service.Name = "dgv_service";
+            this.dgv_service.Size = new System.Drawing.Size(471, 182);
+            this.dgv_service.TabIndex = 1;
+            this.dgv_service.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_service_CellClick_1);
+            this.dgv_service.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_service_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "id_service";
+            this.Column1.HeaderText = "ID Service";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "name_service";
+            this.Column2.HeaderText = "Name Service";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "price";
+            this.Column3.HeaderText = "Price";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "unit";
+            this.Column4.HeaderText = "Money";
+            this.Column4.Name = "Column4";
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.cb_search);
             this.panel6.Controls.Add(this.btn_search);
-            this.panel6.Controls.Add(this.textBox1);
+            this.panel6.Controls.Add(this.txt_search);
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(471, 33);
             this.panel6.TabIndex = 0;
+            // 
+            // cb_search
+            // 
+            this.cb_search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_search.FormattingEnabled = true;
+            this.cb_search.Items.AddRange(new object[] {
+            "All",
+            "ID Service",
+            "Name Service",
+            "Price",
+            "Unit"});
+            this.cb_search.Location = new System.Drawing.Point(80, 5);
+            this.cb_search.Name = "cb_search";
+            this.cb_search.Size = new System.Drawing.Size(107, 21);
+            this.cb_search.TabIndex = 2;
             // 
             // btn_search
             // 
@@ -132,13 +184,15 @@
             this.btn_search.TabIndex = 1;
             this.btn_search.Text = "Search";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
-            // textBox1
+            // txt_search
             // 
-            this.textBox1.Location = new System.Drawing.Point(193, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 20);
-            this.textBox1.TabIndex = 0;
+            this.txt_search.Location = new System.Drawing.Point(193, 6);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(191, 20);
+            this.txt_search.TabIndex = 0;
+            this.txt_search.Text = ",";
             // 
             // panel13
             // 
@@ -223,6 +277,7 @@
             this.btn_refresh.Size = new System.Drawing.Size(48, 48);
             this.btn_refresh.TabIndex = 4;
             this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // btn_back
             // 
@@ -238,6 +293,7 @@
             this.btn_back.Size = new System.Drawing.Size(48, 48);
             this.btn_back.TabIndex = 3;
             this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
             // btn_delete
             // 
@@ -253,6 +309,7 @@
             this.btn_delete.Size = new System.Drawing.Size(48, 48);
             this.btn_delete.TabIndex = 2;
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_edit
             // 
@@ -268,6 +325,7 @@
             this.btn_edit.Size = new System.Drawing.Size(48, 48);
             this.btn_edit.TabIndex = 1;
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_add
             // 
@@ -283,6 +341,7 @@
             this.btn_add.Size = new System.Drawing.Size(48, 48);
             this.btn_add.TabIndex = 0;
             this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // panel8
             // 
@@ -299,20 +358,20 @@
             // panel11
             // 
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel11.Controls.Add(this.label7);
+            this.panel11.Controls.Add(this.lb_unit);
             this.panel11.Controls.Add(this.label8);
             this.panel11.Location = new System.Drawing.Point(3, 97);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(286, 41);
             this.panel11.TabIndex = 3;
             // 
-            // label7
+            // lb_unit
             // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(88, 7);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(195, 25);
-            this.label7.TabIndex = 1;
+            this.lb_unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_unit.Location = new System.Drawing.Point(88, 7);
+            this.lb_unit.Name = "lb_unit";
+            this.lb_unit.Size = new System.Drawing.Size(195, 25);
+            this.lb_unit.TabIndex = 1;
             // 
             // label8
             // 
@@ -326,20 +385,20 @@
             // panel9
             // 
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.label3);
+            this.panel9.Controls.Add(this.lb_price);
             this.panel9.Controls.Add(this.label5);
             this.panel9.Location = new System.Drawing.Point(3, 50);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(286, 41);
             this.panel9.TabIndex = 3;
             // 
-            // label3
+            // lb_price
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(88, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(195, 25);
-            this.label3.TabIndex = 1;
+            this.lb_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_price.Location = new System.Drawing.Point(88, 7);
+            this.lb_price.Name = "lb_price";
+            this.lb_price.Size = new System.Drawing.Size(195, 25);
+            this.lb_price.TabIndex = 1;
             // 
             // label5
             // 
@@ -428,8 +487,8 @@
             this.Load += new System.EventHandler(this.fManage_service_Load);
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.pn_service.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_service)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel13.ResumeLayout(false);
@@ -467,10 +526,10 @@
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lb_unit;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lb_price;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label lb_name;
@@ -482,10 +541,15 @@
         private System.Windows.Forms.PictureBox ptb_export;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox ptb_print;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pn_service;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_service;
         private System.Windows.Forms.Button btn_search;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_search;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.ComboBox cb_search;
     }
 }

@@ -29,28 +29,33 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_ok = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.txt_unit = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txt_price = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.txt_nameservice = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_ok = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lb_error_name = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lb_error_price = new System.Windows.Forms.Label();
+            this.lb_error_unit = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,6 +67,135 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(333, 291);
             this.panel1.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.btn_cancel);
+            this.panel4.Controls.Add(this.btn_ok);
+            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel4.Location = new System.Drawing.Point(3, 231);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(327, 70);
+            this.panel4.TabIndex = 2;
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.Location = new System.Drawing.Point(175, 13);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(86, 40);
+            this.btn_cancel.TabIndex = 1;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = true;
+            // 
+            // btn_ok
+            // 
+            this.btn_ok.Location = new System.Drawing.Point(49, 13);
+            this.btn_ok.Name = "btn_ok";
+            this.btn_ok.Size = new System.Drawing.Size(86, 40);
+            this.btn_ok.TabIndex = 0;
+            this.btn_ok.Text = "Ok";
+            this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.panel7);
+            this.panel3.Controls.Add(this.panel6);
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(3, 45);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(327, 184);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.lb_error_unit);
+            this.panel7.Controls.Add(this.txt_unit);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Location = new System.Drawing.Point(3, 125);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(321, 54);
+            this.panel7.TabIndex = 3;
+            // 
+            // txt_unit
+            // 
+            this.txt_unit.Location = new System.Drawing.Point(108, 6);
+            this.txt_unit.Name = "txt_unit";
+            this.txt_unit.Size = new System.Drawing.Size(208, 24);
+            this.txt_unit.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 18);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Unit:";
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.lb_error_price);
+            this.panel6.Controls.Add(this.txt_price);
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Location = new System.Drawing.Point(3, 62);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(321, 57);
+            this.panel6.TabIndex = 2;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            // 
+            // txt_price
+            // 
+            this.txt_price.Location = new System.Drawing.Point(108, 6);
+            this.txt_price.Name = "txt_price";
+            this.txt_price.Size = new System.Drawing.Size(208, 24);
+            this.txt_price.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 18);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Price:";
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.lb_error_name);
+            this.panel5.Controls.Add(this.txt_nameservice);
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Location = new System.Drawing.Point(3, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(321, 56);
+            this.panel5.TabIndex = 0;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // txt_nameservice
+            // 
+            this.txt_nameservice.Location = new System.Drawing.Point(108, 5);
+            this.txt_nameservice.Name = "txt_nameservice";
+            this.txt_nameservice.Size = new System.Drawing.Size(208, 24);
+            this.txt_nameservice.TabIndex = 1;
+            this.txt_nameservice.TextChanged += new System.EventHandler(this.txt_nameservice_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 18);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Service:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel2
             // 
@@ -82,144 +216,76 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Add Service";
             // 
-            // panel3
+            // lb_error_name
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.panel7);
-            this.panel3.Controls.Add(this.panel6);
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(3, 44);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(327, 168);
-            this.panel3.TabIndex = 1;
+            this.lb_error_name.AutoSize = true;
+            this.lb_error_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_error_name.ForeColor = System.Drawing.Color.Red;
+            this.lb_error_name.Location = new System.Drawing.Point(110, 33);
+            this.lb_error_name.Name = "lb_error_name";
+            this.lb_error_name.Size = new System.Drawing.Size(0, 15);
+            this.lb_error_name.TabIndex = 3;
             // 
-            // panel4
+            // label5
             // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.btn_cancel);
-            this.panel4.Controls.Add(this.btn_ok);
-            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel4.Location = new System.Drawing.Point(3, 218);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(327, 70);
-            this.panel4.TabIndex = 2;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(159, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 15);
+            this.label5.TabIndex = 4;
             // 
-            // btn_ok
+            // label6
             // 
-            this.btn_ok.Location = new System.Drawing.Point(49, 13);
-            this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(86, 40);
-            this.btn_ok.TabIndex = 0;
-            this.btn_ok.Text = "Ok";
-            this.btn_ok.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(112, 34);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 15);
+            this.label6.TabIndex = 5;
             // 
-            // btn_cancel
+            // lb_error_price
             // 
-            this.btn_cancel.Location = new System.Drawing.Point(175, 13);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(86, 40);
-            this.btn_cancel.TabIndex = 1;
-            this.btn_cancel.Text = "Cancel";
-            this.btn_cancel.UseVisualStyleBackColor = true;
+            this.lb_error_price.AutoSize = true;
+            this.lb_error_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_error_price.ForeColor = System.Drawing.Color.Red;
+            this.lb_error_price.Location = new System.Drawing.Point(111, 35);
+            this.lb_error_price.Name = "lb_error_price";
+            this.lb_error_price.Size = new System.Drawing.Size(0, 15);
+            this.lb_error_price.TabIndex = 3;
             // 
-            // panel5
+            // lb_error_unit
             // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.textBox1);
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(321, 48);
-            this.panel5.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 18);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Service:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(108, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 24);
-            this.textBox1.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.textBox2);
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Location = new System.Drawing.Point(3, 57);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(321, 48);
-            this.panel6.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(108, 9);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 24);
-            this.textBox2.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Price:";
-            // 
-            // panel7
-            // 
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.textBox3);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Location = new System.Drawing.Point(3, 111);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(321, 48);
-            this.panel7.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(108, 9);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(208, 24);
-            this.textBox3.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 18);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Unit:";
+            this.lb_error_unit.AutoSize = true;
+            this.lb_error_unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_error_unit.ForeColor = System.Drawing.Color.Red;
+            this.lb_error_unit.Location = new System.Drawing.Point(111, 34);
+            this.lb_error_unit.Name = "lb_error_unit";
+            this.lb_error_unit.Size = new System.Drawing.Size(0, 15);
+            this.lb_error_unit.TabIndex = 4;
             // 
             // fAdd_Service
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 291);
+            this.ClientSize = new System.Drawing.Size(334, 293);
             this.Controls.Add(this.panel1);
             this.Name = "fAdd_Service";
             this.Text = "fAdd_Service";
+            this.Load += new System.EventHandler(this.fAdd_Service_Load);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -232,15 +298,20 @@
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_unit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_price;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_nameservice;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_error_name;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lb_error_unit;
+        private System.Windows.Forms.Label lb_error_price;
     }
 }
