@@ -163,7 +163,7 @@ namespace app.BUS
             {
                 return Customer_DAO.Instance.Search_Customer(keyword, type_search);
             }
-            catch
+            catch(SqlException e)
             {
                 throw new Exception("Error!");
             }

@@ -145,8 +145,8 @@ namespace app.DAO
         //    List<Customer_DTO>   ------------ Trả về danh sách thỏa mãn
         public List<Customer_DTO> Search_Customer(String keyword, int type_search) // Viết tiếp
         {
-            string query = "exec USP_SearchCustomer";//cái này có vấn đề nhé thếu tham só vào!. để tớ sửa lại cho, chút ý lần sau nhé
-            DataTable List_customer = Connect.Instance.ExecuteQuery(query);
+            string query = "exec USP_SearchCustomer @keyword , @type ";//cái này có vấn đề nhé thếu tham só vào!. để tớ sửa lại cho, chút ý lần sau nhé
+            DataTable List_customer = Connect.Instance.ExecuteQuery(query,new object[] { keyword , type_search });
 
             List<Customer_DTO> list_customer = new List<Customer_DTO>();
             foreach (DataRow item in List_customer.Rows)

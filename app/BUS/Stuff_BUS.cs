@@ -139,7 +139,7 @@ namespace app.BUS
             {
                 return Stuff_DAO.Instance.Del_Stuff(id);
             }
-            catch
+            catch(System.Data.SqlClient.SqlException e)
             {
                 throw new Exception("Error!");
             }
