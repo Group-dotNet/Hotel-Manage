@@ -27,23 +27,23 @@ END
 
 
 go
-
+--drop proc USP_InsertService
 create PROC USP_InsertService
 @name_service NVARCHAR(100),
 @price money,
-@unit INT
+@unit varchar(20)
 AS
 BEGIN
     INSERT into Service VALUES(@name_service , @price, @unit, 0)
 END
 
 GO
-
+drop proc USP_EditService
 CREATE PROC USP_EditService
 @id_service int,
 @name_service NVARCHAR(100),
 @price money,
-@unit INT
+@unit varchar(20)
 AS
 BEGIN
     update Service SET name_service = @name_service , price = @price , unit = @unit WHERE id_service = @id_service

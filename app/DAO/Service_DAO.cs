@@ -151,10 +151,10 @@ namespace app.DAO
         //    this.Del_Service(int id)
         //@Return:
         //    List<Service_DTO>   ------------ Trả về danh sách thỏa mãn
-        public List<Service_DTO> Search_Service(String keyword, int type_search)
+        public List<Service_DTO> Search_Service(String keyword, int type)
         {
             string query = "exec USP_SearchService @keyword , @type";
-            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { keyword, type_search });
+            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { keyword, type });
             List<Service_DTO> list_Service = new List<Service_DTO>();
             foreach (DataRow item in table.Rows)
             {
