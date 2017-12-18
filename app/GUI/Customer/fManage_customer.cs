@@ -219,5 +219,31 @@ namespace app.GUI.Customer
                 MessageBox.Show("You must select customer!");
             }
         }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            bool flat = true;
+            if (txt_search.Text == "")
+            {
+                flat = false;
+                MessageBox.Show("Error! Key word is not emtyl");
+                return;
+            }
+            if (cb_search.SelectedIndex == -1)
+            {
+                flat = false;
+                MessageBox.Show("Error! You must select option!");
+                return;
+            }
+
+            if (flat)
+            {
+
+                this.dgv_customer.DataSource = null;
+                List<Customer_DTO> list_customer = Customer_BUS.Instance.Search_Customer(txt_search.Text, (int)this.cb_search.SelectedIndex);
+
+                dgv_customer.DataSource = list_customer;
+            }
+        }
     }
 }
