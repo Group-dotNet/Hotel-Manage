@@ -67,6 +67,26 @@ namespace app.DAO
             return bill;
         }
 
+
+        public DTO.Bill_DTO GetListBillByReservation(int id_reservation)
+        {
+            string query = "exec USP_GetInfoBillByReservation @id_reservation";
+            DataTable table = Connect.Instance.ExecuteQuery(query, new object[] { id_reservation });
+            Bill_DTO bill = new Bill_DTO();
+            foreach (DataRow item in table.Rows)
+            {
+                bill.Id_bill = (int)item["id_bill"];
+                bill.Reservation.Id_reservation = (int)item["id_reservation"];
+                bill.Total_money = (double)((decimal)item["total_money"]);
+                bill.Staff.Username = item["username"].ToString();
+                bill.Confirm = (bool)item["confirm"];
+                bill.Note = item["note"].ToString();
+                bill.Created = (DateTime)item["created"];
+            }
+            return bill;
+        }
+
+
         public bool CheckConfirmBill(int id_bill)
         {
             string query = "exec USP_CheckConfirm_Bill @id_bill";

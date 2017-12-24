@@ -21,21 +21,84 @@ namespace app
            
         }
 
+        private DateTime choose_date = DateTime.Now;
+
+        public DateTime Choose_date
+        {
+            get
+            {
+                return choose_date;
+            }
+
+            set
+            {
+                choose_date = value;
+            }
+        }
+
+
+        private bool Check_Admin()
+        {
+            if (BUS.System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("You don't have permission to view details!");
+                return false;
+            }
+        }
+
         #region Method
-
-        private String username;
-
-        public string Username { get { return username; } set { username = value; } }
-
         private void Load_Data()
         {
-            lb_name.Text = Staff_BUS.Instance.Get_Info(this.Username).Name;
-            MemoryStream stream = new MemoryStream(Staff_BUS.Instance.Get_Info(this.Username).Image);
+            lb_name.Text = Staff_BUS.Instance.Get_Info(DTO.Session.username).Name;
+            MemoryStream stream = new MemoryStream(Staff_BUS.Instance.Get_Info(DTO.Session.username).Image);
             pictureBox1.Image = Image.FromStream(stream);
             DateTime now = DateTime.Now;
             lb_time.Text = now.Hour + ":" + now.Minute + ":" + now.Second;
+
+            
         }
 
+        private void Load_Analytic(DateTime date)
+        {
+            number_reservation.Text = BUS.Analytic_BUS.Instance.CountReservationInDay(date).ToString();
+            number_room_emty.Text = BUS.Analytic_BUS.Instance.CountRoomEmtyInDay().ToString();
+            number_room_using.Text = BUS.Analytic_BUS.Instance.CountRoomUsingInDay().ToString();
+            number_service.Text = BUS.Analytic_BUS.Instance.CountServiceUsingInDay(date).ToString();
+            number_checkout.Text = BUS.Analytic_BUS.Instance.CountBillInDay(date).ToString();
+            number_turnover.Text = BUS.Analytic_BUS.Instance.CountRevenueInDay(date).ToString();
+        }
+
+        private void Load_Message_And_History(DateTime date)
+        {
+            BUS.Message_BUS.Instance.Check_Reservation();
+            List<DTO.History_DTO> list_history = History_BUS.Instance.Get_List_History(date);
+            List<DTO.Message_DTO> list_message = Message_BUS.Instance.Get_List_Message(date);
+            listView1.Items.Clear();
+            listView2.Items.Clear();
+            foreach (DTO.History_DTO history in list_history)
+            {
+                ListViewItem item = new ListViewItem(history.Id_history.ToString());
+                item.SubItems.Add(history.Username);
+                item.SubItems.Add(history.Content);
+                item.SubItems.Add(history.Created.ToString());
+                listView2.Items.Add(item);
+            }
+
+            foreach(DTO.Message_DTO message in list_message)
+            {
+                ListViewItem item = new ListViewItem(message.Id_message.ToString());
+                if(message.Checked == false)
+                    item.ForeColor = Color.Orange;
+                item.SubItems.Add(message.Id_reservation.ToString());
+                item.SubItems.Add(message.Content);
+                item.SubItems.Add(message.Created.ToString());
+                listView1.Items.Add(item);
+            }
+        }
         #endregion
 
         #region Event
@@ -43,7 +106,7 @@ namespace app
         private void profileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fProfile frm = new fProfile();
-            frm.Username = this.Username;
+            frm.Username = DTO.Session.username;
             frm.ShowDialog();
             Load_Data();
 
@@ -52,19 +115,14 @@ namespace app
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fChange_pass frm = new fChange_pass();
-            frm.Username = this.Username;
+            frm.Username = DTO.Session.username;
             frm.ShowDialog();
             Load_Data();
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.username = null;
-            this.Hide();
-            this.Close();
-            fLogin frm = new fLogin();
-            frm.ShowDialog();
-            Load_Data();
+            this.Close();         
         }
 
         private void staffToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,6 +142,9 @@ namespace app
         private void fMain_Load(object sender, EventArgs e)
         {
             Load_Data();
+            DateTime date = new DateTime(this.dateTimePicker1.Value.Year, this.dateTimePicker1.Value.Month, this.dateTimePicker1.Value.Day);
+            Load_Analytic(date);
+            Load_Message_And_History(date);
         }
 
 
@@ -155,12 +216,10 @@ namespace app
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+            if(System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
             {
-                GUI.Analytic.fAnalytic frm = new GUI.Analytic.fAnalytic();
-                this.Hide();
+                fTablePriceService frm = new fTablePriceService();
                 frm.ShowDialog();
-                this.ShowDialog();
                 Load_Data();
             }
             else
@@ -171,13 +230,15 @@ namespace app
 
         private void button3_Click(object sender, EventArgs e)
         {
-            fGuide frm = new fGuide();
+            fTablePriceRoom frm = new fTablePriceRoom();
             frm.ShowDialog();
             Load_Data();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            string content = DTO.Session.username + " has been logged out of the system!";
+            BUS.History_BUS.Instance.Insert_History(DTO.Session.username, content);
             Application.Exit();
         }
 
@@ -189,11 +250,6 @@ namespace app
         private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -223,11 +279,14 @@ namespace app
 
         private void analyticToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUI.Analytic.fAnalytic frm = new GUI.Analytic.fAnalytic();
-            this.Hide();
-            frm.ShowDialog();
-            this.Show();
-            Load_Data();
+            if(this.Check_Admin() == true)
+            {
+                GUI.Analytic.fAnalytic frm = new GUI.Analytic.fAnalytic();
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
+                Load_Data();
+            }
         }
 
         private void guideToolStripMenuItem_Click(object sender, EventArgs e)
@@ -240,19 +299,130 @@ namespace app
         private void button1_Click(object sender, EventArgs e)
         {
             fProfile frm = new fProfile();
-            frm.Username = this.Username;
+            frm.Username = DTO.Session.username;
             frm.ShowDialog();
             Load_Data();
         }
 
         private void fMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void fMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            string content = DTO.Session.username + " has been logged out of the system!";
+            BUS.History_BUS.Instance.Insert_History(DTO.Session.username, content);
+            DTO.Session.username = null;
+        }
+
+        private void lb_time_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void request_analytic_Tick(object sender, EventArgs e)
+        {
+            Load_Analytic(this.choose_date);
+            Load_Message_And_History(this.Choose_date);
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            this.choose_date = new DateTime(this.dateTimePicker1.Value.Year, this.dateTimePicker1.Value.Month, this.dateTimePicker1.Value.Day);
+            Load_Analytic(this.choose_date);
+            Load_Message_And_History(this.choose_date);
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            if (Check_Admin() == true)
+            {
+                GUI.Analytic.fAnalytic frm = new GUI.Analytic.fAnalytic();
+                frm.Choose = 3;
+                frm.Input_date = dateTimePicker1.Value;
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
+            }
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            if (Check_Admin() == true)
+            {
+                GUI.Analytic.fAnalytic frm = new GUI.Analytic.fAnalytic();
+                frm.Choose = 4;
+                frm.Input_date = dateTimePicker1.Value;
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
+            }
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+            if (Check_Admin() == true)
+            {
+                GUI.Analytic.fAnalytic frm = new GUI.Analytic.fAnalytic();
+                frm.Choose = 5;
+                frm.Input_date = dateTimePicker1.Value;
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
+            }
+        }
+
+        private void number_reservation_Click(object sender, EventArgs e)
+        {
+            if (Check_Admin() == true)
+            {
+                GUI.Analytic.fAnalytic frm = new GUI.Analytic.fAnalytic();
+                frm.Choose = 1;
+                frm.Input_date = dateTimePicker1.Value;
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
+            }
+        }
+
+        private void v_Click(object sender, EventArgs e)
+        {
+            if (Check_Admin() == true)
+            {
+                GUI.Analytic.fAnalytic frm = new GUI.Analytic.fAnalytic();
+                frm.Choose = 2;
+                frm.Input_date = dateTimePicker1.Value;
+                this.Hide();
+                frm.ShowDialog();
+                this.Show();
+            }
+        }
+
+        private void number_turnover_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry! We are buldding!");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if(BUS.Message_BUS.Instance.Checked_Message() == true)
+            {
+                MessageBox.Show("Update is success!");
+                Load_Data();
+                DateTime date = new DateTime(this.dateTimePicker1.Value.Year, this.dateTimePicker1.Value.Month, this.dateTimePicker1.Value.Day);
+                Load_Analytic(date);
+                Load_Message_And_History(date);
+            }
+            else
+            {
+                MessageBox.Show("Error!");
+            }
         }
     }
 }

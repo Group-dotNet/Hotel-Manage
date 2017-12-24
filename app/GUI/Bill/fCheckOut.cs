@@ -24,7 +24,7 @@ namespace app.GUI.Bill
         private double deposit;
         private double rest;
         private double xmod_room;
-        private string username = "phuc";
+        
 
         public int Id_bill
         {
@@ -75,19 +75,6 @@ namespace app.GUI.Bill
             set
             {
                 rest = value;
-            }
-        }
-
-        public string Username
-        {
-            get
-            {
-                return username;
-            }
-
-            set
-            {
-                username = value;
             }
         }
 
@@ -354,7 +341,7 @@ namespace app.GUI.Bill
         {
             if(cb_confirm.SelectedIndex == 1)
             {
-                if(Bill_BUS.Instance.UpdateBill(this.id_bill, this.total_money, this.username))
+                if(Bill_BUS.Instance.UpdateBill(this.id_bill, this.total_money, DTO.Session.username))
                 {
                     MessageBox.Show("Finsh Reservation!");
                     this.Close();

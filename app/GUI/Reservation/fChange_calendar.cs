@@ -19,7 +19,6 @@ namespace app.GUI.Reservation
             InitializeComponent();
         }
 
-        private string username = "phuc";
         private int id_reservation;
         private DateTime start_date;
         private DateTime end_date;
@@ -47,19 +46,6 @@ namespace app.GUI.Reservation
             set
             {
                 end_date = value;
-            }
-        }
-
-        public string Username
-        {
-            get
-            {
-                return username;
-            }
-
-            set
-            {
-                username = value;
             }
         }
 
@@ -118,7 +104,7 @@ namespace app.GUI.Reservation
                 {
                     if(Calendar_BUS.Instance.ChangeCalendar(this.id_reservation, DateTime.Now))
                     {
-                        int id_bill = Bill_BUS.Instance.InsertBill(this.id_reservation, this.Username);
+                        int id_bill = Bill_BUS.Instance.InsertBill(this.id_reservation, DTO.Session.username);
                         GUI.Bill.fCheckOut frm = new GUI.Bill.fCheckOut();
                         frm.Id_bill = id_bill;
                         this.Hide();

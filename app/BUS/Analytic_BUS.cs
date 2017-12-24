@@ -19,7 +19,7 @@ namespace app.BUS
 
         private Analytic_BUS() { }
 
-        public bool CountReservationInDay(DateTime date)
+        public int CountReservationInDay(DateTime date)
         {
             try
             {
@@ -31,11 +31,11 @@ namespace app.BUS
             }
         }
 
-        public bool CountRoomEmty()
+        public int CountRoomEmtyInDay()
         {
             try
             {
-                return Analytic_DAO.Instance.CountRoomEmty();
+                return Analytic_DAO.Instance.CountRoomEmtyInDay();
             }
             catch
             {
@@ -43,11 +43,11 @@ namespace app.BUS
             }
         }
 
-        public bool CountRoomUsing()
+        public int CountRoomUsingInDay()
         {
             try
             {
-                return Analytic_DAO.Instance.CountRoomUsing();
+                return Analytic_DAO.Instance.CountRoomUsingInDay();
             }
             catch
             {
@@ -55,7 +55,7 @@ namespace app.BUS
             }
         }
 
-        public bool CountServiceUsingInDay(DateTime date)
+        public int CountServiceUsingInDay(DateTime date)
         {
             try
             {
@@ -67,19 +67,19 @@ namespace app.BUS
             }
         }
 
-        public bool CountRevenueInDay(DateTime date)
+        public int CountRevenueInDay(DateTime date)
         {
             try
             {
                 return Analytic_DAO.Instance.CountRevenueInDay(date);
             }
-            catch
+            catch(System.Data.SqlClient.SqlException e)
             {
                 throw new Exception("Error!");
             }
         }
 
-        public bool CountBillInDay(DateTime date)
+        public int CountBillInDay(DateTime date)
         {
             try
             {
@@ -92,6 +92,162 @@ namespace app.BUS
         }
 
 
+        public int CountServiceUsing(int id_service)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.CountServiceUsing(id_service);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public int CountReservationByCustomer(int id_customer)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.CountReservationByCustomer(id_customer);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public int GetSpendMoney(int id_customer)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.GetSpendMoney(id_customer);
+            }
+            catch(System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public int CountStuffInRoom(int id_kor)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.CountStuffInRoom(id_kor);
+            }
+            catch(System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public int CountUsingRoom(int id_room)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.CountUsingRoom(id_room);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public int CountReservationByStaff(string username)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.CountReservationByStaff(username);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public int CountRoomOfStaff(string username)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.CountRoomOfStaff(username);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public int CountCheckOutByStaff(string username)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.CountCheckOutByStaff(username);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+
+        public List<DTO.Reservation_DGV> Get_Analytic_Reservation(DateTime date)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.Get_Analytic_Reservation(date);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public List<DTO.Room_DGV> Get_Analytic_Room_Emty()
+        {
+            try
+            {
+                return Analytic_DAO.Instance.Get_Analytic_Room_Emty();
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public List<DTO.Room_DGV> Get_Analytic_Room_Using()
+        {
+            try
+            {
+                return Analytic_DAO.Instance.Get_Analytic_Room_Using();
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public List<DTO.Service_DGV> Get_Analytic_Service(DateTime date)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.Get_Analytic_Service(date);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
+        public List<DTO.Bill_DGV> Get_Analytic_Bill(DateTime date)
+        {
+            try
+            {
+                return Analytic_DAO.Instance.Get_Analytic_Bill(date);
+            }
+            catch(System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception("Error!");
+            }
+        }
 
     }
 }

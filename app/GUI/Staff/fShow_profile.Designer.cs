@@ -31,10 +31,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lb_rank = new System.Windows.Forms.Label();
+            this.lb_checkout = new System.Windows.Forms.Label();
+            this.lb_room = new System.Windows.Forms.Label();
+            this.lb_reservation = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pic_ = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -65,14 +69,14 @@
             this.btn_upload = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lb_name = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pic_ = new System.Windows.Forms.PictureBox();
             this.ptb_avatar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel15.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -85,10 +89,6 @@
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_avatar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,10 +118,10 @@
             // panel15
             // 
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel15.Controls.Add(this.label12);
-            this.panel15.Controls.Add(this.label11);
-            this.panel15.Controls.Add(this.label10);
-            this.panel15.Controls.Add(this.label2);
+            this.panel15.Controls.Add(this.lb_rank);
+            this.panel15.Controls.Add(this.lb_checkout);
+            this.panel15.Controls.Add(this.lb_room);
+            this.panel15.Controls.Add(this.lb_reservation);
             this.panel15.Controls.Add(this.pictureBox4);
             this.panel15.Controls.Add(this.pictureBox3);
             this.panel15.Controls.Add(this.pictureBox2);
@@ -132,41 +132,81 @@
             this.panel15.Size = new System.Drawing.Size(328, 264);
             this.panel15.TabIndex = 4;
             // 
-            // label12
+            // lb_rank
             // 
-            this.label12.Location = new System.Drawing.Point(170, 236);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(139, 18);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Good";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_rank.Location = new System.Drawing.Point(170, 236);
+            this.lb_rank.Name = "lb_rank";
+            this.lb_rank.Size = new System.Drawing.Size(139, 18);
+            this.lb_rank.TabIndex = 7;
+            this.lb_rank.Text = "Good";
+            this.lb_rank.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label11
+            // lb_checkout
             // 
-            this.label11.Location = new System.Drawing.Point(25, 235);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(139, 18);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "2 Checkout";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_checkout.Location = new System.Drawing.Point(25, 235);
+            this.lb_checkout.Name = "lb_checkout";
+            this.lb_checkout.Size = new System.Drawing.Size(139, 18);
+            this.lb_checkout.TabIndex = 6;
+            this.lb_checkout.Text = "2 Checkout";
+            this.lb_checkout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label10
+            // lb_room
             // 
-            this.label10.Location = new System.Drawing.Point(170, 103);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(139, 18);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "2 Room";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_room.Location = new System.Drawing.Point(170, 103);
+            this.lb_room.Name = "lb_room";
+            this.lb_room.Size = new System.Drawing.Size(139, 18);
+            this.lb_room.TabIndex = 5;
+            this.lb_room.Text = "2 Room";
+            this.lb_room.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lb_reservation
             // 
-            this.label2.Location = new System.Drawing.Point(25, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 18);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "2 Reservation";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lb_reservation.Location = new System.Drawing.Point(25, 103);
+            this.lb_reservation.Name = "lb_reservation";
+            this.lb_reservation.Size = new System.Drawing.Size(139, 18);
+            this.lb_reservation.TabIndex = 4;
+            this.lb_reservation.Text = "2 Reservation";
+            this.lb_reservation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::app.Properties.Resources.doorman_bellboy_welcome_hotel_staff_concierge_bellhop_512;
+            this.pictureBox4.Location = new System.Drawing.Point(194, 143);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(91, 89);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 3;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::app.Properties.Resources._876195_200;
+            this.pictureBox3.Location = new System.Drawing.Point(53, 143);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(91, 89);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::app.Properties.Resources._876188_200;
+            this.pictureBox2.Location = new System.Drawing.Point(194, 11);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(91, 89);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pic_
+            // 
+            this.pic_.Image = global::app.Properties.Resources.cunrmsayvuqjpdqtcycb;
+            this.pic_.Location = new System.Drawing.Point(53, 11);
+            this.pic_.Name = "pic_";
+            this.pic_.Size = new System.Drawing.Size(91, 89);
+            this.pic_.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_.TabIndex = 0;
+            this.pic_.TabStop = false;
             // 
             // panel5
             // 
@@ -450,52 +490,13 @@
             this.lb_name.Text = "label1";
             this.lb_name.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::app.Properties.Resources.doorman_bellboy_welcome_hotel_staff_concierge_bellhop_512;
-            this.pictureBox4.Location = new System.Drawing.Point(194, 143);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(91, 89);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::app.Properties.Resources._876195_200;
-            this.pictureBox3.Location = new System.Drawing.Point(53, 143);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(91, 89);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::app.Properties.Resources._876188_200;
-            this.pictureBox2.Location = new System.Drawing.Point(194, 11);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(91, 89);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pic_
-            // 
-            this.pic_.Image = global::app.Properties.Resources.cunrmsayvuqjpdqtcycb;
-            this.pic_.Location = new System.Drawing.Point(53, 11);
-            this.pic_.Name = "pic_";
-            this.pic_.Size = new System.Drawing.Size(91, 89);
-            this.pic_.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_.TabIndex = 0;
-            this.pic_.TabStop = false;
-            // 
             // ptb_avatar
             // 
             this.ptb_avatar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ptb_avatar.Location = new System.Drawing.Point(10, 6);
             this.ptb_avatar.Name = "ptb_avatar";
             this.ptb_avatar.Size = new System.Drawing.Size(200, 250);
+            this.ptb_avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_avatar.TabIndex = 0;
             this.ptb_avatar.TabStop = false;
             // 
@@ -512,6 +513,10 @@
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel14.ResumeLayout(false);
@@ -532,10 +537,6 @@
             this.panel6.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_avatar)).EndInit();
             this.ResumeLayout(false);
 
@@ -581,9 +582,9 @@
         private System.Windows.Forms.PictureBox pic_;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lb_rank;
+        private System.Windows.Forms.Label lb_checkout;
+        private System.Windows.Forms.Label lb_room;
+        private System.Windows.Forms.Label lb_reservation;
     }
 }

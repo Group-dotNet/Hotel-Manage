@@ -242,6 +242,7 @@
             this.ptb_export.Size = new System.Drawing.Size(28, 28);
             this.ptb_export.TabIndex = 2;
             this.ptb_export.TabStop = false;
+            this.ptb_export.Click += new System.EventHandler(this.ptb_export_Click);
             // 
             // label4
             // 
@@ -263,6 +264,7 @@
             this.ptb_print.Size = new System.Drawing.Size(28, 28);
             this.ptb_print.TabIndex = 0;
             this.ptb_print.TabStop = false;
+            this.ptb_print.Click += new System.EventHandler(this.ptb_print_Click);
             // 
             // panel3
             // 
@@ -625,6 +627,7 @@
             this.ClientSize = new System.Drawing.Size(989, 536);
             this.Controls.Add(this.panel1);
             this.Name = "fManage_room";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fManage_room";
             this.Load += new System.EventHandler(this.fManage_room_Load);
             this.panel1.ResumeLayout(false);

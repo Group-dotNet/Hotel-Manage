@@ -496,7 +496,7 @@ create Proc  USP_GetListServiceReservation
 @id_reservation int
 as
 begin
-	select * from (Service_ticket as a join Service as b on a.id_service = b.id_service) join Reservation_room as c on a.id_reservation_room = c.id_reservation_room where c.id_reservation = 23 order by c.id_room  asc
+	select * from (Service_ticket as a join Service as b on a.id_service = b.id_service) join Reservation_room as c on a.id_reservation_room = c.id_reservation_room where c.id_reservation = @id_reservation order by c.id_room  asc
 end
 
 GO
@@ -821,6 +821,15 @@ begin
 	return 0
 end
 
+
+go
+
+create proc USP_GetInfoBillByReservation
+@id_reservation int
+as
+begin
+	select * from Bill where id_reservation = @id_reservation
+end
 
 go
 

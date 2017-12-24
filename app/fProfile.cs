@@ -89,12 +89,41 @@ namespace app
             
             if(txt_name.Text == "" || txt_phone.Text == "" || txt_address.Text == "" || txt_email.Text == "" || cb_sex.SelectedIndex == -1)
             {
-                MessageBox.Show("Error!");
+                MessageBox.Show("Error!", "Error validate", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 flat = false;
                 return;
             }
 
-            if(txt_email.Text == this.email_old)
+         
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(txt_email.Text);
+                flat = true;
+            }
+            catch
+            {
+                MessageBox.Show("Email is not exists", "Error validate", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                flat = false;
+                return;
+            }
+
+
+            if (txt_phone.Text.Length != 11 && txt_phone.Text.Length != 10)
+            {
+                MessageBox.Show("Phone is not exist!", "Error validate", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                flat = false;
+                return;
+            }
+
+            double parsedValue1;
+            if (!double.TryParse(txt_phone.Text, out parsedValue1))
+            {
+                MessageBox.Show("Phone is number only field", "Error validate", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                flat = false;
+                return;
+            }
+
+            if (txt_email.Text == this.email_old)
             {
                 if (Staff_BUS.Instance.Edit_Info_Staff(staff))
                 {

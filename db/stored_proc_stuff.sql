@@ -18,6 +18,17 @@ begin
 	select * from Stuff where locked = 1 order by id_stuff desc
 end
 
+
+go
+
+create proc USP_GetListStuffByKOR
+@id_kor int
+as
+begin
+	select *from stuff as a join Stuff_detail as b on a.id_stuff = b.id_stuff where id_kind_of_room = @id_kor
+end
+
+
 GO
 
 CREATE PROC USP_GetInfoStuff

@@ -38,7 +38,8 @@ BEGIN
 END
 
 GO
-drop proc USP_EditService
+
+-- drop proc USP_EditService
 CREATE PROC USP_EditService
 @id_service int,
 @name_service NVARCHAR(100),
@@ -57,6 +58,15 @@ AS
 BEGIN
     update Service set locked = 1 where id_service = @id_service
 END
+
+go
+
+create proc USP_DelService
+@id_service int
+as
+begin
+	delete from Service where id_service = @id_service
+end
 
 GO
 

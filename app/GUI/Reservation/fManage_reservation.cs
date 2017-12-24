@@ -19,7 +19,6 @@ namespace app.GUI.Reservation
             InitializeComponent();
         }
 
-        private string username = "phuc";
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -221,7 +220,7 @@ namespace app.GUI.Reservation
                     {
                         if (Reservation_BUS.Instance.CheckConfirmBillByReservation(id_reservation) == false)
                         {
-                            int id_bill = Bill_BUS.Instance.InsertBill(this.id_reservation, this.username);
+                            int id_bill = Bill_BUS.Instance.InsertBill(this.id_reservation, DTO.Session.username);
                             GUI.Bill.fCheckOut frm = new GUI.Bill.fCheckOut();
                             frm.Id_bill = id_bill;
                             this.Close();
@@ -353,7 +352,7 @@ namespace app.GUI.Reservation
         {
             if (this.id_reservation != 0)
             {
-                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                if (System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
                 {
                     fReservation_info frm = new fReservation_info();
                     frm.Id_reservation = this.id_reservation;
@@ -368,6 +367,90 @@ namespace app.GUI.Reservation
             else
             {
                 MessageBox.Show("You must select customer!");
+            }
+        }
+
+        private void ptb_export_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
+            try
+            {
+
+                worksheet = workbook.ActiveSheet;
+
+                worksheet.Name = "Data Export";
+
+                worksheet = workbook.ActiveSheet;
+                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, dgv_reservation.Columns.Count]].Merge();
+                worksheet.Cells[1, 1].Value = "List Reservation";
+                worksheet.Cells[1, 1].Font.Size = 20;
+
+                for (int i = 1; i <= dgv_reservation.Columns.Count; i++)
+                {
+                    worksheet.Cells[2, i] = dgv_reservation.Columns[i - 1].HeaderText;
+
+                    worksheet.Cells[2, i].Font.Bold = true;
+                }
+
+                for (int i = 1; i <= dgv_reservation.Rows.Count; i++)
+                {
+                    for (int j = 1; j <= dgv_reservation.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j] = dgv_reservation.Rows[i - 1].Cells[j - 1].Value.ToString();
+                    }
+                }
+
+
+
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveDialog.FilterIndex = 2;
+
+                if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    workbook.SaveAs(saveDialog.FileName);
+                    MessageBox.Show("Export Successful");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                excel.Quit();
+                workbook = null;
+                excel = null;
+            }
+        }
+
+        Bitmap bmp;
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+        }
+
+        private void ptb_print_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int heght = dgv_reservation.Height;
+                dgv_reservation.Height = dgv_reservation.RowCount * dgv_reservation.RowTemplate.Height * 2;
+                bmp = new Bitmap(dgv_reservation.Width, dgv_reservation.Height);
+                dgv_reservation.DrawToBitmap(bmp, new Rectangle(0, 0, dgv_reservation.Width, dgv_reservation.Height));
+                dgv_reservation.Height = heght;
+                printPreviewDialog1.ShowDialog();
+                dgv_reservation.Height = 301;
+                dgv_reservation.Width = 655;
+            }
+            catch
+            {
+                MessageBox.Show("Not find data!");
+                dgv_reservation.Height = 301;
+                dgv_reservation.Width = 655;
             }
         }
     }

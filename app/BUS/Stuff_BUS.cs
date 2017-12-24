@@ -191,5 +191,18 @@ namespace app.BUS
                 throw new Exception("Error!");
             }
         }
+
+
+        public List<Stuff_DTO> List_Stuff_By_KOR(int id_kor)
+        {
+            try
+            {
+                return Stuff_DAO.Instance.List_Stuff_By_KOR(id_kor);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
     }
 }

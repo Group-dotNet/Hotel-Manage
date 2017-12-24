@@ -19,6 +19,7 @@ namespace app.GUI.Customer
             InitializeComponent();
             
         }
+
         private void Load_Data()
         {
 
@@ -38,18 +39,6 @@ namespace app.GUI.Customer
            
         }
 
-        public string username=null;
-        public string Username
-        {
-            get
-            {
-                return username;
-            }
-            set
-            {
-                username = value;
-            }
-        }
         public int id_customer = 0;
 
         public int Id_customer
@@ -74,12 +63,81 @@ namespace app.GUI.Customer
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("print data");
+            try
+            {
+                int heght = dgv_customer.Height;
+                dgv_customer.Height = dgv_customer.RowCount * dgv_customer.RowTemplate.Height * 2;
+                bmp = new Bitmap(dgv_customer.Width, dgv_customer.Height);
+                dgv_customer.DrawToBitmap(bmp, new Rectangle(0, 0, dgv_customer.Width, dgv_customer.Height));
+                dgv_customer.Height = heght;
+                printPreviewDialog1.ShowDialog();
+                dgv_customer.Height = 360;
+                dgv_customer.Width = 643;
+            }
+            catch
+            {
+                MessageBox.Show("Not find data!");
+                dgv_customer.Height = 360;
+                dgv_customer.Width = 643;
+            }
         }
 
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show("export file excel");
+            Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
+            try
+            {
+
+                worksheet = workbook.ActiveSheet;
+
+                worksheet.Name = "Data Export";
+
+                worksheet = workbook.ActiveSheet;
+                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, dgv_customer.Columns.Count]].Merge();
+                worksheet.Cells[1, 1].Value = "List Customer";
+                worksheet.Cells[1, 1].Font.Size = 20;
+
+                for (int i = 1; i <= dgv_customer.Columns.Count; i++)
+                {
+                    worksheet.Cells[2, i] = dgv_customer.Columns[i - 1].HeaderText;
+
+                    worksheet.Cells[2, i].Font.Bold = true;
+                }
+
+                for (int i = 1; i <= dgv_customer.Rows.Count; i++)
+                {
+                    for (int j = 1; j <= dgv_customer.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j] = dgv_customer.Rows[i - 1].Cells[j - 1].Value.ToString();
+                    }
+                }
+
+
+
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveDialog.FilterIndex = 2;
+
+                if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    workbook.SaveAs(saveDialog.FileName);
+                    MessageBox.Show("Export Successful");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                excel.Quit();
+                workbook = null;
+                excel = null;
+            }
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -177,9 +235,11 @@ namespace app.GUI.Customer
             // Phân quyển sử dụng chức năng
             if (this.id_customer != 0)
             {
-                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                if (System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
                 {
-
+                    fCustomer_info frm = new fCustomer_info();
+                    frm.Id_customer = this.id_customer;
+                    frm.ShowDialog();
                 }
                 else
                 {
@@ -204,9 +264,17 @@ namespace app.GUI.Customer
             // Phân quyển sử dụng chức năng
             if (this.id_customer != 0)
             {
-                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                if (System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
                 {
-
+                    if (BUS.Customer_BUS.Instance.Lock_Customer(this.id_customer))
+                    {
+                        MessageBox.Show("Customer was locked!");
+                        this.id_customer = 0;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error!");
+                    }
                 }
                 else
                 {
@@ -240,10 +308,21 @@ namespace app.GUI.Customer
             {
 
                 this.dgv_customer.DataSource = null;
-                List<Customer_DTO> list_customer = Customer_BUS.Instance.Search_Customer(txt_search.Text, (int)this.cb_search.SelectedIndex);
 
-                dgv_customer.DataSource = list_customer;
+                List<Customer_DGV> list_customer_dgv = new List<Customer_DGV>();
+                foreach (Customer_DTO customer in Customer_BUS.Instance.Search_Customer(txt_search.Text, (int)this.cb_search.SelectedIndex))
+                {
+                    Customer_DGV customer_dgv = new Customer_DGV(customer.Id_customer, customer.Name, customer.Sex, customer.Phone, customer.Id_history);
+                    list_customer_dgv.Add(customer_dgv);
+                }
+                dgv_customer.DataSource = list_customer_dgv;
             }
+        }
+
+        Bitmap bmp;
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
         }
     }
 }

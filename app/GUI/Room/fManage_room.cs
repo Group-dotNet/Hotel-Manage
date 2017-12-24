@@ -18,7 +18,6 @@ namespace app.GUI.Room
         {
             InitializeComponent();
         }
-        private string username = "phuc";
 
         private int choose_floor;
 
@@ -97,18 +96,6 @@ namespace app.GUI.Room
             }
         }
 
-        public string Username
-        {
-            get
-            {
-                return username;
-            }
-
-            set
-            {
-                username = value;
-            }
-        }
 
         private void btn_Click(object sender, EventArgs e)
         {
@@ -265,7 +252,7 @@ namespace app.GUI.Room
         {
             if(this.room != 0)
             {
-                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                if (System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
                 {
                     fRoom_info frm = new fRoom_info();
                     frm.Id_room = this.room;
@@ -282,6 +269,16 @@ namespace app.GUI.Room
                 MessageBox.Show("You must select room!");
                 this.room = 0;
             }
+        }
+
+        private void ptb_print_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, we are buldding!");
+        }
+
+        private void ptb_export_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry, we are buldding!");
         }
     }
 }

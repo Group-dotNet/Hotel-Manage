@@ -47,12 +47,25 @@ namespace app.BUS
             {
                 return Bill_DAO.Instance.GetInfoBill(id_bill);
             }
-            catch(SqlException e)
+            catch
             {
-                System.Console.WriteLine(e.ToString());
+               
                 throw new Exception("Error!");
             }
         }
+        public DTO.Bill_DTO GetListBillByReservation(int id_reservation)
+        {
+            try
+            {
+                return Bill_DAO.Instance.GetListBillByReservation(id_reservation);
+            }
+            catch
+            {
+
+                throw new Exception("Error!");
+            }
+        }
+
 
         public bool CheckConfirmBill(int id_bill)
         {

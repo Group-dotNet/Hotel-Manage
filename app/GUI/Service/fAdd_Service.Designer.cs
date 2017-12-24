@@ -34,21 +34,21 @@
             this.btn_ok = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.lb_error_unit = new System.Windows.Forms.Label();
             this.txt_unit = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lb_error_price = new System.Windows.Forms.Label();
             this.txt_price = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lb_error_name = new System.Windows.Forms.Label();
             this.txt_nameservice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.lb_error_name = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lb_error_price = new System.Windows.Forms.Label();
-            this.lb_error_unit = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -87,6 +87,7 @@
             this.btn_cancel.TabIndex = 1;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_ok
             // 
@@ -121,6 +122,16 @@
             this.panel7.Size = new System.Drawing.Size(321, 54);
             this.panel7.TabIndex = 3;
             // 
+            // lb_error_unit
+            // 
+            this.lb_error_unit.AutoSize = true;
+            this.lb_error_unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_error_unit.ForeColor = System.Drawing.Color.Red;
+            this.lb_error_unit.Location = new System.Drawing.Point(111, 34);
+            this.lb_error_unit.Name = "lb_error_unit";
+            this.lb_error_unit.Size = new System.Drawing.Size(0, 15);
+            this.lb_error_unit.TabIndex = 4;
+            // 
             // txt_unit
             // 
             this.txt_unit.Location = new System.Drawing.Point(108, 6);
@@ -148,6 +159,16 @@
             this.panel6.Size = new System.Drawing.Size(321, 57);
             this.panel6.TabIndex = 2;
             this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            // 
+            // lb_error_price
+            // 
+            this.lb_error_price.AutoSize = true;
+            this.lb_error_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_error_price.ForeColor = System.Drawing.Color.Red;
+            this.lb_error_price.Location = new System.Drawing.Point(111, 35);
+            this.lb_error_price.Name = "lb_error_price";
+            this.lb_error_price.Size = new System.Drawing.Size(0, 15);
+            this.lb_error_price.TabIndex = 3;
             // 
             // txt_price
             // 
@@ -178,6 +199,36 @@
             this.panel5.Size = new System.Drawing.Size(321, 56);
             this.panel5.TabIndex = 0;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(112, 34);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 15);
+            this.label6.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(159, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 15);
+            this.label5.TabIndex = 4;
+            // 
+            // lb_error_name
+            // 
+            this.lb_error_name.AutoSize = true;
+            this.lb_error_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_error_name.ForeColor = System.Drawing.Color.Red;
+            this.lb_error_name.Location = new System.Drawing.Point(110, 33);
+            this.lb_error_name.Name = "lb_error_name";
+            this.lb_error_name.Size = new System.Drawing.Size(0, 15);
+            this.lb_error_name.TabIndex = 3;
             // 
             // txt_nameservice
             // 
@@ -216,60 +267,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Add Service";
             // 
-            // lb_error_name
-            // 
-            this.lb_error_name.AutoSize = true;
-            this.lb_error_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_error_name.ForeColor = System.Drawing.Color.Red;
-            this.lb_error_name.Location = new System.Drawing.Point(110, 33);
-            this.lb_error_name.Name = "lb_error_name";
-            this.lb_error_name.Size = new System.Drawing.Size(0, 15);
-            this.lb_error_name.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(159, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 15);
-            this.label5.TabIndex = 4;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(112, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 15);
-            this.label6.TabIndex = 5;
-            // 
-            // lb_error_price
-            // 
-            this.lb_error_price.AutoSize = true;
-            this.lb_error_price.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_error_price.ForeColor = System.Drawing.Color.Red;
-            this.lb_error_price.Location = new System.Drawing.Point(111, 35);
-            this.lb_error_price.Name = "lb_error_price";
-            this.lb_error_price.Size = new System.Drawing.Size(0, 15);
-            this.lb_error_price.TabIndex = 3;
-            // 
-            // lb_error_unit
-            // 
-            this.lb_error_unit.AutoSize = true;
-            this.lb_error_unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_error_unit.ForeColor = System.Drawing.Color.Red;
-            this.lb_error_unit.Location = new System.Drawing.Point(111, 34);
-            this.lb_error_unit.Name = "lb_error_unit";
-            this.lb_error_unit.Size = new System.Drawing.Size(0, 15);
-            this.lb_error_unit.TabIndex = 4;
-            // 
             // fAdd_Service
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(334, 293);
             this.Controls.Add(this.panel1);
             this.Name = "fAdd_Service";

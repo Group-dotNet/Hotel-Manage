@@ -262,7 +262,7 @@ namespace app.GUI.Reservation
                 reservation.Customer.Id_customer = (int)item.Value;
                 reservation.Is_group = false;
                 reservation.People = (int)nud_people.Value;
-                reservation.Staff.Username = "phuc";
+                reservation.Staff.Username = DTO.Session.username;
                 int x = Reservation_BUS.Instance.Insert_Reservation(reservation, dtp_endate.Value, this.list_room);
                 if ( x != 0)
                 {

@@ -11,7 +11,7 @@ namespace app.DTO
 
     }
     
-    class Reservation_DGV
+    public class Reservation_DGV
     {
         private int id_reservation;
         private string customer;
@@ -43,6 +43,8 @@ namespace app.DTO
                 this.status = "No deposit";
             }
         }
+
+        public Reservation_DGV() { }
 
         public int Id_reservation
         {
@@ -123,7 +125,7 @@ namespace app.DTO
         }
     }
 
-     class Bill_DGV
+    public class Bill_DGV
     {
         private int id_bill;
         private double total;
@@ -207,7 +209,7 @@ namespace app.DTO
         }
     }
 
-    class Customer_DGV
+    public class Customer_DGV
     {
         private int id_customer;
         private string name_customer;
@@ -292,7 +294,7 @@ namespace app.DTO
         }
     }
 
-    class Staff_DGV
+    public class Staff_DGV
     {
         private string username;
         private string name;
@@ -357,6 +359,207 @@ namespace app.DTO
             set
             {
                 phone = value;
+            }
+        }
+    }
+
+    public class Room_DGV
+    {
+        private int id_room;
+        private string name;
+        private int num_floor;
+        private int num_order;
+        private string kind_of_room;
+        private string staff;
+
+        public Room_DGV() { }
+
+        public Room_DGV(int id_room, int num_floor, int num_order, string kind_of_room, string staff)
+        {
+            this.id_room = id_room;
+            this.name = ((num_floor * 100) + num_order).ToString();
+            this.num_floor = num_floor;
+            this.num_order = num_order;
+            this.kind_of_room = kind_of_room;
+            this.staff = staff;
+        }
+
+        public int Id_room
+        {
+            get
+            {
+                return id_room;
+            }
+
+            set
+            {
+                id_room = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+
+            set
+            {
+                name = value;
+            }
+        }
+
+        public int Num_floor
+        {
+            get
+            {
+                return num_floor;
+            }
+
+            set
+            {
+                num_floor = value;
+            }
+        }
+
+        public int Num_order
+        {
+            get
+            {
+                return num_order;
+            }
+
+            set
+            {
+                num_order = value;
+            }
+        }
+
+        public string Kind_of_room
+        {
+            get
+            {
+                return kind_of_room;
+            }
+
+            set
+            {
+                kind_of_room = value;
+            }
+        }
+
+        public string Staff
+        {
+            get
+            {
+                return staff;
+            }
+
+            set
+            {
+                staff = value;
+            }
+        }
+    }
+
+    public class Service_DGV
+    {
+
+        private int id_service;
+        private string name_service;
+        private int price;
+        private int number;
+        private DateTime date_use;
+        private string room;
+
+        public Service_DGV() { }
+
+        public Service_DGV(int id_service, int number, DateTime date_use, string name_service, int price, int num_floor, int num_order)
+        {
+            this.id_service = id_service;
+            this.number = number;
+            this.date_use = date_use;
+            this.price = price;
+            this.name_service = name_service;
+            this.room = ((num_floor * 100) + num_order).ToString();
+        }
+
+        public int Id_service
+        {
+            get
+            {
+                return id_service;
+            }
+
+            set
+            {
+                id_service = value;
+            }
+        }
+
+        public string Name_service
+        {
+            get
+            {
+                return name_service;
+            }
+
+            set
+            {
+                name_service = value;
+            }
+        }
+
+        public int Price
+        {
+            get
+            {
+                return price;
+            }
+
+            set
+            {
+                price = value;
+            }
+        }
+
+        public int Number
+        {
+            get
+            {
+                return number;
+            }
+
+            set
+            {
+                number = value;
+            }
+        }
+
+        public DateTime Date_use
+        {
+            get
+            {
+                return date_use;
+            }
+
+            set
+            {
+                date_use = value;
+            }
+        }
+
+        public string Room
+        {
+            get
+            {
+                return room;
+            }
+
+            set
+            {
+                room = value;
             }
         }
     }

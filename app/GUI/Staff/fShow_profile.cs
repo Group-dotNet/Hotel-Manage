@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,7 +76,8 @@ namespace app.GUI.Staff
                 txt_address.Text = staff_info.Address;
                 txt_phone.Text = staff_info.Phone;
                 txt_mail.Text = staff_info.Email;
-
+                MemoryStream stream = new MemoryStream(staff_info.Image);
+                ptb_avatar.Image = Image.FromStream(stream);
 
                 if (this.Type == 1)
                 {
@@ -93,6 +95,14 @@ namespace app.GUI.Staff
                     btn_ok.Hide();
                 }
             }
+
+            lb_reservation.Text = BUS.Analytic_BUS.Instance.CountReservationByStaff(this.username).ToString() + " Reservation";
+            lb_room.Text = BUS.Analytic_BUS.Instance.CountRoomOfStaff(this.username).ToString() + " Room";
+            lb_checkout.Text = BUS.Analytic_BUS.Instance.CountCheckOutByStaff(this.username).ToString() + " Checkout";
+            if (BUS.System_BUS.Instance.Get_Account(this.username).Ban_account == false)
+                lb_rank.Text = "Good";
+            else
+                lb_rank.Text = "Ban Account";
         }
 
         private void btn_back_Click(object sender, EventArgs e)

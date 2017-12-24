@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\Analytic_BUS.cs" />
     <Compile Include="BUS\Bill_BUS.cs" />
     <Compile Include="BUS\Calendar_BUS.cs" />
     <Compile Include="BUS\Customer_BUS.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="BUS\Function_Other.cs" />
     <Compile Include="BUS\Kind_of_room_BUS.cs" />
     <Compile Include="BUS\Log_swap_room_BUS.cs" />
+    <Compile Include="BUS\Other_BUS.cs" />
     <Compile Include="BUS\Reservation_BUS.cs" />
     <Compile Include="BUS\Reservation_room_BUS.cs" />
     <Compile Include="BUS\Room_BUS.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="BUS\Stuff_BUS.cs" />
     <Compile Include="BUS\Stuff_detail_BUS.cs" />
     <Compile Include="BUS\System_BUS.cs" />
+    <Compile Include="DAO\Analytic_DAO.cs" />
     <Compile Include="DAO\Bill_DAO.cs" />
     <Compile Include="DAO\Calendar_DAO.cs" />
     <Compile Include="DAO\Connect.cs" />
@@ -72,6 +75,7 @@
     <Compile Include="DAO\ExportToExcel.cs" />
     <Compile Include="DAO\Kind_of_room_DAO.cs" />
     <Compile Include="DAO\Log_swap_room_DAO.cs" />
+    <Compile Include="DAO\Other_DAO.cs" />
     <Compile Include="DAO\Reservation_DAO.cs" />
     <Compile Include="DAO\Reservation_room_DAO.cs" />
     <Compile Include="DAO\Room_DAO.cs" />
@@ -89,11 +93,13 @@
     <Compile Include="DTO\Log_swap_room.cs" />
     <Compile Include="DTO\Log_swap_room_DTO.cs" />
     <Compile Include="DTO\Other_DGV.cs" />
+    <Compile Include="DTO\Other_DTO.cs" />
     <Compile Include="DTO\Reservation_DTO.cs" />
     <Compile Include="DTO\Reservation_room_DTO.cs" />
     <Compile Include="DTO\Room_DTO.cs" />
     <Compile Include="DTO\Service_DTO.cs" />
     <Compile Include="DTO\Service_ticket_DTO.cs" />
+    <Compile Include="DTO\Session.cs" />
     <Compile Include="DTO\Staff_DTO.cs" />
     <Compile Include="DTO\Stuff_detail_DTO.cs" />
     <Compile Include="DTO\Stuff_DTO.cs" />
@@ -134,6 +140,18 @@
     <Compile Include="fProfile.Designer.cs">
       <DependentUpon>fProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="fTablePriceRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTablePriceRoom.Designer.cs">
+      <DependentUpon>fTablePriceRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fTablePriceService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTablePriceService.Designer.cs">
+      <DependentUpon>fTablePriceService.cs</DependentUpon>
+    </Compile>
     <Compile Include="fUpdate_Staff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +187,12 @@
     </Compile>
     <Compile Include="GUI\Customer\fAdd_customer.Designer.cs">
       <DependentUpon>fAdd_customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Customer\fCustomer_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Customer\fCustomer_info.Designer.cs">
+      <DependentUpon>fCustomer_info.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Customer\fEdit_customer.cs">
       <SubType>Form</SubType>
@@ -320,6 +344,12 @@
     <Compile Include="GUI\Service\fManage_service.Designer.cs">
       <DependentUpon>fManage_service.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Service\fService_info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Service\fService_info.Designer.cs">
+      <DependentUpon>fService_info.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Service\fService_ticket.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -419,6 +449,12 @@
     <EmbeddedResource Include="fProfile.resx">
       <DependentUpon>fProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fTablePriceRoom.resx">
+      <DependentUpon>fTablePriceRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTablePriceService.resx">
+      <DependentUpon>fTablePriceService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fUpdate_Staff.resx">
       <DependentUpon>fUpdate_Staff.cs</DependentUpon>
     </EmbeddedResource>
@@ -436,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Customer\fAdd_customer.resx">
       <DependentUpon>fAdd_customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Customer\fCustomer_info.resx">
+      <DependentUpon>fCustomer_info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Customer\fEdit_customer.resx">
       <DependentUpon>fEdit_customer.cs</DependentUpon>
@@ -509,6 +548,9 @@
     <EmbeddedResource Include="GUI\Service\fManage_service.resx">
       <DependentUpon>fManage_service.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Service\fService_info.resx">
+      <DependentUpon>fService_info.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Service\fService_ticket.resx">
       <DependentUpon>fService_ticket.cs</DependentUpon>
     </EmbeddedResource>
@@ -558,6 +600,7 @@
     <None Include="hotelDataSet.xss">
       <DependentUpon>hotelDataSet.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -698,6 +741,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\16129-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salary-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fsvxlzqocyhmrblzvehl %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xxx030-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

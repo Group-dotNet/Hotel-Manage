@@ -35,6 +35,7 @@
             this.btn_edit = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btn_select = new System.Windows.Forms.Button();
+            this.pib_profile = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txt_address = new System.Windows.Forms.TextBox();
@@ -57,10 +58,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_username = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pib_profile = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pib_profile)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -68,7 +69,6 @@
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pib_profile)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -151,6 +151,17 @@
             this.btn_select.Text = "Browser";
             this.btn_select.UseVisualStyleBackColor = true;
             this.btn_select.Click += new System.EventHandler(this.btn_select_Click);
+            // 
+            // pib_profile
+            // 
+            this.pib_profile.ErrorImage = global::app.Properties.Resources.user_avatar_outline_318_34741;
+            this.pib_profile.Image = global::app.Properties.Resources.profile_clipart_generic_user_11;
+            this.pib_profile.Location = new System.Drawing.Point(152, 7);
+            this.pib_profile.Name = "pib_profile";
+            this.pib_profile.Size = new System.Drawing.Size(107, 115);
+            this.pib_profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pib_profile.TabIndex = 1;
+            this.pib_profile.TabStop = false;
             // 
             // label8
             // 
@@ -352,17 +363,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Username:";
             // 
-            // pib_profile
-            // 
-            this.pib_profile.ErrorImage = global::app.Properties.Resources.user_avatar_outline_318_34741;
-            this.pib_profile.Image = global::app.Properties.Resources.profile_clipart_generic_user_11;
-            this.pib_profile.Location = new System.Drawing.Point(152, 7);
-            this.pib_profile.Name = "pib_profile";
-            this.pib_profile.Size = new System.Drawing.Size(107, 115);
-            this.pib_profile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pib_profile.TabIndex = 1;
-            this.pib_profile.TabStop = false;
-            // 
             // fProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -372,6 +372,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "fProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fProfile";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fProfile_FormClosing);
             this.Load += new System.EventHandler(this.fProfile_Load);
@@ -380,6 +381,7 @@
             this.panel10.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pib_profile)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -394,7 +396,6 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pib_profile)).EndInit();
             this.ResumeLayout(false);
 
         }

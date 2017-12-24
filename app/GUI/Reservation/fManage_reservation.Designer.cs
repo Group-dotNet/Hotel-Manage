@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fManage_reservation));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -61,6 +62,7 @@
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btn_detail = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.lb_status = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -86,7 +88,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_detail = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -345,6 +348,7 @@
             this.ptb_export.Size = new System.Drawing.Size(28, 28);
             this.ptb_export.TabIndex = 2;
             this.ptb_export.TabStop = false;
+            this.ptb_export.Click += new System.EventHandler(this.ptb_export_Click);
             // 
             // label4
             // 
@@ -366,6 +370,7 @@
             this.ptb_print.Size = new System.Drawing.Size(28, 28);
             this.ptb_print.TabIndex = 0;
             this.ptb_print.TabStop = false;
+            this.ptb_print.Click += new System.EventHandler(this.ptb_print_Click);
             // 
             // panel4
             // 
@@ -489,6 +494,16 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(282, 347);
             this.panel6.TabIndex = 7;
+            // 
+            // btn_detail
+            // 
+            this.btn_detail.Location = new System.Drawing.Point(3, 311);
+            this.btn_detail.Name = "btn_detail";
+            this.btn_detail.Size = new System.Drawing.Size(270, 30);
+            this.btn_detail.TabIndex = 6;
+            this.btn_detail.Text = "Detail";
+            this.btn_detail.UseVisualStyleBackColor = true;
+            this.btn_detail.Click += new System.EventHandler(this.btn_detail_Click);
             // 
             // panel16
             // 
@@ -719,15 +734,20 @@
             this.label1.Text = "Manage Reservation";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // btn_detail
+            // printDocument1
             // 
-            this.btn_detail.Location = new System.Drawing.Point(3, 311);
-            this.btn_detail.Name = "btn_detail";
-            this.btn_detail.Size = new System.Drawing.Size(270, 30);
-            this.btn_detail.TabIndex = 6;
-            this.btn_detail.Text = "Detail";
-            this.btn_detail.UseVisualStyleBackColor = true;
-            this.btn_detail.Click += new System.EventHandler(this.btn_detail_Click);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // fManage_reservation
             // 
@@ -836,5 +856,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.ComboBox cb_status_reservation;
         private System.Windows.Forms.Button btn_detail;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

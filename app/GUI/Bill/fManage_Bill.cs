@@ -19,7 +19,6 @@ namespace app.GUI.Bill
             InitializeComponent();
         }
         private int id_bill;
-        private string username = "phuc";
 
         public int Id_bill
         {
@@ -147,7 +146,7 @@ namespace app.GUI.Bill
         {
             if (this.id_bill != 0)
             {
-                if (System_BUS.Instance.Get_Account(this.username).Id_type == 1)
+                if (System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
                 {
                     fBill_info frm = new fBill_info();
                     frm.Id_bill = this.Id_bill;
@@ -164,6 +163,89 @@ namespace app.GUI.Bill
                 MessageBox.Show("You must select Bill");
                 this.id_bill = 0;
             }
+        }
+
+        private void ptb_export_Click(object sender, EventArgs e)
+        {
+            Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
+            Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
+            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+
+            try
+            {
+
+                worksheet = workbook.ActiveSheet;
+
+                worksheet.Name = "Data Export";
+
+                worksheet = workbook.ActiveSheet;
+                worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, dgv_bill.Columns.Count]].Merge();
+                worksheet.Cells[1, 1].Value = "List Bill";
+                worksheet.Cells[1, 1].Font.Size = 20;
+
+                for (int i = 1; i <= dgv_bill.Columns.Count; i++)
+                {
+                    worksheet.Cells[2, i] = dgv_bill.Columns[i - 1].HeaderText;
+
+                    worksheet.Cells[2, i].Font.Bold = true;
+                }
+
+                for (int i = 1; i <= dgv_bill.Rows.Count; i++)
+                {
+                    for (int j = 1; j <= dgv_bill.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j] = dgv_bill.Rows[i - 1].Cells[j - 1].Value.ToString();
+                    }
+                }
+
+
+
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveDialog.FilterIndex = 2;
+
+                if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    workbook.SaveAs(saveDialog.FileName);
+                    MessageBox.Show("Export Successful");
+                }
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                excel.Quit();
+                workbook = null;
+                excel = null;
+            }
+        }
+        Bitmap bmp;
+        private void ptb_print_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int heght = dgv_bill.Height;
+                dgv_bill.Height = dgv_bill.RowCount * dgv_bill.RowTemplate.Height * 2;
+                bmp = new Bitmap(dgv_bill.Width, dgv_bill.Height);
+                dgv_bill.DrawToBitmap(bmp, new Rectangle(0, 0, dgv_bill.Width, dgv_bill.Height));
+                dgv_bill.Height = heght;
+                printPreviewDialog1.ShowDialog();
+                dgv_bill.Height = 361;
+                dgv_bill.Width = 655;
+            }
+            catch
+            {
+                MessageBox.Show("Not find data!");
+                dgv_bill.Height = 361;
+                dgv_bill.Width = 655;
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
         }
     }
 }

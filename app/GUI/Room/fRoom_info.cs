@@ -98,6 +98,19 @@ namespace app.GUI.Room
                 if (room.Locked == true) lb_status.Text = "Active";
                 else lb_status.Text = "Empty";
             }
+
+            List<Stuff_detail_DTO> list_stuff = BUS.Stuff_detail_BUS.Instance.Get_List(room.Kind_of_room.Id);
+            foreach ( Stuff_detail_DTO stuff in list_stuff)
+            {
+                ListViewItem item = new ListViewItem(stuff.Stuff.Id_stuff.ToString());
+                item.SubItems.Add(stuff.Stuff.Name_stuff);
+                item.SubItems.Add(stuff.Number.ToString());
+                listView1.Items.Add(item);
+            }
+            lb_used.Text = BUS.Analytic_BUS.Instance.CountUsingRoom(room.Id_room).ToString();
+            lb_stuff.Text = BUS.Analytic_BUS.Instance.CountStuffInRoom(room.Kind_of_room.Id).ToString() ;
+            
+
         }
 
         private void label17_Click(object sender, EventArgs e)

@@ -29,11 +29,15 @@ namespace app
             string pass = txtPass.Text;
             if (this.Login(user, pass))
             {
+                
                 fMain frm = new fMain();
-                frm.Username = user;
+                DTO.Session.username = user;
+                string content = user + " has logged into the system!";
+                BUS.History_BUS.Instance.Insert_History(user, content);
                 this.Hide();
                 frm.ShowDialog();
-                
+                this.txtPass.Clear();
+                this.Show();
             }
              else
             {

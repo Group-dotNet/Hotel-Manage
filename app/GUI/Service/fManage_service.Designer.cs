@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fManage_service));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pn_service = new System.Windows.Forms.Panel();
@@ -52,6 +53,7 @@
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.lb_unit = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -65,6 +67,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.pn_service.SuspendLayout();
@@ -114,6 +118,7 @@
             // 
             // dgv_service
             // 
+            this.dgv_service.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_service.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_service.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -192,7 +197,6 @@
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(191, 20);
             this.txt_search.TabIndex = 0;
-            this.txt_search.Text = ",";
             // 
             // panel13
             // 
@@ -216,6 +220,7 @@
             this.ptb_export.Size = new System.Drawing.Size(28, 28);
             this.ptb_export.TabIndex = 2;
             this.ptb_export.TabStop = false;
+            this.ptb_export.Click += new System.EventHandler(this.ptb_export_Click);
             // 
             // label4
             // 
@@ -237,6 +242,7 @@
             this.ptb_print.Size = new System.Drawing.Size(28, 28);
             this.ptb_print.TabIndex = 0;
             this.ptb_print.TabStop = false;
+            this.ptb_print.Click += new System.EventHandler(this.ptb_print_Click);
             // 
             // panel3
             // 
@@ -346,14 +352,25 @@
             // panel8
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.button1);
             this.panel8.Controls.Add(this.panel11);
             this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.panel10);
             this.panel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel8.Location = new System.Drawing.Point(5, 45);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(294, 148);
+            this.panel8.Size = new System.Drawing.Size(294, 182);
             this.panel8.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 144);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(284, 32);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Detail";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel11
             // 
@@ -476,6 +493,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Manage Service";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // fManage_service
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -552,5 +584,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.ComboBox cb_search;
+        private System.Windows.Forms.Button button1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

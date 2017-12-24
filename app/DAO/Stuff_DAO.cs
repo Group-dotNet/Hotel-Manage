@@ -181,5 +181,19 @@ namespace app.DAO
             }
             return list_stuff;
         }
+
+        public List<Stuff_DTO> List_Stuff_By_KOR(int id_kor)
+        {
+            string query = "exec USP_GetListStuffByKOR @id_kor";
+            DataTable List_stuff = Connect.Instance.ExecuteQuery(query, new object[] { id_kor });
+
+            List<Stuff_DTO> list_stuff = new List<Stuff_DTO>();
+            foreach (DataRow item in List_stuff.Rows)
+            {
+                Stuff_DTO stuff = new Stuff_DTO((int)item["id_stuff"], item["name_stuff"].ToString());
+                list_stuff.Add(stuff);
+            }
+            return list_stuff;
+        }
     }
 }

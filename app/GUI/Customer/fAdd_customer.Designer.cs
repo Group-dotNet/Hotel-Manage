@@ -102,7 +102,7 @@
             this.panel11.Location = new System.Drawing.Point(4, 348);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(382, 74);
-            this.panel11.TabIndex = 6;
+            this.panel11.TabIndex = 7;
             // 
             // btn_back
             // 
@@ -110,7 +110,7 @@
             this.btn_back.Location = new System.Drawing.Point(208, 14);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(102, 40);
-            this.btn_back.TabIndex = 1;
+            this.btn_back.TabIndex = 9;
             this.btn_back.Text = "Back";
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
@@ -121,7 +121,7 @@
             this.btn_add.Location = new System.Drawing.Point(66, 14);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(102, 40);
-            this.btn_add.TabIndex = 0;
+            this.btn_add.TabIndex = 8;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
@@ -133,7 +133,7 @@
             this.panel10.Location = new System.Drawing.Point(4, 298);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(382, 43);
-            this.panel10.TabIndex = 5;
+            this.panel10.TabIndex = 6;
             // 
             // txt_company
             // 
@@ -160,12 +160,13 @@
             this.panel9.Location = new System.Drawing.Point(4, 249);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(382, 43);
-            this.panel9.TabIndex = 4;
+            this.panel9.TabIndex = 5;
             // 
             // txt_phone
             // 
             this.txt_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_phone.Location = new System.Drawing.Point(108, 7);
+            this.txt_phone.MaxLength = 11;
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(265, 26);
             this.txt_phone.TabIndex = 1;
@@ -187,7 +188,7 @@
             this.panel8.Location = new System.Drawing.Point(4, 200);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(382, 43);
-            this.panel8.TabIndex = 3;
+            this.panel8.TabIndex = 4;
             // 
             // txt_email
             // 
@@ -214,7 +215,7 @@
             this.panel7.Location = new System.Drawing.Point(4, 151);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(382, 43);
-            this.panel7.TabIndex = 2;
+            this.panel7.TabIndex = 3;
             // 
             // txt_address
             // 
@@ -247,6 +248,7 @@
             // 
             this.txt_passport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_passport.Location = new System.Drawing.Point(108, 7);
+            this.txt_passport.MaxLength = 20;
             this.txt_passport.Name = "txt_passport";
             this.txt_passport.Size = new System.Drawing.Size(265, 26);
             this.txt_passport.TabIndex = 1;
@@ -257,9 +259,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 10);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 20);
+            this.label3.Size = new System.Drawing.Size(76, 20);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Passport:";
+            this.label3.Text = "ID Card:";
             // 
             // panel5
             // 
