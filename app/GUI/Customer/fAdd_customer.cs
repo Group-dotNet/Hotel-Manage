@@ -154,6 +154,22 @@ namespace app.GUI.Customer
         {
             cb_sex.SelectedIndex = 1;
         }
+
+        private void txt_passport_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar < '0' || e.KeyChar > '9')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar < '0' || e.KeyChar > '9')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
 

@@ -170,6 +170,7 @@
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(265, 26);
             this.txt_phone.TabIndex = 1;
+            this.txt_phone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_phone_KeyPress);
             // 
             // label6
             // 
@@ -252,6 +253,7 @@
             this.txt_passport.Name = "txt_passport";
             this.txt_passport.Size = new System.Drawing.Size(265, 26);
             this.txt_passport.TabIndex = 1;
+            this.txt_passport.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_passport_KeyPress);
             // 
             // label3
             // 

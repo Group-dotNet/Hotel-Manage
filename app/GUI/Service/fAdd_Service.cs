@@ -91,5 +91,13 @@ namespace app.GUI.Service
         {
             this.Close();
         }
+
+        private void txt_price_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar < '0' || e.KeyChar > '9')
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

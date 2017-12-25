@@ -20,9 +20,10 @@ namespace app.DAO
         }
 
         private Connect() { }
+        
 
         //string connect taken from Dialog "Server Explorer"
-        private string str_connect = "Data Source=DESKTOP-AJI0FM5\\PETERDINH;Initial Catalog=hotel;Integrated Security=True";
+        private string str_connect = @"Data Source=.\SQLEXPRESS;Initial Catalog=hotel;Integrated Security=True";
 
 
         //@description:

@@ -132,12 +132,6 @@
     <Compile Include="fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="fProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -432,12 +426,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="fChange_pass.resx">
       <DependentUpon>fChange_pass.cs</DependentUpon>
     </EmbeddedResource>
@@ -589,9 +577,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="hotelDataSet.xsc">
       <DependentUpon>hotelDataSet.xsd</DependentUpon>
