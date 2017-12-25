@@ -313,6 +313,16 @@ namespace app.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap if_megaphone_1296371 {
+            get {
+                object obj = ResourceManager.GetObject("if_megaphone_1296371", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap img_52523 {
             get {
                 object obj = ResourceManager.GetObject("img_52523", resourceCulture);

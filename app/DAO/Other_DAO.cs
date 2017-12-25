@@ -103,5 +103,12 @@ namespace app.DAO
             if (x == 1) return true;
             else return false;
         }
+
+        public int GetNotifire()
+        {
+            string query = "exec GetNotifire";
+            int x = (int)Connect.Instance.ExecuteScalar(query);
+            return x;
+        }
     }
 }

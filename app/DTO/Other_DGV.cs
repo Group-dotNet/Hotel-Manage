@@ -563,4 +563,59 @@ namespace app.DTO
             }
         }
     }
+
+    public class Stuff_Detail_DGV
+    {
+        private int id_stuff;
+        private string name_stuff;
+        private int number;
+
+        public Stuff_Detail_DGV() { }
+
+        public Stuff_Detail_DGV(int stuff, string name_stuff, int number)
+        {
+            this.id_stuff = stuff;
+            this.name_stuff = name_stuff;
+            this.number = number;
+        }
+
+        public int Id_stuff
+        {
+            get
+            {
+                return id_stuff;
+            }
+
+            set
+            {
+                id_stuff = value;
+            }
+        }
+
+        public string Name_stuff
+        {
+            get
+            {
+                return name_stuff;
+            }
+
+            set
+            {
+                name_stuff = value;
+            }
+        }
+
+        public int Number
+        {
+            get
+            {
+                return number;
+            }
+
+            set
+            {
+                number = value;
+            }
+        }
+    }
 }

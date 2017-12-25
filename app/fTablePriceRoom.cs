@@ -52,8 +52,13 @@ namespace app
             {
 
                 int id_kor = (int)dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-                List<DTO.Stuff_detail_DTO> list_stuff = BUS.Stuff_detail_BUS.Instance.Get_List(id_kor);
-                dataGridView2.DataSource = list_stuff;
+                List<DTO.Stuff_Detail_DGV> list_stuff_dgv = new List<DTO.Stuff_Detail_DGV>();
+                foreach (DTO.Stuff_detail_DTO stuff in BUS.Stuff_detail_BUS.Instance.Get_List(id_kor))
+                {
+                    DTO.Stuff_Detail_DGV item = new DTO.Stuff_Detail_DGV(stuff.Stuff.Id_stuff, stuff.Stuff.Name_stuff, stuff.Number);
+                    list_stuff_dgv.Add(item);
+                }
+                dataGridView2.DataSource = list_stuff_dgv;
             }
             catch
             {

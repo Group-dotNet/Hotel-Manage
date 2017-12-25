@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 
 namespace app
@@ -64,29 +65,60 @@ namespace app
 
         private void Load_Analytic(DateTime date)
         {
-            number_reservation.Text = BUS.Analytic_BUS.Instance.CountReservationInDay(date).ToString();
-            number_room_emty.Text = BUS.Analytic_BUS.Instance.CountRoomEmtyInDay().ToString();
-            number_room_using.Text = BUS.Analytic_BUS.Instance.CountRoomUsingInDay().ToString();
-            number_service.Text = BUS.Analytic_BUS.Instance.CountServiceUsingInDay(date).ToString();
-            number_checkout.Text = BUS.Analytic_BUS.Instance.CountBillInDay(date).ToString();
-            number_turnover.Text = BUS.Analytic_BUS.Instance.CountRevenueInDay(date).ToString();
+            if(BUS.System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
+            {
+                number_reservation.Text = BUS.Analytic_BUS.Instance.CountReservationInDay(date).ToString();
+                number_room_emty.Text = BUS.Analytic_BUS.Instance.CountRoomEmtyInDay().ToString();
+                number_room_using.Text = BUS.Analytic_BUS.Instance.CountRoomUsingInDay().ToString();
+                number_service.Text = BUS.Analytic_BUS.Instance.CountServiceUsingInDay(date).ToString();
+                number_checkout.Text = BUS.Analytic_BUS.Instance.CountBillInDay(date).ToString();
+                number_turnover.Text = BUS.Analytic_BUS.Instance.CountRevenueInDay(date).ToString();
+            }
+            else
+            {
+                number_reservation.Text = "Locked";
+                number_room_emty.Text = BUS.Analytic_BUS.Instance.CountRoomEmtyInDay().ToString();
+                number_room_using.Text = BUS.Analytic_BUS.Instance.CountRoomUsingInDay().ToString();
+                number_service.Text = "Locked";
+                number_checkout.Text = "Locked";
+                number_turnover.Text = "Locked";
+            }
         }
 
         private void Load_Message_And_History(DateTime date)
         {
             BUS.Message_BUS.Instance.Check_Reservation();
+            int x = BUS.Message_BUS.Instance.GetNotifire();
+            if (x > 0)
+            {
+                PopupNotifier popup = new PopupNotifier();
+                popup.Image = Properties.Resources.if_megaphone_1296371;
+                popup.TitleText = "Reservation is about to expire";
+                popup.ContentText = "You have " + x.ToString() + " new message";
+                popup.Popup();
+            }
+            
+
             List<DTO.History_DTO> list_history = History_BUS.Instance.Get_List_History(date);
             List<DTO.Message_DTO> list_message = Message_BUS.Instance.Get_List_Message(date);
             listView1.Items.Clear();
             listView2.Items.Clear();
-            foreach (DTO.History_DTO history in list_history)
+            if(BUS.System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
             {
-                ListViewItem item = new ListViewItem(history.Id_history.ToString());
-                item.SubItems.Add(history.Username);
-                item.SubItems.Add(history.Content);
-                item.SubItems.Add(history.Created.ToString());
-                listView2.Items.Add(item);
+                foreach (DTO.History_DTO history in list_history)
+                {
+                    ListViewItem item = new ListViewItem(history.Id_history.ToString());
+                    item.SubItems.Add(history.Username);
+                    item.SubItems.Add(history.Content);
+                    item.SubItems.Add(history.Created.ToString());
+                    listView2.Items.Add(item);
+                }
             }
+            else
+            {
+                listView2.Visible = false;
+            }
+            
 
             foreach(DTO.Message_DTO message in list_message)
             {
@@ -216,16 +248,9 @@ namespace app
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
-            {
-                fTablePriceService frm = new fTablePriceService();
-                frm.ShowDialog();
-                Load_Data();
-            }
-            else
-            {
-                MessageBox.Show("You don't have permission to view details!");
-            }
+            fTablePriceService frm = new fTablePriceService();
+            frm.ShowDialog();
+            Load_Data();
         }
 
         private void button3_Click(object sender, EventArgs e)

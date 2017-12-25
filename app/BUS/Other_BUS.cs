@@ -120,5 +120,17 @@ namespace app.BUS
                 throw new Exception("Error!");
             }
         }
+
+        public int GetNotifire()
+        {
+            try
+            {
+                return Message_DAO.Instance.GetNotifire();
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
     }
 }
