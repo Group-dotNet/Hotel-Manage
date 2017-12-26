@@ -133,6 +133,12 @@ namespace app.DAO
             return x == 1;
         }
 
+        public bool UnLock_Customer(int id_customer)
+        {
+            string query = "exec USP_UnLockCustomer @id_customer";
+            int x = Connect.Instance.ExecuteNonQuery(query, new object[] { id_customer });
+            return x == 1;
+        }
 
         //@Description:
         //     Tìm kiếm khách hàng

@@ -180,5 +180,17 @@ namespace app.BUS
                 throw new Exception("Error!");
             }
         }
+        public bool UnLock_Customer(int id_customer)
+        {
+            try
+            {
+                return Customer_DAO.Instance.UnLock_Customer(id_customer);
+            }
+            catch
+            {
+                throw new Exception("Error!");
+            }
+        }
+
     }
 }

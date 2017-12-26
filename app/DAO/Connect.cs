@@ -25,7 +25,7 @@ namespace app.DAO
         //private string pass;
 
         //string connect taken from Dialog "Server Explorer"
-        private string str_connect = @"Data Source=(local);Initial Catalog=hotel;Integrated Security=True";
+        private string str_connect = @"Data Source=.\SQLEXPRESS;Initial Catalog=hotel;Integrated Security=True";
 
 
         //@description:

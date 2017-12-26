@@ -165,7 +165,7 @@ namespace app.GUI.Customer
         {
             try
             {
-                int id_customer = (int)dgv_customer.Rows[e.RowIndex].Cells["Column1"].Value;
+                int id_customer = (int)dgv_customer.Rows[e.RowIndex].Cells[0].Value;
                 this.id_customer = id_customer;
 
                 // Chỉ cần id mình sẽ lấy thông tin từ trong database chứ không phải trong DGV_Customer
@@ -266,9 +266,10 @@ namespace app.GUI.Customer
             {
                 if (System_BUS.Instance.Get_Account(DTO.Session.username).Id_type == 1)
                 {
-                    if (BUS.Customer_BUS.Instance.Lock_Customer(this.id_customer))
+                    if (BUS.Customer_BUS.Instance.UnLock_Customer(this.id_customer))
                     {
-                        MessageBox.Show("Customer was locked!");
+                        MessageBox.Show("Customer was unlock!");
+                        Load_Data();
                         this.id_customer = 0;
                     }
                     else

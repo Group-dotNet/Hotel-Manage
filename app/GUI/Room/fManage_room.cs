@@ -40,8 +40,10 @@ namespace app.GUI.Room
                 btn.MouseDown += ((o, e) => {
                     this.room = item.Id_room;
                 });
-                if(Room_BUS.Instance.Get_Info_Room(item.Id_room).Locked == true)
+                if (Room_BUS.Instance.Get_Info_Room(item.Id_room).Locked == true)
                     btn.ContextMenuStrip = contextMenuStrip1;
+                else
+                    btn.ContextMenuStrip = contextMenuStrip2;
                 btn.Tag = item;
                 pn_room.Controls.Add(btn);
             }
@@ -279,6 +281,18 @@ namespace app.GUI.Room
         private void ptb_export_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Sorry, we are buldding!");
+        }
+
+        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void addStuffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUI.Stuff.fStuff_detail frm = new Stuff.fStuff_detail();
+            frm.Id_room = this.Room;
+            frm.ShowDialog();
         }
     }
 }
