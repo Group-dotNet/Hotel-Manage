@@ -83,5 +83,12 @@ namespace app.DAO
             int x = (int)Connect.Instance.ExecuteOutPut(query);
             return x == 1;
         }
+
+        public bool Change_role(string username, int role)
+        {
+            string query = "exec USP_ChangeRole @username , @role";
+            int x = (int)Connect.Instance.ExecuteNonQuery(query, new object[] { username, role });
+            return x == 1;
+        }
     }
 }

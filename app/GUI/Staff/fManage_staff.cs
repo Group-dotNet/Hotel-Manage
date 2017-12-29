@@ -85,7 +85,6 @@ namespace app.GUI.Staff
             }
             catch(Exception ex)
             {
-                throw new Exception("Error!");
                 MessageBox.Show("Selected Error!");
             }
         }

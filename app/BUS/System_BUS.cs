@@ -122,5 +122,17 @@ namespace app.BUS
                 throw new Exception("Error!");
             }
         }
+
+        public bool Change_role(string username, int role)
+        {
+            try
+            {
+                return System_DAO.Instance.Change_role(username, role);
+            }
+            catch(System.Data.SqlClient.SqlException ex)
+            {
+                throw new Exception("Error!");
+            }
+        }
     }
 }
