@@ -35,7 +35,6 @@
             this.panel17 = new System.Windows.Forms.Panel();
             this.btn_search = new System.Windows.Forms.Button();
             this.txt_search = new System.Windows.Forms.TextBox();
-            this.cb_search = new System.Windows.Forms.ComboBox();
             this.dgv_staff = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,7 +120,6 @@
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel17.Controls.Add(this.btn_search);
             this.panel17.Controls.Add(this.txt_search);
-            this.panel17.Controls.Add(this.cb_search);
             this.panel17.Location = new System.Drawing.Point(3, 42);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(655, 40);
@@ -135,6 +133,7 @@
             this.btn_search.TabIndex = 2;
             this.btn_search.Text = "Search";
             this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // txt_search
             // 
@@ -142,22 +141,6 @@
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(213, 20);
             this.txt_search.TabIndex = 1;
-            // 
-            // cb_search
-            // 
-            this.cb_search.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_search.FormattingEnabled = true;
-            this.cb_search.Items.AddRange(new object[] {
-            "ID Reservation",
-            "ID Room",
-            "Customer",
-            "Staff",
-            "Start date",
-            "End date"});
-            this.cb_search.Location = new System.Drawing.Point(221, 8);
-            this.cb_search.Name = "cb_search";
-            this.cb_search.Size = new System.Drawing.Size(121, 21);
-            this.cb_search.TabIndex = 0;
             // 
             // dgv_staff
             // 
@@ -586,7 +569,6 @@
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.TextBox txt_search;
-        private System.Windows.Forms.ComboBox cb_search;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
     }

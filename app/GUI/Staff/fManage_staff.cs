@@ -275,5 +275,16 @@ namespace app.GUI.Staff
         {
             e.Graphics.DrawImage(bmp, 0, 0);
         }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            List<Staff_DGV> list_staff_dgv = new List<Staff_DGV>();
+            foreach (Staff_DTO staff in Staff_BUS.Instance.GetListStaffSearch(this.txt_search.Text))
+            {
+                Staff_DGV staff_dgv = new Staff_DGV(staff.Username, staff.Name, staff.Sex, staff.Phone);
+                list_staff_dgv.Add(staff_dgv);
+            }
+            dgv_staff.DataSource = list_staff_dgv;
+        }
     }
 }

@@ -156,6 +156,18 @@ namespace app.DAO
             return x == 2;
         }
 
-       
+       public List<Staff_DTO> GetListStaffSearch(string keyword)
+        {
+            string query = "exec USP_SearchStaff @keyword";
+            DataTable List_staff = Connect.Instance.ExecuteQuery(query, new object[] { keyword });
+
+            List<Staff_DTO> list_staff = new List<Staff_DTO>();
+            foreach (DataRow item in List_staff.Rows)
+            {
+                Staff_DTO staff = new Staff_DTO(item);
+                list_staff.Add(staff);
+            }
+            return list_staff;
+        }
     }
 }

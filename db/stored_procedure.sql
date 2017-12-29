@@ -106,6 +106,23 @@ begin
 	end
 end
 
+go
+
+-- ID Reservation
+-- ID Room
+-- Customer
+-- Staff
+-- Start date
+-- End date
+
+create proc USP_SearchStaff
+@keyword nvarchar(1000)
+as
+begin 
+	select * from Staff where username like '%' + @keyword + '%' or Staff.displayname like '%' + @keyword + '%' or Staff.email like '%' + @keyword + '%' or Staff.phone like '%' + @keyword + '%' or Staff.address like '%' + @keyword + '%'
+end
+
+
 --select *from Account
 
 --exec USP_BanAccount dinhdinh

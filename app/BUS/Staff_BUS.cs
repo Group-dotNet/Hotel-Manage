@@ -142,5 +142,17 @@ namespace app.BUS
             }
         }
 
+        public List<Staff_DTO> GetListStaffSearch(string keyword)
+        {
+            try
+            {
+                return Staff_DAO.Instance.GetListStaffSearch(keyword);
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                throw new Exception("Error!");
+            }
+        }
+
     }
 }
