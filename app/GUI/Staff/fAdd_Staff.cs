@@ -76,6 +76,25 @@ namespace app.GUI.Staff
                 flat = false;
                 return;
             }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(txt_email.Text);
+                flat = true;
+            }
+            catch
+            {
+                MessageBox.Show("Email is not exists", "Error validate", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                flat = false;
+                return;
+            }
+
+
+            if (txt_phone.Text.Length != 11 && txt_phone.Text.Length != 10)
+            {
+                MessageBox.Show("Phone is not exist!", "Error validate", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                flat = false;
+                return;
+            }
 
             System_DTO account = new System_DTO();
             account.Username = txt_username.Text;
@@ -91,6 +110,7 @@ namespace app.GUI.Staff
             staff.Address = txt_address.Text;
             staff.Phone = txt_phone.Text;
             staff.Email = txt_email.Text;
+
             if (this.filename != null)
                 staff.Image = this.CovertImage();
             else
