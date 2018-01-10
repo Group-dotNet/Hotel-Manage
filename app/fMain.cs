@@ -199,6 +199,9 @@ namespace app
             frm.ShowDialog();
             this.Show();
             Load_Data();
+            DateTime date = new DateTime(this.dateTimePicker1.Value.Year, this.dateTimePicker1.Value.Month, this.dateTimePicker1.Value.Day);
+            Load_Analytic(date);
+            Load_Message_And_History(date);
         }
 
         private void reservationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -208,6 +211,9 @@ namespace app
             frm.ShowDialog();
             this.Show();
             Load_Data();
+            DateTime date = new DateTime(this.dateTimePicker1.Value.Year, this.dateTimePicker1.Value.Month, this.dateTimePicker1.Value.Day);
+            Load_Analytic(date);
+            Load_Message_And_History(date);
         }
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,6 +232,9 @@ namespace app
             frm.ShowDialog();
             this.Show();
             Load_Data();
+            DateTime date = new DateTime(this.dateTimePicker1.Value.Year, this.dateTimePicker1.Value.Month, this.dateTimePicker1.Value.Day);
+            Load_Analytic(date);
+            Load_Message_And_History(date);
         }
 
         private void stuffToolStripMenuItem_Click(object sender, EventArgs e)
