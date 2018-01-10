@@ -94,7 +94,8 @@ end
 go
 -- Tính Số tiền thu trong ngày
 
-
+-- exec USP_CountRevenueInDay '1/11/2018 12:00:00 AM'
+-- drop proc USP_CountRevenueInDay
 create proc USP_CountRevenueInDay
 @date date
 as
@@ -121,8 +122,19 @@ begin
 	end
 	print @money_deposit
 
+	declare @money_deposit_cancel money
+	if exists ( select * from Deposit as a join Reservation as b on a.id_reservation = b.id_reservation where a.confirm = 1 and b.status_reservation = 0 and a.locked = 0 and  Day(a.created_confirm)= Day(@date) and MONTH(a.created_confirm) = MONTH(@date) and YEAR(a.created_confirm) = YEAR(@date))
+	begin 
+		select @money_deposit_cancel = sum(a.deposit) from Deposit as a join Reservation as b on a.id_reservation = b.id_reservation where a.confirm = 1 and b.status_reservation = 0 and a.locked = 0 and  Day(a.created_confirm)= Day(@date) and MONTH(a.created_confirm) = MONTH(@date) and YEAR(a.created_confirm) = YEAR(@date)
+	end
+	else
+	begin
+		set @money_deposit_cancel = 0.0
+	end
+	print @money_deposit_cancel
+
 	
-	return @money_bill + @money_deposit
+	return @money_bill + @money_deposit + @money_deposit_cancel
 end
 
 go
