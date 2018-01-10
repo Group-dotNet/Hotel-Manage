@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_back = new System.Windows.Forms.Button();
             this.btn_ok = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lb_total = new System.Windows.Forms.Label();
@@ -67,7 +66,6 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.btn_back);
             this.panel4.Controls.Add(this.btn_ok);
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(3, 310);
@@ -75,19 +73,9 @@
             this.panel4.Size = new System.Drawing.Size(274, 46);
             this.panel4.TabIndex = 2;
             // 
-            // btn_back
-            // 
-            this.btn_back.Location = new System.Drawing.Point(153, 3);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(102, 40);
-            this.btn_back.TabIndex = 1;
-            this.btn_back.Text = "Back";
-            this.btn_back.UseVisualStyleBackColor = true;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
-            // 
             // btn_ok
             // 
-            this.btn_ok.Location = new System.Drawing.Point(15, 3);
+            this.btn_ok.Location = new System.Drawing.Point(83, 3);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(102, 40);
             this.btn_ok.TabIndex = 0;
@@ -277,7 +265,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.LinkLabel linkLabel1;

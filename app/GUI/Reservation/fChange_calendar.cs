@@ -142,6 +142,7 @@ namespace app.GUI.Reservation
             if(cb_select.SelectedIndex != 0)
             {
                 dpt_date_end.Enabled = true;
+                dpt_date_end.Value = this.end_date;
             }
             else
             {
@@ -153,17 +154,18 @@ namespace app.GUI.Reservation
         {
             if(cb_select.SelectedIndex == 1)
             {
-                if(DateTime.Compare(dpt_date_end.Value, this.end_date) > 0 && DateTime.Compare(dpt_date_end.Value, DateTime.Now) < 0)
+                if(DateTime.Compare(dpt_date_end.Value, this.end_date) > 0 || DateTime.Compare(dpt_date_end.Value, DateTime.Now) < 0)
                 {
                     MessageBox.Show("Date time not Invalid!");
+                    dpt_date_end.Value = this.end_date;
                 }
             }
             if (cb_select.SelectedIndex == 2)
             {
-                if (DateTime.Compare(dpt_date_end.Value, this.end_date) < 0 || DateTime.Compare(dpt_date_end.Value, DateTime.Now) < 0)
+                if (DateTime.Compare(dpt_date_end.Value, this.end_date) < 0 )
                 {
                     MessageBox.Show("Date time not Invalid!");
-
+                    dpt_date_end.Value = this.end_date;
                 }
             }
         }

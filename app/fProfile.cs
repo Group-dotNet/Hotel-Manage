@@ -198,5 +198,17 @@ namespace app
         {
 
         }
+
+        private void txt_phone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar < '0' || e.KeyChar > '9')
+            {
+                e.Handled = true;
+            }
+            if (e.KeyChar == (char)8)
+            {
+                e.Handled = false;
+            }
+        }
     }
 }

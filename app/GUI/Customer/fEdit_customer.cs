@@ -242,6 +242,11 @@ namespace app.GUI.Customer
             {
                 e.Handled = true;
             }
+
+            if (e.KeyChar == (char)8)
+            {
+                e.Handled = false;
+            }
         }
 
         private void txt_passport_KeyPress(object sender, KeyPressEventArgs e)
@@ -249,6 +254,10 @@ namespace app.GUI.Customer
             if (e.KeyChar < '0' || e.KeyChar > '9')
             {
                 e.Handled = true;
+            }
+            if (e.KeyChar == (char)8)
+            {
+                e.Handled = false;
             }
         }
     }

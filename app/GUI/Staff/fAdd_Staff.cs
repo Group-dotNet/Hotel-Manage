@@ -134,6 +134,10 @@ namespace app.GUI.Staff
             {
                 e.Handled = true;
             }
+            if (e.KeyChar == (char)8)
+            {
+                e.Handled = false;
+            }
         }
     }
 }
