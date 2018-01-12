@@ -109,6 +109,8 @@ namespace app.GUI.Reservation
                 {
                     if (interval.Hours > 6)
                         xmod2 = interval.Days + 0.5;
+                    else
+                        xmod2 = interval.Days;
                 }
 
                 Room_DTO room = Room_BUS.Instance.Get_Info_Room(item.Reservation_room.Room.Id_room);

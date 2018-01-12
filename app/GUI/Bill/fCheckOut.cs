@@ -134,10 +134,10 @@ namespace app.GUI.Bill
         {
 
             double xmod = 0;
-            if (calendar.End_date != null)
+             if (calendar.End_date != null)
             {
                 TimeSpan interval = calendar.End_date.Subtract(calendar.Start_date);
-                if (interval.Days < 1)
+                 if  (interval.Days < 1)
                 {
                     if (interval.Hours < 2)
                     {
@@ -156,6 +156,9 @@ namespace app.GUI.Bill
                 {
                     if (interval.Hours > 6)
                         xmod = interval.Days + 0.5;
+                    else
+                        xmod = interval.Days;
+                    
                 }
             }
             else
