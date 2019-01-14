@@ -15,30 +15,31 @@ Xây dựng phần mền quản lý khách sạn gồm có quản lý phòng, đ
 
 ## Quy trình xây dựng phần mềm
 ***
-* "1": Thiết kế Database
-* "2": Thiết kế Procdure Stored, Trigger.
-* "3": Kiểm thử hệ thống mức cơ bản
-* "4": Viết Module Kết Nối Database cùng các hàm setup datatable
-* "5": Viết Module System gồm (Đăng nhập, đăng xuất, đổi mật khẩu ,chỉnh sửa profile)
-* "6": Viết Module Staff gồm (Thêm, sửa, khóa, thống kê, report, tìm kiếm, ...)
-* "7": Viết Module Customer gồm (Thêm, sửa, khóa, thống kê, report, tìm kiếm, ...)
-* "8": Viết Module Stuff gồm (Thêm, sửa, xóa, thống kê, report, tìm kiếm, ...)
-* "9": Viết Module Service gồm có (Thêm, sửa, xóa, thống kê, report, tìm kiếm, ...)
-* "10": Viết Module Reservation: chia thành các moduel nhỏ hơn.
+1. Thiết kế Database
+2. Thiết kế Procdure Stored, Trigger.
+3. Kiểm thử hệ thống mức cơ bản
+4. Viết Module Kết Nối Database cùng các hàm setup datatable
+5. Viết Module System gồm (Đăng nhập, đăng xuất, đổi mật khẩu ,chỉnh sửa profile)
+6. Viết Module Staff gồm (Thêm, sửa, khóa, thống kê, report, tìm kiếm, ...)
+7. Viết Module Customer gồm (Thêm, sửa, khóa, thống kê, report, tìm kiếm, ...)
+8. Viết Module Stuff gồm (Thêm, sửa, xóa, thống kê, report, tìm kiếm, ...)
+9. Viết Module Service gồm có (Thêm, sửa, xóa, thống kê, report, tìm kiếm, ...)
+10. Viết Module Reservation: chia thành các moduel nhỏ hơn.
 	* Chức năng tạo phiếu đặt (Tính toán giá tiền, xuất ra tiền cọc, lưu danh sách phòng, lưu thời gian đặt,... )
 	* Chức năng chỉnh sửa phiếu đặt (Hủy phòng nếu s/l phòng trong phiếu đặt > 1, Đổi phòng nếu còn phòng trống cùng loại, Đổi thời gian đặt,... )
 	* Chức năng Hủy phiếu đặt (Cập nhật trạng thái phòng, trạng thái thời gian đặt, số tiền cọc, ...)
 	* Chức Checkout (Tính toán lại phiếu đặt gồm cả giá phòng và tổng giá dịch vụ)
 	* Chức năng Tìm kiếm, Report
-1* "1": Viết Module Bill gồm có (Checkout nếu phiếu đặt chưa thanh toán, thống kê, report, tìm kiếm, ...)
-1* "2": Viết Module Analytic gồm có (Thông kê, report doanh số theo thời gian,... )
-1* "3": Viết Module Chức năng khác gồm có (Máy tính: hỗ trợ phép tính phức tạp khi thanh toán hóa đơn, Guide: Hướng đẫn sử dụng phần mền, Bảng giá, ...)
-1* "4": Kiểm thử phần mền
-1* "5": Đóng gói phần mền
+11. Viết Module Bill gồm có (Checkout nếu phiếu đặt chưa thanh toán, thống kê, report, tìm kiếm, ...)
+12. Viết Module Analytic gồm có (Thông kê, report doanh số theo thời gian,... )
+13. Viết Module Chức năng khác gồm có (Máy tính: hỗ trợ phép tính phức tạp khi thanh toán hóa đơn, Guide: Hướng đẫn sử dụng phần mền, Bảng giá, ...)
+14. Kiểm thử phần mền
+15. Đóng gói phần mền
 
 ## Thiết kế cơ sở dữ liệu
 ***
-> Bản thiết kế cuối cùng
+> Bản thiết kế cuối cùng.
+
 ![diagrams](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/diagrams.png "diagrams")
 
 ## Hướng dẫn cài đặt
@@ -54,20 +55,24 @@ Xây dựng phần mền quản lý khách sạn gồm có quản lý phòng, đ
 > Thư mục Resource chứa các file ảnh sử  dụng trong project
 
 #### Cài đặt:
-1. Cài đặt source code
+1. **Cài đặt source code**
 * Mở Gitkarken 
-* `Chọn File` -> `Clone Repo`
+* Thực hiện `Chọn File` -> `Clone Repo`
+
 ![setup1](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/setup1.png "setup1")
 
 * Vị trí lưu code : `C:\Users\ADMIN\Documents\Visual Studio 2015\Projects`
 * Tại URL cope đoạn URL sau: `https://github.com/Group-dotNet/app` vào URL
+
 ![setup2](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/setup2.png "setup2")
+
 > Đợi nó download về trong 1,2 phút
 
 Chọn “Open Now” bên trên để mở giao diện:
+
 ![setup3](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/setup3.png "setup3")
 
-2. Cài đặt cơ sở dữ liệu và chạy chương trình
+2. **Cài đặt cơ sở dữ liệu và chạy chương trình**
 * Vào thư mục `C:\Users\ADMIN\Documents\Visual Studio 2015\Projects\app\db` mở file `*.sql`
 
 * Chay dòng Script viết sẵn theo thứ tự file `SQLQuery1.sql` chạy đầu tiên
@@ -81,18 +86,23 @@ Chọn “Open Now” bên trên để mở giao diện:
 
 ## Hướng dẫn sử dụng
 ***
-Khi khởi động hệ thống, HT sẽ kiểm tra đã tồn tại tài khoản admin nào trong hệ thống chưa nếu chưa sẽ hiện form tạo **Staff** (GUI/Staff/fAdd_staff.cs)
+* Khi khởi động hệ thống, HT sẽ kiểm tra đã tồn tại tài khoản admin nào trong hệ thống chưa nếu chưa sẽ hiện form tạo **Staff** `GUI/Staff/fAdd_staff.cs`
+
 ![image1](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image1.png "image1")
 
-Phải điển đầy đủ thông tin hệ thông mới chuyển sang login
+* Phải điển đầy đủ thông tin hệ thông mới chuyển sang login
+
 ![image2](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image2.png "image2")
 
 Trong đó:
-* “1”: Nếu đăng nhập đúng username và password sẽ chuyển sang form màn hình chính (**fMain.cs**) ngược lại sẽ báo lỗi.
+* “1”: Nếu đăng nhập đúng username và password sẽ chuyển sang form màn hình chính `fMain.cs` ngược lại sẽ báo lỗi.
 * “2”. Tắt chương trình
 
-![image3](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image3.png "image3")
+
 Màn hình chính gồm: **Menu**, **Thông tin hệ thống**, **Báo cáo tổng quan**
+
+![image3](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image3.png "image3")
+
 > Với từng loại tài khoản sẽ được sử dụng 1 số chức năng nhất định
 
 #### Các bước xây dựng hệ thống:
@@ -106,7 +116,8 @@ Màn hình chính gồm: **Menu**, **Thông tin hệ thống**, **Báo cáo tổ
 * Bước 8: Check out
 
 #### Thực hiện:
-> Bước 1: Vào màn hình chính chọn Manage ->Staff
+> Bước 1: Vào màn hình chính chọn `Manage` -> `Staff`
+
 ![image4](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image4.png "image4")
 
 Hiện tại hệ thống đã có 1 tài khoản **Admin** được tại trước khi đăng nhập vào hệ thống.
@@ -114,88 +125,104 @@ Hiện tại hệ thống đã có 1 tài khoản **Admin** được tại trư�
 Bây giờ để tạo thêm 1 tài khoản **Staff** chọn vào hình chữ thập màu xanh lá.
 
 Giao diện tạo tài khoản mới giống như tạo tài khoản **Admin** lúc đầu hệ thống. Yêu cầu nhập đầy đủ thông tin và các **Field**
+
 ![image5](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image5.png "image5")
 
 Ngoài ra còn các chức năng:
+
 ![image6](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image6.png "image6")
 
 Trong đó:
-* "1": Xem chi tiết nhân viên(GUI/Staff/fStaff_info.cs)
-* "2": Đổi mật khẩu (fChange_pass.cs)
-* "3": Đổi quyền sử dụng (Staff hoặc Admin)(GUI/Staff/fChange_role.cs)
+* "1": Xem chi tiết nhân viên(`GUI/Staff/fStaff_info.cs`)
+* "2": Đổi mật khẩu (`fChange_pass.cs`)
+* "3": Đổi quyền sử dụng (`Staff hoặc Admin)(GUI/Staff/fChange_role.cs`)
 * "4": Load lại dữ liệu
-* "5": Thêm Nhân viên (GUI/Staff/fAdd_Staff.cs)
-* "6": Sửa thông tin nhân viên (fProfile.cs)
+* "5": Thêm Nhân viên (`GUI/Staff/fAdd_Staff.cs`)
+* "6": Sửa thông tin nhân viên (`fProfile.cs`)
 * "7": Ban tài khoản
 * "8": Trở về màn hình chính
 * "9": Tìm kiếm và tìm kiếm nâng cao
 * "10": Report (in và xuất excel)
 
 > Bước 2: Thêm 1 Khách hàng
-Vào màn hình chính chọn Manage ->Customer
+
+Vào màn hình chính chọn `Manage` ->`Customer`
+
 ![image7](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image7.png "image7")
 Danh sách chức năng, trong đó:
-* "1": Xem chi tiết khách hàng(GUI/Customer/fCustomer_info.cs)
+* "1": Xem chi tiết khách hàng(`GUI/Customer/fCustomer_info.cs`)
 * "2": Mở khóa tài khoản nếu bị lock (Admin mới được sử dụng)
 * "3": Load lại dữ liệu
-* "4": Thêm Khách hàng (GUI/Customer/fAdd_Customer.cs)
-* "5": Sửa thông tin Khách hàng (GUI/Customer/fEdit_customer.cs)
+* "4": Thêm Khách hàng (`GUI/Customer/fAdd_Customer.cs`)
+* "5": Sửa thông tin Khách hàng (`GUI/Customer/fEdit_customer.cs`)
 * "6": Ban tài khoản khách hàng
 * "7": Trở về màn hình chính
 * "8": Tìm kiếm và tìm kiếm nâng cao
 * "9": Report (in và xuất excel)
 
-> Bước 3: Thêm loại phòng:
-Vào màn hình chính chọn Manage -> Room -> Add Room
+> Bước 3: Thêm loại phòng
+
+Vào màn hình chính chọn `Manage` -> `Room` -> `Add Room`
+
 ![image8](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image8.png "image8")
 
 Chọn “Add”  sẻ mở ra giao diện chức năng Loại phòng.
+
 ![image9](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image9.png "image9")
 
 > Bước 4: Thêm 1 vật tư
-Vào màn hình chính chọn Manage -> Stuff
+
+Vào màn hình chính chọn `Manage` -> `Stuff`
+
 ![image10](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image10.png "image10")
 
 Danh sách chức năng, trong đó:
 * "1": Load lại dữ liệu vật tư
-* "2": Thêm vật tư (GUI/Stuff/fAdd_stuff.cs)
-* "3": Sửa vật tư (GUI/Stuff/fEdit_stuff.cs)
+* "2": Thêm vật tư (`GUI/Stuff/fAdd_stuff.cs`)
+* "3": Sửa vật tư (`GUI/Stuff/fEdit_stuff.cs`)
 * "4": Xóa Vật tư 
 * "5": Trở về màn hình chính
 * "6": Tìm kiếm
 * "7": Report
 
 > Bước 5: Thêm 1 dịch vụ
-Vào màn hình chính -> Manga -> Service
+
+Vào màn hình chính chọn `Manage` -> `Service`
+
 ![image11](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image11.png "image11")
 
 Danh sách chức năng:
-* "1": Xem chi tiết dịch vụ(GUI/Service/fService_info.cs)
+* "1": Xem chi tiết dịch vụ(`GUI/Service/fService_info.cs`)
 * "2": Load lại dữ liệu
-* "3": Thêm Dịch vụ (GUI/Service/fAdd_service.cs)
-* "4": Sửa thông tin Khách hàng (GUI/ Service /fEdit_service.cs)
+* "3": Thêm Dịch vụ (`GUI/Service/fAdd_service.cs`)
+* "4": Sửa thông tin Khách hàng (`GUI/ Service /fEdit_service.cs`)
 * "5": Xóa dịch vụ
 * "6": Trở về màn hình chính
 * "7": Tìm kiếm và tìm kiếm nâng cao
 * "8": Report (in và xuất excel)
 
-Bước 6: Tạo phòng
-Vào màn hình chính  chọn Manage -> Room
+> Bước 6: Tạo phòng
+
+Vào màn hình chính  chọn `Manage` -> `Room`
+
 ![image12](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image12.png "image12")
 
 Danh sách chức năng:
-* "1": Lấy thông tin phòng (GUI/Room/fRoom_info.cs)
+* "1": Lấy thông tin phòng (`GUI/Room/fRoom_info.cs`)
 * "2": Load lại dữ liệu phòng 
-* "3": Thêm phòng và hệ thông (GUI/Room/fAdd_room.cs)
-* "4": Sửa phòng (GUI/Room/fEdit_room.cs)
+* "3": Thêm phòng và hệ thông (`GUI/Room/fAdd_room.cs`)
+* "4": Sửa phòng (`GUI/Room/fEdit_room.cs`)
 * "5": Xóa phòng 
 * "6": Trở về màn hình chính
 * "7": Tìm kiếm
 * "8": Report
-* "9": Thêm vật tư vào phòng (GUI/Stuff/fStuff_detail.cs)
-* "10": Thêm dịch vụ vào phòng (GUI/Service/fService_ticket.cs)
-Bước 7 :Tạo phiếu đặt
-Vào màn hình chính chọn Manage -> Reservation
+* "9": Thêm vật tư vào phòng (`GUI/Stuff/fStuff_detail.cs`)
+* "10": Thêm dịch vụ vào phòng (`GUI/Service/fService_ticket.cs`)
+
+> Bước 7 :Tạo phiếu đặt
+
+Vào màn hình chính chọn `Manage` -> `Reservation`
+
 ![image13](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image13.png "image13")
 
 Danh sách chức năng
@@ -214,23 +241,29 @@ Danh sách chức năng
 * "13": Checkout phiếu đặt
 
 > Lưu ý khi sửa phiếu đặt có 3 tùy chọn để sửa gồm: **Hủy phòng**, **Đổi phòng** và **Thay đổi lịch trình**
+
 ![image14](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image14.png "image14")
 
 * Với đổi phòng: Bạn chỉ có thể đổi phòng cùng loại và trống
+
 ![image15](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image15.png "image15")
 
 ![image16](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image16.png "image16")
 
 * Đối hủy phòng yêu cầu số phòng của phiếu đặt phải lớn hơn 1
+
 ![image17](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image10.png "image17")
 
 * Đổi lịch trình: cũng sẽ có 3 tùy chọn Ngay bây giờ, Sớm hơn ngày kết thúc hoặc lâu hơn ngày kết thúc. Khi nhấn ok. Hệ thống sẽ tự động tính toán lại giá trị phiếu đặt. Và yêu cầu khách hàng trả thêm cọc (nếu có).
 
 > **Lưu ý**: Khi mới khởi động giao diện chức năng phiếu đặt sẽ chỉ hiện lên danh sách các phiếu đặt đã thanh toán thành công và giảm dần. Để biết thông tin các phiếu đặt đang sử dụng. Chọn vào bộ lọc chọn : “Unpaild bill”
 
-Bước 8: Check out
-Vào màn hình chính chọn Manage -> Bill
+> Bước 8: Check out
+
+Vào màn hình chính chọn `Manage` -> `Bill`
+
 Tại đây sẽ đưa ra danh sách các hóa đơn đã tạo của phiếu đặt.
+
 ![image18](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image18.png "image18")
 
 Danh sách chức năng
@@ -241,8 +274,10 @@ Danh sách chức năng
 * Tìm kiếm 
 * Report
 
-Ngoài ra, có thêm chức năng thống kê :
+> Ngoài ra, có thêm chức năng thống kê :
+
 Vào màn hình chính chọn Analytic!
+
 [image19](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image19.png "image19")
 
 ## Tổng kết
