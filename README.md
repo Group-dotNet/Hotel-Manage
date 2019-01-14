@@ -276,9 +276,9 @@ Danh sách chức năng
 
 > Ngoài ra, có thêm chức năng thống kê :
 
-Vào màn hình chính chọn Analytic!
+Vào màn hình chính chọn Analytic
 
-[image19](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image19.png "image19")
+![image19](https://github.com/Group-dotNet/Hotel-Manage/blob/master/doc/image/image19.png "image19")
 
 ## Tổng kết
 ***
